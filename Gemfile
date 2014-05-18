@@ -48,10 +48,10 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'devise', '~> 3.0.0'
-gem 'net-ldap', '~> 0.3.1'
-gem 'ntlm-http'
-gem 'devise_ldap_authenticatable'
+# gem 'devise', '~> 3.0.0'
+# gem 'net-ldap', '~> 0.3.1'
+# gem 'ntlm-http'
+# gem 'devise_ldap_authenticatable'
 
 #gem 'rkerberos'
 #gem 'rubyntlm'

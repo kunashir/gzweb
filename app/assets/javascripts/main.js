@@ -204,7 +204,7 @@ function calcLayout() {
 		right: width - performBoxRect.left - performBoxRect.width,
 		top: performBoxRect.top - 4.5,
 		width: performBoxRect.width * 0.4,
-		height: 5
+		height: 5.2
 	});
 
 	for(i in itemsToPerform)
@@ -246,9 +246,41 @@ function calcLayout() {
 }
 
 function tileSelect(event) {
+	var color, foreColor;
 	event.preventDefault();
-	if (collapsed) 
+	folder = $(event.currentTarget).data('folder');
+	if (collapsed) {
+		switch_to_list(folder);
+		for(i in itemsToPerform)
+		{
+			color = (i >= 2) ? "#EDF2E1" : "#FDEBDC";
+			foreColor = "#777";
+			if (itemsToPerform[i].data('folder') == folder)
+			{
+				color = (i >= 2) ? "#C8D9A6" : "#F7C6A3";
+				foreColor = "#333";
+			}
+			itemsToPerform[i]
+				.animate({ "background-color": color}, 200);
+			itemsToPerform[i].children('.header')
+				.animate({ color: foreColor }, 200);
+		}
+		for(i in itemsIssued)
+		{
+			color = "#E1F1F5";
+			foreColor = "#777";
+			if (itemsIssued[i].data('folder') == folder) 
+			{
+				color = "#A5D6E2";
+				foreColor = "#777";
+			}
+			itemsIssued[i]
+				.animate({ "background-color": color}, 200);
+			itemsIssued[i].children('.header')
+				.animate({ color: foreColor }, 200);
+		}
 		return;
+	}
 
 	var tileWidth = 240;
 	var tileSep = 20;
@@ -260,14 +292,25 @@ function tileSelect(event) {
 		.animate({ height: '24.5em', width: tileWidth + tileSep, left: 10, top: '6em' }, 400, 'easeOutCirc', function () { collapsed = true; });
 	for(i in itemsToPerform)
 	{
-		itemsToPerform[i]
-			.animate({ left: left, width: tileWidth, height: '3em', top: top + 'em'}, 400, 'easeOutCirc');
+		color = "#FDEBDC";
+		if (i >= 2)
+			color = "#EDF2E1";
+		if (itemsToPerform[i].data('folder') == folder)
+			itemsToPerform[i]
+				.animate({ left: left, width: tileWidth, height: '3em', top: top + 'em'}, 400, 'easeOutCirc');
+		else
+			itemsToPerform[i]
+				.animate({ "background-color": color, left: left, width: tileWidth, height: '3em', top: top + 'em'}, 400, 'easeOutCirc');
 		itemsToPerform[i].children('.icon')
 			.animate({ opacity: 0}, 400, 'easeOutCirc');
 		itemsToPerform[i].children('.new')
 			.animate({ bottom: '0.2em' }, 400, 'easeOutCirc');
-		itemsToPerform[i].children('.header')
-			.animate({ 'margin-right': '4em', 'margin-top': '-0.3em' }, 400, 'easeOutCirc');
+		if (itemsToPerform[i].data('folder') == folder)
+			itemsToPerform[i].children('.header')
+				.animate({ 'margin-right': '4em', 'margin-top': '-0.3em' }, 400, 'easeOutCirc');
+		else
+			itemsToPerform[i].children('.header')
+				.animate({ color: '#777', 'margin-right': '4em', 'margin-top': '-0.3em' }, 400, 'easeOutCirc');
 		top += topShift;
 	}		
 	issuedBox
@@ -275,22 +318,31 @@ function tileSelect(event) {
 	var top = 3.5;
 	for(i in itemsIssued)
 	{
-		itemsIssued[i]
-			.animate({ left: left, width: tileWidth, height: '3em', top: top + 'em'}, 400, 'easeOutCirc');
+		if (itemsIssued[i].data('folder') == folder)
+			itemsIssued[i]
+				.animate({ left: left, width: tileWidth, height: '3em', top: top + 'em'}, 400, 'easeOutCirc');
+		else
+			itemsIssued[i]
+				.animate({ "background-color": "#E1F1F5", left: left, width: tileWidth, height: '3em', top: top + 'em'}, 400, 'easeOutCirc');
 		itemsIssued[i].children('.icon', 'easeOutCirc')
 			.animate({ opacity: 0}, 400);
 		itemsIssued[i].children('.new')
 			.animate({ bottom: '0.2em' }, 400, 'easeOutCirc');
-		itemsIssued[i].children('.header')
-			.animate({ 'margin-right': '4em', 'margin-top': '-0.3em' }, 400, 'easeOutCirc');
+		if (itemsIssued[i].data('folder') == folder)
+			itemsIssued[i].children('.header')
+				.animate({ 'margin-right': '4em', 'margin-top': '-0.3em' }, 400, 'easeOutCirc');
+		else
+			itemsIssued[i].children('.header')
+				.animate({ color: '#777', 'margin-right': '4em', 'margin-top': '-0.3em' }, 400, 'easeOutCirc');
 		top += topShift;
 	}
 	headerActions
 		.animate({ height: '4em', top: '0em', left: tileWidth + tileSep, width: 3 * tileWidth }, 400, 'easeOutCirc');
 	userControl
-		.animate({ height: '5em', top: '1.2em', right: '1em', width: tileWidth }, 400, 'easeOutCirc');
+		.animate({ height: '5.2em', top: '1.2em', right: '1em', width: tileWidth }, 400, 'easeOutCirc');
 	taskInfoGrid
 		.animate({ width: '4em', opacity: 1 }, 400, 'easeOutCirc');
+	switch_to_list(folder);
 	$('.data-area')
 		.animate({ opacity:1 }, 400, 'easeInCirc');
 }
@@ -309,29 +361,56 @@ function toGrid() {
 		.animateMoveToRect(userControlRect, 400, 'easeOutCirc');
 	for(i in itemsToPerform)
 	{
-		itemsToPerform[i].animateMoveToRect(itemRects[i], 400, 'easeOutCirc');
+		color = "#F7C6A3";
+		if (i >= 2)
+			color = "#C8D9A6";
+		itemsToPerform[i]
+			.animate({ "background-color": color, left: itemRects[i].left, width: itemRects[i].width, height: itemRects[i].height + 'em', top: itemRects[i].top + 'em'}, 400, 'easeOutCirc');
 		itemsToPerform[i].children('.icon')
 			.animate({ opacity: 1}, 400, 'easeInCirc');
 		itemsToPerform[i].children('.new')
 			.animate({ bottom: '0.5em' }, 400, 'easeOutCirc');
 		itemsToPerform[i].children('.header')
-			.animate({ 'margin-right': 'inherit', 'margin-top': 'inherit' }, 400, 'easeOutCirc');
+			.animate({ color: '#333', 'margin-right': 'inherit', 'margin-top': 'inherit' }, 400, 'easeOutCirc');
 	}		
 	issuedBox
 		.animateMoveToRect(issuedBoxRect, 400, 'easeOutCirc');
 	for(i in itemsIssued)
 	{
 		itemsIssued[i]
-			.animateMoveToRect(issuedRects[i], 400, 'easeOutCirc');
+			.animate({ "background-color": "#A5D6E2", left: issuedRects[i].left, width: issuedRects[i].width, height: issuedRects[i].height + 'em', top: issuedRects[i].top + 'em'}, 400, 'easeOutCirc');
 		itemsIssued[i].children('.icon')
 			.animate({ opacity: 1}, 400, 'easeInCirc');
 		itemsIssued[i].children('.new')
 			.animate({ bottom: '0.5em' }, 400, 'easeOutCirc');
 		itemsIssued[i].children('.header')
-			.animate({ 'margin-right': 'inherit', 'margin-top': 'inherit' }, 400, 'easeOutCirc');
+			.animate({ color: '#333', 'margin-right': 'inherit', 'margin-top': 'inherit' }, 400, 'easeOutCirc');
 	}
 	taskInfoGrid
 		.animate({ width: '0em', opacity: 0}, 400, 'easeOutCirc');
 	$('.data-area')
 		.animate({ opacity:0 }, 400, 'easeOutCirc');
+}
+
+function switch_to_list(folder) {
+	$("#task-shadow").css('z-index', 1).css('opacity', 1);
+	$("#task-list").css('opacity', 0);
+	$("#task-list").html('');
+    load_list(folder);
+}
+
+function load_list(folder) {
+	$.get( "/task_info/" + folder + ".json", function (data) {
+		fill_list(data);
+	});
+}
+
+function fill_list(data) {
+	$("#task-list").html(
+        $("#task-template").render(data.task_list)
+    );
+    $("#task-shadow").css('z-index', -1)
+    	.animate({ opacity: 0 }, 400, 'easeOutCirc');
+    $("#task-list")
+    	.animate({ opacity: 1 }, 400, 'easeOutCirc');
 }

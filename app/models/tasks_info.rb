@@ -29,7 +29,8 @@ class TasksInfo < CacheBase
   end
 
   def self.get(employee)
-     TasksInfo.new.send(:load, employee)
+    employee.tasks_info
+    # TasksInfo.new.send(:load, employee)
   end
 
   def self.sync(employee)

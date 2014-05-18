@@ -1,5 +1,5 @@
 <%
-  fields = [ :date, :author, :doc_number, :subject, :content, :deadline, :delegated_to]
+  fields = [ :date, :author_name, :parent_document, :subject, :content, :deadline, :delegated_to]
   formats = { date: date_format, deadline: date_time_format }
   @sort_field = [:date, :asc]
 %>

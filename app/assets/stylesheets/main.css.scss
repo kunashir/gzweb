@@ -177,17 +177,17 @@ body {
 
 .task-info-performing, .task-info-to_accept {
 	background-color: $performing-color;
-	background: linear-gradient(to right, $performing-color, mix(white, $performing-color, $gradient-level));
+	/*background: linear-gradient(to right, $performing-color, mix(white, $performing-color, $gradient-level));*/
 }
 
 .task-info-long_tasks, .task-info-informational, .task-info-to_approve, .task-info-to_sign {
 	background-color: $informational-color;
-	background: linear-gradient(to right, $informational-color, mix(white, $informational-color, $gradient-level));
+	/*background: linear-gradient(to right, $informational-color, mix(white, $informational-color, $gradient-level));*/
 }
 
 .task-info-issued, .task-info-long_issued, .task-info-delegated {
 	background-color: $issued-color;
-	background: linear-gradient(to right, $issued-color, mix(white, $issued-color, $gradient-level));
+	/*background: linear-gradient(to right, $issued-color, mix(white, $issued-color, $gradient-level));*/
 }
 
 .task-info-item .header {
@@ -308,7 +308,7 @@ body {
 	left: 280px;
 	top: 6em;
 	right: 1em;
-	bottom: 1em;
+	bottom: 0.5em;
 	background: #F8F8F8;
 	border: 1px solid #EEE;
 	border-radius: 10px;
@@ -316,3 +316,28 @@ body {
 	opacity: 0;
 	z-index: -1;
 }
+
+#task-shadow {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	opacity: 1;
+	z-index: 1;
+	background-image: url("/assets/ajax-loader.gif");
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+#task-list {
+	position: absolute;
+	left: 0.1em;
+	right: 0.1em;
+	top: 0.1em;
+	bottom: 0.1em;
+	padding: 1em;
+	overflow: scroll;
+	opacity: 0;
+}
+

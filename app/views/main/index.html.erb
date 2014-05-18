@@ -13,6 +13,15 @@
     </div>
   </div>
   <%= render 'task_info/task_info', task_info: @task_info %>
+  <script id="task-template" type="text/x-jsrender">
+      <div>
+          {{:#index+1}}: <b>{{>content}}</b> ({{>subject}})
+      </div>
+  </script>
   <div class="data-area">
+    <div id="task-shadow">
+    </div>
+    <div id="task-list">
+    </div>
   </div>
 </div>

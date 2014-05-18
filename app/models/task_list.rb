@@ -6,7 +6,8 @@ class TaskList
   end
 
   def self.get(user, kind)
-    TaskList.new.send(:load, user, kind)
+    user.task_infos.where(folder: kind)
+    # TaskList.new.send(:load, user, kind)
   end
 
   def each(*args, &block)

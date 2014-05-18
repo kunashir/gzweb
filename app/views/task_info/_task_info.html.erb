@@ -7,7 +7,7 @@
         <ul>
           <% [:performing, :to_accept, :long_tasks, :to_approve, :to_sign, :informational].each do |prop| %>
         		<li class="task-info-item">
-              <div class="task-info-<%= prop %>">
+              <div class="task-info-<%= prop %>" data-folder="<%= prop %>">
                 <div class="header"><%=t "task_info.#{prop}" %></div>
                 <div class="total"><%= task_info.send(prop) %></div>
                 <div class="new <%= "non-zero" if task_info.send("#{prop}_new") > 0 %>"><%= task_info.send("#{prop}_new") %></div>
@@ -24,7 +24,7 @@
         <ul>
           <% [:issued, :long_issued, :delegated].each do |prop| %>
             <li class="task-info-item">
-              <div class="task-info-<%= prop %>">
+              <div class="task-info-<%= prop %>" data-folder="<%= prop %>">
                 <div class="header"><%=t "task_info.#{prop}" %></div>
                 <div class="total"><%= task_info.send(prop) %></div>
                 <div class="new <%= "non-zero" if task_info.send("#{prop}_new") > 0 %>"><%= task_info.send("#{prop}_new") %></div>

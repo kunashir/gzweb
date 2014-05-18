@@ -2,7 +2,7 @@
   <%# link_to t("actions.set-delegate"), "/bad" %>
   <img class="user-photo" src="/assets/person.jpg"/>
   <div class="user-info">
-    <div class="user-name">Трачук Аркадий Владимирович</div>
-    <div class="user-position">Генеральный директор ФГУП "Гознак"</div>
+    <div class="user-name"><%= user.display_name %></div>
+    <div class="user-position"><%= user.position %></div>
   </div>
 </div>

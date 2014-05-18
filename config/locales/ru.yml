@@ -24,7 +24,9 @@ ru:
   task_list:
     date: "Дата поручения"
     author: "Автор"
+    author_name: "Автор"
     doc_number: "№ документа"
+    parent_document: "№ документа"
     subject: "Тема"
     content: "Содержание"
     deadline: "Срок"
