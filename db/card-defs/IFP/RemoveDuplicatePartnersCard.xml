@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4B17D17B-1640-4AD3-A108-EF3AD0B6C786" Alias="RemoveDuplicatePartnersCard" Version="15" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{333b654f-6f99-4262-8b3b-cd25573de7b2}" Dictionary="true" NonViewable="true" NonCreatable="true" NonDeletable="true" IconFile="" UIExtension="true" NoHardShortcuts="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Remove Duplicate Partners Card</LocalizedString>
+		<LocalizedString Language="ru">Карточка для удаления дубликатов контрагентов </LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="Section1" Type="struct" ID="9B4097D4-F0E5-4847-95A7-361C81C907BE">
+			<Name>
+				<LocalizedString Language="en">Section1</LocalizedString>
+				<LocalizedString Language="ru">Секция1</LocalizedString>
+			</Name>
+			<Field Alias="Field1" ID="1D21D940-8464-47BB-8E79-2FC2B0F43FF5" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Field1</LocalizedString>
+					<LocalizedString Language="ru">Поле1</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

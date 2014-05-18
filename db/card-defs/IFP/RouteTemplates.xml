@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7B1BC7E2-E148-4FBE-A1F8-607008187DB0" Alias="RefRouteTemplates" Version="17" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{232957fd-3b97-4456-8ca9-682f28fc4839}" Dictionary="true" NonSearchable="true" NonViewable="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\gazprom.ico" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Route templates reference</LocalizedString>
+		<LocalizedString Language="ru">Справочник маршрутов согласования (старый)</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="ContractRoutes" Type="coll" ID="44735520-5A51-41E0-BDE7-93B2330BBB95">
+			<Name>
+				<LocalizedString Language="en">Routes for contracts approving</LocalizedString>
+				<LocalizedString Language="ru">Маршруты согласования договоров</LocalizedString>
+			</Name>
+			<Field Alias="Name" ID="89097A67-0905-4082-97CB-4E3D68147D19" Type="unistring" Max="255" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Name:</LocalizedString>
+					<LocalizedString Language="ru">Название маршрута:</LocalizedString>
+				</Name>
+			</Field>
+			<Section Alias="Route" Type="coll" ID="04E571AE-856D-4AED-89F4-A8CF69876DF5">
+				<Name>
+					<LocalizedString Language="en">Route</LocalizedString>
+					<LocalizedString Language="ru">Маршрут</LocalizedString>
+				</Name>
+				<Field Alias="Order" ID="53AFE263-0AB8-4CDE-97F6-97E787E10A50" Type="int" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Order</LocalizedString>
+						<LocalizedString Language="ru">№</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="Department" ID="52901044-D2E8-41E3-AA18-F63A647BFFE4" Type="unistring" Max="255" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Department:</LocalizedString>
+						<LocalizedString Language="ru">Отдел:</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="Manager" ID="20C90F7C-6777-424A-BE9C-7F286691C47A" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Manager:</LocalizedString>
+						<LocalizedString Language="ru">Руководитель отдела:</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="Officer" ID="2ECF55E0-D543-4C42-B0C3-C392FF643C71" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Officer:</LocalizedString>
+						<LocalizedString Language="ru">Ответственный за делопроизводство:</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="ApprovingTime" ID="FF616E69-397A-407A-A249-E9B6B229C38B" Type="int" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Approving time (in hours):</LocalizedString>
+						<LocalizedString Language="ru">Время согласования (в часах):</LocalizedString>
+					</Name>
+				</Field>
+			</Section>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="648F8E7B-38C8-4D35-B979-FA3493E5BA77" Alias="LNA" Version="94" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{da5053ba-2766-40a1-be41-f95b9fdb7fb5}" IconFile="Icons\gazprom.ico" ShowLinked="true" NoLockOnOpen="true" CanBeTemplate="true" SimpleSecurity="true" NonArchivable="false">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">LNA</LocalizedString>
+		<LocalizedString Language="ru">ЛНА</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="D766EC2A-EDB4-4153-ADD1-3BB7BCC89D0D">
+			<Name>
+				<LocalizedString Language="en">Main info</LocalizedString>
+				<LocalizedString Language="ru">Основная информация</LocalizedString>
+			</Name>
+			<Field Alias="RegistrationNumber" ID="F20F55F6-685F-4D04-8855-577FF1E93AFD" Type="unistring" Max="255" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Registration №</LocalizedString>
+					<LocalizedString Language="ru">Регистрационный №</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="RegistrationNumberID" ID="1CFECE7D-65E2-4B48-9DFD-ECA61281289B" Type="refid" RefType="959FF5E2-7E47-4F6F-9CF6-E1E477CD01CF" RefSection="D47F2C38-6553-4864-BAFF-0BC4D3A85290" DeleteLinkedOnValueChange="true" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Number identifier</LocalizedString>
+					<LocalizedString Language="ru">Идентификатор номера</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="RegistrationDate" ID="F418245F-9092-4EFC-A98A-CB8ECA6C5792" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Registration date</LocalizedString>
+					<LocalizedString Language="ru">Дата регистрации</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="State" ID="4B27A723-CE81-4D9F-905D-9ED7DBC08429" Type="enum" DefaultValue="1" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">State</LocalizedString>
+					<LocalizedString Language="ru">Состояние</LocalizedString>
+				</Name>
+				<Enum Alias="Registered" Value="1">
+					<Name>
+						<LocalizedString Language="en">Registered</LocalizedString>
+						<LocalizedString Language="ru">Утвержден</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="CancelledPartially" Value="2">
+					<Name>
+						<LocalizedString Language="en">Cancelled partially</LocalizedString>
+						<LocalizedString Language="ru">Отменен частично</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Cancelled" Value="3">
+					<Name>
+						<LocalizedString Language="en">Cancelled</LocalizedString>
+						<LocalizedString Language="ru">Отменен</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="Registrator" ID="3311E5E2-4677-4BFF-99DD-F63C5E0B712C" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Registrator</LocalizedString>
+					<LocalizedString Language="ru">Регистратор</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CaseID" ID="970DDDA7-B737-4EC0-BD52-259BF513F760" Type="refid" RefType="9B410616-87D2-4AED-BBB6-2718A9DA4CE8" RefSection="74CEC36B-5944-4E64-B27E-93CF580B8F46" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Case</LocalizedString>
+					<LocalizedString Language="ru">Дело</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Subject" ID="3EA0723A-4E96-4D7A-9F91-49E5E9B4B878" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Subject</LocalizedString>
+					<LocalizedString Language="ru">Содержание</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FileListId" ID="6ED4E018-9B53-4823-A198-6DB2BCF07B95" Type="refcardid" RefType="BFC9D190-BCD6-411A-B9F9-3160D3F68819" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+				<Name>
+					<LocalizedString Language="en">FileListId</LocalizedString>
+					<LocalizedString Language="ru">Карточка списка файлов</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="LinksListId" ID="24027296-2086-4BB1-8DB1-04DF92418341" Type="refcardid" RefType="E63E748B-DDDB-43C3-B0B4-7AE867B9483C" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+				<Name>
+					<LocalizedString Language="en">LinksListId</LocalizedString>
+					<LocalizedString Language="ru">LinksListId</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Category" ID="DC496A82-C24D-4E64-9473-C9BD07C18C2E" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Category</LocalizedString>
+					<LocalizedString Language="ru">Категория</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodeNumber" ID="10D99861-DF10-48A2-8EA1-3AC6D8E7196D" Type="unistring" Max="40" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Barcode number</LocalizedString>
+					<LocalizedString Language="ru">Номер штрих-кода</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodeNumberID" ID="9255277A-3AED-44DB-93F2-32AED4A7774F" Type="refid" RefType="959FF5E2-7E47-4F6F-9CF6-E1E477CD01CF" RefSection="D47F2C38-6553-4864-BAFF-0BC4D3A85290" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">barcode number id</LocalizedString>
+					<LocalizedString Language="ru">id номера штрихкода</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="TransferLog" ID="2D06B56E-1CEB-4D0E-AA0B-77086F0E4F71" Type="uniqueid" RefType="19F3B5F1-F2A6-439A-9863-305D69FED164" RefSection="5ECEE53E-4533-43BD-829D-EAEB069D0D28" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Transfer log</LocalizedString>
+					<LocalizedString Language="ru">Журнал передач</LocalizedString>
+				</Name>
+			</Field>
+			<Section Alias="Categories" Type="coll" ID="AE0855A0-70D6-4CC9-A6BD-74ACF37086FF">
+				<Name>
+					<LocalizedString Language="en">Categories</LocalizedString>
+					<LocalizedString Language="ru">Категории</LocalizedString>
+				</Name>
+				<Field Alias="Category" ID="5EE66C2C-4630-4CAD-9D5F-6BF3F35F51BD" Type="refid" RefType="233CA964-5025-4187-80C1-F56BCC9DBD1E" RefSection="899C1470-9ADF-4D33-8E69-9944EB44DBE7" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Category</LocalizedString>
+						<LocalizedString Language="ru">Категория</LocalizedString>
+					</Name>
+				</Field>
+			</Section>
+		</Section>
+		<Section Alias="CancellationInfo" Type="coll" ID="D817E75A-6EEB-4748-A49A-92617E7C07C2">
+			<Name>
+				<LocalizedString Language="en">Cancellation info</LocalizedString>
+				<LocalizedString Language="ru">Сведения об отмене</LocalizedString>
+			</Name>
+			<Field Alias="CancelInfo" ID="72008C20-1915-4223-9845-8AE6B8E83724" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Cancel info</LocalizedString>
+					<LocalizedString Language="ru">Сведения об отмене</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Date" ID="1D8166ED-22A0-4637-B858-9E9FB5083AE8" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Date</LocalizedString>
+					<LocalizedString Language="ru">Дата</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CancellationDocument" ID="5CA86D21-E13E-4613-8BBD-2E26FB254036" Type="refcardid" RefType="56070FE0-BFC6-4CF1-8786-482E4DDFE9B6" RefSection="F875C7C6-A280-402D-BC56-36DEE6376EED" DefaultValue="" RefKind="Simple" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Cancellation document</LocalizedString>
+					<LocalizedString Language="ru">Отменяющий документ</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Employee" ID="5004CE10-341B-45B6-9EC7-FF2356B2740D" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Cancelling employee</LocalizedString>
+					<LocalizedString Language="ru">Сотрудник, отменивший ЛНА</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="DD9B97AD-E18F-4B2B-8001-D66D39A5B6A0" Alias="RefRoles" Version="12" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{f1ca18c9-46eb-4e86-be9c-0c50f3b96c04}" Dictionary="true" NonSearchable="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\gazprom.ico" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Roles reference</LocalizedString>
+		<LocalizedString Language="ru">Справочник ролей</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="Roles" Type="coll" ID="CA22A1A7-BC97-4426-A489-9A96F316FEEC">
+			<Name>
+				<LocalizedString Language="en">Roles</LocalizedString>
+				<LocalizedString Language="ru">Роли</LocalizedString>
+			</Name>
+			<Field Alias="Name" ID="9CD432AB-A656-4AA8-8D3B-46F4EA36826C" Type="unistring" Max="255" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Role name</LocalizedString>
+					<LocalizedString Language="ru">Имя роли</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Person" ID="F1425558-A512-43B7-A8DC-6EC388CFC85F" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Person</LocalizedString>
+					<LocalizedString Language="ru">Сотрудник</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="A7821117-6366-417B-845C-903222BE32E6" Alias="NavExtensions" Version="20" LibraryID="C257FEAA-7F8C-48BD-AB05-397507F88985" ProgID="clsid:{b96bfc96-b50b-4f51-8373-0b94eeab6355}" Dictionary="true" NonSearchable="true" NonViewable="true" NonCreatable="true" IconFile="" NoLockOnOpen="true" UIExtension="true" SimpleSecurity="true" NonReplicable="true" NonArchivable="true" DefaultSecurity="">
+	<Name>
+		<LocalizedString Language="en">Navigator extensions</LocalizedString>
+		<LocalizedString Language="ru">Расширения навигатора</LocalizedString>
+		<LocalizedString Language="lv">Navigatora paplašinājumi</LocalizedString>
+		<LocalizedString Language="ka">ნავიგატორის გაფართოებები</LocalizedString>
+		<LocalizedString Language="ro">Extensii navigatorului </LocalizedString>
+		<LocalizedString Language="uk">Розширення навігатора</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="7F6F02B6-AC5C-4BA2-8ABA-74A214284BAB" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Main info</LocalizedString>
+				<LocalizedString Language="ru">Основная информация</LocalizedString>
+				<LocalizedString Language="lv">Pamatinformācija</LocalizedString>
+				<LocalizedString Language="ka">ძირითადი ინფორმაცია</LocalizedString>
+				<LocalizedString Language="ro">Principal</LocalizedString>
+				<LocalizedString Language="uk">Головна інформація</LocalizedString>
+			</Name>
+			<Field Alias="Field1" ID="B0D84207-4BDF-460F-88B5-DF7624F2B7C2" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Field1</LocalizedString>
+					<LocalizedString Language="ru">Field1</LocalizedString>
+					<LocalizedString Language="lv">Lauks1</LocalizedString>
+					<LocalizedString Language="ka">ველი1</LocalizedString>
+					<LocalizedString Language="ro">Cîmpul1</LocalizedString>
+					<LocalizedString Language="uk">Поле 1</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+	</Sections>
+</CardDefinition>

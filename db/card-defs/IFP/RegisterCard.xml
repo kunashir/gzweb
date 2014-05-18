@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="09221ACB-9189-4870-B46D-32B652CADEE2" Alias="RegisterCard" Version="144" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{d8a3a1c0-de00-4611-91f2-765af09b6909}" IconFile="Icons\gazprom.ico" CanBeTemplate="true" SimpleSecurity="true">
+  <Name>
+    <LocalizedString Language="en">Outcoming register</LocalizedString>
+    <LocalizedString Language="ru">Реестр исходящих</LocalizedString>
+  </Name>
+  <Sections>
+    <Section Alias="MainInfo" Type="struct" ID="15A8E7D1-F17C-4114-B9BE-466F507A294D">
+      <Name>
+        <LocalizedString Language="en">Main info</LocalizedString>
+        <LocalizedString Language="ru">Основная информация</LocalizedString>
+      </Name>
+      <Field Alias="SendDate" ID="26B82982-7B1B-4A70-A7A9-5049FF069D78" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Send date</LocalizedString>
+          <LocalizedString Language="ru">Дата отправки</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="RegistrationNumber" ID="502551C9-C18A-40B6-B367-431E91FFCEC7" Type="unistring" Max="255" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Registration №</LocalizedString>
+          <LocalizedString Language="ru">Регистрационный №</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="RegistrationNumberID" ID="3D1B252E-2C32-4397-B78F-53580150357F" Type="refid" RefType="959FF5E2-7E47-4F6F-9CF6-E1E477CD01CF" RefSection="D47F2C38-6553-4864-BAFF-0BC4D3A85290" DeleteLinkedOnValueChange="true" DefaultValue="" CopyBehavior="Null">
+        <Name>
+          <LocalizedString Language="en">Number identifier</LocalizedString>
+          <LocalizedString Language="ru">Идентификатор номера</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="State" ID="6713D338-9471-4AD6-AF37-C194B71FEE89" Type="enum" DefaultValue="1" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">State</LocalizedString>
+          <LocalizedString Language="ru">Состояние</LocalizedString>
+        </Name>
+        <Enum Alias="Registered" Value="1">
+          <Name>
+            <LocalizedString Language="en">Registered</LocalizedString>
+            <LocalizedString Language="ru">Зарегистрирован</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Fixing" Value="2">
+          <Name>
+            <LocalizedString Language="en">Fixing</LocalizedString>
+            <LocalizedString Language="ru">Фиксируется</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Fixed" Value="3">
+          <Name>
+            <LocalizedString Language="en">Fixed</LocalizedString>
+            <LocalizedString Language="ru">Зафиксирован</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Closing" Value="4">
+          <Name>
+            <LocalizedString Language="en">Closing</LocalizedString>
+            <LocalizedString Language="ru">Завершается</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Closed" Value="5">
+          <Name>
+            <LocalizedString Language="en">Closed</LocalizedString>
+            <LocalizedString Language="ru">Завершен</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="Registrator" ID="76AC526C-1456-4711-8C73-D7F6E17D2B45" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Registrator</LocalizedString>
+          <LocalizedString Language="ru">Регистратор</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="Recipient" ID="E1AEC867-46C4-4B5D-9812-092963B89BDF" Type="refid" RefType="65FF9382-17DC-4E9F-8E93-84D6D3D8FE8C" RefSection="C78ABDED-DB1C-4217-AE0D-51A400546923" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Recipient</LocalizedString>
+          <LocalizedString Language="ru">Получатель</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="BarcodeNumber" ID="37EECB69-18D7-4588-BA7C-FCFB2FF44586" Type="unistring" Max="40" DefaultValue="" CopyBehavior="Null">
+        <Name>
+          <LocalizedString Language="en">Barcode number</LocalizedString>
+          <LocalizedString Language="ru">Номер штрих-кода</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="BarcodeNumberID" ID="8B05E5F0-3967-4B13-9853-538263F13011" Type="refid" RefType="959FF5E2-7E47-4F6F-9CF6-E1E477CD01CF" RefSection="D47F2C38-6553-4864-BAFF-0BC4D3A85290" DefaultValue="" CopyBehavior="Null">
+        <Name>
+          <LocalizedString Language="en">barcode number id</LocalizedString>
+          <LocalizedString Language="ru">id номера штрихкода</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="TransferLog" ID="276F68D7-D287-4548-8529-53B2CE626CC8" Type="uniqueid" RefType="19F3B5F1-F2A6-439A-9863-305D69FED164" RefSection="5ECEE53E-4533-43BD-829D-EAEB069D0D28" DefaultValue="" CopyBehavior="Null">
+        <Name>
+          <LocalizedString Language="en">Transfer log</LocalizedString>
+          <LocalizedString Language="ru">Журнал передач</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="SendingType" ID="BCD88C0C-78C2-425B-A459-C705DC37F321" Type="refid" RefType="56E0990F-B9CF-43CC-9041-EBB492B13863" RefSection="432E82D0-D10C-48D6-BA02-58820644A4A7" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Sending type</LocalizedString>
+          <LocalizedString Language="ru">Тип отправления</LocalizedString>
+        </Name>
+      </Field>
+      <Section Alias="SignedBy" Type="coll" ID="17AB7C31-D4A1-4678-BDF1-985B14159892">
+        <Name>
+          <LocalizedString Language="en">Signed by</LocalizedString>
+          <LocalizedString Language="ru">Кем подписан</LocalizedString>
+        </Name>
+        <Field Alias="SignedBy" ID="497514D3-E14F-4A28-BC04-7125FFF96088" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Signed by</LocalizedString>
+            <LocalizedString Language="ru">Кем подписан</LocalizedString>
+          </Name>
+        </Field>
+        <DisplayFields />
+      </Section>
+      <DisplayFields />
+    </Section>
+    <Section Alias="DocumentsToSend" Type="coll" ID="F896B5AC-D438-48CB-AE74-95C3F880483C">
+      <Name>
+        <LocalizedString Language="en">Letters</LocalizedString>
+        <LocalizedString Language="ru">Письма</LocalizedString>
+      </Name>
+      <Field Alias="Recipient" ID="B3CC8EC0-23D4-4A7C-8FFF-ADCAE33315BE" Type="refid" RefType="2E729D50-6B61-4186-9D14-44E109FD920B" RefSection="8F135BE7-9544-4E7E-937F-2551378D0EBB" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Out doc recipient</LocalizedString>
+          <LocalizedString Language="ru">Получатель в исходящем документе</LocalizedString>
+        </Name>
+        <RefFields>
+          <RefField Alias="RecipientID" SysField="false">Recipient</RefField>
+          <RefField Alias="RecipientOrganizationID" SysField="false">Organization</RefField>
+          <RefField Alias="RecipientAddress" SysField="false">Address</RefField>
+        </RefFields>
+      </Field>
+      <Field Alias="DocumentNumber" ID="EB95A873-E16A-4114-95C4-D009F35C106E" Type="unistring" Max="255" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Document number</LocalizedString>
+          <LocalizedString Language="ru">№ документа</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="SendingDate" ID="BC7472FB-ED0D-4D39-910F-49C3D6B1E3CD" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Sending date</LocalizedString>
+          <LocalizedString Language="ru">Дата отправки</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="DocumentType" ID="D06D35C0-14F0-4674-834A-0407E3B5975E" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Document type</LocalizedString>
+          <LocalizedString Language="ru">Документ</LocalizedString>
+        </Name>
+        <Enum Alias="Receipt" Value="1">
+          <Name>
+            <LocalizedString Language="en">Receipt</LocalizedString>
+            <LocalizedString Language="ru">Квитанция</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Check" Value="2">
+          <Name>
+            <LocalizedString Language="en">Check</LocalizedString>
+            <LocalizedString Language="ru">Чек</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Bill" Value="3">
+          <Name>
+            <LocalizedString Language="en">Bill</LocalizedString>
+            <LocalizedString Language="ru">Накладная</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="RegNumber" ID="9155CFC8-9A0B-4381-A4CF-F8A1B112C6DC" Type="unistring" Max="255" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Registration number</LocalizedString>
+          <LocalizedString Language="ru">Регистрационный номер</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="Amount" ID="0C7A89D4-4539-4FD4-A605-00CD8A2A0EC2" Type="float" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Amount</LocalizedString>
+          <LocalizedString Language="ru">Сумма</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="SendingNumber" ID="80CFA731-8A97-4E5B-A494-3920D77A491B" Type="unistring" Max="255" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Sending number</LocalizedString>
+          <LocalizedString Language="ru">Номер отправления</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ParentOutDoc" ID="58D2379C-C64D-423C-ACD4-1D219DE4CE36" Type="refcardid" RefType="2E729D50-6B61-4186-9D14-44E109FD920B" RefSection="4C07CA25-41D6-438A-B73E-47FE7650C7BD" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Parent out doc</LocalizedString>
+          <LocalizedString Language="ru">Родительский исходящий документ</LocalizedString>
+        </Name>
+      </Field>
+      <Section Alias="ToSendSignedBy" RowAlias="" Type="coll" ID="95AC5FDC-FEAF-48B1-91AA-7F24999F5F83" SimpleSecurity="true">
+        <Name>
+          <LocalizedString Language="en">Signed by</LocalizedString>
+          <LocalizedString Language="ru">Кем подписан</LocalizedString>
+        </Name>
+        <Field Alias="ToSendSignedBy" ID="0DCC39BB-41B2-4FE0-9AD0-2B15ABB76AFA" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Signed by</LocalizedString>
+            <LocalizedString Language="ru">Кем подписан</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <DisplayFields />
+    </Section>
+  </Sections>
+</CardDefinition>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="E7D8110C-AADA-4BAE-9A70-3199AB07AC6B" Alias="NavExtDurableAssignmentBtn" Version="5" LibraryID="7f4dc00c-886c-426f-8d72-48432bc057ea" ProgID="clsid:{e577a01d-61bd-421e-88ad-0875b91228f6}" Dictionary="true" NonViewable="true" NonCreatable="true" IconFile="" UIExtension="true" NoHardShortcuts="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">NavExtDurableAssignmentBtn</LocalizedString>
+		<LocalizedString Language="ru">Создать длительное поручение</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="Section1" Type="struct" ID="3E200CD0-1A06-48D2-93A3-217F2CF3E7DD">
+			<Name>
+				<LocalizedString Language="en">Do not delete</LocalizedString>
+				<LocalizedString Language="ru">Do not delete</LocalizedString>
+			</Name>
+			<Field Alias="Field1" ID="ABD23ACD-94F1-42BE-9E8F-D68408EEFFD5" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Do not delete</LocalizedString>
+					<LocalizedString Language="ru">Do not delete</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

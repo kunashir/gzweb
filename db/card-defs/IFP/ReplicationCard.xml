@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="F5F8A3A4-4A4E-4F11-AA20-E1D80669859D" Alias="ReplicationCard" Version="71" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="" NonViewable="true" NonCreatable="true" IconFile="" Copyable="true" SimpleSecurity="true" NonArchivable="false">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Replication card</LocalizedString>
+		<LocalizedString Language="ru">Карточка репликации</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="5A9FBCFD-E4DE-4FC2-80D5-A5B1F1D51229">
+			<Name>
+				<LocalizedString Language="en">Main info</LocalizedString>
+				<LocalizedString Language="ru">Основная секция</LocalizedString>
+			</Name>
+			<Field Alias="OriginalCenter" ID="14BE7D50-64B0-4A84-885C-F70F80C9D9E7" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Original replication center (code)</LocalizedString>
+					<LocalizedString Language="ru">Исходный центр репликации (код)</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ReadyForReplication" ID="B525D32A-6FC8-4C1E-A89B-018F540688E1" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Ready for replication</LocalizedString>
+					<LocalizedString Language="ru">Готовность к репликации</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="OriginalCard" ID="51914D8A-D629-4566-9AAC-E7BC29D49D39" Type="refcardid" DefaultValue="" RefKind="Simple" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Original card reference</LocalizedString>
+					<LocalizedString Language="ru">Ссылка на исходную карточку</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="OriginalCardRow" ID="96AFFBC1-B3A8-4977-991C-2EE51C4A3F1F" Type="refid" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Original card row reference</LocalizedString>
+					<LocalizedString Language="ru">Ссылка на строку исходной карточки</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+		<Section Alias="ReplicationTasks" Type="struct" ID="153C9DDB-6BA3-4F9D-83DF-D00E33AABE21">
+			<Name>
+				<LocalizedString Language="en">Replication tasks</LocalizedString>
+				<LocalizedString Language="ru">Задачи репликации</LocalizedString>
+			</Name>
+			<Field Alias="TaskID" ID="60EEDD09-0F5B-4841-825A-6F890FB6792E" Type="enum" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Task ID</LocalizedString>
+					<LocalizedString Language="ru">ID задачи</LocalizedString>
+				</Name>
+				<Enum Alias="Send" Value="1">
+					<Name>
+						<LocalizedString Language="en">Sent to replica</LocalizedString>
+						<LocalizedString Language="ru">Отправить документ в реплику</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="WaitingAcknowledgement" Value="2">
+					<Name>
+						<LocalizedString Language="en">Waiting acknowledgement receipt</LocalizedString>
+						<LocalizedString Language="ru">Ожидание подтверждения о доставке</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="WaitingProcessingAfterReplication" Value="3">
+					<Name>
+						<LocalizedString Language="en">Waiting processing after replication</LocalizedString>
+						<LocalizedString Language="ru">Ожидание обработки после репликации</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="SendAcknowledgement" Value="4">
+					<Name>
+						<LocalizedString Language="en">Send acknowledgement</LocalizedString>
+						<LocalizedString Language="ru">Отослать подтверждение успешной репликации</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Error" Value="5">
+					<Name>
+						<LocalizedString Language="en">Error</LocalizedString>
+						<LocalizedString Language="ru">Ошибка</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Log" Value="0">
+					<Name>
+						<LocalizedString Language="en">Log message</LocalizedString>
+						<LocalizedString Language="ru">Сообщение логгера</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="ZoneFrom" ID="0409BF6A-2CAF-4468-A5C5-04F88386F3EE" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Zone from (code)</LocalizedString>
+					<LocalizedString Language="ru">Зона откуда (код)</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ZoneTo" ID="7AC9A27C-E63A-4E1B-8827-C9EACBAD9B70" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Zone to (code)</LocalizedString>
+					<LocalizedString Language="ru">Зона куда (код)</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="OpenDateTime" ID="8FA68AD0-9124-4242-A3D7-F4287DD26EA6" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Open date time</LocalizedString>
+					<LocalizedString Language="ru">Дата открытия задачи</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CloseDateTime" ID="78AB3B1A-C711-47CB-ADD9-761A0672D34B" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Close date time</LocalizedString>
+					<LocalizedString Language="ru">Дата закрытия задачи</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Comment" ID="B25DF9F9-2AA1-4E17-9A76-72EA85D081B6" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Comment</LocalizedString>
+					<LocalizedString Language="ru">Комментарий к задаче</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Status" ID="07C103F3-CFBB-4D1D-9FFB-D3DFCE22A12F" Type="enum" DefaultValue="2" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Task status</LocalizedString>
+					<LocalizedString Language="ru">Статус завершения задачи</LocalizedString>
+				</Name>
+				<Enum Alias="Succeeded" Value="1">
+					<Name>
+						<LocalizedString Language="en">Succeeded</LocalizedString>
+						<LocalizedString Language="ru">Успешно</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Failed" Value="0">
+					<Name>
+						<LocalizedString Language="en">Failed</LocalizedString>
+						<LocalizedString Language="ru">Ошибочно</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="None" Value="2">
+					<Name>
+						<LocalizedString Language="en">None</LocalizedString>
+						<LocalizedString Language="ru">Статус не определен</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="UserAccount" ID="CE6663CC-D690-4B65-B45C-43A728E1C9EC" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">User account</LocalizedString>
+					<LocalizedString Language="ru">Строка логина пользователя</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

@@ -1,0 +1,2150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="A231269C-6126-4C1A-9758-F55FF9571EF8" Alias="CardApproval" Version="365" LibraryID="C257FEAA-7F8C-48BD-AB05-397507F88985" ProgID="clsid:{27621357-7e2c-4a60-8d69-8c7eeaadaa25},license:uhfhkitkqjhjhiommhig" IconFile="Icons\CardApproval.ico" NoLockOnOpen="true" Copyable="true" FetchMode="1" SimpleSecurity="true" DefaultSecurity="">
+	<Actions>
+		<Action ID="663006E9-67A4-4E29-BE75-CFC6F29D4D74" Alias="Edit">
+			<Name>
+				<LocalizedString Language="en">Edit</LocalizedString>
+				<LocalizedString Language="uk">Змінити</LocalizedString>
+				<LocalizedString Language="ru">Редактировать</LocalizedString>
+				<LocalizedString Language="lv">Labot</LocalizedString>
+				<LocalizedString Language="ka">რედაქტირება</LocalizedString>
+				<LocalizedString Language="ro">Editează</LocalizedString>
+			</Name>
+		</Action>
+		<Action ID="383F575C-4186-4A3F-845F-608210CD9AAA" Alias="Approve">
+			<Name>
+				<LocalizedString Language="en">Approve</LocalizedString>
+				<LocalizedString Language="uk">Погоджувати</LocalizedString>
+				<LocalizedString Language="ru">Согласовывать</LocalizedString>
+				<LocalizedString Language="lv">Saskaņot</LocalizedString>
+				<LocalizedString Language="ka">თანხმობის გაცემა</LocalizedString>
+				<LocalizedString Language="ro">Coordonează</LocalizedString>
+			</Name>
+		</Action>
+		<Action ID="C12A12C6-0650-4609-8BDF-062835CE174C" Alias="Consolidate">
+			<Name>
+				<LocalizedString Language="en">Consolidate</LocalizedString>
+				<LocalizedString Language="uk">Консолідувати</LocalizedString>
+				<LocalizedString Language="ru">Консолидировать</LocalizedString>
+				<LocalizedString Language="lv">Konsolidēt</LocalizedString>
+				<LocalizedString Language="ka">კონსოლიდაცია</LocalizedString>
+				<LocalizedString Language="ro">Consolidează</LocalizedString>
+			</Name>
+		</Action>
+		<Action ID="D9325EBC-28FC-4355-82A5-719F1141353F" Alias="Control">
+			<Name>
+				<LocalizedString Language="en">Control</LocalizedString>
+				<LocalizedString Language="ru">Контроль</LocalizedString>
+				<LocalizedString Language="lv">Kontrolēt</LocalizedString>
+				<LocalizedString Language="ka">კონტროლი</LocalizedString>
+				<LocalizedString Language="ro">Control</LocalizedString>
+				<LocalizedString Language="uk">Контроль</LocalizedString>
+			</Name>
+		</Action>
+	</Actions>
+	<Modes>
+		<Mode ID="31B8A420-0E05-4050-BC42-3E1DFE9B05DF" Alias="Approving">
+			<Name>
+				<LocalizedString Language="en">Approving</LocalizedString>
+				<LocalizedString Language="uk">Узгодження</LocalizedString>
+				<LocalizedString Language="ru">Согласование</LocalizedString>
+				<LocalizedString Language="lv">Saskaņošana</LocalizedString>
+				<LocalizedString Language="ka">შეთანხმება</LocalizedString>
+				<LocalizedString Language="ro">La coordonare</LocalizedString>
+			</Name>
+		</Mode>
+		<Mode ID="06BE9E09-7333-43FE-A973-A7E9AC30B15B" Alias="Consolidation">
+			<Name>
+				<LocalizedString Language="en">Consolidation</LocalizedString>
+				<LocalizedString Language="uk">Консолідація</LocalizedString>
+				<LocalizedString Language="ru">Консолидация</LocalizedString>
+				<LocalizedString Language="lv">Konsolidācija</LocalizedString>
+				<LocalizedString Language="ka">დამტკიცება</LocalizedString>
+				<LocalizedString Language="ro">Consolidarea</LocalizedString>
+			</Name>
+		</Mode>
+		<Mode ID="09F676BD-02B7-4DBB-8E49-02A81D9469B1" Alias="Creation">
+			<Name>
+				<LocalizedString Language="en">Creation</LocalizedString>
+				<LocalizedString Language="uk">Створення</LocalizedString>
+				<LocalizedString Language="ru">Создание</LocalizedString>
+				<LocalizedString Language="lv">Izveide</LocalizedString>
+				<LocalizedString Language="ka">შექმნა</LocalizedString>
+				<LocalizedString Language="ro">Creare</LocalizedString>
+			</Name>
+		</Mode>
+		<Mode ID="DC89EC4A-2312-4FFD-9E8B-337ABC367B3D" Alias="Control">
+			<Name>
+				<LocalizedString Language="en">Control</LocalizedString>
+				<LocalizedString Language="ru">Контроль</LocalizedString>
+				<LocalizedString Language="lv">Kontrolēt</LocalizedString>
+				<LocalizedString Language="ka">კონტროლი</LocalizedString>
+				<LocalizedString Language="ro">Control</LocalizedString>
+				<LocalizedString Language="uk">Контроль</LocalizedString>
+			</Name>
+		</Mode>
+	</Modes>
+	<Name>
+		<LocalizedString Language="en">Approval</LocalizedString>
+		<LocalizedString Language="uk">Узгодження</LocalizedString>
+		<LocalizedString Language="ru">Согласование</LocalizedString>
+		<LocalizedString Language="lv">Saskaņošana</LocalizedString>
+		<LocalizedString Language="ka">თანხმობა</LocalizedString>
+		<LocalizedString Language="ro">Coordonare</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="3C2F1AC3-8D26-425F-956B-A3B0B52BAC5D" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">General Information</LocalizedString>
+				<LocalizedString Language="uk">Загальна інформація</LocalizedString>
+				<LocalizedString Language="ru">Основная информация</LocalizedString>
+				<LocalizedString Language="lv">Pamatinformācija</LocalizedString>
+				<LocalizedString Language="ka">ძირითადი ინფორმაცია</LocalizedString>
+				<LocalizedString Language="ro">Informaţia de bază</LocalizedString>
+			</Name>
+			<Field Alias="Name" ID="CDD08C61-D587-4584-92BA-F983A9285556" Type="unistring" Max="544" NotNull="true" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Document name</LocalizedString>
+					<LocalizedString Language="uk">Назва документа</LocalizedString>
+					<LocalizedString Language="ru">Тема документа</LocalizedString>
+					<LocalizedString Language="lv">Kartiņas nosaukums</LocalizedString>
+					<LocalizedString Language="ka">დოკუმენტის სახელი</LocalizedString>
+					<LocalizedString Language="ro">Tema documentului</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Type" ID="FB8349CA-4673-44FC-BFFF-DFB7B6270CA8" Type="refid" RefType="BE14D55D-92B7-4345-AD10-32588981F83D" RefSection="49AD5A2D-17EC-46E2-A49E-C58D0BBD9C1A" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Approval type</LocalizedString>
+					<LocalizedString Language="ru">Вид согласования</LocalizedString>
+					<LocalizedString Language="lv">Saskaņošanas tips</LocalizedString>
+					<LocalizedString Language="ka">თანხმობის ტიპი</LocalizedString>
+					<LocalizedString Language="ro">Forma coordonării</LocalizedString>
+					<LocalizedString Language="uk">Вид узгодження</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="Type_Name" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="CreatedBy" ID="89AF14BA-69A9-4596-8454-FD67A3255065" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Registrar</LocalizedString>
+					<LocalizedString Language="uk">Реєстратор</LocalizedString>
+					<LocalizedString Language="ru">Регистратор</LocalizedString>
+					<LocalizedString Language="lv">Reģistrētājs</LocalizedString>
+					<LocalizedString Language="ka">რეგისტრატორი</LocalizedString>
+					<LocalizedString Language="ro">Înregistratorul</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="Create_FName" SysField="false">FirstName</RefField>
+					<RefField Alias="Create_MName" SysField="false">MiddleName</RefField>
+					<RefField Alias="Create_LName" SysField="false">LastName</RefField>
+					<RefField Alias="Create_Email" SysField="false">Email</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="CreationDate" ID="6AA4CAA7-037F-4FB6-BB61-B4369A242442" Type="datetime" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Creation Date</LocalizedString>
+					<LocalizedString Language="uk">Дата створення</LocalizedString>
+					<LocalizedString Language="ru">Дата создания</LocalizedString>
+					<LocalizedString Language="lv">Izveides datums</LocalizedString>
+					<LocalizedString Language="ka">შექმნის თარიღი</LocalizedString>
+					<LocalizedString Language="ro">Data de creare</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="InitiatedBy" ID="51590D1D-84D9-4946-A1BF-002D96E840AF" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Initiated by</LocalizedString>
+					<LocalizedString Language="ru">Инициатор</LocalizedString>
+					<LocalizedString Language="lv">Iniciators</LocalizedString>
+					<LocalizedString Language="ka">ინიციატორი</LocalizedString>
+					<LocalizedString Language="ro">Iniţiat de</LocalizedString>
+					<LocalizedString Language="uk">Ініційовано</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="Initiate_LName" SysField="false">LastName</RefField>
+					<RefField Alias="Initiate_FName" SysField="false">FirstName</RefField>
+					<RefField Alias="Initiate_MName" SysField="false">MiddleName</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="DocumentState" ID="D8FD161D-15DC-4D5B-A536-51BD4E2364A2" Type="enum" NotNull="true" DefaultValue="0" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Document state</LocalizedString>
+					<LocalizedString Language="uk">Державний документ</LocalizedString>
+					<LocalizedString Language="ru">Стадия согласования</LocalizedString>
+					<LocalizedString Language="lv">Kartiņas stāvoklis</LocalizedString>
+					<LocalizedString Language="ka">დოკუმენტის მდგომარეობა</LocalizedString>
+					<LocalizedString Language="ro">Starea documentului</LocalizedString>
+				</Name>
+				<Enum Alias="Creation" Value="0">
+					<Name>
+						<LocalizedString Language="en">Creation</LocalizedString>
+						<LocalizedString Language="uk">Створення</LocalizedString>
+						<LocalizedString Language="ru">Редактирование</LocalizedString>
+						<LocalizedString Language="lv">Izveide</LocalizedString>
+						<LocalizedString Language="ka">შექმნა</LocalizedString>
+						<LocalizedString Language="ro">Creare</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Approving" Value="1">
+					<Name>
+						<LocalizedString Language="en">Approving</LocalizedString>
+						<LocalizedString Language="uk">Узгодження</LocalizedString>
+						<LocalizedString Language="ru">Согласование</LocalizedString>
+						<LocalizedString Language="lv">Saskaņošana</LocalizedString>
+						<LocalizedString Language="ka">შეთანხმება</LocalizedString>
+						<LocalizedString Language="ro">La coordonare</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Consolidating" Value="2">
+					<Name>
+						<LocalizedString Language="en">Consolidating</LocalizedString>
+						<LocalizedString Language="uk">Консолідація</LocalizedString>
+						<LocalizedString Language="ru">Консолидация</LocalizedString>
+						<LocalizedString Language="lv">Konsolidācija</LocalizedString>
+						<LocalizedString Language="ka">დამტკიცება</LocalizedString>
+						<LocalizedString Language="ro">Consolidarea</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Completed" Value="3">
+					<Name>
+						<LocalizedString Language="en">Completed</LocalizedString>
+						<LocalizedString Language="uk">Завершено</LocalizedString>
+						<LocalizedString Language="ru">Завершено</LocalizedString>
+						<LocalizedString Language="lv">Pabeigts</LocalizedString>
+						<LocalizedString Language="ka">დასრულებულია</LocalizedString>
+						<LocalizedString Language="ro">Executat</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="ApprovalState" ID="0F25E183-6916-46A3-9F6A-F17F24127C92" Type="enum" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Approval state</LocalizedString>
+					<LocalizedString Language="uk">Статус погодження</LocalizedString>
+					<LocalizedString Language="ru">Статус согласования</LocalizedString>
+					<LocalizedString Language="lv">Saskaņošanas  stāvoklis</LocalizedString>
+					<LocalizedString Language="ka">თანხმობის გაცემის სტატუსი</LocalizedString>
+					<LocalizedString Language="ro">Poziţia coordonării</LocalizedString>
+				</Name>
+				<Enum Alias="Inactive" Value="0">
+					<Name>
+						<LocalizedString Language="en">Preparing</LocalizedString>
+						<LocalizedString Language="uk">Підготовка</LocalizedString>
+						<LocalizedString Language="ru">Подготовка</LocalizedString>
+						<LocalizedString Language="lv">Sagatavošana</LocalizedString>
+						<LocalizedString Language="ka">მომზადება</LocalizedString>
+						<LocalizedString Language="ro">Pregătire</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Approving" Value="1">
+					<Name>
+						<LocalizedString Language="en">Approving</LocalizedString>
+						<LocalizedString Language="uk">Узгодження</LocalizedString>
+						<LocalizedString Language="ru">Согласование</LocalizedString>
+						<LocalizedString Language="lv">Saskaņošana</LocalizedString>
+						<LocalizedString Language="ka">შეთანხმება</LocalizedString>
+						<LocalizedString Language="ro">La coordonare</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="ApprovedOK" Value="2">
+					<Name>
+						<LocalizedString Language="en">Approved OK</LocalizedString>
+						<LocalizedString Language="uk">Погоджений</LocalizedString>
+						<LocalizedString Language="ru">Согласовано</LocalizedString>
+						<LocalizedString Language="lv">Saskaņots  </LocalizedString>
+						<LocalizedString Language="ka">შეთანხმებულია</LocalizedString>
+						<LocalizedString Language="ro">Coordonat</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="ApprovedRemarks" Value="3">
+					<Name>
+						<LocalizedString Language="en">Approved with remarks</LocalizedString>
+						<LocalizedString Language="uk">Затверджений із зауваженнями</LocalizedString>
+						<LocalizedString Language="ru">Согласовано с замечаниями</LocalizedString>
+						<LocalizedString Language="lv">Saskaņots ar piezīmēm</LocalizedString>
+						<LocalizedString Language="ka">შეთანხმებულია შენიშვნებით</LocalizedString>
+						<LocalizedString Language="ro">Coordonat cu observaţiile</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="NotApproved" Value="4">
+					<Name>
+						<LocalizedString Language="en">Not approved</LocalizedString>
+						<LocalizedString Language="uk">Не затверджено</LocalizedString>
+						<LocalizedString Language="ru">Не согласовано</LocalizedString>
+						<LocalizedString Language="lv">Nav saskaņots </LocalizedString>
+						<LocalizedString Language="ka">არ არის შეთანხმებული</LocalizedString>
+						<LocalizedString Language="ro">Necoordonat</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="IsOwnProcess" ID="4057E4E3-243F-443F-9174-9BCE3AE68D6F" Type="bool" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Is own process</LocalizedString>
+					<LocalizedString Language="uk">Є власний процес</LocalizedString>
+					<LocalizedString Language="ru">Обрабатывается отдельным процессом</LocalizedString>
+					<LocalizedString Language="lv">Atsevišķā procesā</LocalizedString>
+					<LocalizedString Language="ka">მუშავდება დამოუკიდებელი პროცესის მიერ</LocalizedString>
+					<LocalizedString Language="ro">Se prelucrează cu proces separat</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ProcessFolder" ID="C17B3599-F861-49A3-B91D-C2B8190FC29A" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Process folder</LocalizedString>
+					<LocalizedString Language="ru">Папка процесса</LocalizedString>
+					<LocalizedString Language="lv">Procesa mape</LocalizedString>
+					<LocalizedString Language="ka">პროცესის საქაღალდე</LocalizedString>
+					<LocalizedString Language="ro">Mapa procesului</LocalizedString>
+					<LocalizedString Language="uk">Папка процеса</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="PollingInterval" ID="D10A8C3F-862E-4969-91AE-6F4A86705CC6" Type="int" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Polling interval</LocalizedString>
+					<LocalizedString Language="ru">Период опроса</LocalizedString>
+					<LocalizedString Language="lv">Funkcijas atkārtošanas intervāls</LocalizedString>
+					<LocalizedString Language="ka">გამოკითხვის პერიოდი</LocalizedString>
+					<LocalizedString Language="ro">Perioada audierii</LocalizedString>
+					<LocalizedString Language="uk">Інтервал опитування</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ParentCardID" ID="EE4E8BF0-2DEA-497B-AD05-F0984379828E" Type="refcardid" DefaultValue="" RefKind="Weak" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Parent card</LocalizedString>
+					<LocalizedString Language="ru">Родительская карточка (ID)</LocalizedString>
+					<LocalizedString Language="lv">Sākotnējā kartiņa</LocalizedString>
+					<LocalizedString Language="ka">მშობელი ბარათი</LocalizedString>
+					<LocalizedString Language="ro">Fişa principală</LocalizedString>
+					<LocalizedString Language="uk">Головна карта</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="ParentDescription" SysField="true">Description</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="ParentName" ID="A61D6D72-D3A1-4894-AA1A-CA0AE91AD2A9" Type="unistring" Max="512" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Parent card name</LocalizedString>
+					<LocalizedString Language="ru">Название родительского документа</LocalizedString>
+					<LocalizedString Language="lv">Sākotnējās kartiņas nosaukums</LocalizedString>
+					<LocalizedString Language="ka">მშობელი ბარათის სახელი</LocalizedString>
+					<LocalizedString Language="ro">Denumirea documentului principal</LocalizedString>
+					<LocalizedString Language="uk">Назва Головного документа</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ParentTypeID" ID="69A8CEE0-491E-4A95-B1B6-35A532DD6838" Type="refid" RefType="BE14D55D-92B7-4345-AD10-32588981F83D" RefSection="49AD5A2D-17EC-46E2-A49E-C58D0BBD9C1A" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Parent card type</LocalizedString>
+					<LocalizedString Language="ru">Вид родительского документа</LocalizedString>
+					<LocalizedString Language="lv">Sākotnējās kartiņas tips</LocalizedString>
+					<LocalizedString Language="ka">მშობელი ბარათის ტიპი</LocalizedString>
+					<LocalizedString Language="ro">Forma documentului principal</LocalizedString>
+					<LocalizedString Language="uk">Вид головнго документа</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="ParentTypeName" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="ParentNumber" ID="B02D2743-DCA7-4A09-AE59-B8FC32FBF6C4" Type="unistring" Max="160" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Parent card number</LocalizedString>
+					<LocalizedString Language="ru">Номер родительского документа</LocalizedString>
+					<LocalizedString Language="lv">Sākotnējās kartiņas numurs</LocalizedString>
+					<LocalizedString Language="ka">მშობელი ბარათის ნომერი</LocalizedString>
+					<LocalizedString Language="ro">Numărul documentului principal</LocalizedString>
+					<LocalizedString Language="uk">Назва Головного документа</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ParentRegDate" ID="27D1E63A-8572-4F9F-AD19-9F70C8D41196" Type="datetime" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Parent card registration date</LocalizedString>
+					<LocalizedString Language="ru">Дата регистрации родительского документа</LocalizedString>
+					<LocalizedString Language="lv">Sākotnējās kartiņas reģistrācijas datums</LocalizedString>
+					<LocalizedString Language="ka">მშობელი ბარათის რეგისტრაციის თარიღი</LocalizedString>
+					<LocalizedString Language="ro">Data de înregistrare a documentului principal</LocalizedString>
+					<LocalizedString Language="uk">Дата регістрації головного документа</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ParentCreationDate" ID="644E4CED-1308-472D-9861-A4256E164A11" Type="datetime" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Parent card creation date</LocalizedString>
+					<LocalizedString Language="ru">Дата создания родительского документа</LocalizedString>
+					<LocalizedString Language="lv">Sākotnējās kartiņas izveides datums</LocalizedString>
+					<LocalizedString Language="ka">მშობელი ბარათის შექმნის თარიღი</LocalizedString>
+					<LocalizedString Language="ro">Data de creare a documentului principal</LocalizedString>
+					<LocalizedString Language="uk">Дата створення головного документа</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="DefaultApproverDuration" ID="7C3C1AF8-DA35-46E3-B879-F4C63356BAC7" Type="int" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Approver task duration</LocalizedString>
+					<LocalizedString Language="ru">Длительность заданий согласующих лиц</LocalizedString>
+					<LocalizedString Language="lv">Saskaņotāja uzdevuma termiņš</LocalizedString>
+					<LocalizedString Language="ka">შემთანხმებელი ტიპის დავალების ხანგრძლივობა</LocalizedString>
+					<LocalizedString Language="ro">Durata sarcinii persoanelor coordonatoare</LocalizedString>
+					<LocalizedString Language="uk">Тривалість завдань узгоджуючих осіб</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="DefaultCanModifyFiles" ID="A12051B1-C04F-4003-84B9-A0DCBCDD4753" Type="bool" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Can modify files</LocalizedString>
+					<LocalizedString Language="ru">Разрешено изменение файлов</LocalizedString>
+					<LocalizedString Language="lv">Var mainīt failus</LocalizedString>
+					<LocalizedString Language="ka">ფაილების შეცვლა შეიძლება</LocalizedString>
+					<LocalizedString Language="ro">Modificarea fişierelor este permisă</LocalizedString>
+					<LocalizedString Language="uk">Дозволено змінювати файл</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="DefaultResultFolder" ID="D1801784-E805-49C8-A4B0-798E9A1C8E09" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Default result folder</LocalizedString>
+					<LocalizedString Language="ru">Папка результирующих документов</LocalizedString>
+					<LocalizedString Language="lv">Rezultātu mape pēc noklusējuma</LocalizedString>
+					<LocalizedString Language="ka">ნაგულისხმევი შედეგის საქაღალდე</LocalizedString>
+					<LocalizedString Language="ro">Mapa documentelor rezultative</LocalizedString>
+					<LocalizedString Language="uk">Папка результуючих документів</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="DefaultViewRights" ID="F1D407AE-2EB1-4152-BC86-2B801CA3BC33" Type="bool" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Can view all files</LocalizedString>
+					<LocalizedString Language="ru">Право просмотра всех файлов</LocalizedString>
+					<LocalizedString Language="lv">Var skatīt visus failus</LocalizedString>
+					<LocalizedString Language="ka">შესაძლებელია ყველა ფაილის ნახვა</LocalizedString>
+					<LocalizedString Language="ro">Dreptul de vizualizare a fişierelor</LocalizedString>
+					<LocalizedString Language="uk">Право перегляду всіх файлів</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="DefaultApproverComments" ID="377F33FD-3A9F-4FDB-9435-0F2F13F7A903" Type="unistring" Max="2048" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Approver task comments</LocalizedString>
+					<LocalizedString Language="ru">Содержание заданий согласующих лиц</LocalizedString>
+					<LocalizedString Language="lv">Saskaņotāja uzdevuma komentāri</LocalizedString>
+					<LocalizedString Language="ka">შემთანხმებელი პირების დავალების შემადგენლობა</LocalizedString>
+					<LocalizedString Language="ro">Conţinutul sarcinii persoanei coordonatoare</LocalizedString>
+					<LocalizedString Language="uk">План завдань узгоджуючих осіб</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="DefaultNotApprovedDisabled" ID="DB12169E-467D-466D-9F8D-6A29903EC2D4" Type="bool" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Disable &lt;Not approved&gt; state</LocalizedString>
+					<LocalizedString Language="ru">Заблокировать состояние &lt;Не согласовано&gt;</LocalizedString>
+					<LocalizedString Language="lv">Aizliegt stāvokli &lt;Nav saskaņots &gt;</LocalizedString>
+					<LocalizedString Language="ka">გამორთვა მდგომარეობისა &lt;შეუთანხმებელი&gt;</LocalizedString>
+					<LocalizedString Language="ro">Blocarea stării &lt;Necoordonat&gt;</LocalizedString>
+					<LocalizedString Language="uk">Вимкнути &lt;Не approved&gt; стані</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FilesID" ID="084C45EC-BE13-40EC-A5D1-4F2FEFE50CA6" Type="refcardid" RefType="BFC9D190-BCD6-411A-B9F9-3160D3F68819" RefSection="3F8270DB-3603-463C-BA59-26B89EBB6CB5" DefaultValue="" RefKind="Hard" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Approved files</LocalizedString>
+					<LocalizedString Language="ru">Согласованные документы</LocalizedString>
+					<LocalizedString Language="lv">Saskaņotie faili</LocalizedString>
+					<LocalizedString Language="ka">შეთანხმებული ფაილები</LocalizedString>
+					<LocalizedString Language="ro">Documentele coordonate</LocalizedString>
+					<LocalizedString Language="uk">Узгодження документа</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CreatedByPositionID" ID="087C6CCC-21D8-48E1-81BC-DA296E07989D" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="CFDFE60A-21A8-4010-84E9-9D2DF348508C" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Registrar position</LocalizedString>
+					<LocalizedString Language="ru">Должность регистратора</LocalizedString>
+					<LocalizedString Language="lv">Reģistrētāja amats</LocalizedString>
+					<LocalizedString Language="ka">რეგისტრატორის თანამდებობა</LocalizedString>
+					<LocalizedString Language="ro">Funcţia înregistratorului</LocalizedString>
+					<LocalizedString Language="uk">Секретар позиції</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="CreatedByPosition" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="InitiatedByPositionID" ID="939C58D3-801E-4942-932E-70FF1B61D6B6" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="CFDFE60A-21A8-4010-84E9-9D2DF348508C" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Initiated by position</LocalizedString>
+					<LocalizedString Language="ru">Должность инициатора</LocalizedString>
+					<LocalizedString Language="lv">Iniciatora amats</LocalizedString>
+					<LocalizedString Language="ka">ინიციირება თანამდებობის მიხედვით</LocalizedString>
+					<LocalizedString Language="ro">Funcţiunea iniţiatorului</LocalizedString>
+					<LocalizedString Language="uk">За ініціативою позиції</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="InitiatedByPosition" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="CreatedByDepartmentID" ID="92C0923D-ECEC-4C27-BC13-FF5B4D02F535" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="7473F07F-11ED-4762-9F1E-7FF10808DDD1" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Registrar department</LocalizedString>
+					<LocalizedString Language="ru">Подразделение регистратора</LocalizedString>
+					<LocalizedString Language="lv">Reģistrētāja departaments</LocalizedString>
+					<LocalizedString Language="ka">რეგისტრატორის განყოფილება</LocalizedString>
+					<LocalizedString Language="ro">Subdiviziunea înregistratorului</LocalizedString>
+					<LocalizedString Language="uk">Секретар відділу</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="CreatedByDepartment" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="InitiatedByDepartmentID" ID="C2737B89-4804-4AF7-8734-83CF97ACF1DC" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="7473F07F-11ED-4762-9F1E-7FF10808DDD1" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Inititated by department</LocalizedString>
+					<LocalizedString Language="ru">Подразделение инициатора</LocalizedString>
+					<LocalizedString Language="lv">Iniciatora departaments</LocalizedString>
+					<LocalizedString Language="ka">ინიციირება განყოფილების მიხედვით</LocalizedString>
+					<LocalizedString Language="ro">Subdiviziunea iniţiatorului</LocalizedString>
+					<LocalizedString Language="uk">Підрозділ ініціатора</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="InitiatedByDepartment" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="ConsolidatedCreation" ID="64E96230-B460-410C-B5ED-9EC67B595F67" Type="enum" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Consolidated document creation</LocalizedString>
+					<LocalizedString Language="ru">Создание итогового документа</LocalizedString>
+					<LocalizedString Language="lv">Konsolidētā faila izveide</LocalizedString>
+					<LocalizedString Language="ka">დოკუმენტის კონსოლიდირებული შექმნა</LocalizedString>
+					<LocalizedString Language="ro">Crearea documentelor consolidate</LocalizedString>
+					<LocalizedString Language="uk">Створення підсумкового документа</LocalizedString>
+				</Name>
+				<Enum Alias="None" Value="0">
+					<Name>
+						<LocalizedString Language="en">None by default</LocalizedString>
+						<LocalizedString Language="ru">Не создавать по умолчанию</LocalizedString>
+						<LocalizedString Language="lv">Neveidot pēc noklusējuma</LocalizedString>
+						<LocalizedString Language="ka">ნაგულისხმევია არაფერი</LocalizedString>
+						<LocalizedString Language="ro">Nu a crea in mod implicit </LocalizedString>
+						<LocalizedString Language="uk">Ні за замовчуванням</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="LoadFile" Value="1">
+					<Name>
+						<LocalizedString Language="en">Load consolidated file</LocalizedString>
+						<LocalizedString Language="ru">Загрузить итоговый документ</LocalizedString>
+						<LocalizedString Language="lv">Ielādēt konsolidēto  failu</LocalizedString>
+						<LocalizedString Language="ka">შენიშვნების ჟურნალის ჩატვირთვა...</LocalizedString>
+						<LocalizedString Language="ro">Încarcă fişierului rezultant</LocalizedString>
+						<LocalizedString Language="uk">Завантажити підсумковий документ</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="SetConsolidated" Value="2">
+					<Name>
+						<LocalizedString Language="en">Set document as consolidated</LocalizedString>
+						<LocalizedString Language="ru">Назначить итоговым документом</LocalizedString>
+						<LocalizedString Language="lv">Norādīt kā konsolidēto dokumentu</LocalizedString>
+						<LocalizedString Language="ka">დოკუმენტის კონსოლიდირებულად დაყენება </LocalizedString>
+						<LocalizedString Language="ro">Setează documetul ca consolidat</LocalizedString>
+						<LocalizedString Language="uk">Призначити підсумковим документом</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="MergeAll" Value="3">
+					<Name>
+						<LocalizedString Language="en">Merge all as consolidated document</LocalizedString>
+						<LocalizedString Language="ru">Объединить изменения в итоговый документ</LocalizedString>
+						<LocalizedString Language="lv">Apvienot izmaiņas konsolidētajā dokumentā</LocalizedString>
+						<LocalizedString Language="ka">ყველაფრის შერწყმა ერთ კონსოლიდირებულ დოკუმენტად</LocalizedString>
+						<LocalizedString Language="ro">Uneşte toate documentele consolidate</LocalizedString>
+						<LocalizedString Language="uk">Об'єднати всі як зведений документ,</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="SendAsHTML" ID="4E30D83A-6D17-42FE-8414-15E3A17BB23A" Type="bool" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Send task messages as HTML</LocalizedString>
+					<LocalizedString Language="ru">Отправлять письма заданий как HTML</LocalizedString>
+					<LocalizedString Language="lv">Sūtīt e-pastu HTML formātā</LocalizedString>
+					<LocalizedString Language="ka">ამოცანიანი გზავნილის გაგზავნა HTML ფორმატში</LocalizedString>
+					<LocalizedString Language="ro">Trimiterea mesajului sarcinii ca HTML</LocalizedString>
+					<LocalizedString Language="uk">Надіслати завдання повідомлення як HTML</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+		<Section Alias="Comments" Type="coll" ID="2750C70B-0992-456B-AB3A-98AD11E99A94" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Comments</LocalizedString>
+				<LocalizedString Language="uk">Коментарі</LocalizedString>
+				<LocalizedString Language="ru">Комментарии</LocalizedString>
+				<LocalizedString Language="lv">Komentāri</LocalizedString>
+				<LocalizedString Language="ka">კომენტარები</LocalizedString>
+				<LocalizedString Language="ro">Comentarii</LocalizedString>
+			</Name>
+			<Field Alias="Comment" ID="E69CA94F-A1DD-4D7C-B627-D1C7F6244D35" Type="unistring" Max="2048" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Comment</LocalizedString>
+					<LocalizedString Language="uk">Коментар</LocalizedString>
+					<LocalizedString Language="ru">Комментарий</LocalizedString>
+					<LocalizedString Language="lv">Komentārs</LocalizedString>
+					<LocalizedString Language="ka">კომენტარი</LocalizedString>
+					<LocalizedString Language="ro">Comentarii</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CreationDate" ID="428A9981-9F8B-4F8A-8569-4A63ECD14888" Type="datetime" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Creation Date</LocalizedString>
+					<LocalizedString Language="uk">Дата створення</LocalizedString>
+					<LocalizedString Language="ru">Дата добавления</LocalizedString>
+					<LocalizedString Language="lv">Izveides datums</LocalizedString>
+					<LocalizedString Language="ka">შექმნის თარიღი</LocalizedString>
+					<LocalizedString Language="ro">Data de creare</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CreatedBy" ID="BDB9464A-4B42-4CDA-999E-8FBADDA000B0" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">CreatedBy</LocalizedString>
+					<LocalizedString Language="uk">Ким доданий</LocalizedString>
+					<LocalizedString Language="ru">Кем добавлен</LocalizedString>
+					<LocalizedString Language="lv">Izveidojis </LocalizedString>
+					<LocalizedString Language="ka">შექმნილია:</LocalizedString>
+					<LocalizedString Language="ro">Adăugat de</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="" SysField="false">FirstName</RefField>
+					<RefField Alias="" SysField="false">MiddleName</RefField>
+					<RefField Alias="" SysField="false">LastName</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="Cycle" ID="51F85CAB-3EB2-420A-B1AF-16DC93F64951" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Cycle</LocalizedString>
+					<LocalizedString Language="ru">Цикл</LocalizedString>
+					<LocalizedString Language="uk">Цикл</LocalizedString>
+					<LocalizedString Language="lv">Cikls</LocalizedString>
+					<LocalizedString Language="ka">ციკლი</LocalizedString>
+					<LocalizedString Language="ro">Ciclu</LocalizedString>
+				</Name>
+			</Field>
+			<SortBy>
+				<Field Descending="true">CreationDate</Field>
+			</SortBy>
+			<DisplayFields />
+		</Section>
+		<Section Alias="Log" Type="coll" ID="BEDA2498-9859-4D35-9DE9-86D6F32DB212" NonCopyable="true" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Log</LocalizedString>
+				<LocalizedString Language="uk">Журнал роботи</LocalizedString>
+				<LocalizedString Language="ru">Журнал</LocalizedString>
+				<LocalizedString Language="lv">Žurnāls</LocalizedString>
+				<LocalizedString Language="ka">ჟურნალი</LocalizedString>
+				<LocalizedString Language="ro">Registrul de lucru</LocalizedString>
+			</Name>
+			<Field Alias="ActionDate" ID="BE322337-D000-4D1C-9D4C-5B9A3312F0F5" Type="datetime" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Action Date</LocalizedString>
+					<LocalizedString Language="uk">Дата події</LocalizedString>
+					<LocalizedString Language="ru">Дата события</LocalizedString>
+					<LocalizedString Language="lv">Darbības datums</LocalizedString>
+					<LocalizedString Language="ka">მოქმედების თარიღი</LocalizedString>
+					<LocalizedString Language="ro">Data evenimentului</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ActionBy" ID="EBCDF522-69CF-4841-BD2F-677EBCB2D726" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Action By</LocalizedString>
+					<LocalizedString Language="uk">Ким здійснено</LocalizedString>
+					<LocalizedString Language="ru">Кем совершено</LocalizedString>
+					<LocalizedString Language="lv">Darbību veica </LocalizedString>
+					<LocalizedString Language="ka">შესრულებულია</LocalizedString>
+					<LocalizedString Language="ro">Înfăptuit de</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="" SysField="false">FirstName</RefField>
+					<RefField Alias="" SysField="false">MiddleName</RefField>
+					<RefField Alias="" SysField="false">LastName</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="Description" ID="EFF8D0EA-05F8-4587-84CA-3BFCB37CC9CC" Type="unistring" Max="2048" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Action Description</LocalizedString>
+					<LocalizedString Language="uk">Опис дії</LocalizedString>
+					<LocalizedString Language="ru">Описание действия</LocalizedString>
+					<LocalizedString Language="lv">Darbības apraksts</LocalizedString>
+					<LocalizedString Language="ka">მოქმედების აღწერა</LocalizedString>
+					<LocalizedString Language="ro">Descrierea acţiunii</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Cycle" ID="63C40004-AA83-437F-B1DF-72A4586E4DFC" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Cycle</LocalizedString>
+					<LocalizedString Language="uk">Цикл</LocalizedString>
+					<LocalizedString Language="ru">Цикл</LocalizedString>
+					<LocalizedString Language="lv">Cikls</LocalizedString>
+					<LocalizedString Language="ka">ციკლი</LocalizedString>
+					<LocalizedString Language="ro">Ciclu</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FileID" ID="0C46A9FC-0FC2-4149-9263-855CA3C2395E" Type="refid" RefType="A231269C-6126-4C1A-9758-F55FF9571EF8" RefSection="7A9F0D60-444E-41AF-845E-4F4E94F43A52" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">File</LocalizedString>
+					<LocalizedString Language="uk">Файл</LocalizedString>
+					<LocalizedString Language="ru">Файл</LocalizedString>
+					<LocalizedString Language="lv">Fails</LocalizedString>
+					<LocalizedString Language="ka">ფაილი</LocalizedString>
+					<LocalizedString Language="ro">Fişier</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FileState" ID="8CB8DBD9-50E2-4336-A84A-A645D90D2B12" Type="enum" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">File state</LocalizedString>
+					<LocalizedString Language="uk">Стан файлу</LocalizedString>
+					<LocalizedString Language="ru">Состояние файла</LocalizedString>
+					<LocalizedString Language="lv">Faila stāvoklis</LocalizedString>
+					<LocalizedString Language="ka">ფაილის მდგომარეობა</LocalizedString>
+					<LocalizedString Language="ro">Starea fişierului</LocalizedString>
+				</Name>
+				<Enum Alias="ToApprove" Value="0">
+					<Name>
+						<LocalizedString Language="en">To approve</LocalizedString>
+						<LocalizedString Language="uk">До узгодження</LocalizedString>
+						<LocalizedString Language="ru">К принятию</LocalizedString>
+						<LocalizedString Language="lv">Saskaņot </LocalizedString>
+						<LocalizedString Language="ka">დასამტკიცებლად</LocalizedString>
+						<LocalizedString Language="ro">La coordonare</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="ApprovedOK" Value="1">
+					<Name>
+						<LocalizedString Language="en">Approved OK</LocalizedString>
+						<LocalizedString Language="uk">Погоджений</LocalizedString>
+						<LocalizedString Language="ru">Согласован</LocalizedString>
+						<LocalizedString Language="lv">Saskaņots  </LocalizedString>
+						<LocalizedString Language="ka">შეთანხმებულია</LocalizedString>
+						<LocalizedString Language="ro">Coordonat</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="ApprovedRemarks" Value="2">
+					<Name>
+						<LocalizedString Language="en">Approved with remarks</LocalizedString>
+						<LocalizedString Language="uk">Затверджений із зауваженнями</LocalizedString>
+						<LocalizedString Language="ru">Согласован с замечаниями</LocalizedString>
+						<LocalizedString Language="lv">Saskaņots ar piezīmēm</LocalizedString>
+						<LocalizedString Language="ka">შეთანხმებულია შენიშვნებით</LocalizedString>
+						<LocalizedString Language="ro">Coordonat cu observaţiile</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="NotApproved" Value="3">
+					<Name>
+						<LocalizedString Language="en">Not approved</LocalizedString>
+						<LocalizedString Language="uk">Не затверджено</LocalizedString>
+						<LocalizedString Language="ru">Не согласован</LocalizedString>
+						<LocalizedString Language="lv">Nav saskaņots </LocalizedString>
+						<LocalizedString Language="ka">არ არის შეთანხმებული</LocalizedString>
+						<LocalizedString Language="ro">Necoordonat</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Recalled" Value="4">
+					<Name>
+						<LocalizedString Language="en">Recalled</LocalizedString>
+						<LocalizedString Language="ru">Отозван</LocalizedString>
+						<LocalizedString Language="lv">Atsaukts</LocalizedString>
+						<LocalizedString Language="ka">გამოხმობილი</LocalizedString>
+						<LocalizedString Language="ro">Rechemat/refuzat</LocalizedString>
+						<LocalizedString Language="uk">Відкликано</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="DocumentState" ID="31BADE7D-98B4-4F12-BB02-9C239C8D415D" Type="enum" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Document state</LocalizedString>
+					<LocalizedString Language="uk">Державний документ</LocalizedString>
+					<LocalizedString Language="ru">Стадия согласования</LocalizedString>
+					<LocalizedString Language="lv">Kartiņas stāvoklis</LocalizedString>
+					<LocalizedString Language="ka">დოკუმენტის მდგომარეობა</LocalizedString>
+					<LocalizedString Language="ro">Starea documentului</LocalizedString>
+				</Name>
+				<Enum Alias="Creation" Value="0">
+					<Name>
+						<LocalizedString Language="en">Creation</LocalizedString>
+						<LocalizedString Language="uk">Створення</LocalizedString>
+						<LocalizedString Language="ru">Редактирование</LocalizedString>
+						<LocalizedString Language="lv">Izveide</LocalizedString>
+						<LocalizedString Language="ka">შექმნა</LocalizedString>
+						<LocalizedString Language="ro">Creare</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Approving" Value="1">
+					<Name>
+						<LocalizedString Language="en">Approving</LocalizedString>
+						<LocalizedString Language="uk">Узгодження</LocalizedString>
+						<LocalizedString Language="ru">Согласование</LocalizedString>
+						<LocalizedString Language="lv">Saskaņošana</LocalizedString>
+						<LocalizedString Language="ka">შეთანხმება</LocalizedString>
+						<LocalizedString Language="ro">La coordonare</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Consolidating" Value="2">
+					<Name>
+						<LocalizedString Language="en">Consolidating</LocalizedString>
+						<LocalizedString Language="uk">Консолідація</LocalizedString>
+						<LocalizedString Language="ru">Консолидация</LocalizedString>
+						<LocalizedString Language="lv">Konsolidācija</LocalizedString>
+						<LocalizedString Language="ka">დამტკიცება</LocalizedString>
+						<LocalizedString Language="ro">Consolidarea</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Completed" Value="3">
+					<Name>
+						<LocalizedString Language="en">Completed</LocalizedString>
+						<LocalizedString Language="uk">Завершено</LocalizedString>
+						<LocalizedString Language="ru">Завершено</LocalizedString>
+						<LocalizedString Language="lv">Pabeigts</LocalizedString>
+						<LocalizedString Language="ka">დასრულებულია</LocalizedString>
+						<LocalizedString Language="ro">Executat</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="ApproverRowID" ID="D5243599-08D1-42F4-8565-4A962BED55CA" Type="refid" RefType="A231269C-6126-4C1A-9758-F55FF9571EF8" RefSection="76938C95-9F44-4C38-BD6B-5B786EDF8A34" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Approver</LocalizedString>
+					<LocalizedString Language="uk">Затверджує</LocalizedString>
+					<LocalizedString Language="ru">Согласующее лицо</LocalizedString>
+					<LocalizedString Language="lv">Saskaņotājs</LocalizedString>
+					<LocalizedString Language="ka">შემთანხმებელი პირი</LocalizedString>
+					<LocalizedString Language="ro">Coordonator</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+		<Section Alias="CardReferences" Type="coll" ID="CD2746F7-2DBD-4D72-8F70-3B667B9409A7" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Card References</LocalizedString>
+				<LocalizedString Language="uk">Посилання на картки</LocalizedString>
+				<LocalizedString Language="ru">Ссылки на карточки</LocalizedString>
+				<LocalizedString Language="lv">Kartiņas atsauces</LocalizedString>
+				<LocalizedString Language="ka">კავშირები ბარათზე</LocalizedString>
+				<LocalizedString Language="ro">Referinţe la fişe</LocalizedString>
+			</Name>
+			<Field Alias="Type" ID="530F70EE-3C32-4903-8482-541F771DB61D" Type="refid" RefType="38165FA6-FA69-4261-9EC3-675FEBB89C8B" RefSection="5C103E40-BA13-44EF-A628-E6286DC687D6" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Link Type</LocalizedString>
+					<LocalizedString Language="uk">Тип посилання</LocalizedString>
+					<LocalizedString Language="ru">Тип ссылки</LocalizedString>
+					<LocalizedString Language="lv">Saites tips</LocalizedString>
+					<LocalizedString Language="ka">ბმულის ტიპი</LocalizedString>
+					<LocalizedString Language="ro">Tipul referinţei</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="" SysField="false">LinkName</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="Link" ID="AA659E62-0DA1-4240-835C-E67B601B1A36" Type="refcardid" DefaultValue="" RefKind="Auto" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Card</LocalizedString>
+					<LocalizedString Language="uk">Картка</LocalizedString>
+					<LocalizedString Language="ru">Карточка</LocalizedString>
+					<LocalizedString Language="lv">Kartiņa</LocalizedString>
+					<LocalizedString Language="ka">ბარათი</LocalizedString>
+					<LocalizedString Language="ro">Fişa</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="" SysField="true">Description</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="Comments" ID="185E089E-0148-445D-99A9-A4F77816F72A" Type="unistring" Max="2048" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Comments</LocalizedString>
+					<LocalizedString Language="uk">Коментарі</LocalizedString>
+					<LocalizedString Language="ru">Комментарии</LocalizedString>
+					<LocalizedString Language="lv">Komentāri</LocalizedString>
+					<LocalizedString Language="ka">კომენტარები</LocalizedString>
+					<LocalizedString Language="ro">Comentarii</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CreationDate" ID="C2539D44-208C-4B63-B7D2-B9B2D6BE2C3D" Type="datetime" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Creation Date</LocalizedString>
+					<LocalizedString Language="uk">Дата створення</LocalizedString>
+					<LocalizedString Language="ru">Дата создания</LocalizedString>
+					<LocalizedString Language="lv">Izveides datums</LocalizedString>
+					<LocalizedString Language="ka">შექმნის თარიღი</LocalizedString>
+					<LocalizedString Language="ro">Data de creare</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CreatedBy" ID="C878334C-57C3-4EFA-873E-195DB7E4F7F3" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Creator</LocalizedString>
+					<LocalizedString Language="uk">Розробник</LocalizedString>
+					<LocalizedString Language="ru">Кем добавлена</LocalizedString>
+					<LocalizedString Language="lv">Izveidotājs</LocalizedString>
+					<LocalizedString Language="ka">შემქნელი</LocalizedString>
+					<LocalizedString Language="ro">Adăugat de</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="Create_FName" SysField="false">FirstName</RefField>
+					<RefField Alias="Create_MName" SysField="false">MiddleName</RefField>
+					<RefField Alias="Create_LName" SysField="false">LastName</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="URL" ID="2EBF7727-7513-4227-A556-759B59A6D8DD" Type="unistring" Max="512" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">URL</LocalizedString>
+					<LocalizedString Language="uk">URL</LocalizedString>
+					<LocalizedString Language="ru">URL</LocalizedString>
+					<LocalizedString Language="lv">URL</LocalizedString>
+					<LocalizedString Language="ka">ვებ მისამართი</LocalizedString>
+					<LocalizedString Language="ro">Referinţa URL la obiect</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="LinkDesc" ID="C907E60F-E942-47B2-9A31-32FD4670830D" Type="unistring" Max="32" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Description</LocalizedString>
+					<LocalizedString Language="uk">Опис</LocalizedString>
+					<LocalizedString Language="ru">Описание</LocalizedString>
+					<LocalizedString Language="lv">Apraksts</LocalizedString>
+					<LocalizedString Language="ka">აღწერილობა</LocalizedString>
+					<LocalizedString Language="ro">Descrierea</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FolderID" ID="BAE70878-805F-4723-B980-0E3CC1CF883E" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Folder</LocalizedString>
+					<LocalizedString Language="ru">Папка</LocalizedString>
+					<LocalizedString Language="lv">Mape</LocalizedString>
+					<LocalizedString Language="ka">საქაღალდე</LocalizedString>
+					<LocalizedString Language="ro">Mapa</LocalizedString>
+					<LocalizedString Language="uk">Папка</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="IsParentRef" ID="2238C0B1-E048-462B-80AC-C632638FBEF1" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Is parent reference</LocalizedString>
+					<LocalizedString Language="ru">Ссылка на родительский документ</LocalizedString>
+					<LocalizedString Language="lv">Saite uz sākotnējo dokumentu</LocalizedString>
+					<LocalizedString Language="ka">მშობელი მითითებაა</LocalizedString>
+					<LocalizedString Language="ro">Este referinţă părinte</LocalizedString>
+					<LocalizedString Language="uk">Посилання на батьківський документ</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+		<Section Alias="Notifications" Type="coll" ID="31144DE1-33DF-4EC0-B9E5-9317E91F4137" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Notifications</LocalizedString>
+				<LocalizedString Language="ru">Уведомления</LocalizedString>
+				<LocalizedString Language="lv">Paziņojumi</LocalizedString>
+				<LocalizedString Language="ka">შეტყობინებები</LocalizedString>
+				<LocalizedString Language="ro">Configurarea notificărilor</LocalizedString>
+				<LocalizedString Language="uk">Повідомлення</LocalizedString>
+			</Name>
+			<Field Alias="Event" ID="0303396D-F308-4918-B872-1AECBD97CDA6" Type="enum" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Event</LocalizedString>
+					<LocalizedString Language="ru">Cобытие</LocalizedString>
+					<LocalizedString Language="lv">Notikums</LocalizedString>
+					<LocalizedString Language="ka">მოვლენა</LocalizedString>
+					<LocalizedString Language="ro">Eveniment</LocalizedString>
+					<LocalizedString Language="uk">Подія</LocalizedString>
+				</Name>
+				<Enum Alias="InactivePerformer" Value="0">
+					<Name>
+						<LocalizedString Language="en">Inactive performer</LocalizedString>
+						<LocalizedString Language="ru">Неактивный исполнитель</LocalizedString>
+						<LocalizedString Language="lv">Neaktīvs izpildītājs</LocalizedString>
+						<LocalizedString Language="ka">არააქტიური შემსრულებელი</LocalizedString>
+						<LocalizedString Language="ro">Executor inactiv</LocalizedString>
+						<LocalizedString Language="uk">Неактивний виконавець</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Delegated" Value="2">
+					<Name>
+						<LocalizedString Language="en">Delegated</LocalizedString>
+						<LocalizedString Language="ru">Факт делегирования</LocalizedString>
+						<LocalizedString Language="lv">Deleģēts</LocalizedString>
+						<LocalizedString Language="ka">უფლებამოსილი პირი</LocalizedString>
+						<LocalizedString Language="ro">Delegat</LocalizedString>
+						<LocalizedString Language="uk">Делеговані</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="ChildCreation" Value="3">
+					<Name>
+						<LocalizedString Language="en">Child creation</LocalizedString>
+						<LocalizedString Language="ru">Начало исполнения подчиненной задачи</LocalizedString>
+						<LocalizedString Language="lv">Apakšuzdevums</LocalizedString>
+						<LocalizedString Language="ka">დაქვემდებარებული დავალების შესრულება</LocalizedString>
+						<LocalizedString Language="ro">Începutul executării însărcinării inferioare</LocalizedString>
+						<LocalizedString Language="uk">Дочірнє створення</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="TaskRecall" Value="4">
+					<Name>
+						<LocalizedString Language="en">Task recall</LocalizedString>
+						<LocalizedString Language="ru">Отзыв задания</LocalizedString>
+						<LocalizedString Language="lv">Atsaukt uzdevumu</LocalizedString>
+						<LocalizedString Language="ka">ამოცანის გამოხმობა</LocalizedString>
+						<LocalizedString Language="ro">Rechemarea sarcinii</LocalizedString>
+						<LocalizedString Language="uk">Відгук завдання</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="TaskCompleted" Value="6">
+					<Name>
+						<LocalizedString Language="en">Approval task completed</LocalizedString>
+						<LocalizedString Language="ru">Завершение задания согласования</LocalizedString>
+						<LocalizedString Language="lv">Saskaņošanas uzdevums ir pabeigts</LocalizedString>
+						<LocalizedString Language="ka">თანხმობის დავალება შესრულებულია</LocalizedString>
+						<LocalizedString Language="ro">Totalizarea sarcinei de coordonare</LocalizedString>
+						<LocalizedString Language="uk">Закінчення завдання узгодження</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="ControllerCompletion" Value="7">
+					<Name>
+						<LocalizedString Language="en">Controller task completion</LocalizedString>
+						<LocalizedString Language="ru">Завершение задания контроля</LocalizedString>
+						<LocalizedString Language="lv">Kontroles uzdevuma izpilde</LocalizedString>
+						<LocalizedString Language="ka">მაკონტროლებლის დავალების დასრულება</LocalizedString>
+						<LocalizedString Language="ro">Terminarea sarcinii supraveghetorului</LocalizedString>
+						<LocalizedString Language="uk">Завершення завдання контроля</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="ApprovedFiles" Value="9">
+					<Name>
+						<LocalizedString Language="en">Approved all files</LocalizedString>
+						<LocalizedString Language="ru">Согласующим лицом приняты все документы</LocalizedString>
+						<LocalizedString Language="lv">Saskaņot visus failus</LocalizedString>
+						<LocalizedString Language="ka">ყველა ფაილი დამტკიცებულია</LocalizedString>
+						<LocalizedString Language="ro">Toate fişierele coordonate</LocalizedString>
+						<LocalizedString Language="uk">Затверджені всі файли</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="NotApprovedFiles" Value="10">
+					<Name>
+						<LocalizedString Language="en">Not approved files</LocalizedString>
+						<LocalizedString Language="ru">Согласующим лицом не принята часть документов</LocalizedString>
+						<LocalizedString Language="lv">Nesaskaņoti faili</LocalizedString>
+						<LocalizedString Language="ka">ფაილები არაა დამტკიცებული</LocalizedString>
+						<LocalizedString Language="ro">Fişiere necordonate</LocalizedString>
+						<LocalizedString Language="uk">Не затверджені файли</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="ConsolidationStarted" Value="11">
+					<Name>
+						<LocalizedString Language="en">Consolidation started</LocalizedString>
+						<LocalizedString Language="ru">Начало консолидации</LocalizedString>
+						<LocalizedString Language="lv">Konsolidācija uzsākta</LocalizedString>
+						<LocalizedString Language="ka">კონსოლიდირება დაიწყო</LocalizedString>
+						<LocalizedString Language="ro">Începerea consolidării</LocalizedString>
+						<LocalizedString Language="uk">Початок консолідації</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="ConsolidationCompleted" Value="12">
+					<Name>
+						<LocalizedString Language="en">Consolidation completed</LocalizedString>
+						<LocalizedString Language="ru">Завершение консолидации</LocalizedString>
+						<LocalizedString Language="lv">Konsolidācija pabeigta</LocalizedString>
+						<LocalizedString Language="ka">კონსოლიდირება დასრულდა</LocalizedString>
+						<LocalizedString Language="ro">Consolidarea finalizată</LocalizedString>
+						<LocalizedString Language="uk">Закінчення консолідації</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="ApprovalConsolidator" Value="13">
+					<Name>
+						<LocalizedString Language="en">Approval consolidator</LocalizedString>
+						<LocalizedString Language="ru">Назначение ответственного лица</LocalizedString>
+						<LocalizedString Language="lv">Saskaņošanas konsolidētājs</LocalizedString>
+						<LocalizedString Language="ka">თანხმობის კონსოლიდატორი</LocalizedString>
+						<LocalizedString Language="ro">Coordonarea consolidatorului</LocalizedString>
+						<LocalizedString Language="uk">Назначення відповідальної особи</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="EmployeeType" ID="5EC15762-216A-4E64-B05D-AC7379248524" Type="enum" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Employee type</LocalizedString>
+					<LocalizedString Language="ru">Тип сотрудника</LocalizedString>
+					<LocalizedString Language="lv">Darbinieka tips</LocalizedString>
+					<LocalizedString Language="ka">თანამშრომლის ტიპი</LocalizedString>
+					<LocalizedString Language="ro">Tipul colaboratorului</LocalizedString>
+					<LocalizedString Language="uk">Співробітник типу</LocalizedString>
+				</Name>
+				<Enum Alias="CreatedBy" Value="0">
+					<Name>
+						<LocalizedString Language="en">Registrar</LocalizedString>
+						<LocalizedString Language="ru">Регистратор</LocalizedString>
+						<LocalizedString Language="lv">Reģistrētājs</LocalizedString>
+						<LocalizedString Language="ka">რეგისტრატორი</LocalizedString>
+						<LocalizedString Language="ro">Înregistratorul</LocalizedString>
+						<LocalizedString Language="uk">Реєстратор</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="InitiatedBy" Value="1">
+					<Name>
+						<LocalizedString Language="en">Initiated by</LocalizedString>
+						<LocalizedString Language="ru">Инициатор</LocalizedString>
+						<LocalizedString Language="lv">Iniciators</LocalizedString>
+						<LocalizedString Language="ka">ინიციატორი</LocalizedString>
+						<LocalizedString Language="ro">Iniţiat de</LocalizedString>
+						<LocalizedString Language="uk">Ініційовано</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Approver" Value="2">
+					<Name>
+						<LocalizedString Language="en">Approver</LocalizedString>
+						<LocalizedString Language="ru">Согласующее лицо</LocalizedString>
+						<LocalizedString Language="lv">Saskaņotājs</LocalizedString>
+						<LocalizedString Language="ka">შემთანხმებელი პირი</LocalizedString>
+						<LocalizedString Language="ro">Coordonator</LocalizedString>
+						<LocalizedString Language="uk">Затверджує</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Consolidator" Value="3">
+					<Name>
+						<LocalizedString Language="en">Consolidator</LocalizedString>
+						<LocalizedString Language="ru">Ответственное лицо</LocalizedString>
+						<LocalizedString Language="lv">Konsolidētājs</LocalizedString>
+						<LocalizedString Language="ka">პასუხისმგებელი პირი</LocalizedString>
+						<LocalizedString Language="ro">Persoană responsabilă</LocalizedString>
+						<LocalizedString Language="uk">Відповідальна особа</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="Comments" ID="2AFC7500-566F-41D7-8A5E-CEBCF6B2321D" Type="unistring" Max="3900" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Comments</LocalizedString>
+					<LocalizedString Language="ru">Текст сообщения</LocalizedString>
+					<LocalizedString Language="lv">Komentāri</LocalizedString>
+					<LocalizedString Language="ka">კომენტარები</LocalizedString>
+					<LocalizedString Language="ro">Comentarii</LocalizedString>
+					<LocalizedString Language="uk">Коментарі</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Author" ID="8A984978-29DD-40E0-8ECB-F3799A9F3EA6" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Message author</LocalizedString>
+					<LocalizedString Language="ru">Автор сообщения</LocalizedString>
+					<LocalizedString Language="lv">Ziņas autors</LocalizedString>
+					<LocalizedString Language="ka">გზავნილის ავტორი</LocalizedString>
+					<LocalizedString Language="ro">Autorul mesajului</LocalizedString>
+					<LocalizedString Language="uk">Автор повідомлення</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Disabled" ID="D9AE5B54-DD1A-4916-9097-4C1BEE6CFA24" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Disabled</LocalizedString>
+					<LocalizedString Language="ru">Отключено</LocalizedString>
+					<LocalizedString Language="lv">Atspējots</LocalizedString>
+					<LocalizedString Language="ka">ინაქტივირებულია</LocalizedString>
+					<LocalizedString Language="ro">Blocat</LocalizedString>
+					<LocalizedString Language="uk">Інвалідів</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+		<Section Alias="Cycles" Type="coll" ID="9C73DAD2-22FA-46B5-909C-924FF8ACC095" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Approval cycles</LocalizedString>
+				<LocalizedString Language="uk">Цикли погоджень</LocalizedString>
+				<LocalizedString Language="ru">Циклы согласования</LocalizedString>
+				<LocalizedString Language="lv">Saskaņošanas  cikls</LocalizedString>
+				<LocalizedString Language="ka">თანხმობის ციკლები</LocalizedString>
+				<LocalizedString Language="ro">Ciclulurile coordonării</LocalizedString>
+			</Name>
+			<Field Alias="Cycle" ID="E42930D2-D56B-473D-B4FA-A578A6C2401D" Type="int" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Cycle</LocalizedString>
+					<LocalizedString Language="uk">Цикл</LocalizedString>
+					<LocalizedString Language="ru">Цикл</LocalizedString>
+					<LocalizedString Language="lv">Cikls</LocalizedString>
+					<LocalizedString Language="ka">ციკლი</LocalizedString>
+					<LocalizedString Language="ro">Ciclu</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Consolidator" ID="C787DA46-5E8C-4769-89DC-98D4083B6272" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Consolidator</LocalizedString>
+					<LocalizedString Language="uk">Відповідальна особа</LocalizedString>
+					<LocalizedString Language="ru">Ответственное лицо</LocalizedString>
+					<LocalizedString Language="lv">Konsolidētājs</LocalizedString>
+					<LocalizedString Language="ka">პასუხისმგებელი პირი</LocalizedString>
+					<LocalizedString Language="ro">Persoană responsabilă</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="Resp_LName" SysField="false">LastName</RefField>
+					<RefField Alias="Resp_FName" SysField="false">FirstName</RefField>
+					<RefField Alias="Resp_MName" SysField="false">MiddleName</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="ConsolidatorTaskID" ID="8D022CC7-7FC2-40D9-A673-E1EE094B61C8" Type="refcardid" RefType="F7E2090A-EEC3-4B51-B1BB-567D4A0117D6" DefaultValue="" SuppressSearch="true" RefKind="Weak" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="ru">Задание ответственного</LocalizedString>
+					<LocalizedString Language="uk">Завдання відповідальної особи</LocalizedString>
+					<LocalizedString Language="en">Consolidator shortcut</LocalizedString>
+					<LocalizedString Language="lv">Konsolidētāja saīsne</LocalizedString>
+					<LocalizedString Language="ka">პასუხისმგებელი პირის მალსახმობი</LocalizedString>
+					<LocalizedString Language="ro">Sarcina responsabilului</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="UseStaffDeputies" ID="40D05BD2-E3A3-4400-B7AC-25417DCF2CD9" Type="bool" DefaultValue="" SuppressSearch="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Use staff deputies</LocalizedString>
+					<LocalizedString Language="uk">Використовувати замісників із довідника</LocalizedString>
+					<LocalizedString Language="ru">Использовать заместителей из справочника</LocalizedString>
+					<LocalizedString Language="lv">Izmantot padotos</LocalizedString>
+					<LocalizedString Language="ka">ცნობარიდან მოადგილეების გამოყენება</LocalizedString>
+					<LocalizedString Language="ro">Utilizează adjuncţii din catalog</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="StartDate" ID="8E5EE930-5EFF-4CB5-8DB2-7344511B054D" Type="datetime" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Start date</LocalizedString>
+					<LocalizedString Language="uk">Дата початку</LocalizedString>
+					<LocalizedString Language="ru">Дата начала</LocalizedString>
+					<LocalizedString Language="lv">Sākums</LocalizedString>
+					<LocalizedString Language="ka">დაწყების თარიღი</LocalizedString>
+					<LocalizedString Language="ro">Data lansării</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FinishDate" ID="A3ACE99E-1040-472E-967C-A4D14A2CB0B5" Type="datetime" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Finish date</LocalizedString>
+					<LocalizedString Language="uk">Дата закінчення</LocalizedString>
+					<LocalizedString Language="ru">Дата завершения</LocalizedString>
+					<LocalizedString Language="lv">Izpildes datums</LocalizedString>
+					<LocalizedString Language="ka">დასრულების თარიღი</LocalizedString>
+					<LocalizedString Language="ro">Data terminării</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Duration" ID="B91EC6CD-5597-42D9-9655-1CA89A73941C" Type="int" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Duration</LocalizedString>
+					<LocalizedString Language="uk">Тривалість</LocalizedString>
+					<LocalizedString Language="ru">Длительность согласования</LocalizedString>
+					<LocalizedString Language="lv">Ilgums</LocalizedString>
+					<LocalizedString Language="ka">ხანგრძლივობა</LocalizedString>
+					<LocalizedString Language="ro">Durata</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="NotifyAuthor" ID="8AAB8F22-A9AF-4BCF-8225-B0757E0F9A27" Type="bool" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Send to registrar before new cycle</LocalizedString>
+					<LocalizedString Language="uk">Повідомляти реєстратора</LocalizedString>
+					<LocalizedString Language="ru">Возможность редактирования настроек цикла регистратором</LocalizedString>
+					<LocalizedString Language="lv">Atgādināt autoram</LocalizedString>
+					<LocalizedString Language="ka">შეტყობინება ავტორს</LocalizedString>
+					<LocalizedString Language="ro">Notifică înregistratorul inainte de ciclu nou</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="SendImmediately" ID="16104FE5-388A-4334-A3B5-0C390A30F4AF" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Send immediately</LocalizedString>
+					<LocalizedString Language="uk">Відправити негайно</LocalizedString>
+					<LocalizedString Language="ru">Отправить немедленно</LocalizedString>
+					<LocalizedString Language="lv">Sūtīt nekavējoties</LocalizedString>
+					<LocalizedString Language="ka">გაგზავნა დაუყოვნებლივ</LocalizedString>
+					<LocalizedString Language="ro">Expediază imediat</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="SequentialProcessing" ID="F397EF9C-0B1E-4556-AAAD-D1A4EAF09408" Type="bool" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Sequential processing</LocalizedString>
+					<LocalizedString Language="uk">Послідовне погодження</LocalizedString>
+					<LocalizedString Language="ru">Последовательное согласование</LocalizedString>
+					<LocalizedString Language="lv">Secīga apstrāde</LocalizedString>
+					<LocalizedString Language="ka">თანმიმდევრული პროცესი</LocalizedString>
+					<LocalizedString Language="ro">Coordonare consecutivă</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ActualFinishDate" ID="EF59FCEC-DC7D-49A4-A505-41BA8273D1BA" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Actual finish date</LocalizedString>
+					<LocalizedString Language="uk">Дата реального закінчення</LocalizedString>
+					<LocalizedString Language="ru">Дата реального завершения</LocalizedString>
+					<LocalizedString Language="lv">Faktiskais beigu datums</LocalizedString>
+					<LocalizedString Language="ka">დასრულების რეალური თარიღი</LocalizedString>
+					<LocalizedString Language="ro">Data reală de terminare</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ConsolidateAfter" ID="7F3B565D-A795-4CA3-BB6C-33C6DF9C92FD" Type="bool" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Consolidate after approving</LocalizedString>
+					<LocalizedString Language="uk">Консолідація піся узгодження</LocalizedString>
+					<LocalizedString Language="ru">Консолидация после согласования</LocalizedString>
+					<LocalizedString Language="lv">Konsolidēt pēc saskaņošanas </LocalizedString>
+					<LocalizedString Language="ka">დამტკიცება შეთანხმების შემდეგ</LocalizedString>
+					<LocalizedString Language="ro">Consolidare după coordonare</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="AuthorTaskID" ID="D385FF6B-D0B4-442B-8578-DDD231797548" Type="refcardid" RefType="F7E2090A-EEC3-4B51-B1BB-567D4A0117D6" DefaultValue="" SuppressSearch="true" RefKind="Weak" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Author task</LocalizedString>
+					<LocalizedString Language="uk">Автор завдання</LocalizedString>
+					<LocalizedString Language="ru">Задание регистратора</LocalizedString>
+					<LocalizedString Language="lv">Autora uzdevums</LocalizedString>
+					<LocalizedString Language="ka">დავალების ავტორი</LocalizedString>
+					<LocalizedString Language="ro">Sarcina înregistratorului</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ConsolidatorComment" ID="33CE32C0-A91D-47BB-8C78-287BE2257C0F" Type="unistring" Max="2048" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Consolidator task comment</LocalizedString>
+					<LocalizedString Language="ru">Содержание задания ответственного лица</LocalizedString>
+					<LocalizedString Language="uk">Зміст завдання відповідальної особи</LocalizedString>
+					<LocalizedString Language="lv">Konsolidētāja uzdevuma komentārs</LocalizedString>
+					<LocalizedString Language="ka">პასუხისმგებელი პირის კომენტარი დავალებაზე</LocalizedString>
+					<LocalizedString Language="ro">Conţinutul sarcinii persoanei responsabile</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="AuthorComment" ID="4D65C36B-BC6A-40A9-B68C-91BF1FD4380F" Type="unistring" Max="2048" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Author task comment</LocalizedString>
+					<LocalizedString Language="ru">Содержание задания регистратора</LocalizedString>
+					<LocalizedString Language="uk">Зміст завдання автора</LocalizedString>
+					<LocalizedString Language="lv">Autora uzdevuma komentārs</LocalizedString>
+					<LocalizedString Language="ka">ავტორის დავალების კომენტარი</LocalizedString>
+					<LocalizedString Language="ro">Conţinutul sarcinii înregistratorului</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ProcessID" ID="A300F435-8010-46CD-9D86-6ED9A1A71946" Type="refcardid" DefaultValue="" RefKind="Hard" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Approval process</LocalizedString>
+					<LocalizedString Language="ru">Процесс согласования</LocalizedString>
+					<LocalizedString Language="lv">Saskaņošanas  process</LocalizedString>
+					<LocalizedString Language="ka">თანხმობის გაცემის პროცესი</LocalizedString>
+					<LocalizedString Language="ro">Procesul coordonării &lt;{0}&gt;</LocalizedString>
+					<LocalizedString Language="uk">Процес затвердження</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ConsolidatorSeqComment" ID="E5502BBC-B83F-4DC3-85E5-CB1F64C58B2C" Type="unistring" Max="2048" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Consolidator sequential control task comment</LocalizedString>
+					<LocalizedString Language="ru">Содержание задания контроля при последовательном согласовании</LocalizedString>
+					<LocalizedString Language="lv">Secīgas konsolidētāja uzdevuma kontroles komentārs</LocalizedString>
+					<LocalizedString Language="ka">პასუხისმგებელი პირის კომენტარი თანმიმდევრობითი კონტროლის დავალებაზე</LocalizedString>
+					<LocalizedString Language="ro">Conţinutul sarcinii de verificare la coordonarea succesivă</LocalizedString>
+					<LocalizedString Language="uk">Опис завдання по контролю роботи узгоджуючих осіб:</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ConsolidateSeq" ID="A503BB63-FC92-4813-A67C-638BB848AAC3" Type="bool" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Sequential consoldation</LocalizedString>
+					<LocalizedString Language="ru">Последовательное утверждение</LocalizedString>
+					<LocalizedString Language="lv">Secīga konsolidēšana</LocalizedString>
+					<LocalizedString Language="ka">თანმიმდევრული დამტკიცება</LocalizedString>
+					<LocalizedString Language="ro">Aprobare consecutivă</LocalizedString>
+					<LocalizedString Language="uk">Послідовне утвердження</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="MixedType" ID="D6ECD98E-DF16-457A-A6C7-4C0FE235C726" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Mixed processing type</LocalizedString>
+					<LocalizedString Language="ru">Смешанный тип рассылки</LocalizedString>
+					<LocalizedString Language="lv">Jaukta izsūtīšanas kārtība</LocalizedString>
+					<LocalizedString Language="ka">დაგზავნის შერეული ფორმის ტიპი</LocalizedString>
+					<LocalizedString Language="ro">Tip mixt de expediere</LocalizedString>
+					<LocalizedString Language="uk">Змішаний тип обробки</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ConsolidatorPositionID" ID="47F368C3-4346-476C-99B2-4A18368CAB38" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="CFDFE60A-21A8-4010-84E9-9D2DF348508C" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Consolidator position</LocalizedString>
+					<LocalizedString Language="ru">Должность ответственного лица</LocalizedString>
+					<LocalizedString Language="lv">Konsolidētāja amats</LocalizedString>
+					<LocalizedString Language="ka">პასუხისმგებელი პირის ვალდებულება</LocalizedString>
+					<LocalizedString Language="ro">Funcţia persoanei responsabile</LocalizedString>
+					<LocalizedString Language="uk">Посада відповідальної особи</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="ConsolidatorPosition" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="ConsolidatorDepartmentID" ID="60F157AB-F7C3-4592-A247-594E8DCDCE31" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="7473F07F-11ED-4762-9F1E-7FF10808DDD1" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Consolidator department</LocalizedString>
+					<LocalizedString Language="ru">Подразделение ответственного лица</LocalizedString>
+					<LocalizedString Language="lv">Konsolidētāja departaments</LocalizedString>
+					<LocalizedString Language="ka">პასუხისმგებელი პირის განყოფილება</LocalizedString>
+					<LocalizedString Language="ro">Sudbiviziunea persoanei responsabile</LocalizedString>
+					<LocalizedString Language="uk">Підрозділ відповідальної особи</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="ConsolidatorDepartment" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="EmailNotification" ID="C74175FD-EBDC-40A5-81DC-B509F21E4D50" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">E-mail notification</LocalizedString>
+					<LocalizedString Language="ru">Дублировать задание на e-mail</LocalizedString>
+					<LocalizedString Language="lv">Dublēt paziņojumu ar e-pasta vēstuli</LocalizedString>
+					<LocalizedString Language="ka">ელფოსტის შეტყობინება</LocalizedString>
+					<LocalizedString Language="ro">Notificare pe e-mail</LocalizedString>
+					<LocalizedString Language="uk">Дублювати завдання на e-mail</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="StartDateParam" ID="9117CB83-854A-4647-8BAF-A29288032DC8" Type="string" Max="64" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Start date parameter</LocalizedString>
+					<LocalizedString Language="ru">Параметр даты начала</LocalizedString>
+					<LocalizedString Language="lv">Sākuma datuma parametrs</LocalizedString>
+					<LocalizedString Language="ka">დაწყების დღის პარამეტრი</LocalizedString>
+					<LocalizedString Language="ro">Parametrul datei de lansare</LocalizedString>
+					<LocalizedString Language="uk">Параметр дати початку</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FinishDateParam" ID="125289E5-8604-4CFA-9F41-BA556E0D45E2" Type="string" Max="64" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Finish date parameter</LocalizedString>
+					<LocalizedString Language="ru">Параметр даты завершения</LocalizedString>
+					<LocalizedString Language="lv">Izpildes datuma parametrs</LocalizedString>
+					<LocalizedString Language="ka">დასრულების თარიღის პარამეტრი</LocalizedString>
+					<LocalizedString Language="ro">Parametrul datei de finisare</LocalizedString>
+					<LocalizedString Language="uk">Параметр для закінчення</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="AppFullRights" ID="EDC92E5E-C997-4B74-ADB9-6721D858C519" Type="bool" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Full rights for approvers</LocalizedString>
+					<LocalizedString Language="ru">Не ограничивать права согласующих лиц</LocalizedString>
+					<LocalizedString Language="lv">Neierobežot saskaņotāju tiesības</LocalizedString>
+					<LocalizedString Language="ka">სრული უფლებები დამტკიცებლებისთვის</LocalizedString>
+					<LocalizedString Language="ro">Drepturile depline pentru persoanele coordonatoare</LocalizedString>
+					<LocalizedString Language="uk">Повні права для затвердження</LocalizedString>
+				</Name>
+			</Field>
+			<Section Alias="Approvers" Type="coll" ID="76938C95-9F44-4C38-BD6B-5B786EDF8A34" SimpleSecurity="true">
+				<Name>
+					<LocalizedString Language="en">Approvers</LocalizedString>
+					<LocalizedString Language="uk">Узгоджуючі особи</LocalizedString>
+					<LocalizedString Language="ru">Согласующие лица</LocalizedString>
+					<LocalizedString Language="lv">Saskaņotāji </LocalizedString>
+					<LocalizedString Language="ka">შემთანხმებლები</LocalizedString>
+					<LocalizedString Language="ro">Persoane coordonatoare</LocalizedString>
+				</Name>
+				<Field Alias="ApproverID" ID="E957DBD5-A335-46BE-84E5-4EB137AEA76E" Type="uniqueid" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Approver</LocalizedString>
+						<LocalizedString Language="uk">Затверджує</LocalizedString>
+						<LocalizedString Language="ru">Согласующее лицо</LocalizedString>
+						<LocalizedString Language="lv">Saskaņotājs</LocalizedString>
+						<LocalizedString Language="ka">შემთანხმებელი პირი</LocalizedString>
+						<LocalizedString Language="ro">Coordonator</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="State" ID="F7DAA40F-0403-40B0-A779-28126E826294" Type="enum" DefaultValue="0" SuppressSearch="true" CopyBehavior="Null">
+					<Name>
+						<LocalizedString Language="en">State</LocalizedString>
+						<LocalizedString Language="uk">Стан</LocalizedString>
+						<LocalizedString Language="ru">Состояние</LocalizedString>
+						<LocalizedString Language="lv">Stāvoklis</LocalizedString>
+						<LocalizedString Language="ka">მდგომარეობა</LocalizedString>
+						<LocalizedString Language="ro">Stare</LocalizedString>
+					</Name>
+					<Enum Alias="Inactive" Value="0">
+						<Name>
+							<LocalizedString Language="en">Inactive</LocalizedString>
+							<LocalizedString Language="uk">Неактивний</LocalizedString>
+							<LocalizedString Language="ru">Не активен</LocalizedString>
+							<LocalizedString Language="lv">Neaktīvs</LocalizedString>
+							<LocalizedString Language="ka">არააქტიური</LocalizedString>
+							<LocalizedString Language="ro">Inactiv</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="Approving" Value="1">
+						<Name>
+							<LocalizedString Language="en">Approving</LocalizedString>
+							<LocalizedString Language="uk">Узгодження</LocalizedString>
+							<LocalizedString Language="ru">Согласование</LocalizedString>
+							<LocalizedString Language="lv">Saskaņošana</LocalizedString>
+							<LocalizedString Language="ka">შეთანხმება</LocalizedString>
+							<LocalizedString Language="ro">La coordonare</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="ApprovedOK" Value="2">
+						<Name>
+							<LocalizedString Language="en">Approved OK</LocalizedString>
+							<LocalizedString Language="uk">Погоджений</LocalizedString>
+							<LocalizedString Language="ru">Согласовано</LocalizedString>
+							<LocalizedString Language="lv">Saskaņots  </LocalizedString>
+							<LocalizedString Language="ka">შეთანხმებულია</LocalizedString>
+							<LocalizedString Language="ro">Coordonat</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="ApprovedRemarks" Value="3">
+						<Name>
+							<LocalizedString Language="en">Approved with remarks</LocalizedString>
+							<LocalizedString Language="uk">Затверджений із зауваженнями</LocalizedString>
+							<LocalizedString Language="ru">Согласовано с замечаниями</LocalizedString>
+							<LocalizedString Language="lv">Saskaņots ar piezīmēm</LocalizedString>
+							<LocalizedString Language="ka">შეთანხმებულია შენიშვნებით</LocalizedString>
+							<LocalizedString Language="ro">Coordonat cu observaţiile</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="NotApproved" Value="4">
+						<Name>
+							<LocalizedString Language="en">Not approved</LocalizedString>
+							<LocalizedString Language="uk">Не затверджено</LocalizedString>
+							<LocalizedString Language="ru">Не согласовано</LocalizedString>
+							<LocalizedString Language="lv">Nav saskaņots </LocalizedString>
+							<LocalizedString Language="ka">არ არის შეთანხმებული</LocalizedString>
+							<LocalizedString Language="ro">Necoordonat</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="Recalled" Value="5">
+						<Name>
+							<LocalizedString Language="en">Recalled</LocalizedString>
+							<LocalizedString Language="ru">Отозвано</LocalizedString>
+							<LocalizedString Language="lv">Atsaukts</LocalizedString>
+							<LocalizedString Language="ka">გამოხმობილი</LocalizedString>
+							<LocalizedString Language="ro">Rechemat/refuzat</LocalizedString>
+							<LocalizedString Language="uk">Відкликано</LocalizedString>
+						</Name>
+					</Enum>
+				</Field>
+				<Field Alias="Comments" ID="EA1DB9DC-CAAA-4BED-B34A-70CC2399FD64" Type="unistring" Max="2048" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Comments</LocalizedString>
+						<LocalizedString Language="uk">Коментарі</LocalizedString>
+						<LocalizedString Language="ru">Содержание</LocalizedString>
+						<LocalizedString Language="lv">Komentāri</LocalizedString>
+						<LocalizedString Language="ka">კომენტარები</LocalizedString>
+						<LocalizedString Language="ro">Comentarii</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="TaskID" ID="AB1DF9CF-9841-4035-9CAF-8A4F9F982456" Type="refcardid" RefType="F7E2090A-EEC3-4B51-B1BB-567D4A0117D6" DefaultValue="" RefKind="Weak" CopyBehavior="Null">
+					<Name>
+						<LocalizedString Language="ru">Задание исполнителя</LocalizedString>
+						<LocalizedString Language="uk">Ярлик виконавця</LocalizedString>
+						<LocalizedString Language="en">Performer's shortcut</LocalizedString>
+						<LocalizedString Language="lv">Izpildītāju saīsne</LocalizedString>
+						<LocalizedString Language="ka">შემსრულებლის მალსახმობი</LocalizedString>
+						<LocalizedString Language="ro">Eticheta executorului</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="Order" ID="E70CB209-85FB-457A-8155-67980D4C5AAA" Type="int" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Order</LocalizedString>
+						<LocalizedString Language="uk">Замовлення</LocalizedString>
+						<LocalizedString Language="ru">Порядок</LocalizedString>
+						<LocalizedString Language="lv">Kārtība:</LocalizedString>
+						<LocalizedString Language="ka">წესი</LocalizedString>
+						<LocalizedString Language="ro">Ordine</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="Duration" ID="46AC1E10-BAD0-46BB-9643-B8A15C8E9960" Type="int" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Duration</LocalizedString>
+						<LocalizedString Language="uk">Тривалість</LocalizedString>
+						<LocalizedString Language="ru">Длительность</LocalizedString>
+						<LocalizedString Language="lv">Ilgums</LocalizedString>
+						<LocalizedString Language="ka">ხანგრძლივობა</LocalizedString>
+						<LocalizedString Language="ro">Durata</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="ControlTaskID" ID="F763D6D7-C4A5-4088-BA7A-2D5989B2BF7B" Type="refcardid" RefType="F7E2090A-EEC3-4B51-B1BB-567D4A0117D6" DefaultValue="" RefKind="Weak" CopyBehavior="Null">
+					<Name>
+						<LocalizedString Language="en">Responsible control task</LocalizedString>
+						<LocalizedString Language="ru">Задание контроля для ответственного</LocalizedString>
+						<LocalizedString Language="lv">Atbildīgā kontroles uzdevums</LocalizedString>
+						<LocalizedString Language="ka">ამოცანის კონტროლი პასუხისმგებელ პირზე</LocalizedString>
+						<LocalizedString Language="ro">Sarcina controlului pentru responsabil</LocalizedString>
+						<LocalizedString Language="uk">Завдання контролю для відповідального</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="NotApprovedDisabled" ID="2D86E023-9BFE-4918-B859-7A0E8794F893" Type="bool" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Disable &lt;Not approved&gt; state</LocalizedString>
+						<LocalizedString Language="ru">Заблокировать состояние &lt;Не согласовано&gt;</LocalizedString>
+						<LocalizedString Language="lv">Aizliegt stāvokli &lt;Nav saskaņots &gt;</LocalizedString>
+						<LocalizedString Language="ka">გამორთვა მდგომარეობისა &lt;შეუთანხმებელი&gt;</LocalizedString>
+						<LocalizedString Language="ro">Blocarea stării &lt;Necoordonat&gt;</LocalizedString>
+						<LocalizedString Language="uk">Вимкнути &lt;Не approved&gt; стані</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="ApproverType" ID="321C82FB-262A-4BAE-B515-E679D4832891" Type="enum" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Approver type</LocalizedString>
+						<LocalizedString Language="ru">Тип согласующего лица</LocalizedString>
+						<LocalizedString Language="lv">Saskaņotāja tips</LocalizedString>
+						<LocalizedString Language="ka">შემთანხმებელი პირის ტიპი</LocalizedString>
+						<LocalizedString Language="ro">Tipul persoanii coordonatoare</LocalizedString>
+						<LocalizedString Language="uk">Тип узгоджуючої сособи</LocalizedString>
+					</Name>
+					<Enum Alias="Employee" Value="0">
+						<Name>
+							<LocalizedString Language="en">Employee</LocalizedString>
+							<LocalizedString Language="uk">Співробітник</LocalizedString>
+							<LocalizedString Language="ru">Сотрудник</LocalizedString>
+							<LocalizedString Language="lv">Darbinieks</LocalizedString>
+							<LocalizedString Language="ka">თანამშრომელი</LocalizedString>
+							<LocalizedString Language="ro">Colaborator</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="Department" Value="1">
+						<Name>
+							<LocalizedString Language="en">Department</LocalizedString>
+							<LocalizedString Language="uk">Департамент</LocalizedString>
+							<LocalizedString Language="ru">Отдел</LocalizedString>
+							<LocalizedString Language="lv">Departaments</LocalizedString>
+							<LocalizedString Language="ka">განყოფილება</LocalizedString>
+							<LocalizedString Language="ro">Subdiviziune</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="Group" Value="2">
+						<Name>
+							<LocalizedString Language="en">Group</LocalizedString>
+							<LocalizedString Language="uk">Група</LocalizedString>
+							<LocalizedString Language="ru">Группа</LocalizedString>
+							<LocalizedString Language="lv">Grupa</LocalizedString>
+							<LocalizedString Language="ka">ჯგუფი</LocalizedString>
+							<LocalizedString Language="ro">Grupul</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="Role" Value="3">
+						<Name>
+							<LocalizedString Language="en">Role</LocalizedString>
+							<LocalizedString Language="uk">Роль</LocalizedString>
+							<LocalizedString Language="ru">Роль</LocalizedString>
+							<LocalizedString Language="lv">Loma</LocalizedString>
+							<LocalizedString Language="ka">როლი</LocalizedString>
+							<LocalizedString Language="ro">Rolul</LocalizedString>
+						</Name>
+					</Enum>
+				</Field>
+				<Field Alias="ApproverName" ID="5997D6CD-CEA2-47A4-9A06-5A0B0C0349AA" Type="unistring" Max="256" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Approver name</LocalizedString>
+						<LocalizedString Language="ru">Имя согласующего лица</LocalizedString>
+						<LocalizedString Language="lv">Saskaņotāja vārds</LocalizedString>
+						<LocalizedString Language="ka">შემთანხმებელი პირის სახელი</LocalizedString>
+						<LocalizedString Language="ro">Numele persoanei coordonatoare</LocalizedString>
+						<LocalizedString Language="uk">Затверджує ім'я</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="ApproverPositionID" ID="FB3D349B-BFBB-4F36-8D45-A29FAB1D96F4" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="CFDFE60A-21A8-4010-84E9-9D2DF348508C" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Approver position</LocalizedString>
+						<LocalizedString Language="ru">Должность согласующего лица</LocalizedString>
+						<LocalizedString Language="lv">Saskaņotāja amats</LocalizedString>
+						<LocalizedString Language="ka">შემთანხმებელი პირის თანამდებობა</LocalizedString>
+						<LocalizedString Language="ro">Funcţia persoanei coordonatoare</LocalizedString>
+						<LocalizedString Language="uk">Посада узгоджуючої особи</LocalizedString>
+					</Name>
+					<RefFields>
+						<RefField Alias="ApproverPosition" SysField="false">Name</RefField>
+					</RefFields>
+				</Field>
+				<Field Alias="ApproverDepartmentID" ID="4E93CDA9-89FF-4757-9D1E-FE9AD0618DEF" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="7473F07F-11ED-4762-9F1E-7FF10808DDD1" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Approver department</LocalizedString>
+						<LocalizedString Language="ru">Подразделение согласующего лица</LocalizedString>
+						<LocalizedString Language="lv">Saskaņotāja departaments</LocalizedString>
+						<LocalizedString Language="ka">შემთანხმებელი პირის დეპარტამენტი</LocalizedString>
+						<LocalizedString Language="ro">Subdiviziunea persoanei coordonatoare</LocalizedString>
+						<LocalizedString Language="uk">Підрозділ узгоджуючої особи</LocalizedString>
+					</Name>
+					<RefFields>
+						<RefField Alias="ApproverDepartment" SysField="false">Name</RefField>
+					</RefFields>
+				</Field>
+				<Field Alias="EmailNotification" ID="E14910FA-2B18-42DD-B3D8-F4BC9720ED9C" Type="bool" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">E-mail notification</LocalizedString>
+						<LocalizedString Language="ru">Дублировать задание на e-mail</LocalizedString>
+						<LocalizedString Language="lv">Dublēt paziņojumu ar e-pasta vēstuli</LocalizedString>
+						<LocalizedString Language="ka">ელფოსტის შეტყობინება</LocalizedString>
+						<LocalizedString Language="ro">Notificare pe e-mail</LocalizedString>
+						<LocalizedString Language="uk">Дублювати завдання на e-mail</LocalizedString>
+					</Name>
+				</Field>
+				<Section Alias="Deputies" Type="coll" ID="1C2FF3B3-532B-483A-B231-29A951CA56CA" SimpleSecurity="true">
+					<Name>
+						<LocalizedString Language="ru">Заместители</LocalizedString>
+						<LocalizedString Language="uk">Заступники</LocalizedString>
+						<LocalizedString Language="en">Deputies</LocalizedString>
+						<LocalizedString Language="lv">Aizvietotāji</LocalizedString>
+						<LocalizedString Language="ka">მოადგილეები</LocalizedString>
+						<LocalizedString Language="ro">Înlocuitori</LocalizedString>
+					</Name>
+					<Field Alias="DeputyID" ID="51AFCA17-41A0-48B5-AD80-F82513D0839E" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+						<Name>
+							<LocalizedString Language="en">Deputy</LocalizedString>
+							<LocalizedString Language="uk">Заступник</LocalizedString>
+							<LocalizedString Language="ru">Заместитель</LocalizedString>
+							<LocalizedString Language="lv">Aizvietotājs</LocalizedString>
+							<LocalizedString Language="ka">მოადგილე</LocalizedString>
+							<LocalizedString Language="ro">Înlocuitor</LocalizedString>
+						</Name>
+						<RefFields>
+							<RefField Alias="" SysField="false">LastName</RefField>
+							<RefField Alias="" SysField="false">FirstName</RefField>
+							<RefField Alias="" SysField="false">MiddleName</RefField>
+						</RefFields>
+					</Field>
+					<DisplayFields />
+				</Section>
+				<Section Alias="ViewRights" Type="coll" ID="EA400589-1F30-4F23-A325-D0DF9E38B2BD" SimpleSecurity="true">
+					<Name>
+						<LocalizedString Language="en">View rights</LocalizedString>
+						<LocalizedString Language="uk">Права перегляду</LocalizedString>
+						<LocalizedString Language="ru">Права просмотра</LocalizedString>
+						<LocalizedString Language="lv">Skatīt tiesības</LocalizedString>
+						<LocalizedString Language="ka">უფლებების ნახვა</LocalizedString>
+						<LocalizedString Language="ro">Drepturi la vizualizare</LocalizedString>
+					</Name>
+					<Field Alias="ApproverRowID" ID="899042BC-A92C-4E7E-AF73-7A0CFEFEE6BB" Type="refid" RefType="A231269C-6126-4C1A-9758-F55FF9571EF8" RefSection="76938C95-9F44-4C38-BD6B-5B786EDF8A34" DefaultValue="" CopyBehavior="Copy">
+						<Name>
+							<LocalizedString Language="en">Approver</LocalizedString>
+							<LocalizedString Language="uk">Затверджує</LocalizedString>
+							<LocalizedString Language="ru">Согласующее лицо</LocalizedString>
+							<LocalizedString Language="lv">Saskaņotājs</LocalizedString>
+							<LocalizedString Language="ka">შემთანხმებელი პირი</LocalizedString>
+							<LocalizedString Language="ro">Coordonator</LocalizedString>
+						</Name>
+					</Field>
+					<Field Alias="FileRowID" ID="ED4BCEB6-43E1-436C-B3E0-582D3DE2740E" Type="refid" RefType="A231269C-6126-4C1A-9758-F55FF9571EF8" RefSection="7A9F0D60-444E-41AF-845E-4F4E94F43A52" DefaultValue="" CopyBehavior="Copy">
+						<Name>
+							<LocalizedString Language="en">File row</LocalizedString>
+							<LocalizedString Language="uk">Рядок файлу</LocalizedString>
+							<LocalizedString Language="ru">Строка файла</LocalizedString>
+							<LocalizedString Language="lv">Faila rinda</LocalizedString>
+							<LocalizedString Language="ka">ფაილის რიგი</LocalizedString>
+							<LocalizedString Language="ro">Rîndul fişierului</LocalizedString>
+						</Name>
+					</Field>
+					<DisplayFields />
+				</Section>
+				<SortBy>
+					<Field>Order</Field>
+				</SortBy>
+				<DisplayFields />
+			</Section>
+			<Section Alias="Files" RowAlias="" Type="coll" ID="7A9F0D60-444E-41AF-845E-4F4E94F43A52" SimpleSecurity="true">
+				<Name>
+					<LocalizedString Language="en">Files</LocalizedString>
+					<LocalizedString Language="uk">Файли</LocalizedString>
+					<LocalizedString Language="ru">Файлы</LocalizedString>
+					<LocalizedString Language="lv">Faili</LocalizedString>
+					<LocalizedString Language="ka">ფაილები</LocalizedString>
+					<LocalizedString Language="ro">Fişiere</LocalizedString>
+				</Name>
+				<Field Alias="CardFileID" ID="EB745DFE-5D54-42CA-A5AD-F9A0400274B8" Type="refcardid" RefType="2BBD0A41-265E-4FF8-82D6-C6342F34B1AF" RefSection="B4562DF8-AF19-4D0F-85CA-53A311354D39" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+					<Name>
+						<LocalizedString Language="en">File</LocalizedString>
+						<LocalizedString Language="uk">Файл</LocalizedString>
+						<LocalizedString Language="ru">Файл</LocalizedString>
+						<LocalizedString Language="lv">Fails</LocalizedString>
+						<LocalizedString Language="ka">ფაილი</LocalizedString>
+						<LocalizedString Language="ro">Fişier</LocalizedString>
+					</Name>
+					<RefFields>
+						<RefField Alias="" SysField="false">FileID</RefField>
+						<RefField Alias="" SysField="false">FileName</RefField>
+						<RefField Alias="" SysField="false">Author</RefField>
+					</RefFields>
+				</Field>
+				<Field Alias="FileType" ID="F7EA6802-ECD4-4B2B-A0D5-961EC7C1308F" Type="enum" NotNull="true" DefaultValue="0" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">File type</LocalizedString>
+						<LocalizedString Language="uk">Тип файлу</LocalizedString>
+						<LocalizedString Language="ru">Тип файла</LocalizedString>
+						<LocalizedString Language="lv">Faila tips</LocalizedString>
+						<LocalizedString Language="ka">ფაილის ტიპი</LocalizedString>
+						<LocalizedString Language="ro">Tipul fişierului</LocalizedString>
+					</Name>
+					<Enum Alias="ToApprove" Value="0">
+						<Name>
+							<LocalizedString Language="en">To approve</LocalizedString>
+							<LocalizedString Language="uk">До узгодження</LocalizedString>
+							<LocalizedString Language="ru">Для согласования</LocalizedString>
+							<LocalizedString Language="lv">Saskaņot </LocalizedString>
+							<LocalizedString Language="ka">დასამტკიცებლად</LocalizedString>
+							<LocalizedString Language="ro">La coordonare</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="Version" Value="1">
+						<Name>
+							<LocalizedString Language="en">Version</LocalizedString>
+							<LocalizedString Language="uk">Версія</LocalizedString>
+							<LocalizedString Language="ru">Версия</LocalizedString>
+							<LocalizedString Language="lv">Versija</LocalizedString>
+							<LocalizedString Language="ka">ვერსია</LocalizedString>
+							<LocalizedString Language="ro">Versiunea</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="Comment" Value="2">
+						<Name>
+							<LocalizedString Language="en">Comment</LocalizedString>
+							<LocalizedString Language="uk">Коментар</LocalizedString>
+							<LocalizedString Language="ru">Комментарий</LocalizedString>
+							<LocalizedString Language="lv">Komentārs</LocalizedString>
+							<LocalizedString Language="ka">კომენტარი</LocalizedString>
+							<LocalizedString Language="ro">Comentarii</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="Consolidated" Value="3">
+						<Name>
+							<LocalizedString Language="en">Consolidated</LocalizedString>
+							<LocalizedString Language="uk">Затверджений</LocalizedString>
+							<LocalizedString Language="ru">Утвержденный</LocalizedString>
+							<LocalizedString Language="lv">Konsolidēts</LocalizedString>
+							<LocalizedString Language="ka">დამტკიცებული</LocalizedString>
+							<LocalizedString Language="ro">Aprobat</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="ApprovedInfo" Value="4">
+						<Name>
+							<LocalizedString Language="en">Approved info</LocalizedString>
+							<LocalizedString Language="uk">Інформація про узгодження</LocalizedString>
+							<LocalizedString Language="ru">Информация о согласовании</LocalizedString>
+							<LocalizedString Language="lv">Saskaņotā informācija</LocalizedString>
+							<LocalizedString Language="ka">შეთანხმებული ინფორმაცია</LocalizedString>
+							<LocalizedString Language="ro">Informaţie despre coordonare</LocalizedString>
+						</Name>
+					</Enum>
+				</Field>
+				<Field Alias="CanModify" ID="FF687000-0C0D-4492-A2FB-F7F0C3B7F6CA" Type="bool" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Can modify</LocalizedString>
+						<LocalizedString Language="uk">Дозволено редагування</LocalizedString>
+						<LocalizedString Language="ru">Разрешено изменение</LocalizedString>
+						<LocalizedString Language="lv">Var mainīt</LocalizedString>
+						<LocalizedString Language="ka">შეცვლა შეიძლება</LocalizedString>
+						<LocalizedString Language="ro">Modificare</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="ApproverRowID" ID="C54B91F5-A0EF-4E09-A49F-A68634BF133A" Type="refid" RefType="A231269C-6126-4C1A-9758-F55FF9571EF8" RefSection="76938C95-9F44-4C38-BD6B-5B786EDF8A34" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Approver</LocalizedString>
+						<LocalizedString Language="uk">Затверджує</LocalizedString>
+						<LocalizedString Language="ru">Согласователь</LocalizedString>
+						<LocalizedString Language="lv">Saskaņotājs</LocalizedString>
+						<LocalizedString Language="ka">შემთანხმებელი პირი</LocalizedString>
+						<LocalizedString Language="ro">Coordonator</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="ResultFolder" ID="015F73BC-E805-41B9-9A9B-0B1698C29E86" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Result folder</LocalizedString>
+						<LocalizedString Language="uk">Папка результуючого документу</LocalizedString>
+						<LocalizedString Language="ru">Папка результирующего документа</LocalizedString>
+						<LocalizedString Language="lv">Rezultātu mape</LocalizedString>
+						<LocalizedString Language="ka">შემაჯამებელი დოკუმენტის საქაღალდე</LocalizedString>
+						<LocalizedString Language="ro">Mapa documentului rezultativ</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="IsNew" ID="C3D0B026-93CE-4BF5-9BF3-29CA05A47B6D" Type="bool" DefaultValue="" SuppressSearch="true" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Is new</LocalizedString>
+						<LocalizedString Language="uk">Новий</LocalizedString>
+						<LocalizedString Language="ru">Новый</LocalizedString>
+						<LocalizedString Language="lv">Jauns</LocalizedString>
+						<LocalizedString Language="ka">ახალი ფაილი</LocalizedString>
+						<LocalizedString Language="ro">Nou</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="IsDeleted" ID="7BA69D45-3D68-4078-834D-E0ED9ACEAEFB" Type="bool" DefaultValue="" SuppressSearch="true" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Is deleted</LocalizedString>
+						<LocalizedString Language="uk">Видаляється</LocalizedString>
+						<LocalizedString Language="ru">Удален</LocalizedString>
+						<LocalizedString Language="lv">Dzēsts</LocalizedString>
+						<LocalizedString Language="ka">წაშლილია</LocalizedString>
+						<LocalizedString Language="ro">Fişierul este şters</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="FileState" ID="4C92C085-7B78-487F-BFF7-826C309C4E19" Type="enum" DefaultValue="0" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">File state</LocalizedString>
+						<LocalizedString Language="uk">Стан файлу</LocalizedString>
+						<LocalizedString Language="ru">Состояние файла</LocalizedString>
+						<LocalizedString Language="lv">Faila stāvoklis</LocalizedString>
+						<LocalizedString Language="ka">ფაილის მდგომარეობა</LocalizedString>
+						<LocalizedString Language="ro">Starea fişierului</LocalizedString>
+					</Name>
+					<Enum Alias="ToApprove" Value="0">
+						<Name>
+							<LocalizedString Language="en">To approve</LocalizedString>
+							<LocalizedString Language="uk">До узгодження</LocalizedString>
+							<LocalizedString Language="ru">К согласованию</LocalizedString>
+							<LocalizedString Language="lv">Saskaņot </LocalizedString>
+							<LocalizedString Language="ka">დასამტკიცებლად</LocalizedString>
+							<LocalizedString Language="ro">La coordonare</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="ApprovedOK" Value="1">
+						<Name>
+							<LocalizedString Language="en">Approved OK</LocalizedString>
+							<LocalizedString Language="uk">Погоджений</LocalizedString>
+							<LocalizedString Language="ru">Согласован</LocalizedString>
+							<LocalizedString Language="lv">Saskaņots  </LocalizedString>
+							<LocalizedString Language="ka">შეთანხმებულია</LocalizedString>
+							<LocalizedString Language="ro">Coordonat</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="ApprovedRemarks" Value="2">
+						<Name>
+							<LocalizedString Language="en">Approved with remarks</LocalizedString>
+							<LocalizedString Language="uk">Затверджений із зауваженнями</LocalizedString>
+							<LocalizedString Language="ru">Согласован с замечаниями</LocalizedString>
+							<LocalizedString Language="lv">Saskaņots ar piezīmēm</LocalizedString>
+							<LocalizedString Language="ka">შეთანხმებულია შენიშვნებით</LocalizedString>
+							<LocalizedString Language="ro">Coordonat cu observaţiile</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="NotApproved" Value="3">
+						<Name>
+							<LocalizedString Language="en">Not approved</LocalizedString>
+							<LocalizedString Language="uk">Не затверджено</LocalizedString>
+							<LocalizedString Language="ru">Не согласован</LocalizedString>
+							<LocalizedString Language="lv">Nav saskaņots </LocalizedString>
+							<LocalizedString Language="ka">არ არის შეთანხმებული</LocalizedString>
+							<LocalizedString Language="ro">Necoordonat</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="Recalled" Value="4">
+						<Name>
+							<LocalizedString Language="en">Recalled</LocalizedString>
+							<LocalizedString Language="ru">Отозван</LocalizedString>
+							<LocalizedString Language="lv">Atsaukts</LocalizedString>
+							<LocalizedString Language="ka">გამოხმობილი</LocalizedString>
+							<LocalizedString Language="ro">Rechemat/refuzat</LocalizedString>
+							<LocalizedString Language="uk">Відкликано</LocalizedString>
+						</Name>
+					</Enum>
+				</Field>
+				<Field Alias="FileRowID" ID="A7A73ADB-E7A5-44F3-9132-B0C6716291C4" Type="refid" RefType="A231269C-6126-4C1A-9758-F55FF9571EF8" RefSection="7A9F0D60-444E-41AF-845E-4F4E94F43A52" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Original file</LocalizedString>
+						<LocalizedString Language="uk">Оригінальний файл</LocalizedString>
+						<LocalizedString Language="ru">Оригинальный файл</LocalizedString>
+						<LocalizedString Language="lv">Faila oriģināls</LocalizedString>
+						<LocalizedString Language="ka">საწყისი ფაილი</LocalizedString>
+						<LocalizedString Language="ro">Fişier original</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="LastEmployeeID" ID="DC90F8BC-5C26-4D09-8961-98FAE58F239C" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Employee</LocalizedString>
+						<LocalizedString Language="uk">Співробітник</LocalizedString>
+						<LocalizedString Language="ru">Сотрудник</LocalizedString>
+						<LocalizedString Language="lv">Darbinieks</LocalizedString>
+						<LocalizedString Language="ka">თანამშრომელი</LocalizedString>
+						<LocalizedString Language="ro">Colaborator</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="LastDate" ID="6E9F5C8F-E464-4EDB-B4CC-438FC338DFC6" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Last change date</LocalizedString>
+						<LocalizedString Language="uk">Дата останнього редагування</LocalizedString>
+						<LocalizedString Language="ru">Дата последнего изменения</LocalizedString>
+						<LocalizedString Language="lv">Pēdējās izmaiņas</LocalizedString>
+						<LocalizedString Language="ka">ბოლო ცვლილების თარიღი</LocalizedString>
+						<LocalizedString Language="ro">Data ultimei modificări</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="IsCheckedOut" ID="7CFC6AD9-2C52-4A45-907A-3899169D3143" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Is checked out</LocalizedString>
+						<LocalizedString Language="ru">Файл заблокирован</LocalizedString>
+						<LocalizedString Language="uk">Файл заблоковано</LocalizedString>
+						<LocalizedString Language="lv">Bloķēts</LocalizedString>
+						<LocalizedString Language="ka">ფაილი დაბლოკილია</LocalizedString>
+						<LocalizedString Language="ro">Fişierul este blocat</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="VerCardFileID" ID="C314C4EA-0A7A-491B-8D5C-8623CDC1B10F" Type="refcardid" RefType="2BBD0A41-265E-4FF8-82D6-C6342F34B1AF" RefSection="B4562DF8-AF19-4D0F-85CA-53A311354D39" DefaultValue="" SuppressSearch="true" CopyBehavior="Null">
+					<Name>
+						<LocalizedString Language="en">Versioned card file</LocalizedString>
+						<LocalizedString Language="ru">Карточка файла с версиями</LocalizedString>
+						<LocalizedString Language="lv">Kartiņas fails ar versijām</LocalizedString>
+						<LocalizedString Language="ka">ფაილის ბარათი ვერსიებით</LocalizedString>
+						<LocalizedString Language="ro">Fişa fişierului cu versiunile</LocalizedString>
+						<LocalizedString Language="uk">Карточка файла з версіями</LocalizedString>
+					</Name>
+					<Description />
+				</Field>
+				<Field Alias="FileRemarks" ID="B94957CE-3CF2-495F-A7A8-3E940E595549" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">File remarks</LocalizedString>
+						<LocalizedString Language="ru">Замечания к файлу</LocalizedString>
+						<LocalizedString Language="lv">Izmaiņas failā</LocalizedString>
+						<LocalizedString Language="ka">ფაილის შენიშვნები</LocalizedString>
+						<LocalizedString Language="ro">Observaţii la fişier</LocalizedString>
+						<LocalizedString Language="uk">Замітки до файлу</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="CardRefID" ID="A14BA662-5F55-44FF-AD24-D56F5BAEAB27" Type="refcardid" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Card</LocalizedString>
+						<LocalizedString Language="ru">Карточка</LocalizedString>
+						<LocalizedString Language="lv">Kartiņa</LocalizedString>
+						<LocalizedString Language="ka">ბარათი</LocalizedString>
+						<LocalizedString Language="ro">Fişa</LocalizedString>
+						<LocalizedString Language="uk">Картка</LocalizedString>
+					</Name>
+					<RefFields>
+						<RefField Alias="" SysField="true">Description</RefField>
+					</RefFields>
+				</Field>
+				<Field Alias="OriginalFileName" ID="FA662BC7-C892-490B-9817-7039EB419871" Type="unistring" Max="512" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Original file name</LocalizedString>
+						<LocalizedString Language="ru">Имя оригинального файла</LocalizedString>
+						<LocalizedString Language="lv">Oriģinālā faila nosaukums</LocalizedString>
+						<LocalizedString Language="ka">საწყისი ფაილის სახელი</LocalizedString>
+						<LocalizedString Language="ro">Numele fişierului original</LocalizedString>
+						<LocalizedString Language="uk">Оригінальне ім'я файлу</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="ApproveOriginal" ID="B1B3B76D-718E-4801-9791-D3AC725E1F9D" Type="bool" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Approve versions of last approved file</LocalizedString>
+						<LocalizedString Language="ru">Направлять на согласование копии файла</LocalizedString>
+						<LocalizedString Language="lv">Saskaņot pēdējā saskaņotā faila versijas</LocalizedString>
+						<LocalizedString Language="ka">ბოლოს დამტკიცებული ფაილის ვერსიების დამტკიცება</LocalizedString>
+						<LocalizedString Language="ro">Coordonează versiunile ultimului fişier coordonat</LocalizedString>
+						<LocalizedString Language="uk">Направляти на узгодження копії файлу</LocalizedString>
+					</Name>
+					<Description />
+				</Field>
+				<DisplayFields FormatString="" />
+			</Section>
+			<Section Alias="MixedTypes" RowAlias="" Type="coll" ID="CAF0AE76-5036-4CBF-AD8E-843FE8DF93B8" SimpleSecurity="true">
+				<Name>
+					<LocalizedString Language="en">Mixed processing type</LocalizedString>
+					<LocalizedString Language="ru">Смешанный тип рассылки</LocalizedString>
+					<LocalizedString Language="lv">Jaukta izsūtīšanas kārtība</LocalizedString>
+					<LocalizedString Language="ka">დაგზავნის შერეული ფორმის ტიპი</LocalizedString>
+					<LocalizedString Language="ro">Tip mixt de expediere</LocalizedString>
+					<LocalizedString Language="uk">Змішаний тип обробки</LocalizedString>
+				</Name>
+				<Field Alias="Order" ID="F807B9FF-9272-4D98-8E51-D6079E31BE2B" Type="int" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Order</LocalizedString>
+						<LocalizedString Language="ru">Порядковый номер</LocalizedString>
+						<LocalizedString Language="lv">Kārtība:</LocalizedString>
+						<LocalizedString Language="ka">წესი</LocalizedString>
+						<LocalizedString Language="ro">Ordine</LocalizedString>
+						<LocalizedString Language="uk">Замовлення</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="IsSequential" ID="2ADA636D-46F7-4496-A526-75A82420A44B" Type="bool" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Sequential</LocalizedString>
+						<LocalizedString Language="ru">Последовательно</LocalizedString>
+						<LocalizedString Language="lv">Secīgi</LocalizedString>
+						<LocalizedString Language="ka">თანმიმდევრულად</LocalizedString>
+						<LocalizedString Language="ro">Consecutiv</LocalizedString>
+						<LocalizedString Language="uk">Послідовний</LocalizedString>
+					</Name>
+				</Field>
+				<Section Alias="ApproversSet" Type="coll" ID="5151E289-F5A9-4A4D-A364-736F207FC9D0" SimpleSecurity="true">
+					<Name>
+						<LocalizedString Language="en">Approvers set for mixed type</LocalizedString>
+						<LocalizedString Language="ru">Блок согласования для смешанного типа</LocalizedString>
+						<LocalizedString Language="lv">Saskaņotāju bloks</LocalizedString>
+						<LocalizedString Language="ka">შეთანხმების ბლოკი</LocalizedString>
+						<LocalizedString Language="ro">Blocul de coordonare</LocalizedString>
+						<LocalizedString Language="uk">Блок узгоджувачів для змішаного типу</LocalizedString>
+					</Name>
+					<Field Alias="Order" ID="EF0D7751-05E0-427C-9602-FFF69F1136DF" Type="int" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+						<Name>
+							<LocalizedString Language="en">Order</LocalizedString>
+							<LocalizedString Language="ru">Порядковый номер</LocalizedString>
+							<LocalizedString Language="lv">Kārtība:</LocalizedString>
+							<LocalizedString Language="ka">წესი</LocalizedString>
+							<LocalizedString Language="ro">Ordine</LocalizedString>
+							<LocalizedString Language="uk">Замовлення</LocalizedString>
+						</Name>
+					</Field>
+					<Field Alias="ApproverRowID" ID="61A43C90-09F6-44DA-B6C7-66443639D2F4" Type="refid" RefType="A231269C-6126-4C1A-9758-F55FF9571EF8" RefSection="76938C95-9F44-4C38-BD6B-5B786EDF8A34" DefaultValue="" CopyBehavior="Copy">
+						<Name>
+							<LocalizedString Language="en">Approver</LocalizedString>
+							<LocalizedString Language="ru">Согласователь</LocalizedString>
+							<LocalizedString Language="lv">Saskaņotājs</LocalizedString>
+							<LocalizedString Language="ka">შემთანხმებელი პირი</LocalizedString>
+							<LocalizedString Language="ro">Coordonator</LocalizedString>
+							<LocalizedString Language="uk">Затверджує</LocalizedString>
+						</Name>
+					</Field>
+					<SortBy>
+						<Field>Order</Field>
+					</SortBy>
+					<DisplayFields />
+				</Section>
+				<SortBy>
+					<Field>Order</Field>
+				</SortBy>
+				<DisplayFields FormatString="" />
+			</Section>
+			<SortBy>
+				<Field Descending="true">Cycle</Field>
+			</SortBy>
+			<DisplayFields />
+		</Section>
+		<Section Alias="Approvals" Type="coll" ID="2695BB57-67EB-48B9-B05C-1FF8B7C078C6" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Children approvals</LocalizedString>
+				<LocalizedString Language="ru">Подчиненные согласования</LocalizedString>
+				<LocalizedString Language="lv">Saskaņošanas apakšuzdevumi</LocalizedString>
+				<LocalizedString Language="ka">შვილებულების დამტკიცებები</LocalizedString>
+				<LocalizedString Language="ro">Coordonări subordonate</LocalizedString>
+				<LocalizedString Language="uk">Підлеглі узгодження</LocalizedString>
+			</Name>
+			<Field Alias="ApprovalID" ID="D0D344D3-DFB3-4062-9D44-D76A8C4966CC" Type="refcardid" RefType="A231269C-6126-4C1A-9758-F55FF9571EF8" RefSection="3C2F1AC3-8D26-425F-956B-A3B0B52BAC5D" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+				<Name>
+					<LocalizedString Language="en">Approval</LocalizedString>
+					<LocalizedString Language="uk">Узгодження</LocalizedString>
+					<LocalizedString Language="ru">Согласование</LocalizedString>
+					<LocalizedString Language="lv">Saskaņošana</LocalizedString>
+					<LocalizedString Language="ka">თანხმობა</LocalizedString>
+					<LocalizedString Language="ro">Coordonare</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<DisplayFields />
+		</Section>
+	</Sections>
+	<Transformations>
+		<Transformation ID="039E957B-D5E3-41D7-B514-B688443204D6" Type="XSLT" FileRef="XSLT\CardApproval.ru.xslt" Alias="PrintTemplateRu" ContentType="Text" Default="true" Language="ru">
+			<Name>
+				<LocalizedString Language="en">Russian Print Template</LocalizedString>
+				<LocalizedString Language="ru">Стандартный шаблон печати</LocalizedString>
+				<LocalizedString Language="uk">Стандартний шаблон друку</LocalizedString>
+				<LocalizedString Language="lv">Izdrukas šablons krievu valodā</LocalizedString>
+				<LocalizedString Language="ka">რუსული ამობეჭდვის შაბლონი</LocalizedString>
+				<LocalizedString Language="ro">Şablonul standard de imprimare</LocalizedString>
+			</Name>
+		</Transformation>
+		<Transformation ID="242EE9E2-B2E1-4379-AB61-7B28DA659CC8" Type="XSLT" FileRef="XSLT\CardApproval.xslt" Alias="PrintTemplateEn" ContentType="Text" Language="en">
+			<Name>
+				<LocalizedString Language="en">Print Template</LocalizedString>
+				<LocalizedString Language="uk">Англійський шаблон друку</LocalizedString>
+				<LocalizedString Language="ru">Английский шаблон печати</LocalizedString>
+				<LocalizedString Language="lv">Izdrukas šablons</LocalizedString>
+				<LocalizedString Language="ka">ბეჭდვის შაბლონი</LocalizedString>
+				<LocalizedString Language="ro">Imprimă Şablonul</LocalizedString>
+			</Name>
+		</Transformation>
+	</Transformations>
+	<VirtualFields>
+		<VirtualField Alias="ParentCard" ID="4AAC22F2-A62A-470D-A3D1-2462B157BDF4">
+			<Name>
+				<LocalizedString Language="en">Parent card</LocalizedString>
+				<LocalizedString Language="ru">Родительская карточка</LocalizedString>
+				<LocalizedString Language="lv">Sākotnējā kartiņa</LocalizedString>
+				<LocalizedString Language="ka">მშობელი ბარათი</LocalizedString>
+				<LocalizedString Language="ro">Fişa principală</LocalizedString>
+				<LocalizedString Language="uk">Головна карта</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="3C2F1AC3-8D26-425F-956B-A3B0B52BAC5D" Version="4000" Type="unistring"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="unistring"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="Description" SectionAlias="__PInstances" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="None" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__PInstances" SectionID="" TableName="dvsys_instances" SourceAlias="Main" SourceField="ParentCardID" DestField="InstanceID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="CycleApprovers" ID="C7788265-1238-4E69-9FC9-CE7013D943EF">
+			<Name>
+				<LocalizedString Language="en">Cycle approvers</LocalizedString>
+				<LocalizedString Language="ru">Согласующие лица цикла</LocalizedString>
+				<LocalizedString Language="lv">Saskaņotāji šajā ciklā</LocalizedString>
+				<LocalizedString Language="ka">ციკლის დამამტკიცებლები</LocalizedString>
+				<LocalizedString Language="ro">Coordonatorii ciclului</LocalizedString>
+				<LocalizedString Language="uk">Погоджуючі особи цикла</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="9C73DAD2-22FA-46B5-909C-924FF8ACC095" Version="4000" Type="unistring"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="unistring"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="ApproverName" SectionAlias="__Approvers" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Concatenate" SectionAlias="Main" Delimiter="; " PrimaryKey="RowID" KeyType="uniqueid" Type="unistring" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Approvers" SectionID="76938C95-9F44-4C38-BD6B-5B786EDF8A34" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="CycleFiles" ID="D1A85EC9-C505-4860-8390-04F4FEE2E712">
+			<Name>
+				<LocalizedString Language="en">Cycle documents</LocalizedString>
+				<LocalizedString Language="ru">Документы, согласуемые в цикле</LocalizedString>
+				<LocalizedString Language="lv">Ciklā saskaņojamie dokumenti</LocalizedString>
+				<LocalizedString Language="ka">ციკლის დოკუმენტები</LocalizedString>
+				<LocalizedString Language="ro">Documentelу ciclului</LocalizedString>
+				<LocalizedString Language="uk">Документи, погоджуючі в циклі</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="9C73DAD2-22FA-46B5-909C-924FF8ACC095" Version="4000" Type="unistring"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="unistring"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="FileName" SectionAlias="__FileMainInfo" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="URL" SectionAlias="__FileMainInfo" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="Description" SectionAlias="__AppInstances" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Concatenate" SectionAlias="Main" Delimiter="; " PrimaryKey="RowID" KeyType="uniqueid" Type="unistring" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__AppFiles" SectionID="7A9F0D60-444E-41AF-845E-4F4E94F43A52" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID"&gt;&lt;ConditionGroup Operation="And"&gt;&lt;Conditions&gt;&lt;Condition Operation="EQUALS"&gt;&lt;ConditionItems&gt;&lt;ConditionItem Value="FileType" SectionAlias="__AppFiles" /&gt;&lt;ConditionItem Value="0" /&gt;&lt;/ConditionItems&gt;&lt;/Condition&gt;&lt;/Conditions&gt;&lt;ConditionGroups /&gt;&lt;/ConditionGroup&gt;&lt;/JoinDef&gt;&lt;JoinDef Alias="__FileMainInfo" SectionID="B4562DF8-AF19-4D0F-85CA-53A311354D39" SourceAlias="__AppFiles" SourceField="CardFileID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__AppInstances" SectionID="" TableName="dvsys_instances" SourceAlias="__AppFiles" SourceField="CardRefID" DestField="InstanceID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+	</VirtualFields>
+</CardDefinition>

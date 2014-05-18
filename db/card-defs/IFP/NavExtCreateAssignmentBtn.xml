@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7C7C6462-D2D2-498C-BFB2-2B9842EFA072" Alias="NavExtCreateAssignmentBtn" Version="44" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{5018aa0a-285f-4cb3-81d8-63db686976a7}" Dictionary="true" NonViewable="true" NonCreatable="true" IconFile="Icons\gazprom.ico" UIExtension="true" NoHardShortcuts="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Create assignment button</LocalizedString>
+		<LocalizedString Language="ru">Кнопка "Создать Поручение"</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="Section1" Type="struct" ID="EF171A90-D5E5-4951-BE31-C603BA94AB5E">
+			<Name>
+				<LocalizedString Language="en">Do not delete</LocalizedString>
+				<LocalizedString Language="ru">Do not delete</LocalizedString>
+			</Name>
+			<Field Alias="Field1" ID="73D65E7D-2083-4873-AF3D-6439A15C1314" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Do not delete</LocalizedString>
+					<LocalizedString Language="ru">Do not delete</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="19F3B5F1-F2A6-439A-9863-305D69FED164" Alias="TransferLogCard" Version="11" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="" NonSearchable="true" NonCreatable="true" IconFile="" AlwaysRead="true" Copyable="true" SimpleSecurity="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Transfer log card</LocalizedString>
+		<LocalizedString Language="ru">Карточка Журнала передач</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="5ECEE53E-4533-43BD-829D-EAEB069D0D28">
+			<Name>
+				<LocalizedString Language="en">Main info</LocalizedString>
+				<LocalizedString Language="ru">Основная информация</LocalizedString>
+			</Name>
+			<Field Alias="ParentCard" ID="92058966-C3C1-44AA-BE7C-9C535BD7ABB6" Type="refcardid" DefaultValue="" RefKind="Simple" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Parent card</LocalizedString>
+					<LocalizedString Language="ru">Родительская карточка</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+		<Section Alias="TransferLog" Type="coll" ID="49834B18-D90D-4E87-8118-735A5AB1E998">
+			<Name>
+				<LocalizedString Language="en">Transfer log</LocalizedString>
+				<LocalizedString Language="ru">Журнал передач</LocalizedString>
+			</Name>
+			<Field Alias="FromEmployee" ID="A77B238B-E742-4812-92F5-C0F9DF6BC467" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">From employee</LocalizedString>
+					<LocalizedString Language="ru">От кого</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ToEmployee" ID="229EB386-AD7B-49F0-8799-6EFB964CC8AB" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">To employee</LocalizedString>
+					<LocalizedString Language="ru">Кому</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="TransferDate" ID="ECA30AA4-1C9B-4345-BD3F-019A854CB073" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Transfer date</LocalizedString>
+					<LocalizedString Language="ru">Дата передачи</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="DueDate" ID="8B666F5B-9811-4739-BD83-152E605F537C" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Due date</LocalizedString>
+					<LocalizedString Language="ru">Срок</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="State" ID="29A6AF6D-D4DA-4653-9553-37326367DA45" Type="enum" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">State</LocalizedString>
+					<LocalizedString Language="ru">Состояние</LocalizedString>
+				</Name>
+				<Enum Alias="Waiting" Value="1">
+					<Name>
+						<LocalizedString Language="en">Waiting</LocalizedString>
+						<LocalizedString Language="ru">Ожидание</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Confirmed" Value="2">
+					<Name>
+						<LocalizedString Language="en">Confirmed</LocalizedString>
+						<LocalizedString Language="ru">Подтверждено</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="NotConfirmed" Value="3">
+					<Name>
+						<LocalizedString Language="en">Not confirmed</LocalizedString>
+						<LocalizedString Language="ru">Не подтверждено</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="AssignmentID" ID="856A4175-1C38-4AFD-B05D-7436B2BF6B7A" Type="refcardid" RefType="FFF11133-DFC4-4CD6-A2D4-BD242E2A4670" RefSection="E3335F61-DBD9-447B-A539-4BF721FFD7B0" DefaultValue="" RefKind="Simple" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Assignment</LocalizedString>
+					<LocalizedString Language="ru">Поручение</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

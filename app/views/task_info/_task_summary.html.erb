@@ -1,0 +1,8 @@
+<ul class="task-summary">
+  <% [:overdue, :upcoming, :controlled].each do |prop| %>
+    <li class="task-summary-<%= prop %>">
+      <div class="header"><%=t "task_info.#{prop}" %></div>
+      <div class="total <%= "non-zero" if task_info.send(prop) > 0%>"><%= task_info.send(prop) %></div>
+    </li>
+  <% end %>
+</ul>

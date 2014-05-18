@@ -1,0 +1,3 @@
+nohup rake resque:work QUEUE=* 0<&- &>/dev/null &
+
+

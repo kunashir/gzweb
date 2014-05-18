@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="CFF4CCFB-FD44-485D-A26C-91860B0346BF" Alias="ReplicatorAdministrationCard" Version="13" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{D8EE3E61-2F74-404f-B4B3-4177857B422D}" Dictionary="true" NonSearchable="true" NonViewable="true" NonCreatable="true" IconFile="Icons\gazprom.ico" FolderCard="true" SimpleSecurity="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Replicator administration card</LocalizedString>
+		<LocalizedString Language="ru">Администрирование репликатора</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="Section1" Type="struct" ID="99B9EF60-073F-435D-BD8B-9E6F62BB8609">
+			<Name>
+				<LocalizedString Language="en">ф</LocalizedString>
+				<LocalizedString Language="ru">ф</LocalizedString>
+			</Name>
+			<Field Alias="Field1" ID="AAC5D573-CA04-4FF9-9D9C-D9FA999C7FF0" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">ф</LocalizedString>
+					<LocalizedString Language="ru">ф</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

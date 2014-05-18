@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="CFE97541-2F11-480C-9AE9-A9E1D824CC8F" Alias="UniversalApprovalCard" Version="13" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{9d6fa891-ac28-40c5-b5df-c20cb6fb2bb1}" IconFile="Icons\gazprom.ico" ShowLinked="true" NoLockOnOpen="true" CanBeTemplate="true" SimpleSecurity="true">
+  <Name>
+    <LocalizedString Language="en">Universal approval card</LocalizedString>
+    <LocalizedString Language="ru">Карточка универсального согласования</LocalizedString>
+  </Name>
+  <Sections>
+    <Section Alias="MainInfo" RowAlias="" Type="struct" ID="633A3831-70E0-4217-9119-7385B953A89B" SimpleSecurity="true">
+      <Name>
+        <LocalizedString Language="en">Main info</LocalizedString>
+        <LocalizedString Language="ru">Основная информация</LocalizedString>
+      </Name>
+      <Field Alias="RegistrationDate" ID="50D39354-9F61-4E42-BBDC-F8D89C24F8D3" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Registration date</LocalizedString>
+          <LocalizedString Language="ru">Дата регистрации</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="RegistrationNumberID" ID="A82AB35A-A2AC-45F3-970B-36743377C559" Type="refid" RefType="959FF5E2-7E47-4F6F-9CF6-E1E477CD01CF" RefSection="D47F2C38-6553-4864-BAFF-0BC4D3A85290" DefaultValue="" CopyBehavior="Null">
+        <Name>
+          <LocalizedString Language="en">Registration number ID</LocalizedString>
+          <LocalizedString Language="ru">Идентификатор номера</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="RegistrationNumber" ID="4EC7031A-FBDA-42B3-9E99-1B1384A67BEE" Type="string" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Registration number</LocalizedString>
+          <LocalizedString Language="ru">Регистрационный номер</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="State" ID="E2BA8172-D45A-48B6-9D93-D621DEFEB34E" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">State</LocalizedString>
+          <LocalizedString Language="ru">Состояние</LocalizedString>
+        </Name>
+        <Enum Alias="Project" Value="0">
+          <Name>
+            <LocalizedString Language="en">Project</LocalizedString>
+            <LocalizedString Language="ru">Проект</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="OnApproving" Value="1">
+          <Name>
+            <LocalizedString Language="en">On approving</LocalizedString>
+            <LocalizedString Language="ru">На согласовании</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Approved" Value="2">
+          <Name>
+            <LocalizedString Language="en">Approved</LocalizedString>
+            <LocalizedString Language="ru">Согласовано</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="NotApproved" Value="3">
+          <Name>
+            <LocalizedString Language="en">NotApproved</LocalizedString>
+            <LocalizedString Language="ru">Не согласовано</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="OnCorrecting" Value="4">
+          <Name>
+            <LocalizedString Language="en">On correcting</LocalizedString>
+            <LocalizedString Language="ru">На доработке</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Corrected" Value="5">
+          <Name>
+            <LocalizedString Language="en">Corrected</LocalizedString>
+            <LocalizedString Language="ru">Доработано</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="OnSigning" Value="6">
+          <Name>
+            <LocalizedString Language="en">On signing</LocalizedString>
+            <LocalizedString Language="ru">На подписании</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Signed" Value="7">
+          <Name>
+            <LocalizedString Language="en">Signed</LocalizedString>
+            <LocalizedString Language="ru">Подписан</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Cancelled" Value="8">
+          <Name>
+            <LocalizedString Language="en">Cancelled</LocalizedString>
+            <LocalizedString Language="ru">Отменен</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="ListCount" ID="0D6E6439-E4C3-4436-ADDE-15FD0D69B624" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">List count</LocalizedString>
+          <LocalizedString Language="ru">Кол-во листов</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="InAppendix" ID="E43B8122-EDAA-4322-9678-5D1E5E26F240" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">In appendix</LocalizedString>
+          <LocalizedString Language="ru">В приложении</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="Registrator" ID="ABA77345-8D62-4F37-980A-ABD5EB730E08" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Registrator</LocalizedString>
+          <LocalizedString Language="ru">Регистратор</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="Executer" ID="29251CC5-5E42-4287-ABBE-02D0A656BED9" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Executer</LocalizedString>
+          <LocalizedString Language="ru">Ответственный исполнитель</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="Signer" ID="D0A9F676-0F9E-4EE0-B8F6-1CBE20CF5DB2" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Signed by</LocalizedString>
+          <LocalizedString Language="ru">Кем подписан</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="Controller" ID="FF289901-815D-4700-8932-AF09CFA6B175" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Controller</LocalizedString>
+          <LocalizedString Language="ru">Контроль за исполнением</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="Content" ID="8C0188D6-796C-48AF-919F-390AED1C754E" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Content</LocalizedString>
+          <LocalizedString Language="ru">Содержание</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="FileListID" ID="EA699DAD-090C-4CC5-A7DD-12D004E2D946" Type="refcardid" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">File list ID</LocalizedString>
+          <LocalizedString Language="ru">Файлы</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="LinkListID" ID="591FD244-7D4A-407C-8FC3-4255EA8CAA3C" Type="refcardid" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Link list ID</LocalizedString>
+          <LocalizedString Language="ru">Связки</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ApprovalListID" ID="93B617BD-1574-44D4-8BBF-EDE31ACD188D" Type="refcardid" DefaultValue="" RefKind="Hard" CopyBehavior="Null">
+        <Name>
+          <LocalizedString Language="en">Approval list ID</LocalizedString>
+          <LocalizedString Language="ru">Лист согласования</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="DocKind" ID="6D2BB816-793B-4E25-9D87-BB28FF6CD628" Type="refid" RefType="56E0990F-B9CF-43CC-9041-EBB492B13863" RefSection="AF6239BF-B868-4FF0-B85C-2B278C7BE699" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Document kind</LocalizedString>
+          <LocalizedString Language="ru">Документ</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="DocKindText" ID="10AE299C-7F85-4ECD-97BE-D3276F62F507" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Document Kind</LocalizedString>
+					<LocalizedString Language="ru">Документ</LocalizedString>
+				</Name>
+			</Field>
+      <DisplayFields FormatString="" />
+    </Section>
+    <Section Alias="ApprovalHistory" Type="coll" ID="049DE6C2-5D14-4C4F-B982-95B87DF532E4">
+      <Name>
+        <LocalizedString Language="en">Approval history</LocalizedString>
+        <LocalizedString Language="ru">История согласования</LocalizedString>
+      </Name>
+      <Field Alias="HistoryKind" ID="08A3201C-C4ED-4A54-8389-B94E131587B2" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">History kind</LocalizedString>
+          <LocalizedString Language="ru"> Вид записи</LocalizedString>
+        </Name>
+        <Enum Alias="Approving" Value="0">
+          <Name>
+            <LocalizedString Language="en">Approving</LocalizedString>
+            <LocalizedString Language="ru">На согласовании</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Approved" Value="1">
+          <Name>
+            <LocalizedString Language="en">Approved</LocalizedString>
+            <LocalizedString Language="ru">Согласовано</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="NotApproved" Value="2">
+          <Name>
+            <LocalizedString Language="en">Not approved</LocalizedString>
+            <LocalizedString Language="ru">Не согласовано</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Correcting" Value="3">
+          <Name>
+            <LocalizedString Language="en">Correcting</LocalizedString>
+            <LocalizedString Language="ru">На доработке</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Corrected" Value="4">
+          <Name>
+            <LocalizedString Language="en">Corrected</LocalizedString>
+            <LocalizedString Language="ru">Доработано</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Signing" Value="5">
+          <Name>
+            <LocalizedString Language="en">Signing</LocalizedString>
+            <LocalizedString Language="ru">На подписании</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Signed" Value="6">
+          <Name>
+            <LocalizedString Language="en">Signed</LocalizedString>
+            <LocalizedString Language="ru">Подписано</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Cancelled" Value="7">
+          <Name>
+            <LocalizedString Language="en">Cancelled</LocalizedString>
+            <LocalizedString Language="ru">Отменено</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="NotSigned" Value="8">
+          <Name>
+            <LocalizedString Language="en">Not signed</LocalizedString>
+            <LocalizedString Language="ru">Не подписано</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="Person" ID="017486E4-8818-4227-A1A1-D62390921000" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Person</LocalizedString>
+          <LocalizedString Language="ru">Сотрудник</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="Comments" ID="A3B43C84-2B00-41E5-9AB0-9140FAF61E50" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Comments</LocalizedString>
+          <LocalizedString Language="ru">Комментарии</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="Date" ID="F57AB1D0-0DCA-4783-9FAF-98E94A0F62FC" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Date</LocalizedString>
+          <LocalizedString Language="ru">Дата</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="TaskID" ID="453F2004-3F66-4004-9E2C-4D77CB8E69F4" Type="refcardid" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Task ID</LocalizedString>
+          <LocalizedString Language="ru">Задание</LocalizedString>
+        </Name>
+      </Field>
+      <DisplayFields />
+    </Section>
+  </Sections>
+</CardDefinition>

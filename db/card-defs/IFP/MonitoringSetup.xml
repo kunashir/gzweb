@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="A8D7EE6B-6B46-41CC-874F-A9BA2A27E510" Alias="MonitoringSetup" Version="38" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{538f8b04-41bd-49cf-87dd-e3e2c45ae295}" Dictionary="true" NonSearchable="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\gazprom.ico" AlwaysRead="true" FetchMode="1" SimpleSecurity="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Setup of monitorings</LocalizedString>
+		<LocalizedString Language="ru">Настройки мониторинга</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="Handlers" Type="coll" ID="CB4DCDDC-0038-4C67-B7AC-7A50E077A83F">
+			<Name>
+				<LocalizedString Language="en">Monitoring handlers</LocalizedString>
+				<LocalizedString Language="ru">Обработчики мониторинга</LocalizedString>
+			</Name>
+			<Field Alias="MonitorFunction" ID="3F1F077E-D549-44CC-8CBE-9299F3465F38" Type="unistring" Max="1024" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Name of monitor function class</LocalizedString>
+					<LocalizedString Language="ru">Класс функции-мониторинга</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ProcessID" ID="1531143F-E33F-48B2-BBA5-92C43A6CB8A1" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" RefKind="Simple" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Worker process identifier</LocalizedString>
+					<LocalizedString Language="ru">Идентификатор обрабатывающего процесса</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="LastRunDate" ID="AB84D330-A963-4FE4-97E6-C200707DB6E8" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Last run date</LocalizedString>
+					<LocalizedString Language="ru">Дата последнего запуска</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="NextRunDate" ID="7D77B705-BB4B-4155-91F4-54AD251E3D5C" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Next run date</LocalizedString>
+					<LocalizedString Language="ru">Дата следующего запуска</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ProcessInstanceFolder" ID="FF443DAB-5409-482F-8F83-7A5BA69DEBA0" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Process instance folder</LocalizedString>
+					<LocalizedString Language="ru">Папка экземпляров процессов</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+		<Section Alias="MainInfo" Type="struct" ID="D9287DDE-912D-4D57-BBF8-95549EE697B0" ItemsSelectable="true">
+			<Name>
+				<LocalizedString Language="en">Main information</LocalizedString>
+				<LocalizedString Language="ru">Основная информация</LocalizedString>
+			</Name>
+			<Field Alias="PoolingInterval" ID="A50A015D-BBED-4C6D-ACF7-1FFCA04A0EF7" Type="int" DefaultValue="15" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Pooling interval (in minutes) to refetch handlers</LocalizedString>
+					<LocalizedString Language="ru">Интервал обновления обработчиков (в минутах)</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="KeepLogTime" ID="0244D0ED-740D-4D0F-A645-E043D2981E66" Type="int" DefaultValue="2" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Time to keep log (days)</LocalizedString>
+					<LocalizedString Language="ru">Время хранения лога (дни)</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

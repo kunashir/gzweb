@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="C257FEAA-7F8C-48BD-AB05-397507F88985" Alias="TakeOffice" ControlInfo="clsid:{777CED56-1504-4C37-BAEE-32F7F7200415}" IconFile="Icons\TakeOffice.ico" Version="1988" MsiProductCode="" MsiPackageName="">
+  <Definitions>
+    <RefCardDefinition>CardCalendar.xml</RefCardDefinition>
+    <RefCardDefinition>CardFile.xml</RefCardDefinition>
+    <RefCardDefinition>CardInc.xml</RefCardDefinition>
+    <RefCardDefinition>CardOrd.xml</RefCardDefinition>
+    <RefCardDefinition>CardOut.xml</RefCardDefinition>
+    <RefCardDefinition>FileList.xml</RefCardDefinition>
+    <RefCardDefinition>RefCases.xml</RefCardDefinition>
+    <RefCardDefinition>RefCategories.xml</RefCardDefinition>
+    <RefCardDefinition>RefLinks.xml</RefCardDefinition>
+    <RefCardDefinition>RefNumerators.xml</RefCardDefinition>
+    <RefCardDefinition>RefPartners.xml</RefCardDefinition>
+    <RefCardDefinition>RefStaff.xml</RefCardDefinition>
+    <RefCardDefinition>RefTypes.xml</RefCardDefinition>
+    <RefCardDefinition>WorkflowTask.xml</RefCardDefinition>
+    <RefCardDefinition>AgentSettings.xml</RefCardDefinition>
+    <RefCardDefinition>CardMessage.xml</RefCardDefinition>
+    <RefCardDefinition>RefUniversal.xml</RefCardDefinition>
+    <RefCardDefinition>CardArchive.xml</RefCardDefinition>
+    <RefCardDefinition>RefBarcodeScan.xml</RefCardDefinition>
+    <RefCardDefinition>CardApproval.xml</RefCardDefinition>
+    <RefCardDefinition>CardResolution.xml</RefCardDefinition>
+    <RefCardDefinition>CardReport.xml</RefCardDefinition>
+    <RefCardDefinition>CardUni.xml</RefCardDefinition>
+    <RefCardDefinition>NavExtensions.xml</RefCardDefinition>
+    <RefCardDefinition>NavCommands.xml</RefCardDefinition>
+  </Definitions>
+  <Name>
+    <LocalizedString Language="en">IDoc TakeOffice</LocalizedString>
+    <LocalizedString Language="uk">Діловодство</LocalizedString>
+    <LocalizedString Language="ru">АйДок Делопроизводство</LocalizedString>
+    <LocalizedString Language="lv">Birojs</LocalizedString>
+    <LocalizedString Language="ka">საქმისწარმოება</LocalizedString>
+    <LocalizedString Language="ro">TakeOffice</LocalizedString>
+  </Name>
+  <Reports>
+    <Report Alias="dvsys_takeoffice_get_mandatory_access_level" ID="7FC59698-1745-4DEB-B2CE-A7FFA126E2D4" SQLFile="GetAccessLevel.sql">
+      <Name>
+        <LocalizedString Language="en">Get user mandatory access level</LocalizedString>
+        <LocalizedString Language="ru">Получить уровень мандатной безопасности пользователя</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="AccountName" />
+    </Report>
+    <Report Alias="dvsys_takeoffice_get_employee_info" ID="629F0CAA-93C3-4E28-A9C7-5A0238476487" SQLFile="GetEmployeeInfo.sql">
+      <Name>
+        <LocalizedString Language="en">Get employee info</LocalizedString>
+        <LocalizedString Language="ru">Получить информацию о сотруднике</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="UserID" />
+    </Report>
+    <Report Alias="dvsys_takeoffice_get_deputy_secure_objects" ID="C2B5C143-E39E-4BA2-A4A2-F832C9C891BF" SQLFile="GetDeputySecureObjects.sql">
+      <Name>
+        <LocalizedString Language="en">Get deputy secure objects</LocalizedString>
+        <LocalizedString Language="ru">Получить объекты безопасности для заместителя</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="AccountName" />
+    </Report>
+  </Reports>
+  <Installers>
+    <Installer PackageID="{5EF8A9A8-A07F-4D47-B1B8-B569E8C81579}" MsiPackageCode="{5FE24FE1-36D0-4588-9F6C-C3DEA7D23167}" MsiPackageName="TakeOfficeClient/TakeOfficeClient1988.msi" Order="1" AllUsers="false" Version="1988" />
+  </Installers>
+  <Log>
+    <Name />
+    <Operations>
+      <LogOperation Alias="EmployeeLocked" ID="46F711DC-F8B6-482D-90F6-BC878919AC5E">
+        <Name>
+          <LocalizedString Language="en">Employee is locked</LocalizedString>
+          <LocalizedString Language="ru">Сотрудник заблокирован</LocalizedString>
+        </Name>
+      </LogOperation>
+    </Operations>
+  </Log>
+</CardLibrary>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="CA267E47-5420-4002-9E1E-3F8E7D0C7410" Alias="ContractPlan" Version="82" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{9ECF68A8-547D-4972-AEF1-E49A50D27FFA}" NonSearchable="true" NonViewable="true" NonCreatable="true" IconFile="Icons\gazprom.ico" ShowLinked="true" NoLockOnOpen="true" Copyable="true" CanBeTemplate="true" SimpleSecurity="true" NonArchivable="false">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Contract plan</LocalizedString>
+		<LocalizedString Language="ru">План заключения договора</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="797A212A-0291-42D4-8A0D-CBC77069A9FE">
+			<Name>
+				<LocalizedString Language="en">Main info</LocalizedString>
+				<LocalizedString Language="ru">Основная</LocalizedString>
+			</Name>
+			<Field Alias="RegistrationNumber" ID="CD2FF9DB-AA58-4B41-B3E0-4907B4E4F968" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Registration number</LocalizedString>
+					<LocalizedString Language="ru">Регистрационный №</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="RegistrationDate" ID="C74D95DF-6DC7-492C-B072-37A6880EA92D" Type="date" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Registration date</LocalizedString>
+					<LocalizedString Language="ru">Дата регистрации</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="RegisteredBy" ID="90D29BE8-1CC2-42D6-AE96-1DB6356F6F57" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Registered by</LocalizedString>
+					<LocalizedString Language="ru">Регистратор</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="State" ID="4399A733-FDFC-45D9-AB35-4D8A5E5DEF07" Type="enum" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">State</LocalizedString>
+					<LocalizedString Language="ru">Состояние</LocalizedString>
+				</Name>
+				<Enum Alias="Registered" Value="0">
+					<Name>
+						<LocalizedString Language="en">Registered</LocalizedString>
+						<LocalizedString Language="ru">Зарегистрирован</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Cancelled" Value="1">
+					<Name>
+						<LocalizedString Language="en">Cancelled</LocalizedString>
+						<LocalizedString Language="ru">Отменен</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="Partner" ID="969F8F08-CAA4-4712-A9D0-4A4BECB193D2" Type="refid" RefType="65FF9382-17DC-4E9F-8E93-84D6D3D8FE8C" RefSection="C78ABDED-DB1C-4217-AE0D-51A400546923" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Partner</LocalizedString>
+					<LocalizedString Language="ru">Контрагент</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="PlannedDate" ID="1E5EE78C-080D-43A1-A908-916A62E27C6F" Type="date" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Planned date</LocalizedString>
+					<LocalizedString Language="ru">Планируемая дата заключения</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="DocumentType" ID="B686AA0A-32D4-4CDE-AC05-D31A2A15C40F" Type="enum" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Docuemnt type</LocalizedString>
+					<LocalizedString Language="ru">Вид документа</LocalizedString>
+				</Name>
+				<Enum Alias="Contract" Value="0">
+					<Name>
+						<LocalizedString Language="en">Contract</LocalizedString>
+						<LocalizedString Language="ru">Договор</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="AdditionalAgreement" Value="1">
+					<Name>
+						<LocalizedString Language="en">Additional agreement</LocalizedString>
+						<LocalizedString Language="ru">Дополнительное соглашение</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="Description" ID="BC8D92EE-A527-4E85-8504-EA7779801FC7" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Dscription</LocalizedString>
+					<LocalizedString Language="ru">Предмет</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CuratingDept" ID="712A0D84-475B-4B87-BB7B-9FCF9897E7AB" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="7473F07F-11ED-4762-9F1E-7FF10808DDD1" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Curating department</LocalizedString>
+					<LocalizedString Language="ru">Курирующее подразделение</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="PlannedStartJobDate" ID="CBA8D6BD-76D9-467E-B8CE-C6C4FEE4E96A" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Planned start job date</LocalizedString>
+					<LocalizedString Language="ru">Планируемая дата начала работ</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="PlannedEndJobDate" ID="9EFB29C8-C5AA-464B-97B8-7B89FA5B5218" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Planned end job date</LocalizedString>
+					<LocalizedString Language="ru">Планируемая дата окончания работ</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Amount" ID="E31D5D09-FAAE-4D4D-AECC-582F9820EAAF" Type="float" DefaultValue="0" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Amount</LocalizedString>
+					<LocalizedString Language="ru">Планируемая сумма</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Currency" ID="02D8C373-D22B-4BA9-80E0-D5A0F2713371" Type="enum" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Currency:</LocalizedString>
+					<LocalizedString Language="ru">Валюта:</LocalizedString>
+				</Name>
+				<Enum Alias="RUR" Value="0">
+					<Name>
+						<LocalizedString Language="en">Rubles</LocalizedString>
+						<LocalizedString Language="ru">Рубли</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="USD" Value="1">
+					<Name>
+						<LocalizedString Language="en">US dollars</LocalizedString>
+						<LocalizedString Language="ru">Доллары США</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="EUR" Value="2">
+					<Name>
+						<LocalizedString Language="en">Euro</LocalizedString>
+						<LocalizedString Language="ru">Евро</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="DealReason" ID="C09FFCE0-D4FA-48C1-9F22-2F3D36DB77EF" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Deal reason</LocalizedString>
+					<LocalizedString Language="ru">Основания для заключения договора</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ProtocolKK" ID="234C4613-0277-4530-94C4-4F3C7033E279" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Protocol KK</LocalizedString>
+					<LocalizedString Language="ru">Протокол заседания КК</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="TenderDeptNotification" ID="69337E0F-0F37-4C66-B8A5-C07725B18E75" Type="refcardid" DefaultValue="" RefKind="Simple" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Tender department notification</LocalizedString>
+					<LocalizedString Language="ru">Уведомление тендерного отдела</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="RegistrationNumberID" ID="CAFDB155-5A53-468F-BDF8-A0B64719B06B" Type="refid" RefType="959FF5E2-7E47-4F6F-9CF6-E1E477CD01CF" RefSection="D47F2C38-6553-4864-BAFF-0BC4D3A85290" DeleteLinkedOnValueChange="true" DefaultValue="" CopyBehavior="CreateNew">
+				<Name>
+					<LocalizedString Language="en">Registration number identifier</LocalizedString>
+					<LocalizedString Language="ru">Идентификатор номера</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="PlannedApprovingStartingDate" ID="CFBC646C-5796-4553-972A-17CFB0031053" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Planned approving starting date</LocalizedString>
+					<LocalizedString Language="ru">Планируемая дата начала согласования</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="LegacySystemID" ID="A02D345E-8EA1-4D6C-8909-4641935CC118" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Legacy System ID</LocalizedString>
+					<LocalizedString Language="ru">ID объекта в старой системе</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="AccountingPeriod" ID="5050E9EB-07F4-4FDB-B31F-E19449CBC50E" Type="enum" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Accounting period</LocalizedString>
+					<LocalizedString Language="ru">Отчетный период</LocalizedString>
+				</Name>
+				<Enum Alias="Quarter1" Value="1">
+					<Name>
+						<LocalizedString Language="en">1st quarter</LocalizedString>
+						<LocalizedString Language="ru">1-й квартал</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Quarter2" Value="2">
+					<Name>
+						<LocalizedString Language="en">2nd quarter</LocalizedString>
+						<LocalizedString Language="ru">2-й квартал</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Quarter3" Value="3">
+					<Name>
+						<LocalizedString Language="en">3rd quarter</LocalizedString>
+						<LocalizedString Language="ru">3-й квартал</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Quarter4" Value="4">
+					<Name>
+						<LocalizedString Language="en">4th quarter</LocalizedString>
+						<LocalizedString Language="ru">4-й квартал</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="Year" ID="478D4392-EA56-4926-A99F-A874A18FB600" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Year</LocalizedString>
+					<LocalizedString Language="ru">Год</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="RefsID" ID="4EA1D84B-17F8-49FF-9ADF-F6CDC8443822" Type="refcardid" RefType="E63E748B-DDDB-43C3-B0B4-7AE867B9483C" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+				<Name>
+					<LocalizedString Language="en">Reference list</LocalizedString>
+					<LocalizedString Language="ru">Список ссылок</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodeNumber" ID="E27B760D-2626-4D1D-AC91-91A8AA94CA3B" Type="unistring" Max="40" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Barcode number</LocalizedString>
+					<LocalizedString Language="ru">Номер штрих-кода</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodeNumberID" ID="D977D8AD-ED47-4388-A6E2-77BB9718CE2D" Type="refid" RefType="959FF5E2-7E47-4F6F-9CF6-E1E477CD01CF" RefSection="D47F2C38-6553-4864-BAFF-0BC4D3A85290" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">barcode number id</LocalizedString>
+					<LocalizedString Language="ru">id номера штрихкода</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="TransferLog" ID="BEC8CB07-B487-4BFB-8263-56E2E245FC18" Type="uniqueid" RefType="19F3B5F1-F2A6-439A-9863-305D69FED164" RefSection="5ECEE53E-4533-43BD-829D-EAEB069D0D28" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Transfer log</LocalizedString>
+					<LocalizedString Language="ru">Журнал передач</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CancellationComment" ID="0348B5FA-65C5-4BFB-9AC0-B4E5712792F2" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Cancel comment</LocalizedString>
+					<LocalizedString Language="ru">Комментарий отмены плана</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CancellationLinkedDocument" ID="A97A0825-F33E-4C2D-B78B-C69DB427ABBE" Type="refcardid" DefaultValue="" RefKind="Simple" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Cancel linked document</LocalizedString>
+					<LocalizedString Language="ru">Связка с документом</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CancellationFile" ID="240B5C8E-3FB8-4CC1-AE09-15BA367EF600" Type="refcardid" RefType="2BBD0A41-265E-4FF8-82D6-C6342F34B1AF" RefSection="B4562DF8-AF19-4D0F-85CA-53A311354D39" DefaultValue="" RefKind="Hard" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Cancel file</LocalizedString>
+					<LocalizedString Language="ru">Файл</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CancellationDate" ID="2EDE0A29-C784-4385-92C9-CD7CDBACBB76" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Cancellation date</LocalizedString>
+					<LocalizedString Language="ru">Дата отмены плана</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CancellationEmployee" ID="7231C211-4582-4845-B47F-8FB8ED32B9D3" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Cancel employee</LocalizedString>
+					<LocalizedString Language="ru">Сотрудник, отменивший план</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+		<Section Alias="References" Type="coll" ID="769B4C6C-0C5E-4E86-908A-61C553004FB2">
+			<Name>
+				<LocalizedString Language="en">References</LocalizedString>
+				<LocalizedString Language="ru">Ссылки</LocalizedString>
+			</Name>
+			<Field Alias="Contract" ID="E7914AC1-7D49-4E7E-9880-7289D29B486D" Type="refcardid" DefaultValue="" RefKind="Auto" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Contract</LocalizedString>
+					<LocalizedString Language="ru">Договор</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

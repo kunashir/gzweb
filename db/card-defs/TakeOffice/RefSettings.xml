@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3742DDE3-DDB0-4016-97A5-EACE775F5AD0" Alias="RefSettings" Version="47" LibraryID="C257FEAA-7F8C-48BD-AB05-397507F88985" ProgID="clsid:{f02f824d-0875-4bcb-b771-21e690e18e0a},license:adcfifmccdcebckged" Dictionary="true" NonSearchable="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\RefSettings.ico" NoLockOnOpen="true" FetchMode="8" SimpleSecurity="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">TakeOffice Settings</LocalizedString>
+		<LocalizedString Language="uk">Налаштування діловодства</LocalizedString>
+		<LocalizedString Language="ru">Настройки делопроизводства</LocalizedString>
+		<LocalizedString Language="lv">Biroja uzstādījumi</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="CryptSign" Type="struct" ID="A3B7BA58-1B44-4442-B1C0-A3799199BEAC">
+			<Name>
+				<LocalizedString Language="en">Encryption and signature settings</LocalizedString>
+				<LocalizedString Language="uk">Налаштування підпису та шифрування</LocalizedString>
+				<LocalizedString Language="ru">Настройки подписи и шифрования</LocalizedString>
+				<LocalizedString Language="lv">Šifrēt un parakstīt uzstādījumi</LocalizedString>
+			</Name>
+			<Field Alias="ProviderType" ID="7B56AF61-59DA-4CE9-BC2D-EED1FB4529E9" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Provider type</LocalizedString>
+					<LocalizedString Language="uk">Тип провайдера</LocalizedString>
+					<LocalizedString Language="ru">Тип провайдера</LocalizedString>
+					<LocalizedString Language="lv">Piegādātāja tips</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Provider" ID="53DF0D65-B998-4825-B8CD-B4873B548F09" Type="string" Max="256" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Provider</LocalizedString>
+					<LocalizedString Language="uk">Провайдер</LocalizedString>
+					<LocalizedString Language="ru">Провайдер</LocalizedString>
+					<LocalizedString Language="lv">Piegādātājs</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CryptAlgorithm" ID="B903C992-C7F6-4D29-B3BD-6A87A36C8969" Type="string" Max="256" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Encryption algorithm</LocalizedString>
+					<LocalizedString Language="uk">Алгоритм шифрування</LocalizedString>
+					<LocalizedString Language="ru">Алгоритм шифрования</LocalizedString>
+					<LocalizedString Language="lv">Šifrēšanas algoritms</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="SignAlgorithm" ID="F5CDDAF3-24EC-4FAD-8AF6-B2DA456002B4" Type="string" Max="256" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Signing algorithm</LocalizedString>
+					<LocalizedString Language="uk">Алгоритм підпису</LocalizedString>
+					<LocalizedString Language="ru">Алгоритм подписи</LocalizedString>
+					<LocalizedString Language="lv">Paraksta algoritms</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="KeyLengthType" ID="C8417F0D-14C8-4EB4-A450-BF643FAA957E" Type="enum" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Key length type</LocalizedString>
+					<LocalizedString Language="uk">Тип довжини ключа</LocalizedString>
+					<LocalizedString Language="ru">Тип длины ключа</LocalizedString>
+					<LocalizedString Language="lv">Atslēgas garuma tips</LocalizedString>
+				</Name>
+				<Enum Alias="Default" Value="0">
+					<Name>
+						<LocalizedString Language="en">By default</LocalizedString>
+						<LocalizedString Language="uk">За змовчуванням</LocalizedString>
+						<LocalizedString Language="ru">По умолчанию</LocalizedString>
+						<LocalizedString Language="lv">Pēc noklusējuma</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Minimal" Value="1">
+					<Name>
+						<LocalizedString Language="en">Minimal</LocalizedString>
+						<LocalizedString Language="uk">Мінімальна</LocalizedString>
+						<LocalizedString Language="ru">Минимальная</LocalizedString>
+						<LocalizedString Language="lv">Minimums</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Maximal" Value="2">
+					<Name>
+						<LocalizedString Language="en">Maximal</LocalizedString>
+						<LocalizedString Language="uk">Максимальна</LocalizedString>
+						<LocalizedString Language="ru">Максимальная</LocalizedString>
+						<LocalizedString Language="lv">Maksimums</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="UserDefined" Value="3">
+					<Name>
+						<LocalizedString Language="en">User defined</LocalizedString>
+						<LocalizedString Language="uk">Така, що визначається користувачем</LocalizedString>
+						<LocalizedString Language="ru">Определяемая пользователем</LocalizedString>
+						<LocalizedString Language="lv">Lietotāja definēts</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="KeyLength" ID="862A248D-770F-4290-BF7E-45A9242DFE92" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Key length</LocalizedString>
+					<LocalizedString Language="uk">Довжина ключа</LocalizedString>
+					<LocalizedString Language="ru">Длина ключа</LocalizedString>
+					<LocalizedString Language="lv">Atslēgas garums</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CheckOnlineCert" ID="BAA449C2-033C-4702-858B-BE9649F2090F" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Use revocation lists</LocalizedString>
+					<LocalizedString Language="ru">Использовать внешние списки отзыва</LocalizedString>
+					<LocalizedString Language="uk">TRANSLATION</LocalizedString>
+					<LocalizedString Language="lv">Lietot atsaukšanas sarakstus</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+		<Section Alias="CardSettings" Type="struct" ID="5B2804A2-FBB4-4FC6-85E3-6238CEB55AC7">
+			<Name>
+				<LocalizedString Language="en">Card settings</LocalizedString>
+				<LocalizedString Language="uk">Налаштування карток</LocalizedString>
+				<LocalizedString Language="ru">Настройки карточек</LocalizedString>
+				<LocalizedString Language="lv">Kartiņas uzstādījumi</LocalizedString>
+			</Name>
+			<Field Alias="FillController" ID="3D8FCB51-3C23-44C7-AFB6-0B420DF83AFB" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Specify supervisor</LocalizedString>
+					<LocalizedString Language="uk">Заповнювати контролера</LocalizedString>
+					<LocalizedString Language="ru">Заполнять контролера</LocalizedString>
+					<LocalizedString Language="lv">Aizpildījuma kontrolētājs</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ConfirmTaskActions" ID="737314DA-DD34-462D-83DD-A491B042C1A0" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Confirm task actions</LocalizedString>
+					<LocalizedString Language="uk">Підтвержувати дії в завданнях</LocalizedString>
+					<LocalizedString Language="ru">Подтверждение действия в заданиях</LocalizedString>
+					<LocalizedString Language="lv">Apstiprināt uzdevuma darbības</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="UseDepNumerator" ID="5B398576-AC48-4036-B062-34181BDEA650" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="0" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Use department numerator</LocalizedString>
+					<LocalizedString Language="uk">Використовувати нумератор відділу</LocalizedString>
+					<LocalizedString Language="ru">Использовать нумератор отдела</LocalizedString>
+					<LocalizedString Language="lv">Izmantot departamenta numeratoru</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ImageFormat" ID="0681CBED-393E-4233-8124-58431B02BD30" Type="enum" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Image format</LocalizedString>
+					<LocalizedString Language="uk">Формат зображення</LocalizedString>
+					<LocalizedString Language="ru">Формат изображения</LocalizedString>
+					<LocalizedString Language="lv">Attēla formāts</LocalizedString>
+				</Name>
+				<Enum Alias="JPEG" Value="0">
+					<Name>
+						<LocalizedString Language="en">JPEG</LocalizedString>
+						<LocalizedString Language="uk">JPEG</LocalizedString>
+						<LocalizedString Language="ru">JPEG</LocalizedString>
+						<LocalizedString Language="lv">JPEG</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="TIFF" Value="1">
+					<Name>
+						<LocalizedString Language="en">TIFF</LocalizedString>
+						<LocalizedString Language="uk">TIFF</LocalizedString>
+						<LocalizedString Language="ru">TIFF</LocalizedString>
+						<LocalizedString Language="lv">TIFF</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="BMP" Value="2">
+					<Name>
+						<LocalizedString Language="en">BMP</LocalizedString>
+						<LocalizedString Language="uk">BMP</LocalizedString>
+						<LocalizedString Language="ru">BMP</LocalizedString>
+						<LocalizedString Language="lv">BMP</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="GIF" Value="3">
+					<Name>
+						<LocalizedString Language="en">GIF</LocalizedString>
+						<LocalizedString Language="uk">GIF</LocalizedString>
+						<LocalizedString Language="ru">GIF</LocalizedString>
+						<LocalizedString Language="lv">GIF</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="ImageQuality" ID="2EB8AD29-E58E-4592-A96D-CB045D572F09" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Image quality</LocalizedString>
+					<LocalizedString Language="uk">Якість зображення</LocalizedString>
+					<LocalizedString Language="ru">Качество изображения</LocalizedString>
+					<LocalizedString Language="lv">Attēla kvalitāte</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CanChangeRegistrar" ID="FC3BC27A-4C99-44DE-8243-5D694462C952" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Can change clerk</LocalizedString>
+					<LocalizedString Language="uk">Можлива зміна реєстратора</LocalizedString>
+					<LocalizedString Language="ru">Можно изменять регистратора</LocalizedString>
+					<LocalizedString Language="lv">Var mainīt reģistratoru</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="PropsFormOnly" ID="1DDEB116-730D-4C7B-89E2-F28DF81D592A" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="1" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Form mode only</LocalizedString>
+					<LocalizedString Language="uk">Тільки режим форми</LocalizedString>
+					<LocalizedString Language="ru">Только режим формы</LocalizedString>
+					<LocalizedString Language="lv">Rekvizīti tikai kā forma</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodeNumerator" ID="25C2528C-EEBC-491F-8550-4845082777D4" Type="refcardid" DeleteLinkedOnValueChange="false" DefaultValue="" RefKind="Hard" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Barcode numerator</LocalizedString>
+					<LocalizedString Language="uk">Нумератор штрих-кодів</LocalizedString>
+					<LocalizedString Language="ru">Нумератор штрих-кодов</LocalizedString>
+					<LocalizedString Language="lv">Svītra koda numerators</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="StampTitle" ID="052AEF4B-4F05-40CF-94CA-0AC69EA4E0A1" Type="unistring" Max="128" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Stamp title</LocalizedString>
+					<LocalizedString Language="uk">Заголовок штампу</LocalizedString>
+					<LocalizedString Language="ru">Заголовок штампа</LocalizedString>
+					<LocalizedString Language="lv">Zīmoga uzraksts</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="EditorsSD" ID="EB6153E3-1FC1-4E98-8496-072E220A5C09" Type="sdid" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Users with editing rights</LocalizedString>
+					<LocalizedString Language="ru">Пользователи с правом редактирования</LocalizedString>
+					<LocalizedString Language="uk">Користувачі з правом редагування</LocalizedString>
+					<LocalizedString Language="lv">Labotāji</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CanChangeRegDate" ID="EEA1A151-69B0-48BE-8185-CB848F68F956" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Can change registration date</LocalizedString>
+					<LocalizedString Language="ru">Можно изменять дату регистрации</LocalizedString>
+					<LocalizedString Language="uk">Можна змінювати дату реєстрації</LocalizedString>
+					<LocalizedString Language="lv">Var mainīt reģistratora datumu</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CheckNumbers" ID="F79E62BD-267A-41DA-8EB0-5D552A5397AB" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Check number uniqueness</LocalizedString>
+					<LocalizedString Language="ru">Проверять уникальность номеров</LocalizedString>
+					<LocalizedString Language="lv">Pārbaudīt numura unikalitāti</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodePrintLeft" ID="62D0B224-52B3-484A-882D-F0A64A0546AA" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Barcode print left</LocalizedString>
+					<LocalizedString Language="ru">Левая координата печати штрих-кода</LocalizedString>
+					<LocalizedString Language="lv">Svītru koda uzdrukas kreisā mala</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodePrintTop" ID="0E221EC7-18A9-46D9-8F25-63CFA79EE98E" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Barcode print top</LocalizedString>
+					<LocalizedString Language="ru">Верхняя координата печати штрих-кода</LocalizedString>
+					<LocalizedString Language="lv">Svītru koda uzdrukas augšējā mala</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="StampPrintLeft" ID="854D63AA-A97F-46F1-ADE3-3F8E068D4199" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Stamp print left</LocalizedString>
+					<LocalizedString Language="ru">Левая координата печати штампа</LocalizedString>
+					<LocalizedString Language="lv">Zīmoga uzdrukas kreisā mala</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="StampPrintTop" ID="011B8C5F-5A18-44FB-A759-E8895CC7F1C2" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Stamp print top</LocalizedString>
+					<LocalizedString Language="ru">Верхняя координата печати штампа</LocalizedString>
+					<LocalizedString Language="lv">Zīmoga uzdrukas augšējā mala</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodeOCRLeft" ID="A464BBA1-7BA3-4550-81B6-A45AB45ECA8C" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Barcode OCR left</LocalizedString>
+					<LocalizedString Language="ru">Левая координата распознавания штрих-кода</LocalizedString>
+					<LocalizedString Language="lv">Svītru koda uzdrukas kreisā mala</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodeOCRTop" ID="5FC82E33-8AD6-43FE-8561-2DCEEA3AB1FC" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Barcode OCR top</LocalizedString>
+					<LocalizedString Language="ru">Верхняя координата распознавания штрих-кода</LocalizedString>
+					<LocalizedString Language="lv">Svītru koda uzdrukas augšējā mala</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodeOCRWidth" ID="1FBD4FB7-591A-49CA-8FEB-9479DA3310C5" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Barcode OCR width</LocalizedString>
+					<LocalizedString Language="ru">Ширина распознавания штрих-кода</LocalizedString>
+					<LocalizedString Language="lv">Svītru koda platums</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodeOCRHeight" ID="F07CE69F-F944-4208-86F0-3C6DB4123275" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Barcode OCR height</LocalizedString>
+					<LocalizedString Language="ru">Высота распознавания штрих-кода</LocalizedString>
+					<LocalizedString Language="lv">Svītru koda augstums</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="UseFullPartnerNames" ID="A06AD851-A8F1-4268-A7BE-5A0F24F80103" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Use full partner names</LocalizedString>
+					<LocalizedString Language="ru">Использовать полные имена контрагентов</LocalizedString>
+					<LocalizedString Language="lv">Izmantot pilnos partneru nosaukumus</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodeType39" ID="FB21DB20-7551-4C17-9D64-259F5F8884D7" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Barcode type 39</LocalizedString>
+					<LocalizedString Language="ru">Штрих-код Code 39</LocalizedString>
+					<LocalizedString Language="lv">Svītru koda tips Code 39</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="WFResponsible" ID="D537DCB6-E3AA-4133-BFC1-ACAACE6BCE30" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Business process responsible performer</LocalizedString>
+					<LocalizedString Language="ru">Ответственный исполнитель бизнес-процессов</LocalizedString>
+					<LocalizedString Language="lv">Biznesa procesa atbildīgā persona</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FixNumber" ID="015DE411-E797-4813-8C02-5C081FCAD9C1" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Fix number automatically</LocalizedString>
+					<LocalizedString Language="ru">Автоматически фиксировать номер</LocalizedString>
+					<LocalizedString Language="lv">Automātiski fiksēt numuru</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="GetNumberOnSave" ID="15129F8A-3E51-4A25-B750-4352A4D489FB" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Get number on save only</LocalizedString>
+					<LocalizedString Language="ru">Выдавать номер только при сохранении</LocalizedString>
+					<LocalizedString Language="lv">Piešķirt numuru tikai saglabājot</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="TemplateFileAsCard" ID="85D2A641-7CF0-447E-A9C6-5E3EBB2778D0" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Open file from template as card</LocalizedString>
+					<LocalizedString Language="ru">Файл по шаблону открывать как карточку</LocalizedString>
+					<LocalizedString Language="lv">Šablona failu atvērt kā kartiņu</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="KeepAllVersions" ID="A767DBD8-A491-48B7-8FFC-28098B47B5D4" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Save all file versions</LocalizedString>
+					<LocalizedString Language="ru">Сохранять все версии файла</LocalizedString>
+					<LocalizedString Language="lv">Saglabāt visas faila versijas</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="NotNotifyAuthor" ID="E6CDC83C-A3FC-4FD0-A120-79F8EF0D1FF7" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Do not notify author</LocalizedString>
+					<LocalizedString Language="ru">Не отправлять сообщения автору</LocalizedString>
+					<LocalizedString Language="lv">Neatgādināt autoram</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="EmailMessages" ID="068A3E14-244C-494F-A843-A83C9186FAB6" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Duplicate messages by e-mail </LocalizedString>
+					<LocalizedString Language="ru">Дублировать сообщения на e-mail</LocalizedString>
+					<LocalizedString Language="lv">Kopēt e-pasta ziņas</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FontName" ID="47F74A9F-9FBD-48F0-8068-F63D5C52D7E3" Type="unistring" Max="128" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Font name</LocalizedString>
+					<LocalizedString Language="ru">Имя шрифта</LocalizedString>
+					<LocalizedString Language="lv">Font nosaukums</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FontSize" ID="8CD8AB55-A727-44D4-B008-FD7CB23EEBD3" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Font size</LocalizedString>
+					<LocalizedString Language="ru">Размер шрифта</LocalizedString>
+					<LocalizedString Language="lv">Font size</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FontBold" ID="D4B3477B-D9AF-44D2-9D3F-4E5B4A68C8D3" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Bold font</LocalizedString>
+					<LocalizedString Language="ru">Жирный шрифт</LocalizedString>
+					<LocalizedString Language="lv">Font bold</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FontItalic" ID="060DA6C4-E425-4C6A-BAC7-5CD307851EA3" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Italic font</LocalizedString>
+					<LocalizedString Language="ru">Наклонный шрифт</LocalizedString>
+					<LocalizedString Language="lv">Font italic</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Brightness" ID="F95CB27C-760B-45BA-9CED-5AE0078D0E33" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Brightness</LocalizedString>
+					<LocalizedString Language="ru">Яркость</LocalizedString>
+					<LocalizedString Language="lv">Gaišums</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Contrast" ID="C29F7BE7-616E-4FF5-B2AD-8AAF6A8C77FC" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Contrast</LocalizedString>
+					<LocalizedString Language="ru">Контраст</LocalizedString>
+					<LocalizedString Language="lv">Kontrasts</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Gamma" ID="8402F87C-21DF-41DF-BF28-BCBD9BEB693C" Type="float" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Gamma</LocalizedString>
+					<LocalizedString Language="ru">Гамма</LocalizedString>
+					<LocalizedString Language="lv">Gamma</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Resolution" ID="C972E5B7-AEBB-45E3-B2C3-646E75D9AB66" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Permission</LocalizedString>
+					<LocalizedString Language="ru">Разрешение</LocalizedString>
+					<LocalizedString Language="lv">Rezolūcija</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BitDepth" ID="853652D9-0850-49E8-AC18-5CCD2D8A7D86" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Bit depth</LocalizedString>
+					<LocalizedString Language="ru">Глубина изображения</LocalizedString>
+					<LocalizedString Language="lv">Bitu dziļums</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="HideInterface" ID="70E06807-F3F5-41EA-BE30-CDDB84761611" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Hide scanner interface</LocalizedString>
+					<LocalizedString Language="ru">Скрыть интерфейс сканера</LocalizedString>
+					<LocalizedString Language="lv">Slēpt skenera saskarni</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="NoPrintBarcode" ID="112D8DE6-BAAD-4B7D-9539-BD91CDF1DC3E" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Do not print barcode</LocalizedString>
+					<LocalizedString Language="ru">Не печатать штрих-код</LocalizedString>
+					<LocalizedString Language="lv">Nedrukāt svītra kodu</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="NoPrintStamp" ID="B0D8A6C1-6ECA-4000-AA21-710295D030DD" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Do not print stamp</LocalizedString>
+					<LocalizedString Language="ru">Не печатать штамп</LocalizedString>
+					<LocalizedString Language="lv">Nedrukāt zīmogu</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CheckOutNumbers" ID="5ABD392A-9D96-4C84-B753-67A70E833BBA" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Check outgoing numbers by number</LocalizedString>
+					<LocalizedString Language="ru">Проверять номера исходящих по номеру</LocalizedString>
+					<LocalizedString Language="lv">Pārbaudīt izejošo numurus pēc numura</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CheckOutDate" ID="998BDCC9-E79E-47AA-8317-4C8840AEC3D8" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Check outgoing numbers by date</LocalizedString>
+					<LocalizedString Language="ru">Проверять номера исходящих по дате</LocalizedString>
+					<LocalizedString Language="lv">Pārbaudīt izejošo numurus pēc datuma</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CheckOutDep" ID="23A815F6-6163-4D8B-9D31-C15DB8A4F431" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Check outgoing numbers by department</LocalizedString>
+					<LocalizedString Language="ru">Проверять номера исходящих по подразделению</LocalizedString>
+					<LocalizedString Language="lv">Pārbaudīt izejošo numurus pēc nodaļas</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CheckOutOrg" ID="7B19A4CB-C025-42E9-A2C8-4DE81DD49F8A" Type="bool" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Check outgoing numbers by organization</LocalizedString>
+					<LocalizedString Language="ru">Проверять номера исходящих по организации</LocalizedString>
+					<LocalizedString Language="lv">Pārbaudīt izejošo numurus pēc organizācijas</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

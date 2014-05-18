@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="951CE255-85C0-4279-94F8-CF416CC4A887" Alias="RefSubstitutions" Version="22" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{3c36a40a-56d6-4009-b7a7-fb66aef0cdf5}" Dictionary="true" NonSearchable="true" NonDeletable="true" IconFile="Icons\gazprom.ico" NoLockOnOpen="true" SimpleSecurity="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Substitution reference</LocalizedString>
+		<LocalizedString Language="ru">Протокол установки замещений</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="Substitions" Type="coll" ID="C01049C0-940F-490C-8A0A-4C10E9EDF2F6">
+			<Name>
+				<LocalizedString Language="en">Substitutions</LocalizedString>
+				<LocalizedString Language="ru">Замещения</LocalizedString>
+			</Name>
+			<Field Alias="Employee" ID="273F6D33-89B1-45C1-B37D-FC39453F90F2" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Employee</LocalizedString>
+					<LocalizedString Language="ru">Сотрудник</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Substitute" ID="5539E3C7-65DD-46EE-AF98-213F3C1E0802" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Substitute</LocalizedString>
+					<LocalizedString Language="ru">Заместитель</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="StartDate" ID="883F6F07-A2DA-4D68-98EE-5F83E5AD19EE" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Start date</LocalizedString>
+					<LocalizedString Language="ru">Дата замещения</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="EndDate" ID="3B93E2B5-C7C3-4CA3-8EDB-1DB5D531F80E" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">End date</LocalizedString>
+					<LocalizedString Language="ru">Дата снятия замещения</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="PlannedStartDate" ID="257BCFDD-71D4-4B15-805B-070E1DC678F8" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Planned start date</LocalizedString>
+					<LocalizedString Language="ru">Планируемая дата начала</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="PlannedEndDate" ID="9C735C73-A655-4C55-BF47-DD7492281110" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Planned end date</LocalizedString>
+					<LocalizedString Language="ru">Планируемая дата окончания</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

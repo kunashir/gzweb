@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="F31B9F60-F81F-4825-8216-FC3C1FF15222" Alias="CardCalendar" Version="27" LibraryID="C257FEAA-7F8C-48BD-AB05-397507F88985" ProgID="clsid:{d5c16e3d-49bf-4f5c-8439-e1a057b835f9}" IconFile="Icons\CardCalendar.ico" Copyable="true" CanBeTemplate="true" FetchMode="1" SimpleSecurity="true" DefaultSecurity="">
+	<Name>
+		<LocalizedString Language="en">Business Calendar</LocalizedString>
+		<LocalizedString Language="uk">Бізнес-календар</LocalizedString>
+		<LocalizedString Language="ru">Бизнес-календарь</LocalizedString>
+		<LocalizedString Language="lv">Darba kalendārs</LocalizedString>
+		<LocalizedString Language="ka">ბიზნეს-კალენდარი</LocalizedString>
+		<LocalizedString Language="ro">Business-calendarul</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="B788061D-B569-4C44-8F30-EC6C0E791EA9" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">MainInfo</LocalizedString>
+				<LocalizedString Language="uk">Основна інформація</LocalizedString>
+				<LocalizedString Language="ru">Основная информация</LocalizedString>
+				<LocalizedString Language="lv">Pamatinformācija</LocalizedString>
+				<LocalizedString Language="ka">ძირითადი ინფორმაცია</LocalizedString>
+				<LocalizedString Language="ro">Informaţie de bază</LocalizedString>
+			</Name>
+			<Field Alias="Name" ID="4D2A708E-7DAB-48CC-8C99-179183983054" Type="unistring" Max="128" NotNull="true" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Name</LocalizedString>
+					<LocalizedString Language="uk">Назва</LocalizedString>
+					<LocalizedString Language="ru">Название</LocalizedString>
+					<LocalizedString Language="lv">Nosaukums</LocalizedString>
+					<LocalizedString Language="ka">სახელი</LocalizedString>
+					<LocalizedString Language="ro">Denumirea</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+		<Section Alias="Years" Type="coll" ID="D8B0DEB3-FAE7-4C06-8728-B495985183C9" SuppressSearch="true" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Years</LocalizedString>
+				<LocalizedString Language="uk">Роки</LocalizedString>
+				<LocalizedString Language="ru">Года</LocalizedString>
+				<LocalizedString Language="lv">Gadi</LocalizedString>
+				<LocalizedString Language="ka">წლები</LocalizedString>
+				<LocalizedString Language="ro">Ani</LocalizedString>
+			</Name>
+			<Field Alias="Year" ID="783701F7-C485-43BB-A6CE-6972741F004F" Type="int" NotNull="true" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Year</LocalizedString>
+					<LocalizedString Language="uk">Рік</LocalizedString>
+					<LocalizedString Language="ru">Год</LocalizedString>
+					<LocalizedString Language="lv">Gads</LocalizedString>
+					<LocalizedString Language="ka">წელი</LocalizedString>
+					<LocalizedString Language="ro">Anul</LocalizedString>
+				</Name>
+			</Field>
+			<Section Alias="Days" Type="coll" ID="F12C1136-B351-4037-9DC9-21C042A238AF" SimpleSecurity="true">
+				<Name>
+					<LocalizedString Language="en">Days</LocalizedString>
+					<LocalizedString Language="uk">Дні</LocalizedString>
+					<LocalizedString Language="ru">Дни</LocalizedString>
+					<LocalizedString Language="lv">dienas</LocalizedString>
+					<LocalizedString Language="ka">დღეები</LocalizedString>
+					<LocalizedString Language="ro">zile</LocalizedString>
+				</Name>
+				<Field Alias="DayNumber" ID="AD250659-389A-4684-AC5C-52690C40F87D" Type="int" NotNull="true" DefaultValue="" CopyBehavior="Null">
+					<Name>
+						<LocalizedString Language="en">DayNumber</LocalizedString>
+						<LocalizedString Language="uk">Номер дня</LocalizedString>
+						<LocalizedString Language="ru">Номер дня</LocalizedString>
+						<LocalizedString Language="lv">Diena pēc kārtas</LocalizedString>
+						<LocalizedString Language="ka">დღის ნომერი</LocalizedString>
+						<LocalizedString Language="ro">Numărul zilei</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="Type" ID="106DAA10-6681-4774-9217-5AFAEA2D893E" Type="enum" NotNull="true" DefaultValue="" CopyBehavior="Null">
+					<Name>
+						<LocalizedString Language="en">Type</LocalizedString>
+						<LocalizedString Language="uk">Тип дня</LocalizedString>
+						<LocalizedString Language="ru">Тип дня</LocalizedString>
+						<LocalizedString Language="lv">Tips</LocalizedString>
+						<LocalizedString Language="ka">ტიპი</LocalizedString>
+						<LocalizedString Language="ro">Tip</LocalizedString>
+					</Name>
+					<Enum Alias="Working" Value="0">
+						<Name>
+							<LocalizedString Language="ru">Рабочий</LocalizedString>
+							<LocalizedString Language="uk">Робочий</LocalizedString>
+							<LocalizedString Language="en">Working</LocalizedString>
+							<LocalizedString Language="lv">Darba</LocalizedString>
+							<LocalizedString Language="ka">მუშაობა</LocalizedString>
+							<LocalizedString Language="ro">De serviciu</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="NonWorking" Value="1">
+						<Name>
+							<LocalizedString Language="ru">Нерабочий</LocalizedString>
+							<LocalizedString Language="uk">Неробочий</LocalizedString>
+							<LocalizedString Language="en">Non working</LocalizedString>
+							<LocalizedString Language="lv">Nestrādājošs</LocalizedString>
+							<LocalizedString Language="ka">არ მუშაობს</LocalizedString>
+							<LocalizedString Language="ro">Nu este în funcţiune</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="Holiday" Value="2">
+						<Name>
+							<LocalizedString Language="ru">Праздничный</LocalizedString>
+							<LocalizedString Language="uk">Святковий</LocalizedString>
+							<LocalizedString Language="en">Holiday</LocalizedString>
+							<LocalizedString Language="lv">Brīvdiena</LocalizedString>
+							<LocalizedString Language="ka">სადღესასწაულო</LocalizedString>
+							<LocalizedString Language="ro">De sărbatoare</LocalizedString>
+						</Name>
+					</Enum>
+				</Field>
+				<Section Alias="WorkTime" Type="coll" ID="BF6C7A87-F8F5-4707-98E0-A33E10AE7EF2" SimpleSecurity="true">
+					<Name>
+						<LocalizedString Language="en">WorkTime</LocalizedString>
+						<LocalizedString Language="uk">Робочий час</LocalizedString>
+						<LocalizedString Language="ru">Рабочее время</LocalizedString>
+						<LocalizedString Language="lv">Darba laiks</LocalizedString>
+						<LocalizedString Language="ka">სამუშაო დრო</LocalizedString>
+						<LocalizedString Language="ro">Timpul de lucru</LocalizedString>
+					</Name>
+					<Field Alias="StartTime" ID="4F623369-7D95-4375-8A8E-72A47AA10DB9" Type="time" NotNull="true" DefaultValue="" CopyBehavior="Null">
+						<Name>
+							<LocalizedString Language="en">Start Time</LocalizedString>
+							<LocalizedString Language="uk">Початковий час</LocalizedString>
+							<LocalizedString Language="ru">Начальное время</LocalizedString>
+							<LocalizedString Language="lv">Sākuma laiks</LocalizedString>
+							<LocalizedString Language="ka">დაწყების დრო</LocalizedString>
+							<LocalizedString Language="ro">Timpul lansării</LocalizedString>
+						</Name>
+					</Field>
+					<Field Alias="EndTime" ID="57C83721-E8F7-4BA5-A646-B30771D033AF" Type="time" NotNull="true" DefaultValue="" CopyBehavior="Null">
+						<Name>
+							<LocalizedString Language="en">End Time</LocalizedString>
+							<LocalizedString Language="uk">Кінцевий час</LocalizedString>
+							<LocalizedString Language="ru">Конечное время</LocalizedString>
+							<LocalizedString Language="lv">Beigu laiks</LocalizedString>
+							<LocalizedString Language="ka">დასრულების დრო</LocalizedString>
+							<LocalizedString Language="ro">Timpul final</LocalizedString>
+						</Name>
+					</Field>
+					<DisplayFields />
+				</Section>
+				<DisplayFields />
+			</Section>
+			<DisplayFields />
+		</Section>
+		<Section Alias="DefaultWorkTime" Type="coll" ID="6A95F4B5-E86D-4464-99DA-BAFF7264453C" SuppressSearch="true" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Default Work Time</LocalizedString>
+				<LocalizedString Language="uk">Стандартний робочий час</LocalizedString>
+				<LocalizedString Language="ru">Стандартное рабочее время</LocalizedString>
+				<LocalizedString Language="lv">Darba laiks pēc noklusējuma</LocalizedString>
+				<LocalizedString Language="ka">ნაგულისხმევი სამუშაოს დრო</LocalizedString>
+				<LocalizedString Language="ro">Timpul de lucru standard</LocalizedString>
+			</Name>
+			<Field Alias="StartTime" ID="F80B2576-A7F6-441C-A6E1-EBC5281D7BE0" Type="time" NotNull="true" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Start Time</LocalizedString>
+					<LocalizedString Language="uk">Початковий час</LocalizedString>
+					<LocalizedString Language="ru">Начальное время</LocalizedString>
+					<LocalizedString Language="lv">Sākuma laiks</LocalizedString>
+					<LocalizedString Language="ka">დაწყების დრო</LocalizedString>
+					<LocalizedString Language="ro">Timpul lansării</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="EndTime" ID="5FFBAE7F-28AD-4E56-8C94-8EF8C5B1C578" Type="time" NotNull="true" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">End Time</LocalizedString>
+					<LocalizedString Language="uk">Кінцевий час</LocalizedString>
+					<LocalizedString Language="ru">Конечное время</LocalizedString>
+					<LocalizedString Language="lv">Beigu laiks</LocalizedString>
+					<LocalizedString Language="ka">დასრულების დრო</LocalizedString>
+					<LocalizedString Language="ro">Timpul final</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+	</Sections>
+	<Transformations>
+		<Transformation ID="B5344DA1-D28F-4024-8798-3FC3992C94B7" Type="Custom" FileRef="XSLT\TakeOffice.css" Alias="TakeOfficeCSS" ContentType="Text" Language="ru">
+			<Name>
+				<LocalizedString Language="en">TakeOfficeCSS</LocalizedString>
+				<LocalizedString Language="uk">TakeOfficeCSS</LocalizedString>
+				<LocalizedString Language="ru">TakeOfficeCSS</LocalizedString>
+				<LocalizedString Language="lv">Biroja CSS</LocalizedString>
+				<LocalizedString Language="ka">TakeOfficeCSS</LocalizedString>
+				<LocalizedString Language="ro">TakeOfficeCSS</LocalizedString>
+			</Name>
+		</Transformation>
+	</Transformations>
+</CardDefinition>

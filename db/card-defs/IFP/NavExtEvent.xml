@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5B68EEC3-B52C-4E75-84BB-BA16C949C450" Alias="NavExtEvent" Version="7" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{4437945d-f006-4aed-a77a-9eaa6377d115}" Dictionary="true" NonViewable="true" NonCreatable="true" IconFile="" UIExtension="true" NoHardShortcuts="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Event navigator extension</LocalizedString>
+		<LocalizedString Language="ru">Расширение навигатора типа "Обработчик событий"</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="Section1" Type="struct" ID="0CEE90B8-BCEB-4D90-9361-388E2BA103E9">
+			<Name>
+				<LocalizedString Language="en">Section1</LocalizedString>
+				<LocalizedString Language="ru">Section1</LocalizedString>
+			</Name>
+			<Field Alias="Field1" ID="86E3E82C-FD5F-4FAA-9F2C-AFA28BC95765" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Field1</LocalizedString>
+					<LocalizedString Language="ru">Field1</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="E63E748B-DDDB-43C3-B0B4-7AE867B9483C" Alias="ReferenceList" Version="10" LibraryID="7f4dc00c-886c-426f-8d72-48432bc057ea" ProgID="" NonSearchable="true" NonViewable="true" NonCreatable="true" IconFile="" Copyable="true" SimpleSecurity="true" NonArchivable="false">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">List of references</LocalizedString>
+		<LocalizedString Language="ru">Список ссылок</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="References" Type="coll" ID="F34ADE10-7932-4767-BD03-67F164A45DE5">
+			<Name>
+				<LocalizedString Language="en">References</LocalizedString>
+				<LocalizedString Language="ru">Ссылки</LocalizedString>
+			</Name>
+			<Field Alias="Type" ID="5A86EB0A-E6BE-4888-81DD-F97811A5BC78" Type="refid" RefType="38165FA6-FA69-4261-9EC3-675FEBB89C8B" RefSection="5C103E40-BA13-44EF-A628-E6286DC687D6" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Link type</LocalizedString>
+					<LocalizedString Language="ru">Тип связки</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Link" ID="C0FF7B44-8106-4BC9-BF74-4BF3988E1DEF" Type="refcardid" DefaultValue="" RefKind="Simple" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Card</LocalizedString>
+					<LocalizedString Language="ru">Карточка</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Comments" ID="DDAFB709-8F56-4554-907E-BA49D9C5185B" Type="unistring" Max="2048" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Comments</LocalizedString>
+					<LocalizedString Language="ru">Комментарии</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CreationDate" ID="B8B786A1-28B0-468D-890E-4BB0FF73B454" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Creation date</LocalizedString>
+					<LocalizedString Language="ru">Дата создания</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CreatedBy" ID="62C0BBEF-298F-45CC-B69B-4D4F790B36A5" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Created by</LocalizedString>
+					<LocalizedString Language="ru">Кем добавлена</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="URL" ID="3FCAE851-694B-4C93-95F7-CDEA29F5EC0E" Type="unistring" Max="512" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">URL</LocalizedString>
+					<LocalizedString Language="ru">URL</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="LinkDesc" ID="6BB4BD85-C22E-4758-9130-65D5FE3769BC" Type="unistring" Max="256" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Link description</LocalizedString>
+					<LocalizedString Language="ru">Описание связки</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FolderID" ID="E3571E7C-84D3-4AAD-BB38-80F3343654BD" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Folder</LocalizedString>
+					<LocalizedString Language="ru">Папка</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ShowMode" ID="7C535809-9D27-4C92-8634-5542F7060174" Type="enum" DefaultValue="1" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Show mode</LocalizedString>
+					<LocalizedString Language="ru">Режим отображения</LocalizedString>
+				</Name>
+				<Enum Alias="Usual" Value="1">
+					<Name>
+						<LocalizedString Language="en">Usual</LocalizedString>
+						<LocalizedString Language="ru">Обычный</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="ShowIncoming" Value="2">
+					<Name>
+						<LocalizedString Language="en">Show incoming</LocalizedString>
+						<LocalizedString Language="ru">Показывать входящую ссылку</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

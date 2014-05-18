@@ -1,0 +1,62 @@
+$back-color: #FFF;
+
+table {
+	border: 2px solid #999;
+	background: #F8F8F8;
+	border-collapse: collapse;
+	padding: 0px;
+	margin: 0px;
+}
+
+th {
+	white-space: nowrap;
+	background: #666;
+	color: #DDD;
+}
+
+th:hover {
+	background: #444;
+	color: #EEE;
+}
+
+th > div { 
+	position: relative;
+	padding: 7px 20px;
+}
+
+th:nth-child(n+1) {
+	border-left: 1px solid #999;
+}
+
+td {
+	padding: 5px 10px;
+	color: #222;
+	vertical-align: top;
+	border-bottom: 1px solid #999;
+}
+
+td:nth-child(n+1) {
+	border-left: 1px solid #999;
+}
+
+tbody tr:hover {
+	background: #E8E8FF;
+}
+
+div.table-sorter {
+	position: absolute;
+	right: 2px;
+	top: 5px;
+	bottom: 5px;
+	width: 18px;
+	background-repeat: none;
+	background-size: 100% auto;
+}
+
+div.table-sorter.asc {
+	background-image: asset-url("asc.png", image);
+}
+
+div.table-sorter.desc {
+	background-image: asset-url("desc.png", image);
+}

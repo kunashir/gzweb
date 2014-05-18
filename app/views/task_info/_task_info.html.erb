@@ -1,0 +1,42 @@
+<div class="task-info">
+	<div class="header"><%=t "task_info.title" %></div>
+	<ul>
+    <li class="task-info-group">
+      <div class="task-info-group-performing">
+        <div class="header"><%=t "task_info.performer" %></div>
+        <ul>
+          <% [:performing, :to_accept, :long_tasks, :to_approve, :to_sign, :informational].each do |prop| %>
+        		<li class="task-info-item">
+              <div class="task-info-<%= prop %>">
+                <div class="header"><%=t "task_info.#{prop}" %></div>
+                <div class="total"><%= task_info.send(prop) %></div>
+                <div class="new <%= "non-zero" if task_info.send("#{prop}_new") > 0 %>"><%= task_info.send("#{prop}_new") %></div>
+                <div class="icon" />
+              </div>
+        		</li>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+    <li class="task-info-group">
+      <div class="task-info-group-issued">
+        <div class="header"><%=t "task_info.author" %></div>
+        <ul>
+          <% [:issued, :long_issued, :delegated].each do |prop| %>
+            <li class="task-info-item">
+              <div class="task-info-<%= prop %>">
+                <div class="header"><%=t "task_info.#{prop}" %></div>
+                <div class="total"><%= task_info.send(prop) %></div>
+                <div class="new <%= "non-zero" if task_info.send("#{prop}_new") > 0 %>"><%= task_info.send("#{prop}_new") %></div>
+                <div class="icon" />
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+	</ul>
+</div>
+<script>
+  initMainAreaLayout();
+</script>

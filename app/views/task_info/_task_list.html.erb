@@ -1,0 +1,39 @@
+<%
+  fields = [ :date, :author, :doc_number, :subject, :content, :deadline, :delegated_to]
+  formats = { date: date_format, deadline: date_time_format }
+  @sort_field = [:date, :asc]
+%>
+
+<table class="task-list">
+  <thead>
+    <tr>
+      <% fields.each do |field| %>
+        <th class="<%= "task-list-#{field}" %>">
+          <div>
+            <div><%=t "task_list.#{field}" %></div>
+            <div class="table-sorter <%= @sort_field[1] if @sort_field[0] == field%>">&nbsp;</div>
+          </div>
+        </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% task_list.each do |task| %>
+      <tr>
+        <% fields.each do |field| %>
+          <td class="<%= "task-list-#{field}" %>">
+            <%= 
+              format = formats[field]
+              value = task.send(field) 
+              if format.nil?
+                value
+              else
+                format_value_for_table(value, format)
+              end
+            %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

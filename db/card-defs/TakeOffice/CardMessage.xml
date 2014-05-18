@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9D0B80A0-DFA2-49D9-9AE8-C8934913117A" Alias="CardMessage" Version="33" LibraryID="C257FEAA-7F8C-48BD-AB05-397507F88985" ProgID="clsid:{5c3cbd8d-7273-4f92-b525-ff7c43bbcb57}" IconFile="Icons\CardMessage.ico" Copyable="true" CanBeTemplate="true" FetchMode="1" SimpleSecurity="true" DefaultSecurity="">
+	<Name>
+		<LocalizedString Language="en">Message</LocalizedString>
+		<LocalizedString Language="uk">Повідомлення</LocalizedString>
+		<LocalizedString Language="ru">Сообщение</LocalizedString>
+		<LocalizedString Language="lv">Ziņa</LocalizedString>
+		<LocalizedString Language="ka">გზავნილი</LocalizedString>
+		<LocalizedString Language="ro">Mesaj</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="E74E5CC1-D8A8-4BB5-80E4-98BEF20549E2" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Main</LocalizedString>
+				<LocalizedString Language="uk">Головна</LocalizedString>
+				<LocalizedString Language="ru">Основная</LocalizedString>
+				<LocalizedString Language="lv">Pamatinformācija</LocalizedString>
+				<LocalizedString Language="ka">ძირითადი</LocalizedString>
+				<LocalizedString Language="ro">Principal</LocalizedString>
+			</Name>
+			<Field Alias="CreatedBy" ID="CB2C8C32-FDE8-460D-A1E2-9EC38A5F3128" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Created by</LocalizedString>
+					<LocalizedString Language="uk">Автор</LocalizedString>
+					<LocalizedString Language="ru">Автор</LocalizedString>
+					<LocalizedString Language="lv">Izveidojis</LocalizedString>
+					<LocalizedString Language="ka">შექმნილია:</LocalizedString>
+					<LocalizedString Language="ro">Autor</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="" SysField="false">LastName</RefField>
+					<RefField Alias="" SysField="false">FirstName</RefField>
+					<RefField Alias="" SysField="false">MiddleName</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="CreationDate" ID="561C8AF0-715F-444F-BC64-0586C48EE41E" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Creation date</LocalizedString>
+					<LocalizedString Language="uk">Дата створення</LocalizedString>
+					<LocalizedString Language="ru">Дата создания</LocalizedString>
+					<LocalizedString Language="lv">Izveides datums</LocalizedString>
+					<LocalizedString Language="ka">შექმნის თარიღი</LocalizedString>
+					<LocalizedString Language="ro">Data de creare</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Subject" ID="7FBCADC5-6793-41CE-B3D5-A8DF4E0E47E7" Type="unistring" Max="800" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Subject</LocalizedString>
+					<LocalizedString Language="uk">Заголовок</LocalizedString>
+					<LocalizedString Language="ru">Заголовок</LocalizedString>
+					<LocalizedString Language="lv">Temats</LocalizedString>
+					<LocalizedString Language="ka">შეტყობინების თემა</LocalizedString>
+					<LocalizedString Language="ro">Subiectul</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Body" ID="F7C9A806-8F0B-4593-83C9-ACB9A69C324C" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Body</LocalizedString>
+					<LocalizedString Language="uk">Тіло</LocalizedString>
+					<LocalizedString Language="ru">Сообщение</LocalizedString>
+					<LocalizedString Language="lv">Saturs</LocalizedString>
+					<LocalizedString Language="ka">ტანი</LocalizedString>
+					<LocalizedString Language="ro">Corpul</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CardID" ID="2E2D64E8-19CE-4943-A2E9-422AC3538D1A" Type="refcardid" DefaultValue="" RefKind="Weak" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Linked card</LocalizedString>
+					<LocalizedString Language="uk">Зв'язана картка</LocalizedString>
+					<LocalizedString Language="ru">Связанная карточка</LocalizedString>
+					<LocalizedString Language="lv">Saistītā kartiņa</LocalizedString>
+					<LocalizedString Language="ka">დაკავშირებული ბარათი</LocalizedString>
+					<LocalizedString Language="ro">Fişă interdependentă</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="" SysField="true">Description</RefField>
+				</RefFields>
+			</Field>
+			<DisplayFields />
+		</Section>
+	</Sections>
+	<Transformations>
+		<Transformation ID="EE1DEEB5-0FA2-4543-9D07-14D0A14498B7" Type="XSLT" FileRef="XSLT\CardMessage.ru.xslt" Alias="PrintTemplateRU" ContentType="Text" Default="true" Language="ru">
+			<Name>
+				<LocalizedString Language="en">Russian Print Template</LocalizedString>
+				<LocalizedString Language="ru">Стандартный шаблон печати</LocalizedString>
+				<LocalizedString Language="uk">Стандартний шаблон друку</LocalizedString>
+				<LocalizedString Language="lv">Izdrukas šablons krievu valodā</LocalizedString>
+				<LocalizedString Language="ka">რუსული ამობეჭდვის შაბლონი</LocalizedString>
+				<LocalizedString Language="ro">Şablonul standard de imprimare</LocalizedString>
+			</Name>
+		</Transformation>
+		<Transformation ID="81872AAB-0DB5-4443-B170-4781BB9376F7" Type="XSLT" FileRef="XSLT\CardMessage.xslt" Alias="PrintTemplateEN" ContentType="Text" Language="en">
+			<Name>
+				<LocalizedString Language="en">Print Template</LocalizedString>
+				<LocalizedString Language="uk">Англійський шаблон друку</LocalizedString>
+				<LocalizedString Language="ru">Английский шаблон печати</LocalizedString>
+				<LocalizedString Language="lv">Izdrukas šablons</LocalizedString>
+				<LocalizedString Language="ka">ბეჭდვის შაბლონი</LocalizedString>
+				<LocalizedString Language="ro">Imprimă Şablonul</LocalizedString>
+			</Name>
+		</Transformation>
+		<Transformation ID="533A1CE7-13E2-49E2-81DA-743531936E43" Type="XSLT" FileRef="XSLT\CardMessage.uk.xslt" Alias="PrintTemplateUk" ContentType="Text" Language="uk">
+			<Name>
+				<LocalizedString Language="en">Ukrainian Print Template</LocalizedString>
+				<LocalizedString Language="uk">Стандартний шаблон друку</LocalizedString>
+				<LocalizedString Language="ru">Украинский шаблон печати</LocalizedString>
+				<LocalizedString Language="lv">Izdrukas šablons ukraiņu valodā</LocalizedString>
+				<LocalizedString Language="ka">უკრაინული ბეჭდვის შაბლონი</LocalizedString>
+				<LocalizedString Language="ro">Şablon ucrainean de imprimare</LocalizedString>
+			</Name>
+		</Transformation>
+	</Transformations>
+	<VirtualFields>
+		<VirtualField Alias="LinkedCard" ID="95DA95B4-279F-4A90-B46A-FA883589C303">
+			<Name>
+				<LocalizedString Language="en">Linked card</LocalizedString>
+				<LocalizedString Language="ru">Связанная карточка</LocalizedString>
+				<LocalizedString Language="lv">Saistītā kartiņa</LocalizedString>
+				<LocalizedString Language="ka">დაკავშირებული ბარათი</LocalizedString>
+				<LocalizedString Language="ro">Fişă interdependentă</LocalizedString>
+				<LocalizedString Language="uk">Зв'язана картка</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="E74E5CC1-D8A8-4BB5-80E4-98BEF20549E2" Version="4000" Type="unistring"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="unistring"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="Description" SectionAlias="__Instances" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="None" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Instances" SectionID="" TableName="dvsys_instances" SourceAlias="Main" SourceField="CardID" DestField="InstanceID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+	</VirtualFields>
+</CardDefinition>

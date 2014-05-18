@@ -1,0 +1,318 @@
+@import 'style';
+
+$group-color: #F7F7F7;
+$fore-color: #333;
+$new-color: #f0f0f0;
+$dim-level: .25;
+$border-dim-level: .9;
+$performing-color: #F7C6A3;
+$group-gradient-level: 10%;	
+$gradient-level: 0%;
+$outline-color: rgba(0,0,0,.3);
+$new-dim-level: .05;
+$informational-color: #C8D9A6;
+$issued-color: #A5D6E2;
+
+body {
+	font-family: Verdana, Tahoma, serif;
+}
+
+.app-area {
+	background-color: $back-color;
+	background-image: url('/assets/logo.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: 5em 5em;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	z-index: -2;
+}
+
+.header-bar {
+	width: 100%;
+	height: 4em;
+	overflow: hidden;
+}
+
+.task-info {
+	width: 100%;
+	top: 9em;
+}
+
+.task-summary {
+	float: right;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.task-summary li {
+	padding: 0;
+	margin: 1em 0.2em;
+	float: left;
+	background-color: white;
+}
+
+.task-summary li .header {
+	display: none;
+}
+
+.task-summary li .total {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	width: 2em;
+	height: 2em;
+}
+
+.header-actions ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 2em;
+}
+
+.header-actions ul li {
+	float: left;
+	margin: 1em 0.2em;
+}
+
+.header-actions ul li a {
+	height: 2em;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.user-control { 
+	margin: -1em 0em -1em 0em;
+	border: 1px solid #DDD;
+	border-radius: 10px;
+}
+
+.user-photo {
+	height: 80%;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	float: left;
+}
+
+.user-control a {
+	display: table-cell;
+	height: 2em;
+	vertical-align: middle;
+	padding: 0.5em 0.2em;
+}
+
+.user-control .user-info {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.user-name {
+	font-weight: bold;
+}
+
+.user-position {
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+.task-info > .header {
+	display: none;
+}
+
+.task-info ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow: none;	
+}
+
+.task-info-group > div {
+	border: 1px solid transparentize($fore-color, $border-dim-level);
+	border-radius: 10px;
+}
+
+.task-info-group-performing > .header,
+.task-info-group-issued > .header {
+	background-color: $group-color;
+	background: linear-gradient(to right, $group-color, mix(white, $group-color, $group-gradient-level));
+	padding: 0.5em 0.5em;
+	color: transparentize($fore-color, $dim-level);
+	border: 1px solid transparentize($fore-color, $border-dim-level);
+	border-radius: 10px;
+	font-weight: bold;
+	margin: 0.5em;
+}
+
+.task-info-group > ul {
+	list-style: none;
+	margin: 0 -1em;
+	padding: 0;
+	font-weight: bold;
+	padding: 0.5em;
+	margin: 0;
+	overflow: hidden;
+}
+
+.task-info-item {
+	float: left;
+	width: 33.333333333%;
+	cursor: pointer;
+}
+
+.task-info-item > div {
+	border: 1px solid transparentize($fore-color, $border-dim-level);
+	border-radius: 5px;
+	font-weight: bold;
+	color: transparentize($fore-color, $dim-level);
+	position: relative;
+	height: 6em;
+}
+
+.task-info-performing, .task-info-to_accept {
+	background-color: $performing-color;
+	background: linear-gradient(to right, $performing-color, mix(white, $performing-color, $gradient-level));
+}
+
+.task-info-long_tasks, .task-info-informational, .task-info-to_approve, .task-info-to_sign {
+	background-color: $informational-color;
+	background: linear-gradient(to right, $informational-color, mix(white, $informational-color, $gradient-level));
+}
+
+.task-info-issued, .task-info-long_issued, .task-info-delegated {
+	background-color: $issued-color;
+	background: linear-gradient(to right, $issued-color, mix(white, $issued-color, $gradient-level));
+}
+
+.task-info-item .header {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 2.5em;
+	padding: 0.5em;
+}
+
+.task-info-item .total {
+	position: absolute;
+	bottom: 0.2em;
+	right: 0.2em;
+}
+
+.task-info-item .new {
+	display: none;
+}
+
+.task-info-item .new.non-zero {
+	display: block;
+	font-size: 2em;
+	color: $new-color;
+	position: absolute;
+	bottom: 0.5em;
+	right: 1em;
+   	text-shadow:
+    	-1px -1px 0 $outline-color,
+    	1px -1px 0 $outline-color,
+    	-1px 1px 0 $outline-color,
+    	1px 1px 0 $outline-color;	
+}
+
+.task-info-item .icon {
+	position: absolute;
+	left: 0.3em;
+	bottom: 0.3em;
+	width: 4em;
+	height: 4em;
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+
+.task-info-performing .icon {
+	background-image: asset-url("performing.png", image);
+}
+
+.task-info-to_accept .icon {
+	background-image: asset-url("to_accept.png", image);
+}
+
+.task-info-to_approve .icon {
+	background-image: asset-url("to_approve.png", image);
+}
+
+.task-info-to_sign .icon {
+	background-image: asset-url("to_sign.png", image);
+}
+
+.task-info-long_tasks .icon {
+	background-image: asset-url("long_tasks.png", image);
+}
+
+.task-info-informational .icon {
+	background-image: asset-url("informational.png", image);
+}
+
+.task-info-issued .icon {
+	background-image: asset-url("issued.png", image);
+}
+
+.task-info-long_issued .icon {
+	background-image: asset-url("long_issued.png", image);
+}
+
+.task-info-delegated .icon {
+	background-image: asset-url("delegated.png", image);
+}
+
+.task-info-item.single-line {
+	float: none;
+	width: 100%;
+}
+
+.task-info-item.single-line > div {
+	height: 3em;
+}
+
+.task-info-item.single-line > div > .icon {
+	display: none;
+}
+
+.task-info-item.single-line .header {
+	margin: 0.2em 4em 0.5em 0.5em;
+	padding: 0px;
+}
+
+.task-info-item.single-line > div > .new.non-zero {
+	top: 0.1em;
+	bottom: auto;
+}
+
+.window-link {
+	width: 1px;
+	padding: 0 0.5em;
+}
+
+.task-info-grid {
+	height: 3em;
+	margin: -0.5em 0.5em;
+	width: 0em;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.data-area {
+	position: fixed;
+	left: 280px;
+	top: 6em;
+	right: 1em;
+	bottom: 1em;
+	background: #F8F8F8;
+	border: 1px solid #EEE;
+	border-radius: 10px;
+	padding: 10px;
+	opacity: 0;
+	z-index: -1;
+}

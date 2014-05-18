@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1DB82675-2560-4DB4-B4F0-0CF0D2CF7D31" Alias="RefRoutes" Version="34" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{987865be-175f-4c04-ba55-45d47faaa23b}" Dictionary="true" NonSearchable="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\gazprom.ico" NonArchivable="true">
+  <Name>
+    <LocalizedString Language="en">Routes reference</LocalizedString>
+    <LocalizedString Language="ru">Справочник маршрутов согласования</LocalizedString>
+  </Name>
+  <Sections>
+    <Section Alias="DocumentRoutes" RowAlias="" Type="coll" ID="F9F1CAE0-7EC8-4371-B2A6-77BB57A54A85">
+      <Name>
+        <LocalizedString Language="en">Document routes</LocalizedString>
+        <LocalizedString Language="ru">Настройки маршрутов согласования по типам документов</LocalizedString>
+      </Name>
+      <Field Alias="DocumentType" ID="9C71DB31-4664-474B-89C3-F29E26325655" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Document type</LocalizedString>
+          <LocalizedString Language="ru">Тип документа</LocalizedString>
+        </Name>
+        <Enum Alias="Contract" Value="1">
+          <Name>
+            <LocalizedString Language="en">Contract</LocalizedString>
+            <LocalizedString Language="ru">Договор</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Order" Value="2">
+          <Name>
+            <LocalizedString Language="en">Order</LocalizedString>
+            <LocalizedString Language="ru">Приказ</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Direction" Value="3">
+          <Name>
+            <LocalizedString Language="en">Direction</LocalizedString>
+            <LocalizedString Language="ru">Распоряжение</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Memorandum" Value="4">
+          <Name>
+            <LocalizedString Language="en">Memorandum</LocalizedString>
+            <LocalizedString Language="ru">Служебная записка</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="OutDoc" Value="5">
+          <Name>
+            <LocalizedString Language="en">Outgoing document</LocalizedString>
+            <LocalizedString Language="ru">Исходящий документ</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Protocol" Value="6">
+          <Name>
+            <LocalizedString Language="en">Protocol</LocalizedString>
+            <LocalizedString Language="ru">Протокол</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Instruction" Value="7">
+          <Name>
+            <LocalizedString Language="en">Instruction</LocalizedString>
+            <LocalizedString Language="ru">Указание</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="UniversalApproval" Value="8">
+          <Name>
+            <LocalizedString Language="en">Universal approval</LocalizedString>
+            <LocalizedString Language="ru">Универсальное согласование</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="NRD" Value="9">
+          <Name>
+            <LocalizedString Language="en">NRD</LocalizedString>
+            <LocalizedString Language="ru">НРД</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="RefRouteOnly" ID="09E48266-2ADA-4414-8E06-C804FC230A9F" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Allow reconciliation by reference route only</LocalizedString>
+          <LocalizedString Language="ru">Возможность согласования только по маршруту из справочника</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="Route" ID="DE0CF3C3-0FED-4BB9-BF46-F8916B1D22CB" Type="refid" RefType="1DB82675-2560-4DB4-B4F0-0CF0D2CF7D31" RefSection="2EA98488-434C-4F71-8105-D137A5F88F72" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Reconciliation route</LocalizedString>
+          <LocalizedString Language="ru">Маршрут согласования</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="PrintTemplate" ID="1FDADC61-FC45-4271-B606-DC84129F8ED6" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">PrintTemplate</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="Routes" Type="coll" ID="2EA98488-434C-4F71-8105-D137A5F88F72">
+        <Name>
+          <LocalizedString Language="en">Routes</LocalizedString>
+          <LocalizedString Language="ru">Маршруты</LocalizedString>
+        </Name>
+        <Field Alias="Name" ID="0583EF8D-2E9A-4AF8-8FC3-A4E2E74F9457" Type="unistring" Max="255" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Route name</LocalizedString>
+            <LocalizedString Language="ru">Имя маршрута согласования</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="NotAvailable" ID="99D5B919-9209-40BE-B312-50A008B63994" Type="bool" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Not available for selection</LocalizedString>
+            <LocalizedString Language="ru">Не доступен для выбора</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="AllowEditFirst" ID="FDE09714-3BDC-49A0-B44E-9357DB634FA6" Type="bool" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Allow edit first</LocalizedString>
+            <LocalizedString Language="ru">Разрешить редактирование очередности первых</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="AllowEditLast" ID="B92C5748-A10D-483A-93A6-62D5283CC375" Type="bool" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Allow edit last</LocalizedString>
+            <LocalizedString Language="ru">Разрешить редактирование очередности последних</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="AllowEditOrdinary" ID="765DB73D-3214-4A9E-9D66-825F77515CE1" Type="bool" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Allow edit ordinary</LocalizedString>
+            <LocalizedString Language="ru">Разрешить редактирование очередности обычных</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="AllowAdding" ID="B40F996D-826C-4783-A1A2-C3081483A626" Type="bool" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Allow adding</LocalizedString>
+            <LocalizedString Language="ru">Разрешить добавление</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="AllowParallelReconciliation" ID="7F8083F3-9127-4222-AEFA-5A9DE76D4380" Type="bool" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Allow parallel reconciliation</LocalizedString>
+            <LocalizedString Language="ru">Разрешить параллельность согласования</LocalizedString>
+          </Name>
+        </Field>
+        <Section Alias="Persons" Type="coll" ID="DF390B82-FFF1-4C97-AF12-E25A2DBDFEC3">
+          <Name>
+            <LocalizedString Language="en">Reconciliation persons</LocalizedString>
+            <LocalizedString Language="ru">Сотрудники маршрута согласования</LocalizedString>
+          </Name>
+          <Field Alias="Order" ID="BCB2726C-BE0B-4917-BDFD-096B44A74DCC" Type="int" DefaultValue="" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">№</LocalizedString>
+              <LocalizedString Language="ru">№</LocalizedString>
+            </Name>
+          </Field>
+          <Field Alias="Role" ID="5067EAD4-84B8-4B9F-B55F-E4356CC640ED" Type="refid" RefType="DD9B97AD-E18F-4B2B-8001-D66D39A5B6A0" RefSection="CA22A1A7-BC97-4426-A489-9A96F316FEEC" DefaultValue="" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">Role</LocalizedString>
+              <LocalizedString Language="ru">Роль</LocalizedString>
+            </Name>
+          </Field>
+          <Field Alias="Person" ID="6A22541B-0F69-486C-92FA-D40A53964E6D" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">Person</LocalizedString>
+              <LocalizedString Language="ru">Сотрудник</LocalizedString>
+            </Name>
+          </Field>
+          <Field Alias="InParallel" ID="9F5EF21B-2601-4AB7-9A49-2EA78B7BB392" Type="bool" DefaultValue="" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">Parallel reconciliation</LocalizedString>
+              <LocalizedString Language="ru">Параллельное согласовение</LocalizedString>
+            </Name>
+          </Field>
+          <Field Alias="OrderType" ID="856FC31C-D675-415A-AF72-5BEB3411F7A4" Type="enum" DefaultValue="1" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">Order type</LocalizedString>
+              <LocalizedString Language="ru">Очередность</LocalizedString>
+            </Name>
+            <Enum Alias="Any" Value="1">
+              <Name>
+                <LocalizedString Language="en">Any</LocalizedString>
+                <LocalizedString Language="ru">Любое</LocalizedString>
+              </Name>
+            </Enum>
+            <Enum Alias="First" Value="2">
+              <Name>
+                <LocalizedString Language="en">First</LocalizedString>
+                <LocalizedString Language="ru">Начало</LocalizedString>
+              </Name>
+            </Enum>
+            <Enum Alias="Last" Value="3">
+              <Name>
+                <LocalizedString Language="en">Last</LocalizedString>
+                <LocalizedString Language="ru">Конец</LocalizedString>
+              </Name>
+            </Enum>
+            <Enum Alias="Final" Value="4">
+              <Name>
+                <LocalizedString Language="en">Final</LocalizedString>
+                <LocalizedString Language="ru">Заключительный</LocalizedString>
+              </Name>
+            </Enum>
+          </Field>
+          <Field Alias="Required" ID="112C4486-1313-4617-BBAC-0F1995CDB5C5" Type="bool" DefaultValue="" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">Required accomodation person</LocalizedString>
+              <LocalizedString Language="ru">Обязательное согласующее лицо</LocalizedString>
+            </Name>
+          </Field>
+          <Field Alias="DenyParallel" ID="369E7F49-EAE8-4EB6-B01D-2CB4A7276F0A" Type="bool" DefaultValue="" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">Deny parallel</LocalizedString>
+              <LocalizedString Language="ru">Нельзя в параллель</LocalizedString>
+            </Name>
+          </Field>
+          <DisplayFields />
+        </Section>
+        <DisplayFields />
+      </Section>
+      <DisplayFields FormatString="" />
+    </Section>
+  </Sections>
+</CardDefinition>

@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5631E33F-63E9-40DD-B44E-6110546F8884" Alias="IFPReportLib" ControlInfo="clsid:{BA80D557-5E78-4261-96C2-34A1268FA25F}" IconFile="Icons\gazprom.ico" Version="186" MsiProductCode="" MsiPackageName="">
+  <Definitions>
+    <RefCardDefinition>RefReports.xml</RefCardDefinition>
+    <RefCardDefinition>RefReportNRD.xml</RefCardDefinition>
+  </Definitions>
+  <Name>
+    <LocalizedString Language="ru">Библиотека отчётов IFP</LocalizedString>
+    <LocalizedString Language="en">IFP reports library</LocalizedString>
+  </Name>
+  <Reports>
+    <Report Alias="GetOutDocsSendingInfo" ID="C2D2BE18-E389-4616-B9FA-3441E1750985" SQLFile="GetOutDocSendingInfo.sql">
+      <Name>
+        <LocalizedString Language="en">Get out docs sending info</LocalizedString>
+        <LocalizedString Language="ru">Отчёт об отправках исходящих</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="regDateBegin" />
+      <Parameter Type="datetime" Name="regDateEnd" />
+      <Parameter Type="datetime" Name="sentDateBegin" />
+      <Parameter Type="datetime" Name="sentDateEnd" />
+      <Parameter Type="uniqueidentifier" Name="sendingType" />
+      <Parameter Type="uniqueidentifier" Name="recipient" />
+      <Parameter Type="uniqueidentifier" Name="recipientOrg" />
+      <Parameter Type="integer" Name="state" />
+      <Parameter Type="uniqueidentifier" Name="executer" />
+      <Parameter Type="uniqueidentifier" Name="signedBy" />
+    </Report>
+    <Report Alias="GetDocumentsCount" ID="0F591897-0151-4152-BCA4-17EBF44A7298" SQLFile="GetDocumentsCount.sql">
+      <Name>
+        <LocalizedString Language="en">Get total documents count</LocalizedString>
+        <LocalizedString Language="ru">Получить кол-во документов (всего\зарегеистрировано)</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="sectionID" />
+      <Parameter Type="string" Name="regDateFieldName" />
+      <Parameter Type="string" Name="regDateStart" />
+      <Parameter Type="string" Name="regDateEnd" />
+    </Report>
+    <Report Alias="TransferRegistryReport" ID="58FDE742-56E5-4B9F-87D5-03570971BA41" SQLFile="TransferRegistryReport.sql">
+      <Name>
+        <LocalizedString Language="en">Transfer registry </LocalizedString>
+        <LocalizedString Language="ru">Реестр передач</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="secretary" />
+      <Parameter Type="text" Name="managersString" />
+      <Parameter Type="datetime" Name="transferStart" />
+      <Parameter Type="datetime" Name="transferEnd" />
+      <Parameter Type="bool" Name="onManagerApproving" />
+    </Report>
+    <Report Alias="GetDataForExpenseReport" ID="CA687D51-26CE-4A45-B2DB-C9A6FEA8FA50" SQLFile="GetDataForExpenseReport.sql">
+      <Name>
+        <LocalizedString Language="en">Get data for ExpenseReport</LocalizedString>
+        <LocalizedString Language="ru">Данные для отчета "Авансовый отчет"</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="regDateBegin" />
+      <Parameter Type="datetime" Name="regDateEnd" />
+      <Parameter Type="datetime" Name="sentDateBegin" />
+      <Parameter Type="datetime" Name="sentDateEnd" />
+      <Parameter Type="uniqueidentifier" Name="sendingType" />
+      <Parameter Type="uniqueidentifier" Name="recipient" />
+      <Parameter Type="uniqueidentifier" Name="recipientOrg" />
+      <Parameter Type="uniqueidentifier" Name="executer" />
+      <Parameter Type="uniqueidentifier" Name="signedBy" />
+    </Report>
+    <Report Alias="GetIncDocsForSearchFolder" ID="2BD0E40F-D7FA-48FF-8F52-239DBF466817" SQLFile="IncDocsProcedures\GetIncDocsForSearchFolder.sql">
+      <Name>
+        <LocalizedString Language="en">GetIncDocsForSearchFolder</LocalizedString>
+        <LocalizedString Language="ru">Входящие для поисковой папки</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="employeeID" />
+      <Parameter Type="string" Name="accountName" />
+    </Report>
+    <Report Alias="KIDIncTasksWithWhereFrom" ID="B4ABC57F-BC77-476C-AAD9-7BF8F7E16325" SQLFile="KID\IncTasksWithWhereFrom.sql">
+      <Name>
+        <LocalizedString Language="en">KID. Get incoming tasks with "Where from"</LocalizedString>
+        <LocalizedString Language="ru">КИД. Поиск входящих заданий с полем "Откуда"</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="employeeID" />
+      <Parameter Type="string" Name="accountName" />
+    </Report>
+    <Report Alias="KIDIncTasksWithResponsibleDepartment" ID="1A966D10-2EE0-4ECB-A9F6-F06E542CB093" SQLFile="KID\IncTasksWithResponsibleDepartment.sql">
+      <Name>
+        <LocalizedString Language="en">KID. Incoming tasks with responsible department</LocalizedString>
+        <LocalizedString Language="ru">КИД. Входящие поручения с ответственным подразделением</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="employeeID" />
+      <Parameter Type="string" Name="accountName" />
+    </Report>
+    <Report Alias="KIDIncTasksManagerView" ID="CFDE2DA3-1661-47A5-BD6A-D065A1A32BF7" SQLFile="KID\IncTasksManagerView.sql">
+      <Name>
+        <LocalizedString Language="en">KID. Incoming tasks view for manager</LocalizedString>
+        <LocalizedString Language="ru">КИД. Входящие поручения руководителя без подписания</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="employeeID" />
+      <Parameter Type="string" Name="accountName" />
+    </Report>
+    <Report Alias="KIDIncTasksODView" ID="7BBD457D-22AE-4BCB-A1A9-D5488AE8C633" SQLFile="KID\IncTasksODView.sql">
+      <Name>
+        <LocalizedString Language="en">KID. Incoming tasks for OD (without sign prepare and registration)</LocalizedString>
+        <LocalizedString Language="ru">КИД. Входящие поручения для ОД (без подготовки к подписанию и регистрации)</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="employeeID" />
+      <Parameter Type="string" Name="accountName" />
+    </Report>
+    <Report Alias="IncDocsInformationReport" ID="9186E0C2-5810-4ECE-AC72-0E122B105CA7" SQLFile="IncDocsProcedures\IncDocsInformationReport.sql">
+      <Name>
+        <LocalizedString Language="en">IncDocsInformationReport</LocalizedString>
+        <LocalizedString Language="ru">IncDocsInformationReport</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="senderOrgID" />
+      <Parameter Type="uniqueidentifier" Name="recipientID" />
+      <Parameter Type="uniqueidentifier" Name="signedByID" />
+      <Parameter Type="datetime" Name="startPeriod" />
+      <Parameter Type="datetime" Name="endPeriod" />
+      <Parameter Type="bool" Name="useConditionForBoth" />
+      <Parameter Type="integer" Name="reportIndex" />
+    </Report>
+    <Report Alias="IncDocsDetail" ID="506754BE-915C-40A6-BF98-C7F32D6CB436" SQLFile="IncDocsProcedures\IncDocsDetail.sql">
+      <Name>
+        <LocalizedString Language="en">IncDocsDetail</LocalizedString>
+        <LocalizedString Language="ru">IncDocsDetail</LocalizedString>
+      </Name>
+      <Parameter Type="text" Name="guids" />
+    </Report>
+    <Report Alias="IncDocsOnControl" ID="A435DF62-AB87-41AE-88D3-D3F7CDCA4C29" SQLFile="IncDocsProcedures\IncDocsOnControl.sql">
+      <Name>
+        <LocalizedString Language="en">IncDocsOnControl</LocalizedString>
+        <LocalizedString Language="ru">IncDocsOnControl</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="sender" />
+      <Parameter Type="uniqueidentifier" Name="signedBy" />
+      <Parameter Type="uniqueidentifier" Name="executer" />
+      <Parameter Type="uniqueidentifier" Name="author" />
+      <Parameter Type="uniqueidentifier" Name="recipient" />
+      <Parameter Type="datetime" Name="dateStart" />
+      <Parameter Type="datetime" Name="dateEnd" />
+      <Parameter Type="bool" Name="removalFromControl" />
+    </Report>
+    <Report Alias="GetContractBreachesCurrentInfo" ID="1FD0B7A5-F2B9-4217-B668-8740E2F69B6A" SQLFile="GetContractBreachesCurrentInfo.sql">
+      <Name>
+        <LocalizedString Language="en">GetContractBreachesCurrentInfo</LocalizedString>
+        <LocalizedString Language="ru">Данные для отчета справки по нарушениям договоров</LocalizedString>
+      </Name>
+    </Report>
+    <Report Alias="GetContractBreachesDetails" ID="5A542751-ED2F-4EAC-A440-4319847AE488" SQLFile="GetContractBreachesDetails.sql">
+      <Name>
+        <LocalizedString Language="en">GetContractBreachesDetails</LocalizedString>
+        <LocalizedString Language="ru">GetContractBreachesDetails</LocalizedString>
+      </Name>
+      <Parameter Type="bool" Name="currentState" />
+      <Parameter Type="datetime" Name="dateStart" />
+      <Parameter Type="datetime" Name="dateEnd" />
+    </Report>
+    <Report Alias="GetContractStateHistory" ID="BC1A5493-060A-4426-A0C1-6BE91D68A5FD" SQLFile="GetContractStateHistory.sql">
+      <Name>
+        <LocalizedString Language="en">GetContractStateHistory</LocalizedString>
+        <LocalizedString Language="ru">GetContractStateHistory</LocalizedString>
+      </Name>
+    </Report>
+    <Report Alias="GetContractBreachesGeneral" ID="D90EAACB-1EB4-4F66-A37C-88ACDA0C3B06" SQLFile="GetContractBreachesGeneral.sql">
+      <Name>
+        <LocalizedString Language="en">GetContractBreachesGeneral</LocalizedString>
+        <LocalizedString Language="ru">GetContractBreachesGeneral</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="startDate" />
+      <Parameter Type="datetime" Name="endDate" />
+      <Parameter Type="uniqueidentifier" Name="counteragent" />
+    </Report>
+    <Report Alias="GetKIDForManagerInfo" ID="968F24DB-AB52-47CE-83C0-72DDB130A5C1" SQLFile="KID\GetKIDForManagerInfo.sql">
+      <Name>
+        <LocalizedString Language="en">GetKIDForManagerInfo</LocalizedString>
+        <LocalizedString Language="ru">GetKIDForManagerInfo</LocalizedString>
+      </Name>
+      <Parameter Type="text" Name="departments" />
+      <Parameter Type="text" Name="executers" />
+      <Parameter Type="bool" Name="currentstate" />
+      <Parameter Type="uniqueidentifier" Name="author" />
+      <Parameter Type="datetime" Name="datestart" />
+      <Parameter Type="datetime" Name="dateend" />
+      <Parameter Type="bool" Name="showNotifTasks" />
+      <Parameter Type="bool" Name="showBarcodeTasks" />
+    </Report>
+    <Report Alias="GetKIDForManagerDetail" ID="77BA5F1F-C975-4DD2-83EA-A1D1A29692A5" SQLFile="KID\GetKIDForManagerDetail.sql">
+      <Name>
+        <LocalizedString Language="en">GetKIDForManagerDetail</LocalizedString>
+        <LocalizedString Language="ru">GetKIDForManagerDetail</LocalizedString>
+      </Name>
+      <Parameter Type="integer" Name="reportIndex" />
+      <Parameter Type="uniqueidentifier" Name="executer" />
+      <Parameter Type="uniqueidentifier" Name="author" />
+      <Parameter Type="datetime" Name="datestart" />
+      <Parameter Type="datetime" Name="dateend" />
+      <Parameter Type="bool" Name="currentState" />
+      <Parameter Type="bool" Name="showNotifTasks" />
+      <Parameter Type="bool" Name="showBarcodeTasks" />
+    </Report>
+    <Report Alias="GetKIDForGeneralInfo" ID="A7D8EF75-32A9-42C7-A77D-0C94A0122145" SQLFile="KID\GetKIDForGeneralInfo.sql">
+      <Name>
+        <LocalizedString Language="en">GetKIDForGeneralInfo</LocalizedString>
+        <LocalizedString Language="ru">GetKIDForGeneralInfo</LocalizedString>
+      </Name>
+      <Parameter Type="text" Name="departments" />
+      <Parameter Type="bool" Name="currentstate" />
+      <Parameter Type="uniqueidentifier" Name="author" />
+      <Parameter Type="datetime" Name="datestart" />
+      <Parameter Type="datetime" Name="dateend" />
+      <Parameter Type="bool" Name="showNotifTasks" />
+      <Parameter Type="bool" Name="showBarcodeTasks" />
+    </Report>
+    <Report Alias="GetKIDForGeneralDetail" ID="BC93C698-F770-495A-A066-D39B1D7023DE" SQLFile="KID\GetKIDForGeneralDetail.sql">
+      <Name>
+        <LocalizedString Language="en">GetKIDForGeneralDetail</LocalizedString>
+        <LocalizedString Language="ru">GetKIDForGeneralDetail</LocalizedString>
+      </Name>
+      <Parameter Type="integer" Name="reportIndex" />
+      <Parameter Type="uniqueidentifier" Name="department" />
+      <Parameter Type="uniqueidentifier" Name="author" />
+      <Parameter Type="datetime" Name="datestart" />
+      <Parameter Type="datetime" Name="dateend" />
+      <Parameter Type="bool" Name="currentState" />
+      <Parameter Type="bool" Name="showNotifTasks" />
+      <Parameter Type="bool" Name="showBarcodeTasks" />
+    </Report>
+    <Report Alias="ApprovingDurations" ID="EB5F2448-894F-4FA7-B20D-DCAE1E1A1548" SQLFile="ApprovingDurations.sql">
+      <Name>
+        <LocalizedString Language="en">ApprovingDurations</LocalizedString>
+        <LocalizedString Language="ru">ApprovingDurations</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="startDate" />
+      <Parameter Type="datetime" Name="endDate" />
+    </Report>
+    <Report Alias="ApprovingDurationsDetail" ID="967540BB-CFD6-4C5F-BE55-C238B2588481" SQLFile="ApprovingDurationsDetail.sql">
+      <Name>
+        <LocalizedString Language="en">ApprovingDurationsDetail</LocalizedString>
+        <LocalizedString Language="ru">ApprovingDurationsDetail</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="CardTypeId" />
+      <Parameter Type="string" Name="depName" />
+      <Parameter Type="datetime" Name="startDate" />
+      <Parameter Type="datetime" Name="endDate" />
+      <Parameter Type="bool" Name="byDepartment" />
+    </Report>
+    <Report Alias="ApprovingReturnsInfo" ID="F89007F6-92B4-4CDE-A813-EB3BA765027A" SQLFile="ApprovingReturnsInfo.sql">
+      <Name>
+        <LocalizedString Language="en">ApprovingReturnsInfo</LocalizedString>
+        <LocalizedString Language="ru">ApprovingReturnsInfo</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="startDate" />
+      <Parameter Type="datetime" Name="endDate" />
+    </Report>
+    <Report Alias="ApprovingReturnsInfoDetail" ID="3103480C-3B05-4C69-966E-B8F20175C09A" SQLFile="ApprovingReturnsInfoDetail.sql">
+      <Name>
+        <LocalizedString Language="en">ApprovingReturnsInfoDetail</LocalizedString>
+        <LocalizedString Language="ru">ApprovingReturnsInfoDetail</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="startDate" />
+      <Parameter Type="datetime" Name="endDate" />
+      <Parameter Type="uniqueidentifier" Name="cardtypeId" />
+      <Parameter Type="string" Name="depName" />
+      <Parameter Type="bool" Name="byDepartment" />
+    </Report>
+    <Report Alias="ApprovingDurations" ID="8869F514-A335-4E89-BA50-34B2B2B905E9" SQLFile="ApprovingByUnitsDurations.sql">
+      <Name>
+        <LocalizedString Language="en">ApprovingByUnitsDurations</LocalizedString>
+        <LocalizedString Language="ru">ApprovingByUnitsDurations</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="startDate" />
+      <Parameter Type="datetime" Name="endDate" />
+    </Report>
+    <Report Alias="ApprovingDurationsDetail" ID="5EE5BF87-394B-4A1D-98ED-588A06CE1822" SQLFile="ApprovingByUnitsDurationsDetail.sql">
+      <Name>
+        <LocalizedString Language="en">ApprovingByUnitsDurationsDetail</LocalizedString>
+        <LocalizedString Language="ru">ApprovingByUnitsDurationsDetail</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="CardTypeId" />
+      <Parameter Type="string" Name="depName" />
+      <Parameter Type="datetime" Name="startDate" />
+      <Parameter Type="datetime" Name="endDate" />
+      <Parameter Type="bool" Name="byDepartment" />
+    </Report>
+    <Report Alias="ApprovingReturnsInfo" ID="5B234223-B670-4617-BA91-5B2789D8FD60" SQLFile="ApprovingByUnitsReturnsInfo.sql">
+      <Name>
+        <LocalizedString Language="en">ApprovingByUnitsReturnsInfo</LocalizedString>
+        <LocalizedString Language="ru">ApprovingByUnitsReturnsInfo</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="startDate" />
+      <Parameter Type="datetime" Name="endDate" />
+      <Parameter Type="bool" Name="detail" />
+    </Report>
+    <Report Alias="ApprovingReturnsInfoDetail" ID="4DF83FCA-44F5-4AC9-BD5C-CA407FA1EA0D" SQLFile="ApprovingByUnitsReturnsInfoDetail.sql">
+      <Name>
+        <LocalizedString Language="en">ApprovingByUnitsReturnsInfoDetail</LocalizedString>
+        <LocalizedString Language="ru">ApprovingByUnitsReturnsInfoDetail</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="startDate" />
+      <Parameter Type="datetime" Name="endDate" />
+      <Parameter Type="uniqueidentifier" Name="cardtypeId" />
+      <Parameter Type="string" Name="depName" />
+      <Parameter Type="bool" Name="byDepartment" />
+    </Report>
+    <Report Alias="GetMemorundumsOnControl" ID="6DB9A3F2-B672-4F85-AC17-07927B8CA08F" SQLFile="GetMemorundumsOnControl.sql">
+      <Name>
+        <LocalizedString Language="en">GetMemorundumsOnControl</LocalizedString>
+        <LocalizedString Language="ru">GetMemorundumsOnControl</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="regDateStart" />
+      <Parameter Type="datetime" Name="regDateEnd" />
+      <Parameter Type="uniqueidentifier" Name="signedByPerson" />
+      <Parameter Type="uniqueidentifier" Name="copyToPerson" />
+    </Report>
+    <Report Alias="IncDocOnControlToGD" ID="345B59C8-75A6-4189-A192-4C230A3CA178" SQLFile="IncDocsProcedures\IncDocOnControlToGD.sql">
+      <Name>
+        <LocalizedString Language="en">Report Notice about control assigment to GD</LocalizedString>
+        <LocalizedString Language="ru">Отчет Уведомление о контрольных поручениях</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="sender" />
+      <Parameter Type="uniqueidentifier" Name="signedBy" />
+      <Parameter Type="uniqueidentifier" Name="recipient" />
+      <Parameter Type="datetime" Name="dateStart" />
+      <Parameter Type="datetime" Name="dateEnd" />
+    </Report>
+    <Report Alias="IncDocsRemovedFromControlNew" ID="D570F452-BF0C-49EC-8EC4-06BAE18E4486" SQLFile="IncDocsProcedures\IncDocsRemovedFromControlNew.sql">
+      <Name>
+        <LocalizedString Language="en">Performance report on the control orders</LocalizedString>
+        <LocalizedString Language="ru">Отчет об исполнении контрольных поручений</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="userId" />
+      <Parameter Type="uniqueidentifier" Name="sender" />
+      <Parameter Type="uniqueidentifier" Name="signedBy" />
+      <Parameter Type="uniqueidentifier" Name="recipient" />
+      <Parameter Type="datetime" Name="dateStart" />
+      <Parameter Type="datetime" Name="dateEnd" />
+    </Report>
+    <Report Alias="IncDocsOnControlNew" ID="AB2DAF07-EE86-48B3-8D93-3B499FD3A22D" SQLFile="IncDocsProcedures\IncDocsOnControlNew.sql">
+      <Name>
+        <LocalizedString Language="en">Report incoming documents on control and order</LocalizedString>
+        <LocalizedString Language="ru">Отчет по входящим документам и поручениям</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="senderOrgID" />
+      <Parameter Type="uniqueidentifier" Name="recipientID" />
+      <Parameter Type="uniqueidentifier" Name="signedByID" />
+      <Parameter Type="datetime" Name="startPeriod" />
+      <Parameter Type="datetime" Name="endPeriod" />
+      <Parameter Type="integer" Name="reportIndex" />
+    </Report>
+    <Report Alias="IncDocsOnControlNewList" ID="6115B75C-1D0C-463D-BAC0-B4488238EC31" SQLFile="IncDocsProcedures\IncDocsOnControlNewList.sql">
+      <Name>
+        <LocalizedString Language="en">Report incoming on control to end period date</LocalizedString>
+        <LocalizedString Language="ru">Отчет по входящим документам на контроле на конец периода</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="sender" />
+      <Parameter Type="uniqueidentifier" Name="signedBy" />
+      <Parameter Type="uniqueidentifier" Name="recipient" />
+      <Parameter Type="datetime" Name="dateStart" />
+      <Parameter Type="datetime" Name="dateEnd" />
+    </Report>
+    <Report Alias="IncDoc.Get recieved" ID="8361A7AF-A7AC-428E-9EA6-DF25A5200A23" SQLFile="IncDoc.GetRecieved.sql">
+      <Name>
+        <LocalizedString Language="en">Incoming documents. Get recieved</LocalizedString>
+        <LocalizedString Language="ru">Входящие документы. Найти полученные</LocalizedString>
+      </Name>
+    </Report>
+    <Report Alias="AssignmentViewForEmployee" ID="9CF78AB6-4152-4F1A-981C-CE0499166FA4" SQLFile="KID\AssignmentViewForEmployee.sql">
+      <Name>
+        <LocalizedString Language="en">Assignment View For Employee</LocalizedString>
+        <LocalizedString Language="ru">Отчет по поручениям сотрудника (с комментариями)</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="employeeID" />
+    </Report>
+    <Report Alias="DurableAssignmentViewForActors" ID="F24ECD21-2B01-4209-BF24-A47F59905E2A" SQLFile="KID\DurableAssignmentViewForActors.sql">
+      <Name>
+        <LocalizedString Language="en">Durable Assignment Card View For Actor</LocalizedString>
+        <LocalizedString Language="ru">Список длительных поручений для автора</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="actorID" />
+    </Report>
+    <Report Alias="SearchNRDCards" ID="8C214BE8-D5D3-44CD-BCD3-B12FF4082952" SQLFile="SearchNRDCards.sql">
+      <Name>
+        <LocalizedString Language="en">Search NRD Cards</LocalizedString>
+        <LocalizedString Language="ru">Получить НРД</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="conditionList" />
+    </Report>
+    <Report Alias="GetProtocolStatisticByType" ID="AC2CB419-9AC8-42EA-9C06-9C22F6F7558C" SQLFile="Protocol\GetProtocolStatisticByType.sql">
+      <Name>
+        <LocalizedString Language="en">GetProtocolStatisticByType</LocalizedString>
+        <LocalizedString Language="ru">Получение статистики по протоколам по типам совещания</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="datestart" />
+      <Parameter Type="datetime" Name="dateend" />
+      <Parameter Type="uniqueidentifier" Name="chairman" />
+      <Parameter Type="uniqueidentifier" Name="secretary" />
+    </Report>
+    <Report Alias="GetProtocolStatisticByTypeDetails" ID="6128E66C-9F45-4F77-884C-8F9A41BDD9E4" SQLFile="Protocol\GetProtocolStatisticByTypeDetails.sql">
+      <Name>
+        <LocalizedString Language="en">GetProtocolStatisticByTypeDetails</LocalizedString>
+        <LocalizedString Language="ru">Получение статистики по протоколам по типам совещания в деталях</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="boardId" />
+      <Parameter Type="integer" Name="index" />
+      <Parameter Type="datetime" Name="datestart" />
+      <Parameter Type="datetime" Name="dateend" />
+      <Parameter Type="uniqueidentifier" Name="chairman" />
+      <Parameter Type="uniqueidentifier" Name="secretary" />
+    </Report>
+    <Report Alias="DurableAssignmentViewForPerformers" ID="D9F094B7-5073-46C6-9C22-8CFB5887FA1A" SQLFile="KID\DurableAssignmentViewForPerformers.sql">
+      <Name>
+        <LocalizedString Language="en">Durable Assignment Card View For Performer</LocalizedString>
+        <LocalizedString Language="ru">Список длительных поручений для исполнителя</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="actorID" />
+    </Report>
+    <Report Alias="GetIncDocsForNewSearchFolder" ID="8C688B6C-5E83-4208-A795-368D067C29EB" SQLFile="IncDocsProcedures\GetIncDocsForNewSearchFolder.sql">
+      <Name>
+        <LocalizedString Language="en">GetIncDocsForNewSearchFolder</LocalizedString>
+        <LocalizedString Language="ru">Входящие для новой поисковой папки</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="employeeID" />
+      <Parameter Type="string" Name="accountName" />
+    </Report>
+  </Reports>
+  <Log>
+    <Name />
+  </Log>
+</CardLibrary>

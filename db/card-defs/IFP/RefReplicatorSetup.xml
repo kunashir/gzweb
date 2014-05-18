@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="814D0947-1D22-43A1-B5E6-54D83A9D88A1" Alias="RefReplicatorSetup" Version="78" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{054106c1-0c3a-4f8d-819c-2e3fa1c7b649}" Dictionary="true" NonSearchable="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\gazprom.ico" NoLockOnOpen="true" FolderCard="true" AlwaysRead="true" ItemsSelectable="true" SimpleSecurity="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Replicator dictionary setup</LocalizedString>
+		<LocalizedString Language="ru">Справочник настроек репликатора</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="A2784A30-421E-4CDA-969F-4A2C5AF58EC8">
+			<Name>
+				<LocalizedString Language="en">Main Info</LocalizedString>
+				<LocalizedString Language="ru">Основная секция</LocalizedString>
+			</Name>
+			<Field Alias="CenterZone" ID="9123C07D-14E3-4A17-A7D6-0ACCAA1F3827" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Center replication zone (code)</LocalizedString>
+					<LocalizedString Language="ru">Центральная зона репликации (код)</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CurrentZone" ID="2DA865AC-07E4-481B-A770-DFF293F3AFD7" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Current replication zone (code)</LocalizedString>
+					<LocalizedString Language="ru">Текущая зона репликации (код)</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ReplicasRef" ID="486C3930-93CC-4716-84FB-88AEA5A187A7" Type="refcardid" RefType="CE071942-0AAB-4065-9D26-24BC58980F2A" DefaultValue="" RefKind="Simple" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Replicas reference</LocalizedString>
+					<LocalizedString Language="ru">Ссылка на реплики</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FolderForCards" ID="DAE61C2B-39A6-4BF8-900E-62D54E7A941B" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Folder for replicated cards</LocalizedString>
+					<LocalizedString Language="ru">Папка для восстановления реплицированных карточек</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+		<Section Alias="ReplicationZones" Type="coll" ID="655E84FD-2F25-4B5B-8C52-13BEEC755374">
+			<Name>
+				<LocalizedString Language="en">Replication zones</LocalizedString>
+				<LocalizedString Language="ru">Зоны репликации</LocalizedString>
+			</Name>
+			<Field Alias="ZoneCode" ID="9B2EBA2C-6A98-40AE-94F2-2A1B32DDAAAD" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Zone code</LocalizedString>
+					<LocalizedString Language="ru">Код зоны</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ZoneDescription" ID="79C395C9-1982-4BDA-B8AC-AC601FD17BAB" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Zone description</LocalizedString>
+					<LocalizedString Language="ru">Описание зоны</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="PartnerRef" ID="BFB4954D-1A35-4D6C-A12D-5C86870CAF4D" Type="refid" RefType="65FF9382-17DC-4E9F-8E93-84D6D3D8FE8C" RefSection="C78ABDED-DB1C-4217-AE0D-51A400546923" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Partner dictionary reference</LocalizedString>
+					<LocalizedString Language="ru">Ссылка на справочник контрагентов</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="PartnerRef_Description" SysField="true">Description</RefField>
+					<RefField Alias="PartnerRef_FullName">FullName</RefField>
+				</RefFields>
+			</Field>
+			<Constraints>
+				<Constraint Type="UniqueSection">
+					<ConstraintField>ZoneCode</ConstraintField>
+				</Constraint>
+			</Constraints>
+		</Section>
+		<Section Alias="EmployeeSettings" Type="coll" ID="FCEC4B71-4922-4D42-8B71-508E286F1073">
+			<Name>
+				<LocalizedString Language="en">Employee settings</LocalizedString>
+				<LocalizedString Language="ru">Настройки сотрудников</LocalizedString>
+			</Name>
+			<Field Alias="Employee" ID="25192D3C-A265-4810-B5BE-C0924EEA2153" Type="refid" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Employee</LocalizedString>
+					<LocalizedString Language="ru">Сотрудник</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Setting" ID="2C4B982D-370A-4FAB-AF82-08571DAE1908" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Setting</LocalizedString>
+					<LocalizedString Language="ru">Настройка</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+		<Section Alias="Settings" Type="struct" ID="BF323EE8-F716-44BC-BEF3-4854D347EEFE">
+			<Name>
+				<LocalizedString Language="en">Settings</LocalizedString>
+				<LocalizedString Language="ru">Настройка</LocalizedString>
+			</Name>
+			<Field Alias="UseDuals" ID="C7406350-4953-4536-AA2B-D72C8F67A0B7" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Use dual organizations and employees</LocalizedString>
+					<LocalizedString Language="ru">Использовать выбор из двух справочников</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="UseDivisionFilter" ID="8B60927F-6677-4BFB-A42F-B0E8A4522012" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Use division employee filtering</LocalizedString>
+					<LocalizedString Language="ru">Использовать фильтр по филиалам</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+		<Section Alias="DivisionSettings" Type="coll" ID="AA743D9A-D013-46D6-AB6B-EA377FFEF619">
+			<Name>
+				<LocalizedString Language="en">Division settings</LocalizedString>
+				<LocalizedString Language="ru">Настройки филиалов</LocalizedString>
+			</Name>
+			<Field Alias="ZoneName" ID="E3D5A7FD-217A-428D-BEA5-A79385CA645B" Type="unistring" Max="255" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Replication zone name</LocalizedString>
+					<LocalizedString Language="ru">Имя зоны репликации</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Unit" ID="5F4A4B4D-64BD-4E4F-A8CF-5613C7A6D86D" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="7473F07F-11ED-4762-9F1E-7FF10808DDD1" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Unit</LocalizedString>
+					<LocalizedString Language="ru">Организация</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="IsHome" ID="9CEC6678-1850-4CF5-96E7-ECD083C411CD" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Is home</LocalizedString>
+					<LocalizedString Language="ru">Является текущим филиалом</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="MainUnit" ID="01E283AD-0687-4A7F-96C5-86682F73B78E" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="7473F07F-11ED-4762-9F1E-7FF10808DDD1" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Main unit</LocalizedString>
+					<LocalizedString Language="ru">Филиал</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="CE071942-0AAB-4065-9D26-24BC58980F2A" Alias="RefReplicas" Version="24" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="" Dictionary="true" NonViewable="true" NonCreatable="true" NonDeletable="true" IconFile="" NoHardShortcuts="true" AlwaysRead="true" ItemsSelectable="true" SimpleSecurity="true" NonReplicable="true" NonArchivable="true">
+  <Name>
+    <LocalizedString Language="en">Replicas dictionary</LocalizedString>
+    <LocalizedString Language="ru">Справочник реплик</LocalizedString>
+  </Name>
+  <Sections>
+    <Section Alias="Replicas" Type="coll" ID="8551F516-DD89-4B93-993D-076DFE058E4F">
+      <Name>
+        <LocalizedString Language="en">Replicas files</LocalizedString>
+        <LocalizedString Language="ru">Файлы реплик</LocalizedString>
+      </Name>
+      <Field Alias="Replica" ID="8298616E-9482-42C4-91B8-FB0086A45077" Type="image" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Replica file</LocalizedString>
+          <LocalizedString Language="ru">Файл реплики</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ReplicationCardRef" ID="6D8C7E0B-75D8-4C46-B066-09936C3905BC" Type="refcardid" RefType="F5F8A3A4-4A4E-4F11-AA20-E1D80669859D" DefaultValue="" RefKind="Hard" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Replication card reference</LocalizedString>
+          <LocalizedString Language="ru">Ссылка на карточку репликации</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="Operation" ID="9BDD1240-BC30-499A-AC25-4AA17178CDA4" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Operation</LocalizedString>
+          <LocalizedString Language="ru">Операция</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="Export" Value="1">
+          <Name>
+            <LocalizedString Language="en">export</LocalizedString>
+            <LocalizedString Language="ru">экспорт</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Import" Value="2">
+          <Name>
+            <LocalizedString Language="en">import</LocalizedString>
+            <LocalizedString Language="ru">импорт</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <DisplayFields />
+    </Section>
+  </Sections>
+</CardDefinition>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9E3932B1-930C-48DA-B587-38B44821CFA6" Alias="RefFileVersions" Version="18" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="" Dictionary="true" NonSearchable="true" NonViewable="true" IconFile="" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">File versions reference</LocalizedString>
+		<LocalizedString Language="ru">Справочник версий файлов</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="Snapshots" Type="coll" ID="AEBAE081-FE0A-4B24-8F3E-440CEC7DFB22">
+			<Name>
+				<LocalizedString Language="en">Snapshots</LocalizedString>
+				<LocalizedString Language="ru">Слепки</LocalizedString>
+			</Name>
+			<Field Alias="EntityID" ID="27D755EC-0E5E-4C8B-A502-E6BC46F0F3F1" Type="uniqueid" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Entity id</LocalizedString>
+					<LocalizedString Language="ru">Идентификатор сущности (например карточки)</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Date" ID="D9352E44-BAB4-4F14-A19E-238F7CE5E4F0" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Snapshot date/time</LocalizedString>
+					<LocalizedString Language="ru">Дата/время слепка</LocalizedString>
+				</Name>
+			</Field>
+			<Section Alias="Versions" Type="coll" ID="D9C5B470-F1AA-4090-9D93-86D24A9C15B5">
+				<Name>
+					<LocalizedString Language="en">Versions of files</LocalizedString>
+					<LocalizedString Language="ru">Версии файлов</LocalizedString>
+				</Name>
+				<Field Alias="FileVersion" ID="B357BF5B-616D-464D-A25A-C5AFD56E0530" Type="refid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" RefSection="F831372E-8A76-4ABC-AF15-D86DC5FFBE12" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">File version</LocalizedString>
+						<LocalizedString Language="ru">Версия файла</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="File" ID="BD180685-53CE-4065-AE9A-92E98EA002CC" Type="fileid" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">File</LocalizedString>
+						<LocalizedString Language="ru">Файл</LocalizedString>
+					</Name>
+				</Field>
+			</Section>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

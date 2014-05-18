@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="27AA3B82-8E22-4107-A950-2C27CD230865" Alias="BarcodeDocumentReceive" Version="20" LibraryID="48C35AD6-06C0-46E5-929A-DDA120C5C58B" ProgID="clsid:{c295de16-849d-4c04-a9a2-4d67690bc86f}" Dictionary="true" NonSearchable="true" IconFile="icons\BarcodeDocumentTransfer_small.ico" NoLockOnOpen="true" UIExtension="true" FetchMode="8" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Receive the document</LocalizedString>
+		<LocalizedString Language="ru">Прием документа</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="0D3CE93F-5FA1-4195-B021-96D2675C95A9">
+			<Name>
+				<LocalizedString Language="en">Section</LocalizedString>
+				<LocalizedString Language="ru">Секция</LocalizedString>
+			</Name>
+			<Field Alias="Field1" ID="C3A5E4DD-8AA1-44D5-ACAA-27993B311647" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Field1</LocalizedString>
+					<LocalizedString Language="ru">Поле1</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

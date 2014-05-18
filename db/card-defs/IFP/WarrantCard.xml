@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7F3ACEC5-5650-4EDA-B29E-104AADFC7A73" Alias="WarrantCard" Version="77" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{b697f255-8c9e-4409-aa09-86635686d66c}" IconFile="Icons\gazprom.ico" NoLockOnOpen="true" CanBeTemplate="true" SimpleSecurity="true" NonArchivable="false">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Warrant card</LocalizedString>
+		<LocalizedString Language="ru">Доверенность</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="EC83F06E-8131-4437-A573-C86B15A2AF5C">
+			<Name>
+				<LocalizedString Language="en">MainInfo</LocalizedString>
+				<LocalizedString Language="ru">Основная информация</LocalizedString>
+			</Name>
+			<Field Alias="RegistrationNumber" ID="7158B830-BF5C-43C4-80ED-6EEA0966EC7D" Type="unistring" Max="255" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Registration №</LocalizedString>
+					<LocalizedString Language="ru">Регистрационный №</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="RegistrationNumberID" ID="E9FB12F9-06F4-4CF0-BEBD-E20BD705A217" Type="refid" RefType="959FF5E2-7E47-4F6F-9CF6-E1E477CD01CF" RefSection="D47F2C38-6553-4864-BAFF-0BC4D3A85290" DeleteLinkedOnValueChange="true" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Number identifier</LocalizedString>
+					<LocalizedString Language="ru">Идентификатор номера</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="RegistrationDate" ID="0E041367-1BA4-4628-BA23-D9FD2869B586" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Registration date</LocalizedString>
+					<LocalizedString Language="ru">Дата регистрации</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ExpiryDate" ID="D96B0693-91E3-44BB-B931-2DDCFDA0ED76" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Expiry date</LocalizedString>
+					<LocalizedString Language="ru">Срок действия</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="EarlyCancelDate" ID="29155105-AC0C-4C09-B522-691FA9291B34" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Early cancel date</LocalizedString>
+					<LocalizedString Language="ru">Дата досрочной отмены</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Registrator" ID="C69C0489-455C-46CB-ABA6-2BEC77499848" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Registrator</LocalizedString>
+					<LocalizedString Language="ru">Регистратор</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Curator" ID="53FE978B-A969-41EB-92C8-FF01207D347A" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Curator</LocalizedString>
+					<LocalizedString Language="ru">Куратор</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="SignedBy" ID="A15B5B33-2936-4115-A1CB-FFD0FD47F0C7" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Signed by</LocalizedString>
+					<LocalizedString Language="ru">Кем подписана</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="State" ID="4181FD4B-CA6C-4FB5-BC56-E201A3C19BA4" Type="enum" DefaultValue="1" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">State</LocalizedString>
+					<LocalizedString Language="ru">Состояние</LocalizedString>
+				</Name>
+				<Enum Alias="Actual" Value="1">
+					<Name>
+						<LocalizedString Language="en">Actual</LocalizedString>
+						<LocalizedString Language="ru">Действует </LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Expired" Value="2">
+					<Name>
+						<LocalizedString Language="en">Expired</LocalizedString>
+						<LocalizedString Language="ru">Истечение срока действия </LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Canceled" Value="3">
+					<Name>
+						<LocalizedString Language="en">Canceled</LocalizedString>
+						<LocalizedString Language="ru">Отменена</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="GrantedPower" ID="2E7DD673-7023-4F8A-A093-EE0581ED8B2E" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Granted power</LocalizedString>
+					<LocalizedString Language="ru">Предоставляемые полномочия</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Representative" ID="A5F9A295-3001-425B-9D99-983861039A7A" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en"> Representative</LocalizedString>
+					<LocalizedString Language="ru">Представитель</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FileListId" ID="8318F408-22C9-489F-89F3-509ED8E70E65" Type="refcardid" RefType="BFC9D190-BCD6-411A-B9F9-3160D3F68819" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+				<Name>
+					<LocalizedString Language="en">FileListId</LocalizedString>
+					<LocalizedString Language="ru">Карточка списка файлов</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CaseID" ID="C02A5D48-C7FA-4A83-B366-8304BD617F6F" Type="refid" RefType="9B410616-87D2-4AED-BBB6-2718A9DA4CE8" RefSection="74CEC36B-5944-4E64-B27E-93CF580B8F46" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Case</LocalizedString>
+					<LocalizedString Language="ru">Дело</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="LinksListId" ID="61E2AD97-7AFE-4A6C-B7FC-2627051D076A" Type="refcardid" RefType="E63E748B-DDDB-43C3-B0B4-7AE867B9483C" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+				<Name>
+					<LocalizedString Language="en">LinksListId</LocalizedString>
+					<LocalizedString Language="ru">LinksListId</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ProcessID" ID="09FB29AD-FF0C-43C1-8A31-1AF0836C507E" Type="refcardid" DefaultValue="" RefKind="Simple" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Process for sending warranty</LocalizedString>
+					<LocalizedString Language="ru">Процесс рассылки доверенностей</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="TakingDate" ID="35CF925D-2499-4A58-85FB-B34830791C24" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Taking date</LocalizedString>
+					<LocalizedString Language="ru">Дата вручения</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ReturningDate" ID="E913390B-613A-40D7-AC3B-2D1D81368D7C" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Returning date</LocalizedString>
+					<LocalizedString Language="ru">Дата возврата</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Note" ID="DC8945CE-4C3A-45B1-9FAE-A4123F3A56BF" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Note</LocalizedString>
+					<LocalizedString Language="ru">Примечание</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CancelProcessID" ID="8BF007A3-B816-432A-A2B6-4EF27E2A9F6A" Type="refcardid" DefaultValue="" RefKind="Simple" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Process for sending cancellation warranty</LocalizedString>
+					<LocalizedString Language="ru">Процесс рассылки уведомлений об отмене доверенности</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="PreNotificationSent" ID="672CEEEE-CB9B-4153-A4FE-98E3E2948F64" Type="bool" DefaultValue="0" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Pre-notification sent</LocalizedString>
+					<LocalizedString Language="ru">Предварительная нотификация разослана</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="LegacySystemID" ID="F61CA653-301D-4EC8-9D0C-F68E5565A981" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Legacy System ID</LocalizedString>
+					<LocalizedString Language="ru">ID объекта в старой системе</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodeNumber" ID="3633EC9B-68D9-4ECB-AABC-AF372601E069" Type="unistring" Max="40" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Barcode number</LocalizedString>
+					<LocalizedString Language="ru">Номер штрих-кода</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodeNumberID" ID="AA73D8F5-B637-447E-A7F8-2B7DA1188450" Type="refid" RefType="959FF5E2-7E47-4F6F-9CF6-E1E477CD01CF" RefSection="D47F2C38-6553-4864-BAFF-0BC4D3A85290" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">barcode number id</LocalizedString>
+					<LocalizedString Language="ru">id номера штрихкода</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="TransferLog" ID="A2FC8254-80B1-4ECA-B610-A762D3101DDD" Type="uniqueid" RefType="19F3B5F1-F2A6-439A-9863-305D69FED164" RefSection="5ECEE53E-4533-43BD-829D-EAEB069D0D28" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Transfer log</LocalizedString>
+					<LocalizedString Language="ru">Журнал передач</LocalizedString>
+				</Name>
+			</Field>
+			<Section Alias="Representatives" Type="coll" ID="77A196D6-B596-4E46-BAA8-D16D023EABA0">
+				<Name>
+					<LocalizedString Language="en">Representative</LocalizedString>
+					<LocalizedString Language="ru">Представитель</LocalizedString>
+				</Name>
+				<Field Alias="RepresentativeID" ID="465345CB-DB84-4D01-8F8A-3585350290BB" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Represenative</LocalizedString>
+						<LocalizedString Language="ru">Представитель</LocalizedString>
+					</Name>
+				</Field>
+			</Section>
+			<Section Alias="PartnerRepresentatives" Type="coll" ID="C1D462E3-0425-4F9A-B49F-095D709F465D">
+				<Name>
+					<LocalizedString Language="en">Partner representatives</LocalizedString>
+					<LocalizedString Language="ru">Представитель к/а</LocalizedString>
+				</Name>
+				<Field Alias="Representative" ID="1B20DF49-12D8-46DD-8DC3-3F30D87BDBEC" Type="refid" RefType="65FF9382-17DC-4E9F-8E93-84D6D3D8FE8C" RefSection="1A46BF0F-2D02-4AC9-8866-5ADF245921E8" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Partner representative</LocalizedString>
+						<LocalizedString Language="ru">Представитель к/а</LocalizedString>
+					</Name>
+				</Field>
+			</Section>
+			<Section Alias="OnBehalfOfPartner" Type="coll" ID="2298EC75-0706-4316-B4BE-51AF4C01A29F">
+				<Name>
+					<LocalizedString Language="en">On behalf of partner</LocalizedString>
+					<LocalizedString Language="ru">От имени организации</LocalizedString>
+				</Name>
+				<Field Alias="Partner" ID="8586781E-D9FF-47F7-957B-0FFD56FB3FA7" Type="refid" RefType="65FF9382-17DC-4E9F-8E93-84D6D3D8FE8C" RefSection="C78ABDED-DB1C-4217-AE0D-51A400546923" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Partner</LocalizedString>
+						<LocalizedString Language="ru">От имени организации</LocalizedString>
+					</Name>
+				</Field>
+			</Section>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

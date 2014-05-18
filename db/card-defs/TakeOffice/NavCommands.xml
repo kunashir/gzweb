@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="657BFDC8-BB57-43F0-A044-D66F6DA9C0C7" Alias="NavCommands" Version="20" LibraryID="C257FEAA-7F8C-48BD-AB05-397507F88985" ProgID="clsid:{82c46ff9-8ce4-4dad-9e46-78a8620140ca},license:igjenechrhphlhickf" Dictionary="true" NonSearchable="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\NavCommands.ico" NoLockOnOpen="true" AlwaysRead="true" ItemsSelectable="true" NonArchivable="true" DefaultSecurity="">
+	<Name>
+		<LocalizedString Language="en">Additional navigator commands</LocalizedString>
+		<LocalizedString Language="ru">Дополнительные команды навигатора</LocalizedString>
+		<LocalizedString Language="lv">Biroja papilduzstādījumi</LocalizedString>
+		<LocalizedString Language="ka">ნავიგატორის დამატებითი მრძანებები</LocalizedString>
+		<LocalizedString Language="ro">Comenzi adiţionale din navigator</LocalizedString>
+		<LocalizedString Language="uk">Додаткові команди навігатора</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="Commands" RowAlias="" Type="coll" ID="6BCFB3D7-A686-4F14-B3E5-8EE2CB8709B4">
+			<Name>
+				<LocalizedString Language="en">Commands</LocalizedString>
+				<LocalizedString Language="ru">Команды</LocalizedString>
+				<LocalizedString Language="lv">Komandas taim&amp;auts (sek):</LocalizedString>
+				<LocalizedString Language="ka">ბრძანებები</LocalizedString>
+				<LocalizedString Language="ro">Comenzi</LocalizedString>
+				<LocalizedString Language="uk">Команди</LocalizedString>
+			</Name>
+			<Field Alias="Name" ID="C5F23133-9AE8-49E3-B0D4-83E6E894F952" Type="unistring" Max="256" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Name</LocalizedString>
+					<LocalizedString Language="ru">Название</LocalizedString>
+					<LocalizedString Language="lv">Nosaukums</LocalizedString>
+					<LocalizedString Language="ka">სახელი</LocalizedString>
+					<LocalizedString Language="ro">Denumirea</LocalizedString>
+					<LocalizedString Language="uk">Назва</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Tooltip" ID="4462EE99-FA2C-48C6-8A93-06D79502A5CA" Type="unistring" Max="256" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Tooltip</LocalizedString>
+					<LocalizedString Language="ru">Подсказка</LocalizedString>
+					<LocalizedString Language="lv">Norāde</LocalizedString>
+					<LocalizedString Language="ka">მინიშნება</LocalizedString>
+					<LocalizedString Language="ro">Indiciu</LocalizedString>
+					<LocalizedString Language="uk">Підказка</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Icon" ID="86511D82-B72C-4469-B3AA-57616E9CAA0E" Type="image" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Icon</LocalizedString>
+					<LocalizedString Language="ru">Иконка</LocalizedString>
+					<LocalizedString Language="lv">Ikona</LocalizedString>
+					<LocalizedString Language="ka">ხატულა</LocalizedString>
+					<LocalizedString Language="ro">Iconiţa</LocalizedString>
+					<LocalizedString Language="uk">Іконка</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Script" ID="81A42B0E-6BB1-421B-9CCE-5697D9D9ED0A" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Script</LocalizedString>
+					<LocalizedString Language="ru">Сценарий</LocalizedString>
+					<LocalizedString Language="lv">Skripts</LocalizedString>
+					<LocalizedString Language="ka">სკრიპტი</LocalizedString>
+					<LocalizedString Language="ro">Scenariu</LocalizedString>
+					<LocalizedString Language="uk">Сценарій</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Toolbar" ID="BE4D35E9-CAC7-4AA2-A9C6-6AC998ACFAD4" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Toolbar command</LocalizedString>
+					<LocalizedString Language="ru">Команда тулбара</LocalizedString>
+					<LocalizedString Language="lv">Rīkjoslas komandas</LocalizedString>
+					<LocalizedString Language="ka">ინსტრუმენტების დაფის ბრძანება</LocalizedString>
+					<LocalizedString Language="ro">Comanda barei de instrumente </LocalizedString>
+					<LocalizedString Language="uk">Панель інструментів команди</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FolderMenu" ID="785C053C-892A-4FF1-99B7-9885B1CB4B3F" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Is folder menu</LocalizedString>
+					<LocalizedString Language="ru">Контекстное меню папки</LocalizedString>
+					<LocalizedString Language="lv">Mapes konteksta izvēlne</LocalizedString>
+					<LocalizedString Language="ka">საქაღალდის მენიუ</LocalizedString>
+					<LocalizedString Language="ro">Este meniul mapei</LocalizedString>
+					<LocalizedString Language="uk">Є папка меню</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CardMenu" ID="D7CC3F49-6C75-4129-8C3A-52F8DFB4CBF5" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Card menu</LocalizedString>
+					<LocalizedString Language="ru">Контекстное меню карточки</LocalizedString>
+					<LocalizedString Language="lv">Kartiņas konteksta izvēlne</LocalizedString>
+					<LocalizedString Language="ka">ბარათის მენიუ</LocalizedString>
+					<LocalizedString Language="ro">Meniul fişei</LocalizedString>
+					<LocalizedString Language="uk">Контекстне меню картки</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="GridMenu" ID="ACB6B758-F974-4137-A476-2D611E42CDEF" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Grid menu</LocalizedString>
+					<LocalizedString Language="ru">Контекстное меню грида</LocalizedString>
+					<LocalizedString Language="lv">Tabulas konteksta izvēlne</LocalizedString>
+					<LocalizedString Language="ka">ბადის მენიუ</LocalizedString>
+					<LocalizedString Language="ro">Meniul contextual al grilei</LocalizedString>
+					<LocalizedString Language="uk">Рядки меню</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ScriptProtect" ID="249BC56E-B1C1-40E5-85E7-276B00F14E5B" Type="string" Max="1024" DefaultValue="" SuppressSearch="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Script protection</LocalizedString>
+					<LocalizedString Language="ru">Защита сценариев</LocalizedString>
+					<LocalizedString Language="lv">Skripta aizsardzība</LocalizedString>
+					<LocalizedString Language="ka">სცენარების დაცვა</LocalizedString>
+					<LocalizedString Language="ro">Protecţia scenariului</LocalizedString>
+					<LocalizedString Language="uk">Захист сценарія</LocalizedString>
+				</Name>
+			</Field>
+			<Section Alias="CardTypes" Type="coll" ID="B856BF94-1D7C-4CD0-A98C-B50D65966FBE" SimpleSecurity="true">
+				<Name>
+					<LocalizedString Language="en">Card types</LocalizedString>
+					<LocalizedString Language="ru">Виды карточек</LocalizedString>
+					<LocalizedString Language="lv">Kartiņas tips</LocalizedString>
+					<LocalizedString Language="ka">ბარათის ტიპები</LocalizedString>
+					<LocalizedString Language="ro">Tipuri de fişe</LocalizedString>
+					<LocalizedString Language="uk">Типи карток</LocalizedString>
+				</Name>
+				<Field Alias="TypeID" ID="6A1517C2-EED7-462C-BF5D-6535F0AF18A6" Type="uniqueid" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Type</LocalizedString>
+						<LocalizedString Language="ru">Вид</LocalizedString>
+						<LocalizedString Language="lv">Tips</LocalizedString>
+						<LocalizedString Language="ka">ტიპი</LocalizedString>
+						<LocalizedString Language="ro">Tip</LocalizedString>
+						<LocalizedString Language="uk">Вид</LocalizedString>
+					</Name>
+				</Field>
+				<DisplayFields />
+			</Section>
+			<DisplayFields FormatString="" />
+		</Section>
+	</Sections>
+</CardDefinition>

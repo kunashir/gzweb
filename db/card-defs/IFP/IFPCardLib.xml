@@ -1,0 +1,549 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7F4DC00C-886C-426F-8D72-48432BC057EA" Alias="IFPCardLib" ControlInfo="clsid:{BCD695FF-7244-4c3d-BA3A-37FBC80A17BB}" IconFile="Icons\gazprom.ico" Version="186" MsiProductCode="" MsiPackageName="">
+  <Definitions>
+    <RefCardDefinition>IncDoc.xml</RefCardDefinition>
+    <RefCardDefinition>OutDoc.xml</RefCardDefinition>
+    <RefCardDefinition>RegisterCard.xml</RefCardDefinition>
+    <RefCardDefinition>RouteTemplates.xml</RefCardDefinition>
+    <RefCardDefinition>WarrantCard.xml</RefCardDefinition>
+    <RefCardDefinition>RefDocSetup.xml</RefCardDefinition>
+    <RefCardDefinition>OrderCard.xml</RefCardDefinition>
+    <RefCardDefinition>DirectionCard.xml</RefCardDefinition>
+    <RefCardDefinition>MemorandumCard.xml</RefCardDefinition>
+    <RefCardDefinition>ReferenceList.xml</RefCardDefinition>
+    <RefCardDefinition>ProtocolCard.xml</RefCardDefinition>
+    <RefCardDefinition>Assignment.xml</RefCardDefinition>
+    <RefCardDefinition>LNA.xml</RefCardDefinition>
+    <RefCardDefinition>SimpleTaskUI.xml</RefCardDefinition>
+    <RefCardDefinition>RefReplicas.xml</RefCardDefinition>
+    <RefCardDefinition>ReplicationCard.xml</RefCardDefinition>
+    <RefCardDefinition>ReplicatorAdministrationCard.xml</RefCardDefinition>
+    <RefCardDefinition>ContractPlan.xml</RefCardDefinition>
+    <RefCardDefinition>NavExtCreateAssignmentBtn.xml</RefCardDefinition>
+    <RefCardDefinition>NavExtBarcodesButtons.xml</RefCardDefinition>
+    <RefCardDefinition>TransferLogCard.xml</RefCardDefinition>
+    <RefCardDefinition>MonitoringSetup.xml</RefCardDefinition>
+    <RefCardDefinition>RegisterFolderExt.xml</RefCardDefinition>
+    <RefCardDefinition>RefRoutes.xml</RefCardDefinition>
+    <RefCardDefinition>RefRoles.xml</RefCardDefinition>
+    <RefCardDefinition>ApprovalList.xml</RefCardDefinition>
+    <RefCardDefinition>RefBreaches.xml</RefCardDefinition>
+    <RefCardDefinition>NavExtEvent.xml</RefCardDefinition>
+    <RefCardDefinition>RefSubstitutions.xml</RefCardDefinition>
+    <RefCardDefinition>RefFileVersions.xml</RefCardDefinition>
+    <RefCardDefinition>ExecutionProcess.xml</RefCardDefinition>
+    <RefCardDefinition>DirectiveCard.xml</RefCardDefinition>
+    <RefCardDefinition>UniversalApprovalCard.xml</RefCardDefinition>
+    <RefCardDefinition>DurableAssignmentCard.xml</RefCardDefinition>
+    <RefCardDefinition>NavExtDurableAssignmentBtn.xml</RefCardDefinition>
+    <RefCardDefinition>NRDCard.xml</RefCardDefinition>
+    <RefCardDefinition>RefReplicatorSetup.xml</RefCardDefinition>
+    <RefCardDefinition>Contract.xml</RefCardDefinition>
+  </Definitions>
+  <Name>
+    <LocalizedString Language="ru">Библиотека карточек IFP</LocalizedString>
+    <LocalizedString Language="en">IFP card library</LocalizedString>
+  </Name>
+  <Reports>
+    <Report Alias="WarrantNotificationSearch" ID="C5D69075-2458-4949-985E-B638E9FA06B1" SQLFile="warrantnotification-search.sql">
+      <Name>
+        <LocalizedString Language="en">Search warrant notifications</LocalizedString>
+        <LocalizedString Language="ru">Мониторинг сроков доверенностей</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="dateFrom" />
+      <Parameter Type="datetime" Name="dateTo" />
+      <Parameter Type="integer" Name="shift" />
+    </Report>
+    <Report Alias="OutLettersRecipientsSearch" ID="C202D907-BDE1-4467-B127-2B5DF589CACF" SQLFile="RegisterProcedures\OutLettersRecipientsSearch.sql">
+      <Name>
+        <LocalizedString Language="en">Out letters recipients search</LocalizedString>
+        <LocalizedString Language="ru">Поиск получателей исходящего письма</LocalizedString>
+      </Name>
+      <Parameter Type="bool" Name="recipientsIsNull" />
+      <Parameter Type="string" Name="recipients" />
+      <Parameter Type="string" Name="docNumbers" />
+      <Parameter Type="datetime" Name="docDateFrom" />
+      <Parameter Type="uniqueidentifier" Name="signeer" />
+      <Parameter Type="bool" Name="docNumbersIsNull" />
+      <Parameter Type="bool" Name="docDateFromIsNull" />
+      <Parameter Type="bool" Name="signeerIsNull" />
+      <Parameter Type="bool" Name="recipientEmployeeIsNull" />
+      <Parameter Type="uniqueidentifier" Name="recipientEmployee" />
+      <Parameter Type="datetime" Name="docDateTo" />
+      <Parameter Type="bool" Name="docDateToIsNull" />
+      <Parameter Type="bool" Name="forGuidelinesSigning" />
+      <Parameter Type="bool" Name="onlyCentrallySending" />
+      <Parameter Type="uniqueidentifier" Name="sendingTypeID" />
+    </Report>
+    <Report Alias="AssignmentProcessSearch" ID="2B390ED8-6D62-46BF-B2DA-7C0C2B94A88A" SQLFile="assignmentprocess-search.sql">
+      <Name>
+        <LocalizedString Language="en">Search for assignment processes</LocalizedString>
+        <LocalizedString Language="ru">Поиск бизнес-процессов обработки поручения</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="assignmentID" />
+    </Report>
+    <Report Alias="SubAssignmentProcessSearch" ID="25A65AE5-667B-4802-B61D-C5C9EF1E44CC" SQLFile="subassignmentprocess-search.sql">
+      <Name>
+        <LocalizedString Language="en">Search for processes of task's subassignments</LocalizedString>
+        <LocalizedString Language="ru">Поиск процессов по поручениям выданным из задания</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="taskID" />
+    </Report>
+    <Report Alias="IncomingRefSearch" ID="C6700CAF-6BF4-428B-9F28-197E09DE0055" SQLFile="incomingref-search.sql">
+      <Name>
+        <LocalizedString Language="en">Incoming references search</LocalizedString>
+        <LocalizedString Language="ru">Поиск ссылок на документ</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="cardID" />
+    </Report>
+    <Report Alias="OutdocFieldsLoading" ID="68E17298-3FC4-4029-BD2B-60FFF0BE117B" SQLFile="RegisterProcedures\OutdocFieldsLoading.sql">
+      <Name>
+        <LocalizedString Language="en">OutdocFieldsLoading</LocalizedString>
+        <LocalizedString Language="ru">Загрузка полей Исходящего</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="outdocId" />
+    </Report>
+    <Report Alias="SearchCardByBarcode" ID="D9C6DCC4-D67E-428C-9109-52B5828E458A" SQLFile="SearchCardByBarcode.sql">
+      <Name>
+        <LocalizedString Language="en">Search card id by barcode</LocalizedString>
+        <LocalizedString Language="ru">Поиск id карточки по штрих-коду</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="barcode" />
+    </Report>
+    <Report Alias="TransferLogMonitor" ID="DBA39142-A06B-477D-B101-A5D301A4BD73" SQLFile="transferlog-monitor.sql">
+      <Name>
+        <LocalizedString Language="en">Get new transfer log items</LocalizedString>
+        <LocalizedString Language="ru">Найти новые записи журнала передач</LocalizedString>
+      </Name>
+    </Report>
+    <Report Alias="ReadTransferLog" ID="053601C7-7593-4EF3-9408-9EE218E635E0" SQLFile="ReadTransferLog.sql">
+      <Name>
+        <LocalizedString Language="en">Read transfer log</LocalizedString>
+        <LocalizedString Language="ru">Прочитать журнал передач</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="TransferLogID" />
+    </Report>
+    <Report Alias="get_incdocs_oncontrol_info" ID="C6DC4B3B-14A8-41D1-B5F2-1C7090AB86B8" SQLFile="IncDocsProcedures\get_incdocs_oncontrol_info.sql">
+      <Name>
+        <LocalizedString Language="en">Get incdocs on control general info by period</LocalizedString>
+        <LocalizedString Language="ru">Общий отчёт по входящим на контроле</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="beginDate" />
+      <Parameter Type="datetime" Name="endDate" />
+      <Parameter Type="uniqueidentifier" Name="senderOrgID" />
+      <Parameter Type="uniqueidentifier" Name="signedByID" />
+      <Parameter Type="uniqueidentifier" Name="recipientID" />
+      <Parameter Type="integer" Name="reportIndex" />
+    </Report>
+    <Report Alias="IncDocFirstLevelAssignments" ID="91E9FF9E-EF2E-4856-A37B-883928024A5F" SQLFile="IncDocsProcedures\IncDocFirstLevelAssignments.sql">
+      <Name>
+        <LocalizedString Language="en">IncDoc first level assignments report</LocalizedString>
+        <LocalizedString Language="ru">Отчет о незавершенных поручениях первого уровня входящего документа</LocalizedString>
+      </Name>
+    </Report>
+    <Report Alias="open_registers-search" ID="B353A684-71EA-410F-972C-77E097DE8061" SQLFile="RegisterProcedures\open_registers-search.sql">
+      <Name>
+        <LocalizedString Language="en">Open registers search</LocalizedString>
+        <LocalizedString Language="ru">Поиск открытых реестров</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="sendingTypeId" />
+    </Report>
+    <Report Alias="registerdocs-load" ID="97030649-3A93-4701-8E4B-2E58BF3EED78" SQLFile="RegisterProcedures\registerdocs-load.sql">
+      <Name>
+        <LocalizedString Language="en">Report</LocalizedString>
+        <LocalizedString Language="ru">Отчет</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="registerId" />
+    </Report>
+    <Report Alias="add_outdoc_to_register" ID="39EE48F4-43FE-4270-8460-53B559E25484" SQLFile="RegisterProcedures\add_outdoc_to_register.sql">
+      <Name>
+        <LocalizedString Language="en">Write outgoing letter to register</LocalizedString>
+        <LocalizedString Language="ru">Запись Исходящего письма в Реестр</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="targetRegister" />
+      <Parameter Type="uniqueidentifier" Name="recipientID" />
+      <Parameter Type="string" Name="regNumber" />
+      <Parameter Type="uniqueidentifier" Name="parentOutDoc" />
+    </Report>
+    <Report Alias="Get1stLevelIncDocAssignmentsInfo" ID="06DE3E1D-447C-41C4-AAB1-0372AD187EF6" SQLFile="IncDocsProcedures\Get1stLevelIncDocAssignmentsInfo.sql">
+      <Name>
+        <LocalizedString Language="en">Get1stLevelIncDocAssignmentsInfo</LocalizedString>
+        <LocalizedString Language="ru">Get1stLevelIncDocAssignmentsInfo</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="cardID" />
+    </Report>
+    <Report Alias="GetIncDocMainInfo" ID="D2272131-78A6-4C5D-AFE1-EF48B81380EC" SQLFile="IncDocsProcedures\GetIncDocMainInfo.sql">
+      <Name>
+        <LocalizedString Language="en">GetIncDocMainInfo</LocalizedString>
+        <LocalizedString Language="ru">GetIncDocMainInfo</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="senderOrgID" />
+      <Parameter Type="uniqueidentifier" Name="signedByID" />
+      <Parameter Type="integer" Name="state" />
+      <Parameter Type="integer" Name="controlState" />
+      <Parameter Type="datetime" Name="regBeginDate" />
+      <Parameter Type="datetime" Name="regEndDate" />
+      <Parameter Type="integer" Name="overdue" />
+      <Parameter Type="datetime" Name="execDateStart" />
+      <Parameter Type="datetime" Name="execDateEnd" />
+      <Parameter Type="uniqueidentifier" Name="recipientID" />
+    </Report>
+    <Report Alias="GetOIContractProcesses" ID="5F1A51B9-5862-4631-AB5F-0044EAAACEF4" SQLFile="GetOIContractProcesses.sql">
+      <Name>
+        <LocalizedString Language="en">Get processes running for contract's responsible</LocalizedString>
+        <LocalizedString Language="ru">Получить активные процессы для ОИ по договору</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="contractID" />
+    </Report>
+    <Report Alias="GetContractProcesses" ID="F2549341-9B5B-4A20-B841-2E3C9A4A1CFB" SQLFile="GetActiveContractProcesses.sql">
+      <Name>
+        <LocalizedString Language="en">Get active contract processes</LocalizedString>
+        <LocalizedString Language="ru">Получить активные процессы по договору</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="contractID" />
+    </Report>
+    <Report Alias="search_cards_by_regnumber" ID="ADE20984-EBCB-487E-9234-6DF05037D11E" SQLFile="search_cards_by_regnumber.sql">
+      <Name>
+        <LocalizedString Language="en">Search cards by registration number</LocalizedString>
+        <LocalizedString Language="ru">Поиск карточек по регистрационному номеру</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="regNumberText" />
+    </Report>
+    <Report Alias="GetContractSoonToExpire" ID="8FBEB066-E741-46D6-8487-A5AE7F3A2AA2" SQLFile="GetContractSoonToExpire.sql">
+      <Name>
+        <LocalizedString Language="en">Get contracts that are soon to expire</LocalizedString>
+        <LocalizedString Language="ru">Получить договоры, которые скоро закончатся</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="dateFrom" />
+      <Parameter Type="datetime" Name="dateTo" />
+    </Report>
+    <Report Alias="GetExpiredContracts" ID="62466384-CAE7-435C-BADC-8BAFF7A7D1F5" SQLFile="GetExpiredContracts.sql">
+      <Name>
+        <LocalizedString Language="en">Get expired contracts</LocalizedString>
+        <LocalizedString Language="ru">Получить истекшие договоры</LocalizedString>
+      </Name>
+      <Parameter Type="datetime" Name="dateTo" />
+    </Report>
+    <Report Alias="MonitoringProcessSearch" ID="299039A6-0A1A-47D2-B2BC-1CE4BD2C99C4" SQLFile="MonitoringProcessSearch.sql">
+      <Name>
+        <LocalizedString Language="en">Search for active monitoring process</LocalizedString>
+        <LocalizedString Language="ru">Поиск активного процесса мониторинга</LocalizedString>
+      </Name>
+    </Report>
+    <Report Alias="check_outdoc_recipient_status" ID="0F81C453-D3DB-4758-B890-C159F7E63A7E" SQLFile="RegisterProcedures\check_outdoc_recipient_status.sql">
+      <Name>
+        <LocalizedString Language="en">Check outdoc recipient status</LocalizedString>
+        <LocalizedString Language="ru">Проверить статус получателя исходящего письма</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="outDocRecipientRowID" />
+      <Parameter Type="bool" Name="considerRegisterID" />
+      <Parameter Type="uniqueidentifier" Name="registerID" />
+    </Report>
+    <Report Alias="GetManagersDepartments" ID="25061D07-843D-4DB9-9E91-41D663877D5D" SQLFile="GetManagersDepartments.sql">
+      <Name>
+        <LocalizedString Language="en">GetManagersDepartments</LocalizedString>
+        <LocalizedString Language="ru">Получить подразделения, в которых указанный сотрудник явл. руководителем</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="managerID" />
+    </Report>
+    <Report Alias="GetEmployeesList" ID="57293935-5783-4BD9-865B-EFD59F07279B" SQLFile="GetEmployeesList.sql">
+      <Name>
+        <LocalizedString Language="en">Get employees</LocalizedString>
+        <LocalizedString Language="ru">Получить список сотрудников из организации и её подчиненных</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="rootDepartment" />
+    </Report>
+    <Report Alias="GetManagersByDeputy" ID="FC0DD2D2-2D30-4B22-AA28-2BE344735F38" SQLFile="GetManagersByDeputy.sql">
+      <Name>
+        <LocalizedString Language="en">GetManagersByDeputy</LocalizedString>
+        <LocalizedString Language="ru">Сотрудники, у которых указанный заместитель</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="deputyID" />
+    </Report>
+    <Report Alias="UpdateCardCreationDate" ID="6C6B3C81-756D-4DE6-A0C5-C86AE64EEF62" SQLFile="UpdateCardCreationDate.sql">
+      <Name>
+        <LocalizedString Language="en">Update card creation date</LocalizedString>
+        <LocalizedString Language="ru">Обновление даты создания карточки</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="instanceID" />
+      <Parameter Type="datetime" Name="creationDate" />
+    </Report>
+    <Report Alias="suggestion_employees" ID="7E898C46-5751-42AC-B55A-1AC867F4B7FA" SQLFile="Suggestions\suggestion_employees.sql">
+      <Name>
+        <LocalizedString Language="en">refstaff employees suggestion report</LocalizedString>
+        <LocalizedString Language="ru">Подсказка: сотрудник</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="text" />
+    </Report>
+    <Report Alias="suggestion_partner_employees" ID="73C4F9AD-BF75-4469-A35B-AC6E9391A286" SQLFile="Suggestions\suggestion_partner_employees.sql">
+      <Name>
+        <LocalizedString Language="en">suggestion_partner_employees</LocalizedString>
+        <LocalizedString Language="ru">Подсказка: сотрудники контрагента</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="text" />
+    </Report>
+    <Report Alias="suggestion_company" ID="E66BB74C-B862-4862-9FC4-BF33441C56F5" SQLFile="Suggestions\suggestion_company.sql">
+      <Name>
+        <LocalizedString Language="en">suggestion_company</LocalizedString>
+        <LocalizedString Language="ru">Подсказка: подразделение</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="text" />
+    </Report>
+    <Report Alias="suggestion_partner" ID="0F22E4F2-F043-4462-8D1C-F158FF8F4871" SQLFile="Suggestions\suggestion_partner.sql">
+      <Name>
+        <LocalizedString Language="en">suggestion_partner</LocalizedString>
+        <LocalizedString Language="ru">Подсказка: контрагент</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="text" />
+    </Report>
+    <Report Alias="SameIncDocSearch" ID="F527D27D-30CA-4929-9ABA-9104D28F7A24" SQLFile="IncDocsProcedures\SameIncDocSearch.sql">
+      <Name>
+        <LocalizedString Language="en">Same IncDoc search</LocalizedString>
+        <LocalizedString Language="ru">Поиск дубликата Входящего документа</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="instanceID" />
+      <Parameter Type="datetime" Name="letterDate" />
+      <Parameter Type="string" Name="letterNumber" />
+      <Parameter Type="uniqueidentifier" Name="organizationID" />
+    </Report>
+    <Report Alias="CheckOrderNumberUnique" ID="4A8C32FB-0382-42A3-9E6E-08BF54519912" SQLFile="CheckOrderNumberUnique.sql">
+      <Name>
+        <LocalizedString Language="en">CheckOrderNumberUnique</LocalizedString>
+        <LocalizedString Language="ru">CheckOrderNumberUnique</LocalizedString>
+      </Name>
+      <Parameter Type="integer" Name="isOrder" />
+      <Parameter Type="string" Name="regNumber" />
+    </Report>
+    <Report Alias="CheckCanSleepProcess" ID="ECB61A23-0F10-4B18-8EA8-72800731440A" SQLFile="CheckCanSleepProcess.sql">
+      <Name>
+        <LocalizedString Language="en">CheckCanSleepProcess</LocalizedString>
+        <LocalizedString Language="ru">Проверка может ли процесс засыпать</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="processID" />
+      <Parameter Type="uniqueidentifier" Name="functionID" />
+    </Report>
+    <Report Alias="SelectProcessesToAwake" ID="A29046AE-BF3D-4DDD-AAE7-991360352E06" SQLFile="SelectProcessesToAwake.sql">
+      <Name>
+        <LocalizedString Language="en">SelectProcessesToAwake</LocalizedString>
+        <LocalizedString Language="ru">Выборка процессов, которые нужно разбудить</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="processID" />
+      <Parameter Type="uniqueidentifier" Name="functionID" />
+    </Report>
+    <Report Alias="GetAssignmentsTree" ID="622D9899-3CB6-48E4-8A85-64E3F3F1B6C8" SQLFile="AssignmentsTree\GetAssignmentsTree.sql">
+      <Name>
+        <LocalizedString Language="en">GetAssignmentsTree</LocalizedString>
+        <LocalizedString Language="ru">GetAssignmentsTree</LocalizedString>
+      </Name>
+      <Parameter Type="text" Name="rootAssignments" />
+    </Report>
+    <Report Alias="GetWFTasksTree" ID="630986E2-5636-45CF-BA8F-3FFABECAE6AA" SQLFile="AssignmentsTree\GetWFTasksTree.sql">
+      <Name>
+        <LocalizedString Language="en">GetWFTasksTree</LocalizedString>
+        <LocalizedString Language="ru">GetWFTasksTree</LocalizedString>
+      </Name>
+      <Parameter Type="text" Name="WFTasks" />
+    </Report>
+    <Report Alias="GetPerformerFiles" ID="ED04B8EA-DA54-4599-A571-B708A58E24A0" SQLFile="CardHistory\GetPerformerFiles.sql">
+      <Name>
+        <LocalizedString Language="en">GetPerformerFiles</LocalizedString>
+        <LocalizedString Language="ru">GetPerformerFiles</LocalizedString>
+      </Name>
+      <Parameter Type="text" Name="WFTaskIDs" />
+    </Report>
+    <Report Alias="GetPerformerLinks" ID="F3F8CD77-17CC-4791-B028-850015C16530" SQLFile="CardHistory\GetPerformerLinks.sql">
+      <Name>
+        <LocalizedString Language="en">GetPerformerLinks</LocalizedString>
+        <LocalizedString Language="ru">GetPerformerLinks</LocalizedString>
+      </Name>
+      <Parameter Type="text" Name="WFTaskIDs" />
+    </Report>
+    <Report Alias="GetEmployeeLastSubstitution" ID="ABBEEC77-85B0-49F7-A79E-485B14344875" SQLFile="SubstitutionLogic\GetEmployeeLastSubstitution.sql">
+      <Name>
+        <LocalizedString Language="en">GetEmployeeLastSubstitution</LocalizedString>
+        <LocalizedString Language="ru">GetEmployeeLastSubstitution</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="employeeID" />
+    </Report>
+    <Report Alias="SearchSubstitutions" ID="B8262FEE-0A6D-47E7-A64B-AEBE5663C62A" SQLFile="SubstitutionLogic\SearchSubstitutions.sql">
+      <Name>
+        <LocalizedString Language="en">SearchSubstitutions</LocalizedString>
+        <LocalizedString Language="ru">SearchSubstitutions</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="employeeID" />
+      <Parameter Type="uniqueidentifier" Name="substituteID" />
+      <Parameter Type="datetime" Name="startDate" />
+      <Parameter Type="datetime" Name="endDate" />
+      <Parameter Type="datetime" Name="plannedStartDate" />
+      <Parameter Type="datetime" Name="plannedEndDate" />
+    </Report>
+    <Report Alias="outdoc_approval_process_search" ID="8AD6D7C2-AC49-4878-9E4C-180DC65E9105" SQLFile="outdoc_approval_process_search.sql">
+      <Name>
+        <LocalizedString Language="en">outdoc_approval_process_search</LocalizedString>
+        <LocalizedString Language="ru">outdoc_approval_process_search</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="historyItemID" />
+    </Report>
+    <Report Alias="GetEntitySnapshots" ID="DF428FEE-05E1-46D6-8561-504370AEF84F" SQLFile="CardHistory\GetEntitySnapshots.sql">
+      <Name>
+        <LocalizedString Language="en">Get entity snapshots</LocalizedString>
+        <LocalizedString Language="ru">Поиск слепков списка файлов</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="entityID" />
+    </Report>
+    <Report Alias="Monitoring_LogRead" ID="B94E69CA-A9C8-472F-9910-7AA6B8DEBD9B" SQLFile="Monitoring\MonitoringLog_Read.sql">
+      <Name>
+        <LocalizedString Language="en">Monitoring. Read 50 lines of log earlier than specified date</LocalizedString>
+        <LocalizedString Language="ru">Мониторинг. Прочесть 50 строк лога ранее указанной дате</LocalizedString>
+      </Name>
+      <Parameter Type="double" Name="timestampFrom" />
+    </Report>
+    <Report Alias="Monitoring_LogReadLater" ID="065E83D9-012B-4B55-9D90-10BDCF0A9525" SQLFile="Monitoring\MonitoringLog_ReadLater.sql">
+      <Name>
+        <LocalizedString Language="en">Monitoring. Read all log later than specified date</LocalizedString>
+        <LocalizedString Language="ru">Мониторинг. Прочесть весь лог позднее указанной даты</LocalizedString>
+      </Name>
+      <Parameter Type="double" Name="timestampFrom" />
+    </Report>
+    <Report Alias="Monitoring_LogAdd" ID="500149F1-CFD3-42A8-906C-66243FBB55C7" SQLFile="Monitoring\MonitoringLog_Add.sql">
+      <Name>
+        <LocalizedString Language="en">Monitoring. Add record to log</LocalizedString>
+        <LocalizedString Language="ru">Мониторинг. Добавить запись в лог</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="handler" />
+      <Parameter Type="integer" Name="level" />
+      <Parameter Type="string" Name="message" />
+    </Report>
+    <Report Alias="suggestion_dual_organization" ID="D5819ED3-5F42-401B-81E4-C91BE95B09DB" SQLFile="Suggestions\suggestion_dual_organization.sql">
+      <Name>
+        <LocalizedString Language="en">Suggestion list. Dual organization</LocalizedString>
+        <LocalizedString Language="ru">Suggestion list. Dual organization</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="text" />
+    </Report>
+    <Report Alias="suggestion_dual_employee" ID="C407E315-5EF2-4C51-96C4-F624F6A95669" SQLFile="Suggestions\suggestion_dual_employees.sql">
+      <Name>
+        <LocalizedString Language="en">Suggestion list. Dual employee</LocalizedString>
+        <LocalizedString Language="ru">Suggestion list. Dual employee</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="text" />
+    </Report>
+    <Report Alias="GetDivisionEmployees" ID="853B8B59-314F-4A9B-96B3-BC4E1359C72B" SQLFile="GetDivisionEmployees.sql">
+      <Name>
+        <LocalizedString Language="en">Get division employees filtered by flag</LocalizedString>
+        <LocalizedString Language="ru">Получить разрешенных сотрудников подразделения филиала</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="deptID" />
+    </Report>
+    <Report Alias="suggestion_employee_local" ID="F9B4E903-F9CC-41DE-8402-114F93549371" SQLFile="suggestions\suggestion_employees_local.sql">
+      <Name>
+        <LocalizedString Language="en">Suggestion list. Select only local employees</LocalizedString>
+        <LocalizedString Language="ru">Suggestion list. Select only local employees</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="text" />
+    </Report>
+    <Report Alias="suggestion_employee_localdiv" ID="8788CF96-798D-4F42-8D1E-A97BFD923F26" SQLFile="suggestions\suggestion_employees_localdiv.sql">
+      <Name>
+        <LocalizedString Language="en">Suggestion list. Get local and division allowed employees</LocalizedString>
+        <LocalizedString Language="ru">Suggestion list. Get local and division allowed employees</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="text" />
+    </Report>
+    <Report Alias="GetReplicationEmployees" ID="5623248C-BE00-4839-A9A7-F9680FFBCD04" SQLFile="GetReplicatorEmployees.sql">
+      <Name>
+        <LocalizedString Language="en">Get replication employees</LocalizedString>
+        <LocalizedString Language="ru">Get replication employees</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="deptID" />
+    </Report>
+    <Report Alias="Update replicator employee" ID="50B83540-D0A1-4148-9494-F563F7FD6A94" SQLFile="UpdateReplicatorEmployee.sql">
+      <Name>
+        <LocalizedString Language="en">Update replicator employee</LocalizedString>
+        <LocalizedString Language="ru">Update replicator employee</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="emplID" />
+      <Parameter Type="integer" Name="status" />
+    </Report>
+    <Report Alias="SearchIncDocByOutNumber" ID="CA455087-9C9B-48FA-8F0D-DE31AD8FD8E5" SQLFile="search_incdoc_cards_by_outnumber.sql">
+      <Name>
+        <LocalizedString Language="en">Search Inc Doc By Out Number</LocalizedString>
+        <LocalizedString Language="ru">Поиск входящего по исходящему номеру</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="outNumberText" />
+    </Report>
+    <Report Alias="GetReversesNRDDocumentInfo" ID="93AA6A06-D6AD-4A7B-8A05-1FD8BABB66F9" SQLFile="NRD\GetReversesNRDDocumentInfo.sql">
+      <Name>
+        <LocalizedString Language="en">GetReversesNRDDocumentInfo</LocalizedString>
+        <LocalizedString Language="ru">GetReversesNRDDocumentInfo</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="documentID" />
+    </Report>
+    <Report Alias="GetNRDDocumentInfo" ID="9A271670-65F7-4268-8821-92F59ED1ECEC" SQLFile="NRD\GetNRDDocumentInfo.sql">
+      <Name>
+        <LocalizedString Language="en">GetNRDDocumentInfo</LocalizedString>
+        <LocalizedString Language="ru">GetNRDDocumentInfo</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="documentID" />
+    </Report>
+    <Report Alias="GetORDDocumentInfo" ID="7907BD85-BA45-4596-B435-98CEF96CA722" SQLFile="NRD\GetORDDocumentInfo.sql">
+      <Name>
+        <LocalizedString Language="en">GetORDDocumentInfo</LocalizedString>
+        <LocalizedString Language="ru">GetORDDocumentInfo</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="documentID" />
+    </Report>
+    <Report Alias="SearchAssignmentByBarcode" ID="009CE0D7-9E51-4E9E-9CF9-CA1375ADFE6E" SQLFile="SearchAssignmentByBarcode.sql">
+      <Name>
+        <LocalizedString Language="en">SearchAssignmentByBarcode</LocalizedString>
+        <LocalizedString Language="ru">Поиск поручений по штрих-коду</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="employeeID" />
+      <Parameter Type="string" Name="accountName" />
+      <Parameter Type="string" Name="barcode" />
+    </Report>
+    <Report Alias="suggestion_groups" ID="DAA7E09D-77A8-457A-870D-BED76E3D604E" SQLFile="Suggestions\suggestion_groups.sql">
+      <Name>
+        <LocalizedString Language="en">suggestion_groups</LocalizedString>
+        <LocalizedString Language="ru">Поиск групп</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="text" />
+    </Report>
+    <Report Alias="GetReplUnits" ID="855DF2E0-94A6-4F8A-9137-379C6E63BFCE" SQLFile="GetReplUnits.sql">
+      <Name>
+        <LocalizedString Language="en">Get repl units</LocalizedString>
+        <LocalizedString Language="ru">Получение подразделений для репликации</LocalizedString>
+      </Name>
+    </Report>
+    <Report Alias="SetReplOffice" ID="02267B20-5AF4-4CE1-A3B9-BFF6443EEBA6" SQLFile="SetReplOffice.sql">
+      <Name>
+        <LocalizedString Language="en">Set Repl Office</LocalizedString>
+        <LocalizedString Language="ru">Задание поля Office в таблице репликации</LocalizedString>
+      </Name>
+      <Parameter Type="string" Name="office" />
+      <Parameter Type="uniqueidentifier" Name="unit" />
+    </Report>
+    <Report Alias="CheckIfAssignmentsTableExists" ID="02267B20-5AF4-4CE1-A3B9-BFF6443EEBA7" SQLFile="CheckAssignmentsTree.sql">
+      <Name>
+        <LocalizedString Language="en">Check if assignments tree table exists</LocalizedString>
+        <LocalizedString Language="ru">Проверка существования таблицы для дерева поручений</LocalizedString>
+      </Name>
+    </Report>
+    <Report Alias="GetAssignmentChilren" ID="02267B20-5AF4-4CE1-A3B9-BFF6443EEBA8" SQLFile="GetAssignmentChildren.sql">
+      <Name>
+        <LocalizedString Language="en">Get assignment children</LocalizedString>
+        <LocalizedString Language="ru">Получение дочерних поручений</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="assignment" />
+    </Report>
+    <Report Alias="GetIncDocActiveAssignment" ID="198FB3C4-DFA1-4404-8C11-BEE2A0D8FE09" SQLFile="IncDocsProcedures\GetIncDocActiveAssignment.sql">
+      <Name>
+        <LocalizedString Language="en">Get Incoming Document Active Assignment</LocalizedString>
+        <LocalizedString Language="ru">Получить активные поручения по ВД на рассмотрении</LocalizedString>
+      </Name>
+      <Parameter Type="uniqueidentifier" Name="cardID" />
+    </Report>
+  </Reports>
+  <Log>
+    <Name />
+  </Log>
+</CardLibrary>

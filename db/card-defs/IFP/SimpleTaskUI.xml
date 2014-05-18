@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="F5F8C765-CD93-4D8B-9F95-735BA2496965" Alias="SimpleTaskUI" Version="8" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{d5bca3f3-60b3-4664-b78a-c8d2002d8368}" Dictionary="true" NonSearchable="true" NonViewable="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\gazprom.ico" NoLockOnOpen="true" AlwaysRead="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Assignment (UI for displaying simple task)</LocalizedString>
+		<LocalizedString Language="ru">Поручение</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="F79D2CA6-BDE4-4E67-9C73-FE828378C150">
+			<Name>
+				<LocalizedString Language="en">Main information section</LocalizedString>
+				<LocalizedString Language="ru">Основная информация</LocalizedString>
+			</Name>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

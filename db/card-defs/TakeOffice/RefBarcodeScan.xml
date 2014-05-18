@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2B9CE434-1909-4B51-AF23-38A85FB07EAD" Alias="RefBarcodeScan" Version="18" LibraryID="C257FEAA-7F8C-48BD-AB05-397507F88985" ProgID="clsid:{f32bb21a-f8da-4a42-8b55-cc67f9c11295},license:qmpmijsnmmnjvjrmhjlhlj" Dictionary="true" NonSearchable="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\RefBarcodeScan.ico" NoLockOnOpen="true" FetchMode="8" SimpleSecurity="true" NonReplicable="true" NonArchivable="true" DefaultSecurity="">
+	<Name>
+		<LocalizedString Language="en">Barcodes scan</LocalizedString>
+		<LocalizedString Language="uk">Сканування штрих-кодів</LocalizedString>
+		<LocalizedString Language="ru">Сканирование штрих-кодов</LocalizedString>
+		<LocalizedString Language="lv">Svītrkoda  skenēšana</LocalizedString>
+		<LocalizedString Language="ka">შტრიხ-კოდების სკანირება</LocalizedString>
+		<LocalizedString Language="ro">Scanarea bar-codurilor</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="0BA98316-984A-4B77-9766-1D9DC3254AE8" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Main info</LocalizedString>
+				<LocalizedString Language="uk">Головна інформація</LocalizedString>
+				<LocalizedString Language="ru">Основная</LocalizedString>
+				<LocalizedString Language="lv">Pamatinformācija</LocalizedString>
+				<LocalizedString Language="ka">ძირითადი ინფორმაცია</LocalizedString>
+				<LocalizedString Language="ro">Principal</LocalizedString>
+			</Name>
+			<Field Alias="Resolution" ID="111131F8-C837-49D9-BD5F-18B30FD89E44" Type="enum" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Resolution</LocalizedString>
+					<LocalizedString Language="uk">Резолюція</LocalizedString>
+					<LocalizedString Language="ru">Разрешение</LocalizedString>
+					<LocalizedString Language="lv">Rezolūcija</LocalizedString>
+					<LocalizedString Language="ka">ამოცანა</LocalizedString>
+					<LocalizedString Language="ro">Însărcinarea</LocalizedString>
+				</Name>
+				<Enum Alias="dpi200" Value="0">
+					<Name>
+						<LocalizedString Language="en">200 dpi</LocalizedString>
+						<LocalizedString Language="uk">200 dpi</LocalizedString>
+						<LocalizedString Language="ru">200 dpi</LocalizedString>
+						<LocalizedString Language="lv">200 dpi</LocalizedString>
+						<LocalizedString Language="ka">200 დპი</LocalizedString>
+						<LocalizedString Language="ro">200 dpi</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="dpi300" Value="1">
+					<Name>
+						<LocalizedString Language="en">300 dpi</LocalizedString>
+						<LocalizedString Language="uk">300 dpi</LocalizedString>
+						<LocalizedString Language="ru">300 dpi</LocalizedString>
+						<LocalizedString Language="lv">300 dpi</LocalizedString>
+						<LocalizedString Language="ka">300 dpi</LocalizedString>
+						<LocalizedString Language="ro">300 dpi</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Custom" Value="2">
+					<Name>
+						<LocalizedString Language="en">Custom</LocalizedString>
+						<LocalizedString Language="ru">Настраиваемое</LocalizedString>
+						<LocalizedString Language="lv">Pielāgot</LocalizedString>
+						<LocalizedString Language="ka">ინდივიდუალური</LocalizedString>
+						<LocalizedString Language="ro">Personalizat</LocalizedString>
+						<LocalizedString Language="uk">Спеціальний</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<DisplayFields />
+		</Section>
+	</Sections>
+</CardDefinition>

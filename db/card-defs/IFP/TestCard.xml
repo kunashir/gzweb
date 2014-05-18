@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="DE548E1C-AB4E-485A-AADE-37F37E793031" Alias="TestCard" Version="19" LibraryID="7f4dc00c-886c-426f-8d72-48432bc057ea" ProgID="clsid:{1E4CC92E-C159-42e6-AB81-843733FA4B62}" IconFile="Icons\gazprom.ico" ShowLinked="true" Copyable="true" CanBeTemplate="true" SimpleSecurity="true" NonArchivable="false">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">test casd</LocalizedString>
+		<LocalizedString Language="ru">тестовая карточка</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="Section1" Type="struct" ID="98434CC7-EAD7-427B-A27E-E00BA6113194">
+			<Name>
+				<LocalizedString Language="en">section 1</LocalizedString>
+				<LocalizedString Language="ru">секция 1</LocalizedString>
+			</Name>
+			<Field Alias="Field11" ID="148D7DB0-7BF7-4F82-83DE-1A00A387D18D" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">field 1</LocalizedString>
+					<LocalizedString Language="ru">поле 1</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Field22" ID="C64D9A3B-F74A-47E0-9EBE-9CE4340F6A28" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">field 2</LocalizedString>
+					<LocalizedString Language="ru">поле 2</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ReplicationCard" ID="53B40886-B2FF-4934-BF83-6A8A65418E8D" Type="refcardid" RefType="F5F8A3A4-4A4E-4F11-AA20-E1D80669859D" RefSection="F2CF5287-748E-4634-93C6-284B693BA726" DefaultValue="" RefKind="Simple" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Replication Card</LocalizedString>
+					<LocalizedString Language="ru">Карточка репликации</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

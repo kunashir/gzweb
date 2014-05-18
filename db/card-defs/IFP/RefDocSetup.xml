@@ -1,0 +1,3241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="56E0990F-B9CF-43CC-9041-EBB492B13863" Alias="RefDocSetup" Version="399" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{bb424272-8def-4721-afd0-5ebffe7f4a3f}" Dictionary="true" NonSearchable="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\gazprom.ico" NonArchivable="true">
+  <Name>
+    <LocalizedString Language="en">Documents setup reference</LocalizedString>
+    <LocalizedString Language="ru">Справочник настроек документов</LocalizedString>
+  </Name>
+  <Sections>
+    <Section Alias="ContractSetup" Type="struct" ID="DBED195F-6235-4404-B7B2-D86148DC1180">
+      <Name>
+        <LocalizedString Language="en">Contract setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки договоров</LocalizedString>
+      </Name>
+      <Field Alias="ContractNumerator" ID="72246406-68EB-405D-A457-6430566AADEA" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator:</LocalizedString>
+          <LocalizedString Language="ru">Нумератор:</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ContractBPTemplate" ID="4D038BC0-37A7-4DD0-9175-BD44C21591D0" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Business-process template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса:</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ContractBPStartingFolder" ID="A5D57DFF-67A1-4146-8998-C559B22BBB7D" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for starting business-processes</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов:</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ContractBPInstanceFolder" ID="95941F5B-1AEB-4709-B4BD-ABE65CEDDB97" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for business-process instances:</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов:</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ContractRootContractFolder" ID="C5CAC697-22DA-4F61-A064-1B7FDCB1847C" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Root folder for storing contracts:</LocalizedString>
+          <LocalizedString Language="ru">Корневая папка хранения договоров:</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ContractApprovingContractFolder" ID="A1ADB71B-0BB7-469F-9432-A75B9FB767E7" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">OBSOLETE!</LocalizedString>
+          <LocalizedString Language="ru">OBSOLETE!</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractActiveContractFolder" ID="2A10CD85-9D90-437B-A978-221D6F498A61" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">OBSOLETE!</LocalizedString>
+          <LocalizedString Language="ru">OBSOLETE!</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractArchiveContractFolder" ID="BEF75F5C-EBF0-4953-AB0E-CD454255AE3F" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">OBSOLETE!</LocalizedString>
+          <LocalizedString Language="ru">OBSOLETE!</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractExpiryNotifyDays" ID="F0A52642-3135-48E1-AC3D-BA57DCC68FBF" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Days for notification of expiration:</LocalizedString>
+          <LocalizedString Language="ru">Кол-во дней до истечения срока договора (дни):</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractApproveTime" ID="5144F200-8FB6-475E-9770-EEF12E46BB5A" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Approve time (hours):</LocalizedString>
+          <LocalizedString Language="ru">Срок согласования (часы):</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractSignTime" ID="EC2E7815-0C73-4E10-B674-AE6FF48A5A9E" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Sign time (hours):</LocalizedString>
+          <LocalizedString Language="ru">Срок подписания (часы):</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractCorrectTime" ID="63E33961-8646-4A89-B9B2-D5EF46E0A80A" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Correct time (hours):</LocalizedString>
+          <LocalizedString Language="ru">Срок доработки (часы):</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractTaskTime" ID="105F3E66-D5B2-48B3-A455-7A6E3C854B2B" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Task time (hours):</LocalizedString>
+          <LocalizedString Language="ru">Срок поручений (часы):</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractSigner" ID="C67352CF-B85D-4E50-A150-C2DD4425AFB9" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Secretary of signer</LocalizedString>
+          <LocalizedString Language="ru">Секретарь генерального директора</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractSentContractFolder" ID="05F84DDB-D64B-4F06-A8B0-A30425C3E508" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">OBSOLETE!</LocalizedString>
+          <LocalizedString Language="ru">OBSOLETE!</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractSendAssignmentToExecuter" ID="DF87998D-BC3B-4AAA-AA6C-B634EAC87811" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Send assignment to executer to perform</LocalizedString>
+          <LocalizedString Language="ru">Подписант не из списка, формировать поручение</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="Executer" Value="0">
+          <Name>
+            <LocalizedString Language="en">Executer</LocalizedString>
+            <LocalizedString Language="ru">Отв. исполнитель</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Ignore" Value="1">
+          <Name>
+            <LocalizedString Language="en">Ignore</LocalizedString>
+            <LocalizedString Language="ru">Не формировать</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="ContractDocKindRef" ID="39E20AE2-4E1A-4C36-93DD-B39286B1FBDE" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="5E3ED23A-2B5E-47F2-887C-E154ACEAFB97" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Document kind reference</LocalizedString>
+          <LocalizedString Language="ru">Словарь видов документов</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractDefaultDocKind" ID="B9E22883-C8CB-4BD8-929C-E08E20186B35" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Default document kind</LocalizedString>
+          <LocalizedString Language="ru">Вид документа по умолчанию</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractPrintTemplate" ID="9749D3AC-2F49-4196-B105-932550300CC3" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractNoApproving" ID="050A423F-E346-4D74-A963-EF6940E47267" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Work without approving</LocalizedString>
+          <LocalizedString Language="ru">Без согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractDocumentType" ID="6CBE3F88-8393-49E2-AF9C-0DB5E43D82FD" Type="refid" RefType="BE14D55D-92B7-4345-AD10-32588981F83D" RefSection="49AD5A2D-17EC-46E2-A49E-C58D0BBD9C1A" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Document type</LocalizedString>
+          <LocalizedString Language="ru">Тип документа для привязки нумератора</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractDepartmentManager" ID="D81C1626-9690-4AFE-B44E-6C0D77DE99D2" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Contract department manager</LocalizedString>
+          <LocalizedString Language="ru">Начальник договорного отдела</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ContractRequestBPTemplate" ID="BD12628A-E16C-4340-B994-C7139E0B311D" Type="refcardid" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Request BP Template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес процесса обработки заявки на договор</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractRecallBPTemplate" ID="0772AE89-603F-4B9A-9F0F-8D89C9834964" Type="refcardid" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Recall BP Template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса отзыва договора</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ContractRequestCheckerEmployee" ID="D5EE8E18-9B6B-4CE2-BAA7-71ED9F8EBE2A" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Check contract request employee</LocalizedString>
+          <LocalizedString Language="ru">Проверяющий заявки сотрудник</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="ContractSingedByPersons" RowAlias="" Type="coll" ID="7D198B92-F97C-497D-B170-59E19E9A8942">
+        <Name>
+          <LocalizedString Language="en">SingedBy persons</LocalizedString>
+          <LocalizedString Language="ru">Подписанты</LocalizedString>
+        </Name>
+        <Field Alias="ContractSignedByPerson" ID="DB9CF9E1-A649-450F-9351-7B7109BA014E" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">SignedBy person</LocalizedString>
+            <LocalizedString Language="ru">Подписывающие лица</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="ContractLawyerPersons" RowAlias="" Type="coll" ID="20D0BD74-08CF-4564-8AE3-0598BD891F74">
+        <Name>
+          <LocalizedString Language="en">Lawyer person:</LocalizedString>
+          <LocalizedString Language="ru">Сотрудник ПУ:</LocalizedString>
+        </Name>
+        <Field Alias="ContractLawyerPerson" ID="A035665A-431A-48B5-B246-8A7EE9411329" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Lawyer person:</LocalizedString>
+            <LocalizedString Language="ru">Сотрудник ПУ:</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="ContractODPersons" RowAlias="" Type="coll" ID="3361B8CD-B023-4F8B-9CB5-891D626EF299">
+        <Name>
+          <LocalizedString Language="en">OD person:</LocalizedString>
+          <LocalizedString Language="ru">Сотрудник ОД:</LocalizedString>
+        </Name>
+        <Field Alias="ContractODPerson" ID="AAF40363-4816-4F14-A51C-AAF18FE9027B" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">OD person:</LocalizedString>
+            <LocalizedString Language="ru">Сотрудник ОД:</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="IncContractRegistrators" Type="coll" ID="99B6BA2E-2C62-407D-9D86-E3907A235BF8">
+        <Name>
+          <LocalizedString Language="en">IncContracts registrators:</LocalizedString>
+          <LocalizedString Language="ru">Сотрудник ОД.  Регистрация входящих договоров</LocalizedString>
+        </Name>
+        <Field Alias="IncContractRegistrator" ID="2616B857-C04D-4AF7-A863-A131854880AC" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">IncContracts registrator:</LocalizedString>
+            <LocalizedString Language="ru">Сотрудник ОД.  Регистрация входящих договоров</LocalizedString>
+          </Name>
+        </Field>
+        <DisplayFields />
+      </Section>
+      <Section Alias="ContractCounteragents" Type="coll" ID="16F0FA47-38C0-45FF-9F90-EB324771824A">
+        <Name>
+          <LocalizedString Language="en">Contract counteragents</LocalizedString>
+          <LocalizedString Language="ru">Контрагенты для заключения договоров</LocalizedString>
+        </Name>
+        <Field Alias="ContractCounteragent" ID="9CCA9814-60A9-470B-8D47-BC37E7E682BB" Type="refid" RefType="65FF9382-17DC-4E9F-8E93-84D6D3D8FE8C" RefSection="C78ABDED-DB1C-4217-AE0D-51A400546923" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Contract сounteragent</LocalizedString>
+            <LocalizedString Language="ru">Контрагент</LocalizedString>
+          </Name>
+        </Field>
+        <DisplayFields />
+      </Section>
+      <Section Alias="ContractKinds" Type="coll" ID="E1B26A96-9CF1-46E5-85E5-E68D3A4A7C4A">
+        <Name>
+          <LocalizedString Language="en">Contract kind</LocalizedString>
+          <LocalizedString Language="ru">Виды договоров</LocalizedString>
+        </Name>
+        <Field Alias="ContractKind" ID="D3E1C251-3C34-46E6-BF15-38948ADE61F6" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">ContractKind</LocalizedString>
+            <LocalizedString Language="ru">Вид договора</LocalizedString>
+          </Name>
+        </Field>
+        <DisplayFields />
+      </Section>
+      <Section Alias="ContractFieldState" Type="coll" ID="A83875CA-2179-4859-9EA3-96105F4FCC39">
+        <Name>
+          <LocalizedString Language="en">Contract Field State</LocalizedString>
+          <LocalizedString Language="ru">Состояние </LocalizedString>
+        </Name>
+        <Field Alias="ContractKind" ID="C882FB3A-C3C4-498E-B5B3-1ECC89DCCBE4" Type="refid" RefType="56E0990F-B9CF-43CC-9041-EBB492B13863" RefSection="E1B26A96-9CF1-46E5-85E5-E68D3A4A7C4A" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Contract kind</LocalizedString>
+            <LocalizedString Language="ru">Вид договора</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="ContractFieldState" ID="D06AF71A-1550-4ECE-ADA9-F2FEF32F89A3" Type="enum" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Field State</LocalizedString>
+            <LocalizedString Language="ru">Состояние поля</LocalizedString>
+          </Name>
+          <Description />
+          <Enum Alias="Unavailable" Value="0">
+            <Name>
+              <LocalizedString Language="en">Unavailable</LocalizedString>
+              <LocalizedString Language="ru">Недоступно</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="Available" Value="1">
+            <Name>
+              <LocalizedString Language="en">Available</LocalizedString>
+              <LocalizedString Language="ru">Доступно</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="Required" Value="2">
+            <Name>
+              <LocalizedString Language="en">Required</LocalizedString>
+              <LocalizedString Language="ru">Обязательное</LocalizedString>
+            </Name>
+          </Enum>
+        </Field>
+        <Field Alias="ContractAmount" ID="76360E04-3BED-4D6A-8824-8EFF453A7249" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Amount</LocalizedString>
+            <LocalizedString Language="ru">Сумма</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractTaxable" ID="2D4427B0-9C72-412F-9707-C530B6E9B1F1" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Taxable</LocalizedString>
+            <LocalizedString Language="ru">Облагается НДС</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractAmountNDSFree" ID="C4CD715C-998F-4387-94FC-15DA5226D45B" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">AmountNDSFree</LocalizedString>
+            <LocalizedString Language="ru">Сумма без НДС</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractIncludeMaterialCost" ID="59B507DA-C8BE-4EB4-A00F-F0610AF4364D" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Include Material Cost</LocalizedString>
+            <LocalizedString Language="ru">В т.ч. стоимость материалов</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractSPinGPNDSFree" ID="EABAB541-60BB-4C3A-BB9F-0616BDC64F82" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">SPinGPNDSFree</LocalizedString>
+            <LocalizedString Language="ru">Стоимость СП работ...</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractPercent" ID="7ADB699B-0105-41B5-8B95-6A83BC574A49" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Percent</LocalizedString>
+            <LocalizedString Language="ru">Процент</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractPaymentDelay" ID="8F9003DD-1A50-4634-B5AB-E991FD6E2735" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Payment delay</LocalizedString>
+            <LocalizedString Language="ru">Отсрочка по договору</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractDateFinish" ID="7BA22AEC-15A1-4ADF-AC24-2DD27DBF14BE" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Contract Date Finish</LocalizedString>
+            <LocalizedString Language="ru">Дата окончания работ</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="ContractMaterialCost" ID="975E2957-BEC9-4F5E-BD6A-A35B4FF61088" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Material Cost</LocalizedString>
+            <LocalizedString Language="ru">Стоимость материалов</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractPeriodicityType" ID="82F3393E-C4E9-4343-9F14-CDCC04090806" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Contract Periodicity Type</LocalizedString>
+            <LocalizedString Language="ru">Рамочный/Разовый договор</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="ContractProportionalCredit" ID="C3AFAA96-7732-4732-AD46-0B0FB672835E" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Proportional Credit</LocalizedString>
+            <LocalizedString Language="ru">Пропорциональный зачет аванса</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractPaymentType" ID="8492116C-8727-450B-B0AE-C007A11B0CE3" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Payment Type</LocalizedString>
+            <LocalizedString Language="ru">Периодичность платежей</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractCreditAmount" ID="5888C5D7-604E-4CFA-950A-B7776BB52C03" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Credit Amount</LocalizedString>
+            <LocalizedString Language="ru">Сумма аванса</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractCreditTerm" ID="F02E5810-A22D-41D6-8AF6-E408B62AFA56" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Credit Term</LocalizedString>
+            <LocalizedString Language="ru">Срок оплаты аванса</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractMonthlyPaymentDate" ID="F587251F-B8AC-4209-8641-0CF43E08FA08" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Monthly Payment date</LocalizedString>
+            <LocalizedString Language="ru">Ежемесячная дата платежа</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractMonthlyPaymentNDS" ID="9676E407-6CAF-4527-B500-005F799DF146" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Monthly Payment NDS</LocalizedString>
+            <LocalizedString Language="ru">Ежемесячный платеж с НДС</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractMonthlyPaymentNDSFree" ID="752BBAB5-8804-48BB-B40C-29AF1C4421BD" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">MonthlyPayment NDS Free</LocalizedString>
+            <LocalizedString Language="ru">Ежемесячный платеж бех НДС</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractStageDate" ID="F0B69920-797A-42F7-92B3-E9B22E19554F" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Stage Date</LocalizedString>
+            <LocalizedString Language="ru">Дата этапа платежа</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ContractStageAmount" ID="1F796479-3E1B-48C8-8B1D-7171A58D478F" Type="int" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Stage Amount</LocalizedString>
+            <LocalizedString Language="ru">Сумма этапа</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields />
+      </Section>
+      <DisplayFields />
+    </Section>
+    <Section Alias="GeneralSetup" RowAlias="" Type="struct" ID="2F43792D-A3B0-4C12-B4DA-CC5BBE263069">
+      <Name>
+        <LocalizedString Language="en">General settings</LocalizedString>
+        <LocalizedString Language="ru">Различные настройки</LocalizedString>
+      </Name>
+      <Field Alias="ITRole" ID="17AF671F-7765-4445-B01B-6A06A2F37147" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="F6927A03-5BCE-4C7E-9C8F-E61C6D9F256E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Role, performing IT support of system:</LocalizedString>
+          <LocalizedString Language="ru">Роль выполняющая IT поддержку системы:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="NotifyProcess" ID="32CFC014-44A9-476A-808E-0C539D75B685" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Template of notify process</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса уведомлений</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AdminTimekeeper" ID="A539F378-15F2-4B78-82DF-A9A7148A05EC" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="F6927A03-5BCE-4C7E-9C8F-E61C6D9F256E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Administrator timekeeper</LocalizedString>
+          <LocalizedString Language="ru">Администратор-табельщик</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="Timekeeper" ID="49F301F8-E2CC-4458-961F-F0ED0A96F02A" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="F6927A03-5BCE-4C7E-9C8F-E61C6D9F256E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Timekeeper</LocalizedString>
+          <LocalizedString Language="ru">Табельщик</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="MaxAppMemory" ID="932C5388-4236-49F9-BB56-A05EE7E9F708" Type="int" DefaultValue="150" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Max application memory usage</LocalizedString>
+          <LocalizedString Language="ru">Запускать очистку памяти при превышении (мб)</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ExecuterChangeNotify" ID="1E942CD1-C4FA-41B9-BDE1-544095AA9084" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">BP template for notify about change executer</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса уведомлений</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ExecuterChangeStartingFolder" ID="596515A0-6C73-49FC-B82E-04B55EF67B72" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Starting folder for executer change notify</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ExecuterChangeInstanceFolder" ID="198D7D1D-03D7-4EAE-A81D-34BFA8509FE1" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Change Executer Notify Process Instance Folder</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов </LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="NoApprovingCardRegistrationType" ID="38B9F0AF-01EE-4902-849D-9352F0F103D4" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Registration type of 'no approving' card</LocalizedString>
+          <LocalizedString Language="ru">Тип регистрации карточек не требующих согласования</LocalizedString>
+        </Name>
+        <Enum Alias="OnFirstSaving" Value="0">
+          <Name>
+            <LocalizedString Language="en">On first saving</LocalizedString>
+            <LocalizedString Language="ru">При первом сохранении</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="OnClosing" Value="1">
+          <Name>
+            <LocalizedString Language="en">On closing</LocalizedString>
+            <LocalizedString Language="ru">При закрытии карточки</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="OnButtonClick" Value="2">
+          <Name>
+            <LocalizedString Language="en">On button click</LocalizedString>
+            <LocalizedString Language="ru">При нажатии кнопки</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="RegistredOnExit" ID="633C6366-BEF0-4F76-95DB-1D3E51D52B3B" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Registred document on exit</LocalizedString>
+          <LocalizedString Language="ru">Регистрировать документ при выходе</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="SendTaskByMail" ID="B30BC888-9ED7-4C70-B5EF-9ED9C44A5BDC" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Send task by mail</LocalizedString>
+          <LocalizedString Language="ru">Отправлять уведомления по почте</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ForcibleCardRightsBP" ID="2B950769-B8BD-40BE-A223-36D4D6CA53EF" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Forcible Card Rights BP</LocalizedString>
+          <LocalizedString Language="ru">Шаблон БП назначения прав</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="EmptyFolder" ID="A77F624B-A5E3-47BB-8BF3-120A5183ED4C" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Empty folder</LocalizedString>
+          <LocalizedString Language="ru">Пустая папка</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="ManagementDepts" Type="coll" ID="A6C8C03E-EF37-4E94-80AB-13A78D78E66F">
+        <Name>
+          <LocalizedString Language="en">Management departments</LocalizedString>
+          <LocalizedString Language="ru">Руководство</LocalizedString>
+        </Name>
+        <Field Alias="ManagementDept" ID="D28E25F3-B200-4F6E-AB52-9847470CEB67" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="7473F07F-11ED-4762-9F1E-7FF10808DDD1" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Management department</LocalizedString>
+            <LocalizedString Language="ru">Руководство</LocalizedString>
+          </Name>
+        </Field>
+        <DisplayFields />
+      </Section>
+      <Section Alias="NewDocTemplates" Type="coll" ID="5771C4F5-A4CC-4861-9DB1-42DB48E16D2B">
+        <Name>
+          <LocalizedString Language="en">Templates for document creating</LocalizedString>
+          <LocalizedString Language="ru">Шаблоны для создания документов</LocalizedString>
+        </Name>
+        <Field Alias="NewDocTemplate" ID="B9CE16E7-A433-422C-9294-D25352C87482" Type="refcardid" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Template for creating document</LocalizedString>
+            <LocalizedString Language="ru">Шаблон создания документа</LocalizedString>
+          </Name>
+        </Field>
+        <DisplayFields />
+      </Section>
+      <DisplayFields FormatString="" />
+    </Section>
+    <Section Alias="DirectionSetup" Type="struct" ID="70C344F8-066E-44DE-A673-94C3142C6CA5">
+      <Name>
+        <LocalizedString Language="en">Direction setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки распоряжения</LocalizedString>
+      </Name>
+      <Field Alias="DirectionNumerator" ID="418F4F08-226A-4E94-A062-CC725189D762" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator:</LocalizedString>
+          <LocalizedString Language="ru">Нумератор:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionBPTemplate" ID="0002BC64-B7E3-40CE-A884-49A90D15339A" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Template of business-process</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionBPStartingFolder" ID="6DC6772B-5894-424B-88C0-C2607F2E4DF7" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for starting business-processes</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionBPInstanceFolder" ID="534B5DB0-EE65-42A7-AAA5-E55AB604E595" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for business-process instances:</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionSigningDuration" ID="47EF4C55-9BF5-4102-8819-F86402CE42AB" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Signing duration</LocalizedString>
+          <LocalizedString Language="ru">Срок подписания</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionCorrectionDuration" ID="0F0B8620-BF47-4FAC-B9C1-437EEFDF0805" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Duration of correction</LocalizedString>
+          <LocalizedString Language="ru">Срок доработки</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionApprovingDuration" ID="0F72FA5E-24ED-427F-AF1B-D2DBA2C60D5A" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Approving duration</LocalizedString>
+          <LocalizedString Language="ru">Срок согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionEmployee_OD" ID="34AD4607-EFF8-4AD4-A68F-B63DDEF209C2" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">The employee of department of document circulation</LocalizedString>
+          <LocalizedString Language="ru">Сотрудник ОД</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionAssignmentDuration" ID="BB7F310D-E114-4563-BD12-3E3C5326A3AC" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Duration of assignment</LocalizedString>
+          <LocalizedString Language="ru">Срок поручений</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionFolder" ID="A5E84641-22EA-4C17-BB0F-23309BF66701" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Root folder for storing directions</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения распоряжений</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="DirectionSendAssignmentToExecuter" ID="BA21BCDB-80E9-460C-B4B7-8CE3A3709D36" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Send assignment to executer to perform</LocalizedString>
+          <LocalizedString Language="ru">Подписант не из списка, формировать поручение</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="Executer" Value="0">
+          <Name>
+            <LocalizedString Language="en">Executer</LocalizedString>
+            <LocalizedString Language="ru">Отв. исполнитель</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Ignore" Value="1">
+          <Name>
+            <LocalizedString Language="en">Ignore</LocalizedString>
+            <LocalizedString Language="ru">Не формировать</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="DirectionPrintTemplate" ID="061EDAA6-0EE0-4262-B1BA-ACDC06D7EA62" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати листа согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionNotificationListPrintTemplate" ID="F18BEAB7-4EF5-4A51-A73A-74A0F51316B5" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Notification list print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати листа рассылки</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionNoApproving" ID="B697B04A-EFB8-4516-A84E-F08F4E59ACC1" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Work without approving</LocalizedString>
+          <LocalizedString Language="ru">Без согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionNumeratorProject" ID="4DF155D4-1A94-4A76-A8B7-4B5756B546C7" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator Project</LocalizedString>
+          <LocalizedString Language="ru">Проектный нумератор</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionDocPrintSetup" ID="2661E3D7-1ECA-465A-B850-C6A0FB702B6B" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Document print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати документа</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectionAlternativeProcessCorrection" ID="960D4F32-6B9F-404B-A6D8-61E13134F0D3" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Alternative correction process</LocalizedString>
+          <LocalizedString Language="ru">Альтернативный процесс доработки заданий</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="DirectionEmployees_OD" RowAlias="" Type="coll" ID="247552C6-76C4-4193-B0C7-7033FA5B5213">
+        <Name>
+          <LocalizedString Language="en">OD Employees</LocalizedString>
+          <LocalizedString Language="ru">Сотрудники ОД</LocalizedString>
+        </Name>
+        <Field Alias="DirectionEmployee_OD" ID="D4F47255-DA95-4494-829E-A4D4C38BD772" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Employee OD</LocalizedString>
+            <LocalizedString Language="ru">Сотрудники ОД</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="DirectionSingedByPersons" RowAlias="" Type="coll" ID="D0866168-4D6C-4292-ADE5-CAA510D0ABD7">
+        <Name>
+          <LocalizedString Language="en">SingedBy persons</LocalizedString>
+          <LocalizedString Language="ru">Подписанты</LocalizedString>
+        </Name>
+        <Field Alias="DirectionSignedByPerson" ID="28B2D3CA-6551-4771-9FF9-98B8305B5860" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">SignedBy person</LocalizedString>
+            <LocalizedString Language="ru">Подписывающие лица</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="DirectionRegistrators" RowAlias="" Type="coll" ID="5F905C9B-C9B1-45D2-9D8B-98F243C9B3E5">
+        <Name>
+          <LocalizedString Language="en">Registrators</LocalizedString>
+          <LocalizedString Language="ru">Сотрудник ОД. Регистрация распоряжения</LocalizedString>
+        </Name>
+        <Field Alias="DirectionEmployee" ID="3AA7E12F-A276-43AD-84F6-B9201A2BE641" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Registrators</LocalizedString>
+            <LocalizedString Language="ru">Сотрудник ОД. Регистрация распоряжения</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="DirectionTypesNumerators" RowAlias="" Type="coll" ID="050478FC-00C7-480A-984D-0EB9F4D26366">
+        <Name>
+          <LocalizedString Language="en">Direction Types Numerators</LocalizedString>
+          <LocalizedString Language="ru">Нумераторы для распоряжений</LocalizedString>
+        </Name>
+        <Field Alias="DirectionTypeName" ID="3AB2EBC7-8E41-438F-9C19-65EFB55D179F" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Direction Type Name</LocalizedString>
+            <LocalizedString Language="ru">Вид распоряжения</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="DirectionTypeNumerator" ID="FDA09E87-1D12-4B7A-BD0E-AA15863FED65" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Direction Type Numerator</LocalizedString>
+            <LocalizedString Language="ru">Нумератор вида</LocalizedString>
+          </Name>
+        </Field>
+        <Section Alias="DirectionTypeRegistrators" Type="coll" ID="DB94B195-2DCF-4001-B60D-33337B0C4F3E">
+          <Name>
+            <LocalizedString Language="en">Direction Type Registrators</LocalizedString>
+            <LocalizedString Language="ru">Регистраторы типов распоряжений</LocalizedString>
+          </Name>
+          <Field Alias="DirectionTypeRegistrator" ID="8253FC35-9831-4019-94C4-3FE28DD768D1" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">Registrator</LocalizedString>
+              <LocalizedString Language="ru">Регистратор</LocalizedString>
+            </Name>
+          </Field>
+          <DisplayFields />
+        </Section>
+        <Section Alias="DirectionTypeSigners" RowAlias="" Type="coll" ID="F05DF61E-2D5E-480F-84EB-A4549F169553">
+          <Name>
+            <LocalizedString Language="en">Direction Type Signers</LocalizedString>
+            <LocalizedString Language="ru">Подписанты типов распоряжений</LocalizedString>
+          </Name>
+          <Field Alias="DirectionTypeSigner" ID="17F90D2D-1516-4929-A72B-5E1A5013D290" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">Direction Type Signer</LocalizedString>
+              <LocalizedString Language="ru">Подписант </LocalizedString>
+            </Name>
+            <Description />
+          </Field>
+          <DisplayFields FormatString="" />
+        </Section>
+        <DisplayFields FormatString="" />
+      </Section>
+      <DisplayFields />
+    </Section>
+    <Section Alias="DirectiveSetup" Type="struct" ID="54710759-097D-40F9-A1C3-62B295254755">
+      <Name>
+        <LocalizedString Language="en">Directive setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки указаний</LocalizedString>
+      </Name>
+      <Field Alias="DirectiveNumerator" ID="CCC208CB-941B-42A9-9669-23EC8A48D011" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator:</LocalizedString>
+          <LocalizedString Language="ru">Нумератор:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveBPTemplate" ID="903B2405-055B-4A60-82EA-716272D8FFC0" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Template of business-process</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveBPStartingFolder" ID="C883145A-A493-430E-91A1-3D451BD19A69" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for starting business-processes</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveBPInstanceFolder" ID="6E1292DD-0C27-4B82-A6BF-83DECB731B6E" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for business-process instances:</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveSigningDuration" ID="BDD39261-6307-4B5A-ACEB-BCE16BFDB500" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Signing duration</LocalizedString>
+          <LocalizedString Language="ru">Срок подписания</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveCorrectionDuration" ID="7AEFFDFB-68D1-4C62-9898-D2C3BF2D8908" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Duration of correction</LocalizedString>
+          <LocalizedString Language="ru">Срок доработки</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveApprovingDuration" ID="AF788F49-32E4-4583-B004-EBBCF9921DC1" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Approving duration</LocalizedString>
+          <LocalizedString Language="ru">Срок согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveEmployee_OD" ID="22B84102-581C-434A-B99D-BFFE5988525B" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">The employee of department of document circulation</LocalizedString>
+          <LocalizedString Language="ru">Сотрудник ОД</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveAssignmentDuration" ID="A29FE334-F6B1-4714-8C5B-698BB30F32F5" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Duration of assignment</LocalizedString>
+          <LocalizedString Language="ru">Срок поручений</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveFolder" ID="49672D7B-E5FA-4B45-8272-FFAC4A39603F" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Root folder for storing directions</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения указаний</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="DirectiveSendAssignmentToExecuter" ID="086A5D76-6E7D-406B-A073-E1EE116FE4CF" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Send assignment to executer to perform</LocalizedString>
+          <LocalizedString Language="ru">Подписант не из списка, формировать поручение</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="Executer" Value="0">
+          <Name>
+            <LocalizedString Language="en">Executer</LocalizedString>
+            <LocalizedString Language="ru">Отв. исполнитель</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Ignore" Value="1">
+          <Name>
+            <LocalizedString Language="en">Ignore</LocalizedString>
+            <LocalizedString Language="ru">Не формировать</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="DirectivePrintTemplate" ID="9D0B6AD0-2B86-49C4-93C3-A358B51AE88B" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати листа согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveNotificationListPrintTemplate" ID="4845AC8C-A386-43BF-8A95-14A7B3BFD995" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Notification list print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати листа рассылки</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveNoApproving" ID="19262262-6891-47B6-AB08-1FA5E37B5F3A" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Work without approving</LocalizedString>
+          <LocalizedString Language="ru">Без согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveNumeratorProject" ID="B88318A2-45CF-4A6B-90D4-401568BA34C7" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator Project</LocalizedString>
+          <LocalizedString Language="ru">Проектный нумератор</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveDocPrintTemplate" ID="8D8CE27D-B804-4040-BBF1-C8A4088D6C67" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Document print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати документа</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DirectiveAlternativeProcessCorrection" ID="4FF5BC3A-4FB4-41B4-806F-234E08459773" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Alternative correction process</LocalizedString>
+          <LocalizedString Language="ru">Альтернативный процесс доработки заданий</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="DirectiveEmployees_OD" RowAlias="" Type="coll" ID="57E1BD43-2EF8-4616-9FFA-68A88F6E4FC8">
+        <Name>
+          <LocalizedString Language="en">OD Employees</LocalizedString>
+          <LocalizedString Language="ru">Сотрудники ОД</LocalizedString>
+        </Name>
+        <Field Alias="DirectiveEmployee_OD" ID="5211CE05-F6FC-4516-8D44-78636DB2E7E3" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Employee OD</LocalizedString>
+            <LocalizedString Language="ru">Сотрудники ОД</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="DirectiveSingedByPersons" RowAlias="" Type="coll" ID="57BEA53E-4C46-44C8-803E-E3628F1B8E2F">
+        <Name>
+          <LocalizedString Language="en">SingedBy persons</LocalizedString>
+          <LocalizedString Language="ru">Подписанты</LocalizedString>
+        </Name>
+        <Field Alias="DirectiveSignedByPerson" ID="15DB9A8D-045C-4FA1-A543-4AA9EE677E24" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">SignedBy person</LocalizedString>
+            <LocalizedString Language="ru">Подписывающие лица</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="DirectiveRegistrators" RowAlias="" Type="coll" ID="342F9E28-485E-49A3-B13C-0393FC4E11CF">
+        <Name>
+          <LocalizedString Language="en">Registrators</LocalizedString>
+          <LocalizedString Language="ru">Сотрудник ОД. Регистрация указания</LocalizedString>
+        </Name>
+        <Field Alias="DirectiveEmployee" ID="45FD89BC-ABFE-4133-BC99-C91E0CF8EC7D" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Registrators</LocalizedString>
+            <LocalizedString Language="ru">Сотрудник ОД. Регистрация указания</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="DirectiveTypesNumerators" RowAlias="" Type="coll" ID="578B2113-ACFB-4F0A-B868-5DBC06D0DAA2">
+        <Name>
+          <LocalizedString Language="en">Directive Types Numerators</LocalizedString>
+          <LocalizedString Language="ru">Виды указаний</LocalizedString>
+        </Name>
+        <Field Alias="DirectiveTypeName" ID="6F1F6356-B5EC-4687-96B6-B7C295495AD9" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Directive Type Name</LocalizedString>
+            <LocalizedString Language="ru">Вид указания</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="DirectiveTypeNumerator" ID="98EE2903-4A21-4C6D-A21D-ED7C0A1DC0A8" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Directive Type Numerator</LocalizedString>
+            <LocalizedString Language="ru">Нумератор вида указаний</LocalizedString>
+          </Name>
+        </Field>
+        <Section Alias="DirectiveTypeRegistrators" Type="coll" ID="F4652B95-3B78-4892-80CE-0211C83FA941">
+          <Name>
+            <LocalizedString Language="en">Directive Type Registrators</LocalizedString>
+            <LocalizedString Language="ru">Регистраторы</LocalizedString>
+          </Name>
+          <Field Alias="Registrator" ID="FEE057E8-4810-4079-9220-678F7AF02AE9" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">Registrator</LocalizedString>
+              <LocalizedString Language="ru">Регистратор</LocalizedString>
+            </Name>
+          </Field>
+          <DisplayFields />
+        </Section>
+        <Section Alias="DirectiveTypeSigners" RowAlias="" Type="coll" ID="88B419DD-55FA-4826-844A-E81956D339EE">
+          <Name>
+            <LocalizedString Language="en">Directive Type Signers</LocalizedString>
+            <LocalizedString Language="ru">Подписанты указаний</LocalizedString>
+          </Name>
+          <Field Alias="DirectiveTypeSigner" ID="CEAACF47-E374-4B4B-BE7B-81B1C3942EDF" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">Directive Type Signer</LocalizedString>
+              <LocalizedString Language="ru">Подписант</LocalizedString>
+            </Name>
+            <Description />
+          </Field>
+          <DisplayFields FormatString="" />
+        </Section>
+        <DisplayFields FormatString="" />
+      </Section>
+      <DisplayFields />
+    </Section>
+    <Section Alias="IncDocSetup" RowAlias="" Type="struct" ID="2DA5DE1E-5E0A-4346-85AE-A85309230991">
+      <Name>
+        <LocalizedString Language="en">IncDoc setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки входящего документа</LocalizedString>
+      </Name>
+      <Field Alias="IncDocNumerator" ID="1415484B-3FF0-4985-B073-DC6BFE8C8E5B" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator:</LocalizedString>
+          <LocalizedString Language="ru">Нумератор:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="IncDocBPTemplate" ID="7DDB3848-4E10-4937-B03B-C702EEF38CFE" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Template of business-process, that processes incoming documents</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="IncDocBPStartingFolder" ID="41263EC6-3AF9-4ECE-B372-F3BFF0903C9A" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for starting business-processes</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="IncDocBPInstanceFolder" ID="53E98BB8-6BDC-48DB-BB8E-75DC2ACF8F68" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for business-process instances:</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="IncDocFolder" ID="F740C4EB-9136-49C7-AD10-9729585A4223" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Root folder for storing incoming documents</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения входящих</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="IncDocPrintTemplate" ID="580B22D4-52DF-4C47-AFD2-61FBFE5FE8B4" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="IncDocReceiptKindRef" ID="BFFAC1C8-1211-4EEC-B3A9-A18E55AD0B15" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="5E3ED23A-2B5E-47F2-887C-E154ACEAFB97" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Receipt kind dictionary</LocalizedString>
+          <LocalizedString Language="ru">Варианты получения документа</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="IncDocReceiptKindDefault" ID="B046B85D-C3D0-43AB-AC62-8956A4357A9C" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Default Receipt Kind</LocalizedString>
+          <LocalizedString Language="ru">Вид получения по умолчанию</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="IncDocAppealNumerator" ID="7B04686A-7F94-41C0-ADA6-1A04D32EE32A" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Appeal Numerator</LocalizedString>
+          <LocalizedString Language="ru">Нумератор обращений</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeRegDataIndentX" ID="AAFAEB8F-ED4E-4DF3-8B82-2DD1065D2F1F" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Barcode registration data indent x</LocalizedString>
+          <LocalizedString Language="ru">Отступ по горизонтали</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeRegDataIndentY" ID="67C045F3-B007-4D41-9176-A0CDE4D4228A" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Barcode registration data indent y</LocalizedString>
+          <LocalizedString Language="ru">Отступ по вертикали</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="IncDocNoApproving" ID="4A7BF0D4-3423-43B9-9525-3FCFD28E3687" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Work without approving</LocalizedString>
+          <LocalizedString Language="ru">Без согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="IncDocODEmployees" RowAlias="" Type="coll" ID="676B7553-D296-40EC-9F0C-E080860ADDD7">
+        <Name>
+          <LocalizedString Language="en">The employees of department of document circulation</LocalizedString>
+          <LocalizedString Language="ru">Сотрудники ОД</LocalizedString>
+        </Name>
+        <Field Alias="IncDocODEmployee" ID="C272F6C5-211C-4055-9B42-693DFA7C96B7" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">The employee of department of document circulation</LocalizedString>
+            <LocalizedString Language="ru">Сотрудники ОД</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="IncDocRestrictedKind" RowAlias="" Type="coll" ID="D344E313-749A-470F-998A-D8C0DD9C611D">
+        <Name>
+          <LocalizedString Language="en">Restrict Kinds</LocalizedString>
+          <LocalizedString Language="ru">Варианты служебного пользования</LocalizedString>
+        </Name>
+        <Field Alias="RestrictKind" ID="261C48E3-7ED1-43A4-9398-7A393F9E6BDF" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Restrict Kind</LocalizedString>
+            <LocalizedString Language="ru">Название вида</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="Numerator" ID="1CC5803B-0536-4241-B07A-9B9ABC22FE19" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Numerator</LocalizedString>
+            <LocalizedString Language="ru">Нумератор</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <DisplayFields FormatString="" />
+    </Section>
+    <Section Alias="MemorandumSetup" RowAlias="" Type="struct" ID="7379FD49-6FDA-4B22-B99D-8040F3000869">
+      <Name>
+        <LocalizedString Language="en">Memorandum setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки служебной записки</LocalizedString>
+      </Name>
+      <Field Alias="MemorandumNumerator" ID="EA395EF6-1F4D-472B-BEFA-9A1A24882D2C" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator:</LocalizedString>
+          <LocalizedString Language="ru">Нумератор:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="MemorandumBPTemplate" ID="88DB3C21-2DA6-4F39-ABDC-21081A2D15A2" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Template of business-process, that processes incoming documents</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="MemorandumBPStartingFolder" ID="1A6C54F5-550E-4E69-A647-40D466E7B77C" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for starting business-processes</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="MemorandumBPInstanceFolder" ID="3ED163BA-477D-4E9A-A900-7671503BF663" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for business-process instances:</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="MemorandumApprovingDuration" ID="549E9C2F-CBB9-4AE1-9EFF-B5190372AFB2" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Approving duration</LocalizedString>
+          <LocalizedString Language="ru">Срок согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="MemorandumSigningDuration" ID="6EA4FD71-051D-4526-9AB0-811B80A228CA" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Signing duration</LocalizedString>
+          <LocalizedString Language="ru">Срок подписания</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="MemorandumCorrectionDuration" ID="E91F39B6-6CA3-4ADA-B91D-8EB17540A5F7" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Duration of correction</LocalizedString>
+          <LocalizedString Language="ru">Срок доработки</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="MemorandumFolder" ID="E4AD9464-E511-479F-B3EF-C2057927D3E1" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Root folder for storing memorandums</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения сз</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="MemorandumPrintTemplate" ID="0CDA9645-45AA-4963-AE23-8E1C3D56B7E5" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати СЗ</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="MemorandumApprovalListPrintTemplate" ID="E7DD942D-0FC5-4EC3-8F17-F140476EB863" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Approval list print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати листа согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="MemorandumNoApproving" ID="2125636B-171B-4231-AA1B-E5E2DD2F38D9" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Not use approve</LocalizedString>
+          <LocalizedString Language="ru">Без согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="MemorandumNumeratorProject" ID="16F19EB2-BAF3-4491-AF4D-74D7C9FFD253" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Project numerator</LocalizedString>
+          <LocalizedString Language="ru">Проектный нумератор</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="MemorandumAlternativeProcessCorrection" ID="0A9A670A-2130-453A-83C6-84738BD78EE9" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Alternative correction process</LocalizedString>
+          <LocalizedString Language="ru">Альтернативный процесс доработки заданий</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="SendToSignerFirst" ID="3B285720-6751-4C23-B123-4458862B0E92" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Preliminary signer's approval</LocalizedString>
+          <LocalizedString Language="ru">Предварительное согласование у подписанта</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ImproveBy" ID="38BDA319-5EB9-48E8-8EA3-42858C42D54E" Type="enum" DefaultValue="1" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="ru">Возвращать на доработку</LocalizedString>
+          <LocalizedString Language="en">Improve by</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="Registrator" Value="1">
+          <Name>
+            <LocalizedString Language="en">Registrator</LocalizedString>
+            <LocalizedString Language="ru">Регистратору</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Executor" Value="2">
+          <Name>
+            <LocalizedString Language="en">Executor</LocalizedString>
+            <LocalizedString Language="ru">Отв. Исполнителю</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Section Alias="MemorandumPersonNumerators" RowAlias="" Type="coll" ID="7DCEFCA1-1C83-4CFE-8C6D-4322143BEAFE">
+        <Name>
+          <LocalizedString Language="en">Person numerator prefixes</LocalizedString>
+          <LocalizedString Language="ru">Персональные префиксы нумераторов</LocalizedString>
+        </Name>
+        <Field Alias="MemorandumEmployee" ID="DB06E4F1-B65D-47DD-850E-BDF81A540A9E" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Employee</LocalizedString>
+            <LocalizedString Language="ru">Сотрудник</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="MemorandumPrefix" ID="531D42CB-1DF2-4C2D-B9A5-8221345424F0" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Prefix</LocalizedString>
+            <LocalizedString Language="ru">Префикс</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="MemorandumODEmployees" RowAlias="" Type="coll" ID="FFA16AF6-55AD-435B-A4AF-8A65796A97A1">
+        <Name>
+          <LocalizedString Language="en">The employees of department of document circulation</LocalizedString>
+          <LocalizedString Language="ru">Сотрудники ОД</LocalizedString>
+        </Name>
+        <Field Alias="MemorandumODEmployee" ID="A6D5D0E5-94C2-4D28-8146-57F820A5CB57" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">The employee of department of document circulation</LocalizedString>
+            <LocalizedString Language="ru">Сотрудники ОД</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="MemorandumRestrictedKind" RowAlias="" Type="coll" ID="E6987ABA-E8F6-4399-8976-7F1EE3C711F0">
+        <Name>
+          <LocalizedString Language="en">Restrict Kinds</LocalizedString>
+          <LocalizedString Language="ru">Виды документов для служебного пользования</LocalizedString>
+        </Name>
+        <Field Alias="RestrictKind" ID="783645F9-E808-45B0-B113-C6F0C2479248" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Restrict Kind</LocalizedString>
+            <LocalizedString Language="ru">Название</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="Numerator" ID="4EAAB136-3A7F-4463-A18C-E3234091DF40" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Numerator</LocalizedString>
+            <LocalizedString Language="ru">Нумератор</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <DisplayFields FormatString="" />
+    </Section>
+    <Section Alias="OrderSetup" Type="struct" ID="C5D16FFD-733F-4F78-A6A6-B03C84F80594">
+      <Name>
+        <LocalizedString Language="en">Order setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки приказа</LocalizedString>
+      </Name>
+      <Field Alias="OrderNumerator" ID="9389983A-0667-4017-84D8-9F0E2ED9A892" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator:</LocalizedString>
+          <LocalizedString Language="ru">Нумератор:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderBPTemplate" ID="A1D17252-7085-48C3-A528-67ADF81E62ED" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Template of business-process</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderBPStartingFolder" ID="E630C9E9-15B6-45A0-9EEA-82A8CC2FABCC" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for starting business-processes</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderBPInstanceFolder" ID="1C9D4220-94F8-4655-AC78-09865D82F6AB" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for business-process instances:</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderApprovingDuration" ID="BE84CBB2-61FD-42A9-8EFC-AB4B79AAE279" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Approving duration</LocalizedString>
+          <LocalizedString Language="ru">Срок согласований</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderCorrectionDuration" ID="878D5A93-CB29-4794-9B39-2163B5FE76BD" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Duration of correction</LocalizedString>
+          <LocalizedString Language="ru">Срок доработки</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderSigningDuration" ID="B67DEC2C-FB16-4FC6-AED3-CD06FBD5A815" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Signing duration</LocalizedString>
+          <LocalizedString Language="ru">Срок подписания</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderEmployee_OD" ID="85D69B2B-D7B4-45E8-B2D5-485803858DC1" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">The employee of department of document circulation</LocalizedString>
+          <LocalizedString Language="ru">Сотрудник ОД</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderAssignmentDuration" ID="0498BCCD-8566-4EAE-907C-6B18A708CF7F" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Duration of Assignment </LocalizedString>
+          <LocalizedString Language="ru">Срок поручений</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderFolder" ID="BED41D24-7831-484D-A915-086A4FA7715C" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Root folder for storing orders</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения приказов</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="OrderSendAssignmentToExecuter" ID="28508FB7-AF7E-456F-BD88-FDB7252A1CF8" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Send assignment to executer to perform</LocalizedString>
+          <LocalizedString Language="ru">Подписант не из списка, формировать поручение</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="Executer" Value="0">
+          <Name>
+            <LocalizedString Language="en">Executer</LocalizedString>
+            <LocalizedString Language="ru">Отв. исполнитель</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Ignore" Value="1">
+          <Name>
+            <LocalizedString Language="en">Ignore</LocalizedString>
+            <LocalizedString Language="ru">Не формировать</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="OrderPrintTemplate" ID="BE4B113B-E8F6-42BF-B90D-6C268241EF63" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Printing template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати листа согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderNotificationListPrintTemplate" ID="804ED8D2-D54F-4865-9AD5-AF9B92A462DE" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Notification list print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати листа рассылки</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderNoApproving" ID="BF7F6EC7-C7B7-4760-B035-53D9BA1A8B78" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Work without approving</LocalizedString>
+          <LocalizedString Language="ru">Без согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderTypeRef" ID="5BB69D70-D5CB-4F23-AE92-DE1C885B47A5" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="5E3ED23A-2B5E-47F2-887C-E154ACEAFB97" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Order type dictionary</LocalizedString>
+          <LocalizedString Language="ru">Словарь типов приказов</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="OrderNumeratorProject" ID="A3CAD64A-5A2B-4D9E-9414-EE4B0A5CEA25" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator project</LocalizedString>
+          <LocalizedString Language="ru">Проектный нумератор</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderDocPrintTemplate" ID="E5D2E412-633A-407A-A808-39C42B0F7546" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Document print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати документа</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OrderAlternativeProcessCorrection" ID="D447E0F7-B02B-49E6-8D30-C121B738ECFE" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Alternative correction process</LocalizedString>
+          <LocalizedString Language="ru">Альтернативный процесс доработки заданий</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="OrderEmployees_OD" RowAlias="" Type="coll" ID="462D029F-DE3C-4945-9F41-481DB3019D49">
+        <Name>
+          <LocalizedString Language="en">OD Employees</LocalizedString>
+          <LocalizedString Language="ru">Сотрудники ОД</LocalizedString>
+        </Name>
+        <Field Alias="OrderEmployee_OD" ID="9623F614-0A85-4800-ACB0-39C76CB985C6" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Employee OD</LocalizedString>
+            <LocalizedString Language="ru">Сотрудники ОД</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="OrderSingedByPersons" RowAlias="" Type="coll" ID="E657D465-0462-4220-A773-5C2B04B289D7">
+        <Name>
+          <LocalizedString Language="en">SingedBy persons</LocalizedString>
+          <LocalizedString Language="ru">Подписанты</LocalizedString>
+        </Name>
+        <Field Alias="OrderSignedByPerson" ID="EF88941A-6D70-42A0-9E43-D19F450400AE" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">SignedBy person</LocalizedString>
+            <LocalizedString Language="ru">Подписывающие лица</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="OrderRegistrators" RowAlias="" Type="coll" ID="859623B3-00B6-46DD-BA0A-C258D67FA040">
+        <Name>
+          <LocalizedString Language="en">Registrators</LocalizedString>
+          <LocalizedString Language="ru">Сотрудник ОД. Регистрация приказа</LocalizedString>
+        </Name>
+        <Field Alias="OrderEmployee" ID="4C00684E-7D65-4040-8AEA-21976E97015F" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Registrators</LocalizedString>
+            <LocalizedString Language="ru">Сотрудник ОД. Регистрация приказа</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="OrderTypesNumerators" RowAlias="" Type="coll" ID="49FDDD5C-7742-45A9-B65E-8F5BC35B9FF4">
+        <Name>
+          <LocalizedString Language="en">Order types numerators</LocalizedString>
+          <LocalizedString Language="ru">Нумераторы для типов приказа</LocalizedString>
+        </Name>
+        <Field Alias="OrderTypeName" ID="6CC3E98C-6D9A-44CD-8E8F-B87F66698358" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Order type name</LocalizedString>
+            <LocalizedString Language="ru">Название типа приказа</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="OrderTypeNumerator" ID="4C05A80E-B3A0-4CF7-8D6B-AD2E5B5DC6F8" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Order type numerator</LocalizedString>
+            <LocalizedString Language="ru">Нумератор</LocalizedString>
+          </Name>
+        </Field>
+        <Section Alias="OrderTypeRegistrators" Type="coll" ID="71BB8F13-818B-427C-9570-9DCC52BBFA06">
+          <Name>
+            <LocalizedString Language="en">Order type registrators</LocalizedString>
+            <LocalizedString Language="ru">Регистраторы приказа</LocalizedString>
+          </Name>
+          <Field Alias="Registrator" ID="B8E123D7-5702-487B-B7FF-12A4A40045C2" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">Registrator</LocalizedString>
+              <LocalizedString Language="ru">Регистратор приказа</LocalizedString>
+            </Name>
+          </Field>
+          <DisplayFields />
+        </Section>
+        <Section Alias="OrderTypeSigners" RowAlias="" Type="coll" ID="78B8AD66-45D3-4AD0-AB4B-6D27724A77F8">
+          <Name>
+            <LocalizedString Language="en">Order Type Signers</LocalizedString>
+            <LocalizedString Language="ru">Подписанты приказа</LocalizedString>
+          </Name>
+          <Field Alias="OrderTypeSigner" ID="F5255420-9C94-462E-BD7F-3BED45C3A2A3" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">Order Type Signer</LocalizedString>
+              <LocalizedString Language="ru">Подписант</LocalizedString>
+            </Name>
+            <Description />
+          </Field>
+          <DisplayFields FormatString="" />
+        </Section>
+        <DisplayFields FormatString="" />
+      </Section>
+      <DisplayFields />
+    </Section>
+    <Section Alias="OutDocSetup" RowAlias="" Type="struct" ID="7ADA8173-9705-4A1A-959F-938291B6A10C">
+      <Name>
+        <LocalizedString Language="en">OutDoc setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки исходящего документа</LocalizedString>
+      </Name>
+      <Field Alias="OutDocNumerator" ID="621ABDA2-DFD0-4557-AA64-347FFB1565EF" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator:</LocalizedString>
+          <LocalizedString Language="ru">Нумератор:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocBPTemplate" ID="AFC38BDC-3F99-485C-9167-7B327831D1B6" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Template of business-process:</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocBPStartingFolder" ID="1480B0B3-1D11-46E0-BDD5-93740AD50A4A" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for starting business-processes</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocBPInstanceFolder" ID="30A904C6-8133-4F5B-BFE1-0290F6A420BF" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for business-process instances:</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocApprovingDuration" ID="0F8C04D9-D8CD-444B-85BE-E1DE8777CBFD" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Approving duration</LocalizedString>
+          <LocalizedString Language="ru">Срок согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocSigningDuration" ID="5C40985C-9C74-409F-8FB2-53688B322A79" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Signing duration</LocalizedString>
+          <LocalizedString Language="ru">Срок подписания</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocCorrectionDuration" ID="9EEF844F-72DE-4A55-9724-6965F64BB6AB" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Duration of correction</LocalizedString>
+          <LocalizedString Language="ru">Срок доработки</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutdocFolder" ID="A4745E63-EFD5-4B63-8FC0-ABC7BF34CF47" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Root folder for storing outcoming documents</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения исходящих</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="OutDocLetterOrganization" ID="C6CA0827-EE69-4B40-AA08-DAC591CC9CA7" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="7473F07F-11ED-4762-9F1E-7FF10808DDD1" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Organization for letter template</LocalizedString>
+          <LocalizedString Language="ru">Организация для шаблона письма</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocSendAssignmentToExecuter" ID="1FED8F83-8526-4F96-BB34-85C340347751" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Send assignment to executer to perform</LocalizedString>
+          <LocalizedString Language="ru">Подписант не из списка, формировать поручение</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="Executer" Value="0">
+          <Name>
+            <LocalizedString Language="en">Executer</LocalizedString>
+            <LocalizedString Language="ru">Отв. исполнитель</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Ignore" Value="1">
+          <Name>
+            <LocalizedString Language="en">Ignore</LocalizedString>
+            <LocalizedString Language="ru">Не формировать</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="OutDocPrintTemplate" ID="F5EF2571-8620-4C8D-8608-B8522ADB36B3" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати документа</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocLetterPrintTemplate" ID="F7E69526-5B73-48C3-AA8F-2EB2A2BD8314" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Letter print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати письма</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocRecipientsPrintTemplate" ID="908B461C-E5F0-4A19-B925-9D890AFBC810" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Recipient print template</LocalizedString>
+          <LocalizedString Language="ru">Печать листа рассылки</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocBPInterruptTemplate" ID="B88510EB-B70D-4866-958B-46D5A2F9A04C" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Approval interruption BP template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон БП прерывания согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocNoApproving" ID="0769306A-1A3E-48C5-B123-260E99967D13" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Work without approving</LocalizedString>
+          <LocalizedString Language="ru">Без согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocNumeratorProject" ID="5EE62B4E-3222-4479-BA52-5DCF4536F27F" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Project Numerator</LocalizedString>
+          <LocalizedString Language="ru">Проектный нумератор</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocAlternativeProcessCorrection" ID="12D52235-F11F-4148-B747-45CBBB11424E" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Alternative correction process</LocalizedString>
+          <LocalizedString Language="ru">Альтернативный процесс доработки заданий</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocDefaultSendingKind" ID="B2EE841A-2529-460B-9F4A-B4E92B47E619" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">DefaultSendingKind</LocalizedString>
+          <LocalizedString Language="ru">Тип отправки по умолчанию</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="Centrally" Value="1">
+          <Name>
+            <LocalizedString Language="en">Centrally</LocalizedString>
+            <LocalizedString Language="ru">Централизованно</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Self" Value="2">
+          <Name>
+            <LocalizedString Language="en">Self</LocalizedString>
+            <LocalizedString Language="ru">Самостоятельно</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="ImproveBy" ID="837C8525-3DC0-47E5-AB47-68BC928A98B5" Type="enum" DefaultValue="1" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="ru">Возвращать на доработку</LocalizedString>
+          <LocalizedString Language="en">Improve by</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="Registrator" Value="1">
+          <Name>
+            <LocalizedString Language="en">Registrator</LocalizedString>
+            <LocalizedString Language="ru">Регистратору</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Executor" Value="2">
+          <Name>
+            <LocalizedString Language="en">Executor</LocalizedString>
+            <LocalizedString Language="ru">Отв. Исполнителю</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Section Alias="OutDocNumberPrefixes" RowAlias="" Type="coll" ID="4361851C-5CED-4582-8CD6-7ED6D84EB206">
+        <Name>
+          <LocalizedString Language="en">Number prefixes</LocalizedString>
+          <LocalizedString Language="ru">Префиксы номера</LocalizedString>
+        </Name>
+        <Field Alias="OutDocEmployee" ID="241E83E2-FA3B-4A82-B471-857E61A93915" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Employee</LocalizedString>
+            <LocalizedString Language="ru">Сотрудник</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="OutDocPrefix" ID="B42DF62C-9429-4DAA-8453-36B798ED54E2" Type="unistring" Max="100" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Prefix</LocalizedString>
+            <LocalizedString Language="ru">Префикс</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="OutDocEmployees_OD" RowAlias="" Type="coll" ID="8604C385-A0FF-4DEE-BD21-2009C199597F">
+        <Name>
+          <LocalizedString Language="en">OD Employees</LocalizedString>
+          <LocalizedString Language="ru">Сотрудники ОД</LocalizedString>
+        </Name>
+        <Field Alias="OutDocEmployee_OD" ID="CA9231E6-7B97-4053-877A-7BB37005EEF1" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Employee OD</LocalizedString>
+            <LocalizedString Language="ru">Сотрудники ОД</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="OutDocSingedByPersons" RowAlias="" Type="coll" ID="E1EFDB5E-C2AB-4950-820A-4F0C0E301E0F">
+        <Name>
+          <LocalizedString Language="en">SingedBy persons</LocalizedString>
+          <LocalizedString Language="ru">Подписанты</LocalizedString>
+        </Name>
+        <Field Alias="OutDocSignedByPerson" ID="97C43A8A-1F43-4AA0-AE84-A412B24FFA2E" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">SignedBy person</LocalizedString>
+            <LocalizedString Language="ru">Подписывающие лица</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="OutDocInterrupters" RowAlias="" Type="coll" ID="AD8BB36F-CFB2-4911-801B-2B164D82A43A">
+        <Name>
+          <LocalizedString Language="en">Interrupters</LocalizedString>
+          <LocalizedString Language="ru">Могут прервать согласование</LocalizedString>
+        </Name>
+        <Field Alias="OutDocInterrupter" ID="73742452-E0E8-4312-BB71-6909B5FDE49E" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Employee</LocalizedString>
+            <LocalizedString Language="ru">Могут прервать согласование</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="DuplicateNumerators" Type="coll" ID="5745984A-B458-42B7-84E5-F69DE8C6F412">
+        <Name>
+          <LocalizedString Language="en">Duplicate numerators</LocalizedString>
+          <LocalizedString Language="ru">Дублирование отправки</LocalizedString>
+        </Name>
+        <Field Alias="DuplicateName" ID="4BB9B86C-0CB2-4C17-8DFF-A915AD6BE86D" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Duplicate name</LocalizedString>
+            <LocalizedString Language="ru">Название</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="DuplicateNumerator" ID="457CF0A3-A30A-4C06-8667-448A02BD6D18" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Duplicate numerator</LocalizedString>
+            <LocalizedString Language="ru">Нумератор</LocalizedString>
+          </Name>
+        </Field>
+        <DisplayFields />
+      </Section>
+      <Section Alias="OutDocRestrictedKinds" RowAlias="" Type="coll" ID="30B22ED4-74F4-400C-9033-78F5AED3CEC7">
+        <Name>
+          <LocalizedString Language="en">Out doc restricted kinds</LocalizedString>
+          <LocalizedString Language="ru">Виды документов для служебного пользования</LocalizedString>
+        </Name>
+        <Field Alias="RestrictKind" ID="0880F224-7A11-424F-B691-A67F9F4133B1" Type="unistring" Max="255" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Restricted kind</LocalizedString>
+            <LocalizedString Language="ru">Название вида</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="Numerator" ID="CD240853-B744-474D-91F1-B592CE4605A6" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Numerator</LocalizedString>
+            <LocalizedString Language="ru">Нумератор</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <DisplayFields FormatString="" />
+    </Section>
+    <Section Alias="ProtocolSetup" RowAlias="" Type="struct" ID="6B686240-C853-4543-A659-F4FDACF886F4">
+      <Name>
+        <LocalizedString Language="en">Protocol setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки протокола</LocalizedString>
+      </Name>
+      <Field Alias="ProtocolNumerator" ID="3651F86B-B6EA-4860-8D3F-770FF61168B3" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator:</LocalizedString>
+          <LocalizedString Language="ru">Нумератор:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ProtocolBPTemplate" ID="A3AF7EF5-C61A-44F5-9DF9-2C9BFFDC13E7" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Template of business-process, that processes protocol documents</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ProtocolBPStartingFolder" ID="AAC6FD7C-171F-41E1-8FD9-9F87EC23A494" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for starting business-processes</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ProtocolBPInstanceFolder" ID="072D76B7-0B41-4472-A51F-370E9F498116" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for business-process instances:</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ProtocolBoardType" ID="D5FA4183-5C85-4C04-A202-E1651A8E6388" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="5E3ED23A-2B5E-47F2-887C-E154ACEAFB97" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Board type</LocalizedString>
+          <LocalizedString Language="ru">Тип "Заседающий орган"</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ProtocolBoardDefault" ID="D281820E-37E0-4686-A2F8-A9035D7C4949" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Board default (obsolete)</LocalizedString>
+          <LocalizedString Language="ru">"Заседающий орган" по умолчанию (obsolete)</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ProtocolDefaultBoard" ID="37434490-899D-4D0C-8EBD-A9D249601602" Type="refid" RefType="56E0990F-B9CF-43CC-9041-EBB492B13863" RefSection="8D68EE46-400E-4119-9D41-F2DBCA83ECE0" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Default board</LocalizedString>
+          <LocalizedString Language="ru">"Заседающий орган" по умолчанию</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ProtocolNoApproving" ID="528B31B8-5F0F-4887-9D46-9191E7A58AC7" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">No approving</LocalizedString>
+          <LocalizedString Language="ru">Без согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ProtocolDocPrintTemplate" ID="30A5AAE2-C6FB-4C6E-8EC6-5200E0FD8174" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">Document print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати документа</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ProtocolAlternativeProcessCorrection" ID="BB6A0DE3-5F70-4944-A378-D29801FBF132" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Alternative correction process</LocalizedString>
+          <LocalizedString Language="ru">Альтернативный процесс доработки заданий</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ProtocolApproveTime" ID="1124CB7B-233F-4BF0-9888-74892113D9DA" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Approve time (hours):</LocalizedString>
+          <LocalizedString Language="ru">Срок согласования (часы):</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ProtocolSignTime" ID="B4B11BDC-FC81-493C-A4AE-9B1CD4C6202E" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Sign time (hours):</LocalizedString>
+          <LocalizedString Language="ru">Срок подписания (часы):</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ProtocolCorrectTime" ID="1E600F33-8885-4BE5-8486-6DB8D97EADA6" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Correct time (hours):</LocalizedString>
+          <LocalizedString Language="ru">Срок доработки (часы):</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="ProtocolFolder" ID="D1764F32-DA27-452B-AB82-E1679595E90B" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Root folder for storing protocols</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения протоколов</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="ProtocolBoards" RowAlias="" Type="coll" ID="8D68EE46-400E-4119-9D41-F2DBCA83ECE0">
+        <Name>
+          <LocalizedString Language="en">Boards</LocalizedString>
+          <LocalizedString Language="ru">Заседающие органы</LocalizedString>
+        </Name>
+        <Field Alias="ProtocolTypeName" ID="6CEABA10-6FE5-4306-81DC-6030F5EFB148" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Type name</LocalizedString>
+            <LocalizedString Language="ru">Название типа заседающего органа</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="ProtocolNumerator" ID="1ACE5002-601F-4229-A9E1-6AD8DADC7522" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Numerator</LocalizedString>
+            <LocalizedString Language="ru">Нумератор</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <DisplayFields FormatString="" />
+    </Section>
+    <Section Alias="RegisterSetup" Type="struct" ID="87C44DDF-7E00-48D4-951E-17997B840309">
+      <Name>
+        <LocalizedString Language="en">Register setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки реестра исходящих</LocalizedString>
+      </Name>
+      <Field Alias="RegisterNumerator" ID="89DE71AE-50DF-4583-A657-467602D95960" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator:</LocalizedString>
+          <LocalizedString Language="ru">Нумератор:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="RegisterBPTemplateCloseRegister" ID="7833451E-8B45-4E60-9F9F-27A5191822DB" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Template of business-process, that closes a register</LocalizedString>
+          <LocalizedString Language="ru">БП закрытия реестра:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="RegisterBPStartingFolder" ID="C8F18C75-866E-4731-B971-928F9B6C6315" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for starting business-processes</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="RegisterBPInstanceFolder" ID="0D1E8057-8FBC-45FD-95A8-AB60A2359A67" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for business-process instances:</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="RegistersStoreFolder" ID="C1549B40-0533-42DC-9053-94326281C473" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Registers store folders</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения Реестров</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="RegisterCardFolder" ID="47DEC09D-F344-49A0-95E8-8D50DE9DCE5C" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Register card-folder</LocalizedString>
+          <LocalizedString Language="ru">Карточка-папка реестра</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <DisplayFields />
+    </Section>
+    <Section Alias="WarrantSetup" Type="struct" ID="8787F1E9-8FB9-4A0C-B41A-EB3B0D381E55">
+      <Name>
+        <LocalizedString Language="en">Warrant setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки доверенностей</LocalizedString>
+      </Name>
+      <Field Alias="WarrantNumerator" ID="829A6C2E-BB01-404A-ACB8-7A9D38307B1F" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator:</LocalizedString>
+          <LocalizedString Language="ru">Нумератор:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="WarrantBPTemplate" ID="94948C70-D0A7-4FE7-86F8-7C0EE88995C7" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Business-process template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="WarrantBPStartingFolder" ID="E13CB273-DF46-4D53-9051-9E11B36EAFC1" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for starting business-processes</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="WarrantBPInstanceFolder" ID="9D1D5F4A-26A0-4101-8AC2-CC9DEEA1B7C4" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for business-process instances:</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="WarrantRootWarrantsFolder" ID="21C8A690-CD24-4435-A16C-CF5837070A59" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Root folder for storing warrants:</LocalizedString>
+          <LocalizedString Language="ru">Корневая папка хранения доверенностей:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="WarrantActiveWarrantsFolder" ID="60A1A232-9525-424B-B6A0-7F66B262BECA" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for storing active warrants:</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения действующих доверенностей:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="WarrantInActiveWarrantsFolder" ID="85D6D258-FD9B-433A-83D9-DEECA546E0A0" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder, for storing expired or canceled warrants:</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения истекших или отмененных доверенностей:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <DisplayFields />
+    </Section>
+    <Section Alias="AssignmentSetup" Type="struct" ID="72A6CB51-AAD5-4B65-9018-BAFED95E3F96">
+      <Name>
+        <LocalizedString Language="en">Assignment setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки Поручения</LocalizedString>
+      </Name>
+      <Field Alias="AssignmentNumerator" ID="FD4AD924-6DD7-4701-8D38-325AAF92B19B" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator:</LocalizedString>
+          <LocalizedString Language="ru">Нумератор:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentBPTemplate" ID="8D6D4C87-0540-4A5D-8FA7-43E455706059" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Business-process template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса исполнения:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentBPStartingFolder" ID="E6050E0D-1A58-4D25-9327-EAF23F60D12B" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for starting business-processes</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentBPInstanceFolder" ID="673C922C-1AB0-4579-8842-56694AEA6F8A" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for business-process instances:</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentStoreFolder" ID="D9BB4D42-BC0C-4F2C-AEFE-659D1E8C826A" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Store folder</LocalizedString>
+          <LocalizedString Language="ru">Папка для хранения</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindDict" ID="B69F5197-20D7-431C-9C3B-D7AA79A261E7" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="5E3ED23A-2B5E-47F2-887C-E154ACEAFB97" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">"Assignment kind" dictionary:</LocalizedString>
+          <LocalizedString Language="ru">Словарь "Вид поручения":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindAssignment" ID="91B88CB1-12E5-4286-B87B-D6950D603E0C" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Assignment":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Поручение":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindIncDoc" ID="3A7005D7-241D-4578-8A15-CCC1C6266A77" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Assignment on incoming document":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Рассмотрение входящего документа":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindOrder" ID="1B0F4B0E-C88F-4773-9350-F8886E2CC9BB" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Assignment on order":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Поручение по приказу":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindDirection" ID="C6E7E849-9595-44C0-B1B9-2E93BA8A5FAC" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Assignment on direction":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Поручение по распоряжению":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindProtocol" ID="3897206C-769B-41BC-BB1B-F36E50ABB2E4" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Assignment on protocol":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Поручение по протоколу":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindOrderApprove" ID="0322E315-7425-48FA-954F-95D03632F57A" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Order approve":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Согласование приказа":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindContractApprove" ID="5BA78D57-4A83-43B8-A801-BCD3BA51E2EF" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Contract approve":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Согласование договора":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentRecallBPTemplate" ID="5521904B-600D-4BA8-B52C-1208304E5CA9" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Template of assignment recall process:</LocalizedString>
+          <LocalizedString Language="ru">Шаблон процесса отзыва поручения:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentRecallSubBPTemplate" ID="1AF9E2FE-BD0B-4185-AED5-77342E84A17A" Type="refcardid" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Template of recall sub-task processes:</LocalizedString>
+          <LocalizedString Language="ru">Шаблон процесса отзыва нижестоящих поручений:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindOutDocApprove" ID="B868FC0A-AF17-4CA1-BDB5-13AE2E1C7E08" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Outgoing document approval":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Согласование исходящего документа":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindOutDocSign" ID="B48DAF2D-F380-4F31-A132-6B5F873E9F1D" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Sign of outgoing document":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Подписание исходящего документа":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindOutDoc" ID="8827A0C7-7FBA-4132-B417-322383C51EF9" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Assignment on outgoing document":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Поручение по исходящему документу":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindMemoApprove" ID="7D30D2D5-08B9-484E-8794-AB39A9630511" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Approval of memorandum":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Согласование служебной записки":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindMemoSign" ID="626FDC13-054B-4BAD-8A94-B052D6984EF2" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Sign of memorandum":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Подписание служебной записки":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindMemoView" ID="94B00D0D-3D48-4A4D-AE21-FD37021A3CF3" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Overview of memorandum":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Рассмотрение служебной записки":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindMemo" ID="99BFF72C-7088-4ED4-A5A3-A5C015849B3A" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Task on memo":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Поручение по служебной записке":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindIncDocTask" ID="5AEA2C98-B330-4123-A439-E7F0501DBC8C" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Task on incoming document":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Поручение по входящему документу":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindNotify" ID="E9C14B40-4F01-4E09-A6B7-5BB3F61A6EAE" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Notification":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Уведомление":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindIncDocNotify" ID="19C009BC-F3CD-433A-B765-0406B2DC3F13" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Notify on incoming document":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Уведомление по входящему документу":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindMemoNotify" ID="9ED2FBF7-AA59-401C-9D87-147342CDEB84" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Notify on memorandum":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Уведомление по служебной записке":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindOutDocNotify" ID="F276A2C5-C871-4949-9517-69F3A165D2A8" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Notify on outgoing document":</LocalizedString>
+          <LocalizedString Language="ru">Вид "Уведомление по исходящему документу":</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="AssignmentKindProtocolNotify" ID="7B749241-157F-4CDA-9AE5-22036354A94F" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Kind "Notify on protocol"</LocalizedString>
+          <LocalizedString Language="ru">Вид "Уведомление по протоколу"</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="AssignmentKinds" Type="coll" ID="FB2FE50B-ADFC-435F-9A1C-9753FD57D0CE">
+        <Name>
+          <LocalizedString Language="en">Assignment kinds</LocalizedString>
+          <LocalizedString Language="ru">Виды поручений</LocalizedString>
+        </Name>
+        <Field Alias="AssignmentType" ID="EBCF72A4-2916-452B-ACE5-757D5BD365FE" Type="enum" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Type</LocalizedString>
+            <LocalizedString Language="ru">Тип</LocalizedString>
+          </Name>
+          <Description />
+          <Enum Alias="Task" Value="1">
+            <Name>
+              <LocalizedString Language="en">Task</LocalizedString>
+              <LocalizedString Language="ru">Поручение</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="Notify" Value="2">
+            <Name>
+              <LocalizedString Language="en">Notify</LocalizedString>
+              <LocalizedString Language="ru">Уведомление</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="Approval" Value="3">
+            <Name>
+              <LocalizedString Language="en">Approval</LocalizedString>
+              <LocalizedString Language="ru">Согласование</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="Siging" Value="4">
+            <Name>
+              <LocalizedString Language="en">Signing</LocalizedString>
+              <LocalizedString Language="ru">Подписание</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="Reviewal" Value="5">
+            <Name>
+              <LocalizedString Language="en">Reviewal</LocalizedString>
+              <LocalizedString Language="ru">Рассмотрение</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="PrepareForSigning" Value="6">
+            <Name>
+              <LocalizedString Language="en">Prepare for signing</LocalizedString>
+              <LocalizedString Language="ru">Подготовка к подписанию</LocalizedString>
+            </Name>
+          </Enum>
+        </Field>
+        <Field Alias="AssignmentDocType" ID="A65D600D-4A2F-4103-A701-C075B6A4F6A0" Type="enum" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Document type</LocalizedString>
+            <LocalizedString Language="ru">Вид документа</LocalizedString>
+          </Name>
+          <Description />
+          <Enum Alias="Assignment" Value="1">
+            <Name>
+              <LocalizedString Language="en">Assignment</LocalizedString>
+              <LocalizedString Language="ru">Поручение</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="IncDoc" Value="2">
+            <Name>
+              <LocalizedString Language="en">Incoming document</LocalizedString>
+              <LocalizedString Language="ru">Входящий документ</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="OutDoc" Value="3">
+            <Name>
+              <LocalizedString Language="en">Outgoing document</LocalizedString>
+              <LocalizedString Language="ru">Исходящий документ</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="Warranty" Value="4">
+            <Name>
+              <LocalizedString Language="en">Warranty</LocalizedString>
+              <LocalizedString Language="ru">Доверенность</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="Order" Value="5">
+            <Name>
+              <LocalizedString Language="en">Order</LocalizedString>
+              <LocalizedString Language="ru">Приказ</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="Direction" Value="6">
+            <Name>
+              <LocalizedString Language="en">Direction</LocalizedString>
+              <LocalizedString Language="ru">Распоряжение</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="Contract" Value="7">
+            <Name>
+              <LocalizedString Language="en">Contract</LocalizedString>
+              <LocalizedString Language="ru">Договор</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="Protocol" Value="8">
+            <Name>
+              <LocalizedString Language="en">Protocol</LocalizedString>
+              <LocalizedString Language="ru">Протокол</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="Memorandum" Value="9">
+            <Name>
+              <LocalizedString Language="en">Memorandum</LocalizedString>
+              <LocalizedString Language="ru">Служебная записка</LocalizedString>
+            </Name>
+          </Enum>
+        </Field>
+        <Field Alias="AssignmentKind" ID="E4E0CF83-D20E-4CFC-BEF2-4EF809862D73" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="DD20BF9B-90F8-4D9A-9553-5B5F17AD724E" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Assignment kind</LocalizedString>
+            <LocalizedString Language="ru">Вид поручения</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields />
+      </Section>
+      <Section Alias="AssignmentContentSuggestions" RowAlias="" Type="coll" ID="5181CC4B-B595-4FDF-A59A-3F75A1DE9130">
+        <Name>
+          <LocalizedString Language="en">Content suggestions</LocalizedString>
+          <LocalizedString Language="ru">Шаблоны содержания</LocalizedString>
+        </Name>
+        <Field Alias="AssignmentPerson" ID="1762DD61-D5A0-4658-8F76-EAA65E29C993" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Employee</LocalizedString>
+            <LocalizedString Language="ru">Сотрудник</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="AssignmentType" ID="E2AEE160-61AC-4559-94BE-0B1E0C7844AB" Type="enum" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Suggestion type</LocalizedString>
+            <LocalizedString Language="ru">Тип подсказки</LocalizedString>
+          </Name>
+          <Description />
+          <Enum Alias="Everyone" Value="1">
+            <Name>
+              <LocalizedString Language="en">Everyone</LocalizedString>
+              <LocalizedString Language="ru">Для всех</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="Personal" Value="2">
+            <Name>
+              <LocalizedString Language="en">Personal</LocalizedString>
+              <LocalizedString Language="ru">Персональная</LocalizedString>
+            </Name>
+          </Enum>
+        </Field>
+        <Section Alias="AssignmentSuggestions" RowAlias="" Type="coll" ID="F4518325-AD3F-45D5-935E-6BC6E2A22CF4">
+          <Name>
+            <LocalizedString Language="en">Suggestions</LocalizedString>
+            <LocalizedString Language="ru">Подсказки</LocalizedString>
+          </Name>
+          <Field Alias="AssignmentText" ID="E58BCD51-9D21-401A-8AB7-92F7BA606281" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+            <Name>
+              <LocalizedString Language="en">Suggestion text</LocalizedString>
+              <LocalizedString Language="ru">Текст подсказки</LocalizedString>
+            </Name>
+            <Description />
+          </Field>
+          <DisplayFields FormatString="" />
+        </Section>
+        <DisplayFields FormatString="" />
+      </Section>
+      <DisplayFields />
+    </Section>
+    <Section Alias="LNASetup" Type="struct" ID="F3A08E4E-62DE-44BC-A632-FD87EEEA811E">
+      <Name>
+        <LocalizedString Language="en">LNA setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки ЛНА</LocalizedString>
+      </Name>
+      <Field Alias="LNANumerator" ID="8DC1F692-64DB-43D0-9048-2855D5354E6F" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator:</LocalizedString>
+          <LocalizedString Language="ru">Нумератор:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="LNACategoryType" ID="7D1101FA-4805-4779-B0A1-9FC6E4BDE518" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="5E3ED23A-2B5E-47F2-887C-E154ACEAFB97" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Category type</LocalizedString>
+          <LocalizedString Language="ru">Тип "Категории ЛНА"</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="LNALnaFolder" ID="41620E21-1121-4AE6-8C36-84B56121DD88" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Root folder for storing LNA</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения ЛНА</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="LNAAssurers" RowAlias="" Type="coll" ID="A29479D3-1CF0-49EC-B841-F45FFB8034D8">
+        <Name>
+          <LocalizedString Language="en">OD employees. LNA cancellation</LocalizedString>
+          <LocalizedString Language="ru">Сотрудники ОД. Отмена ЛНА</LocalizedString>
+        </Name>
+        <Field Alias="LNAEmployee" ID="A45F6A61-B063-4453-8B00-CCD4DEE95586" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Employee</LocalizedString>
+            <LocalizedString Language="ru">Сотрудник ОД. Отмена ЛНА</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <DisplayFields />
+    </Section>
+    <Section Alias="ContractPlanSetup" Type="struct" ID="F3D0779A-4A31-4E0A-B0D6-9E303C0F012C">
+      <Name>
+        <LocalizedString Language="en">Contract plan setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки планов договоров</LocalizedString>
+      </Name>
+      <Field Alias="ContractNumerator" ID="C4A15819-EFC4-4987-8A8F-2C1DDC218993" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator:</LocalizedString>
+          <LocalizedString Language="ru">Нумератор:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <DisplayFields />
+    </Section>
+    <Section Alias="OutDocSendingTypes" Type="coll" ID="432E82D0-D10C-48D6-BA02-58820644A4A7">
+      <Name>
+        <LocalizedString Language="en">Out doc sending type</LocalizedString>
+        <LocalizedString Language="ru">Тип отправления исходящего документа</LocalizedString>
+      </Name>
+      <Field Alias="OutDocSendingType" ID="D8BEEE15-396C-42EF-94A6-5936C8A9CCC8" Type="unistring" Max="1024" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Sending type</LocalizedString>
+          <LocalizedString Language="ru">Тип отправления</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocAdvanceReport" ID="0933DC61-6F84-45E1-BBDB-9A321DF4666A" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Advance report</LocalizedString>
+          <LocalizedString Language="ru">Авансовый отчет</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocPrintTemplateHeader" ID="0DB1E251-3EFC-4F6E-B091-E4DDC00F181B" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Print template header</LocalizedString>
+          <LocalizedString Language="ru">Шапка шаблона печати</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="OutDocPrintTemplate" ID="8939BCC2-5FE8-45B4-BC56-13DE97BC3AAA" Type="refcardid" RefType="2BBD0A41-265E-4FF8-82D6-C6342F34B1AF" RefSection="B4562DF8-AF19-4D0F-85CA-53A311354D39" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Print template</LocalizedString>
+          <LocalizedString Language="ru">Карточка шаблона печати</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="OutDocPrintColumns" RowAlias="" Type="coll" ID="359380D1-DAC0-4AF7-9282-98C4D3376796">
+        <Name>
+          <LocalizedString Language="en">PrintColumns</LocalizedString>
+          <LocalizedString Language="ru">Колонки для печати</LocalizedString>
+        </Name>
+        <Field Alias="OutDocField" ID="00098F8F-81DE-4D6E-93AF-A32241FBDAB9" Type="enum" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Field</LocalizedString>
+            <LocalizedString Language="ru">Поле</LocalizedString>
+          </Name>
+          <Description />
+          <Enum Alias="W_DocumentType" Value="1">
+            <Name>
+              <LocalizedString Language="en">Document</LocalizedString>
+              <LocalizedString Language="ru">Документ</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="W_DocumentNumber" Value="2">
+            <Name>
+              <LocalizedString Language="en">Document number</LocalizedString>
+              <LocalizedString Language="ru">№ документа</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="W_SendingDate" Value="3">
+            <Name>
+              <LocalizedString Language="en">Send date</LocalizedString>
+              <LocalizedString Language="ru">Дата отправки</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="W_Amount" Value="4">
+            <Name>
+              <LocalizedString Language="en">Amount</LocalizedString>
+              <LocalizedString Language="ru">Сумма</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="W_SendingNumber" Value="5">
+            <Name>
+              <LocalizedString Language="en">Sending number</LocalizedString>
+              <LocalizedString Language="ru">Номер отправления</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_SendingType" Value="6">
+            <Name>
+              <LocalizedString Language="en">Sending type</LocalizedString>
+              <LocalizedString Language="ru">Тип отправления</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_RegistrationDate" Value="7">
+            <Name>
+              <LocalizedString Language="en">Registration date</LocalizedString>
+              <LocalizedString Language="ru">Дата регистрации</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_RegistrationNumber" Value="8">
+            <Name>
+              <LocalizedString Language="en">Registration number</LocalizedString>
+              <LocalizedString Language="ru">Регистрационный №</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_State" Value="9">
+            <Name>
+              <LocalizedString Language="en">State</LocalizedString>
+              <LocalizedString Language="ru">Состояние</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_ListCount" Value="10">
+            <Name>
+              <LocalizedString Language="en">List count</LocalizedString>
+              <LocalizedString Language="ru">Кол-во листов</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_InAppendix" Value="11">
+            <Name>
+              <LocalizedString Language="en">In appendix</LocalizedString>
+              <LocalizedString Language="ru">В приложении</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_Registrator" Value="12">
+            <Name>
+              <LocalizedString Language="en">Registrator</LocalizedString>
+              <LocalizedString Language="ru">Регистратор</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_CaseId" Value="13">
+            <Name>
+              <LocalizedString Language="en">In case</LocalizedString>
+              <LocalizedString Language="ru">Подшит в папку</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_Executer" Value="14">
+            <Name>
+              <LocalizedString Language="en">Executer</LocalizedString>
+              <LocalizedString Language="ru">Исполнитель</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_Subject" Value="15">
+            <Name>
+              <LocalizedString Language="en">Subject</LocalizedString>
+              <LocalizedString Language="ru">Тема</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_SignedBy" Value="16">
+            <Name>
+              <LocalizedString Language="en">Signed by</LocalizedString>
+              <LocalizedString Language="ru">Подписано</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_RecipientEmployee" Value="17">
+            <Name>
+              <LocalizedString Language="en">Recipient employee</LocalizedString>
+              <LocalizedString Language="ru">Сотрудник получателя</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_RecipientOrganization" Value="18">
+            <Name>
+              <LocalizedString Language="en">Recipient organization</LocalizedString>
+              <LocalizedString Language="ru">Получатель</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_RecipientAddress" Value="19">
+            <Name>
+              <LocalizedString Language="en">Recipient address</LocalizedString>
+              <LocalizedString Language="ru">Адрес получателя</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_RegisterRegistrationNumber" Value="20">
+            <Name>
+              <LocalizedString Language="en">Register registration number</LocalizedString>
+              <LocalizedString Language="ru">Регистрационный № реестра</LocalizedString>
+            </Name>
+          </Enum>
+          <Enum Alias="T_Order" Value="21">
+            <Name>
+              <LocalizedString Language="en">Order</LocalizedString>
+              <LocalizedString Language="ru">Порядковый номер</LocalizedString>
+            </Name>
+          </Enum>
+        </Field>
+        <Field Alias="OutDocPrintTag" ID="87A28029-F8C4-409F-8F44-38131EE0E0DB" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Print tag</LocalizedString>
+            <LocalizedString Language="ru">Тег для печати</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <DisplayFields />
+    </Section>
+    <Section Alias="BarcodeSetup" Type="struct" ID="FA3368CB-12BA-44B7-87C5-70D527382D37">
+      <Name>
+        <LocalizedString Language="en">Barcode setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки штрих-кодирования</LocalizedString>
+      </Name>
+      <Field Alias="BarcodeNumberTemplate" ID="5BF5879A-AA16-4E4B-9D00-772819E77C81" Type="unistring" Max="50" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Number template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон номера штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeNumerator" ID="B17D62EA-CE82-4E94-A296-2DC3E5758E4B" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator</LocalizedString>
+          <LocalizedString Language="ru">Нумератор</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodePrintEncoding" ID="DCFBDB2F-C57B-4476-9FD8-5C4E4269783B" Type="enum" DefaultValue="1" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Print encoding</LocalizedString>
+          <LocalizedString Language="ru">Кодировка печати штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="Code39" Value="1">
+          <Name>
+            <LocalizedString Language="en">Code 39</LocalizedString>
+            <LocalizedString Language="ru">Code 39</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Code39Ext" Value="2">
+          <Name>
+            <LocalizedString Language="en">Code 39 extended</LocalizedString>
+            <LocalizedString Language="ru">Code 39 extended</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Code128" Value="3">
+          <Name>
+            <LocalizedString Language="en">Code 128</LocalizedString>
+            <LocalizedString Language="ru">Code 128</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="BarcodePrint_X" ID="693EEAEB-992F-4024-9D0B-374CE3860810" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">X coordinate</LocalizedString>
+          <LocalizedString Language="ru">Координата X</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodePrint_Y" ID="28FB1FC3-F91A-45C6-B833-9F9DEE9FFE50" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Y coordinate</LocalizedString>
+          <LocalizedString Language="ru">Координата Y</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodePrint_Height" ID="77C4DDA7-D174-4692-8A82-2163D15BB8D2" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Barcode height</LocalizedString>
+          <LocalizedString Language="ru">Высота штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodePrint_Width" ID="FC0794A6-E4BF-4961-8744-1B640B8C5DA2" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Barcode width</LocalizedString>
+          <LocalizedString Language="ru">Ширина штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodePrint_Angle" ID="D461FEC5-D9AB-4864-81BA-BF3D8DEA8DF9" Type="enum" DefaultValue="1" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Barcode print angle (0-360)</LocalizedString>
+          <LocalizedString Language="ru">Угол печати штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="Angle_0" Value="1">
+          <Name>
+            <LocalizedString Language="en">0 degrees</LocalizedString>
+            <LocalizedString Language="ru">0 градусов</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Angle_90" Value="2">
+          <Name>
+            <LocalizedString Language="en">90 degrees</LocalizedString>
+            <LocalizedString Language="ru">90 градусов</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Angle_180" Value="3">
+          <Name>
+            <LocalizedString Language="en">180 degrees</LocalizedString>
+            <LocalizedString Language="ru">180 градусов</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Angle_270" Value="4">
+          <Name>
+            <LocalizedString Language="en">270 degrees</LocalizedString>
+            <LocalizedString Language="ru">270 градусов</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="BarcodePrint_IncludeNumber" ID="F676F760-3AFE-464E-B167-BE822DA4066C" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Include number</LocalizedString>
+          <LocalizedString Language="ru">Включать номер штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeBPTemplate" ID="47ADE8D5-6FC4-4B8E-BCB7-E647719ECF66" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Process template:</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса передачи:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeBPInstanceFolder" ID="6F42EA6E-D7B1-4E12-AD77-39D0C5C55AD0" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for instances of business-processes:</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeBPStartingFolder" ID="A3462C1E-261C-4D72-A593-B87F943C6959" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder for starting business-processes:</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeTransferLogStorage" ID="DF7C6363-71E5-41C6-9BC8-21861844E667" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Storage folder for transfer log:</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения журналов передач:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeTransferAdmin" ID="A341D1E6-AA04-4933-9139-D9BBC33BE9A8" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Transfer document administrator:</LocalizedString>
+          <LocalizedString Language="ru">Администратор по передаче документов:</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeAcceptDuration" ID="51C1F09F-5645-4810-971B-871FEF0F365B" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Accept task duration:</LocalizedString>
+          <LocalizedString Language="ru">Время на подверждение передачи (в часах):</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeNumberPrefix" ID="FB54BE56-6829-489A-8DA6-EFE4DAA8ACDA" Type="unistring" Max="10" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Number prefix</LocalizedString>
+          <LocalizedString Language="ru">Префикс номера штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeDocumentAnchor" ID="6E74226A-7FCF-46D7-A676-13627F1F8066" Type="enum" DefaultValue="1" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Document anchor</LocalizedString>
+          <LocalizedString Language="ru">Угол привязки печати штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="TopLeft" Value="1">
+          <Name>
+            <LocalizedString Language="en">Top left</LocalizedString>
+            <LocalizedString Language="ru">Левый верхний</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="TopRight" Value="2">
+          <Name>
+            <LocalizedString Language="en">Top right</LocalizedString>
+            <LocalizedString Language="ru">Правый верхний</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="BottomLeft" Value="3">
+          <Name>
+            <LocalizedString Language="en">Bottom left</LocalizedString>
+            <LocalizedString Language="ru">Левый нижний</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="BottomRight" Value="4">
+          <Name>
+            <LocalizedString Language="en">Bottom right</LocalizedString>
+            <LocalizedString Language="ru">Правый нижний</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="BarcodeDocumentIndentX" ID="51776840-3607-4EC8-947B-45DE6B50B99F" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Document print x</LocalizedString>
+          <LocalizedString Language="ru">Отступ по горизонтали</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeDocumentIndentY" ID="C61E4360-3AFE-498E-9801-F7516F5C424D" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Document indent Y</LocalizedString>
+          <LocalizedString Language="ru">Отступ по вертикали</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeDocumentPrint_Height" ID="159E8F69-6E29-433C-A68B-1994AF39BE8B" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Barcode height</LocalizedString>
+          <LocalizedString Language="ru">Высота штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeDocumentPrint_Width" ID="78801719-16DD-46A1-8674-CC91A503D1A9" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Barcode width</LocalizedString>
+          <LocalizedString Language="ru">Ширина штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodeDocumentPrint_Angle" ID="F4EA6A60-5ACC-4F57-9402-F91BF2A3EDA4" Type="enum" DefaultValue="1" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Barcode print angle (0-360)</LocalizedString>
+          <LocalizedString Language="ru">Угол печати штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="Angle_0" Value="1">
+          <Name>
+            <LocalizedString Language="en">0 degrees</LocalizedString>
+            <LocalizedString Language="ru">0 градусов</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Angle_90" Value="2">
+          <Name>
+            <LocalizedString Language="en">90 degrees</LocalizedString>
+            <LocalizedString Language="ru">90 градусов</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Angle_180" Value="3">
+          <Name>
+            <LocalizedString Language="en">180 degrees</LocalizedString>
+            <LocalizedString Language="ru">180 градусов</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Angle_270" Value="4">
+          <Name>
+            <LocalizedString Language="en">270 degrees</LocalizedString>
+            <LocalizedString Language="ru">270 градусов</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="BarcodeDocumentPages" ID="53B0A4B5-EC97-4D4F-B570-9174237088E8" Type="enum" DefaultValue="1" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Document printing pages setup</LocalizedString>
+          <LocalizedString Language="ru">Страницы для печати штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="First" Value="1">
+          <Name>
+            <LocalizedString Language="en">Only first page</LocalizedString>
+            <LocalizedString Language="ru">Только первая страница</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="AllPages" Value="2">
+          <Name>
+            <LocalizedString Language="en">All pages</LocalizedString>
+            <LocalizedString Language="ru">Все страницы</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="BarcodePaperIndent_X" ID="4E0995CA-0333-42CB-A632-6D8489818AD2" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">X Coordinate</LocalizedString>
+          <LocalizedString Language="ru">Отступ по горизонтали</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodePaperIndent_Y" ID="D3B453A2-7378-4240-8AE3-EAEE9DDC250A" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Y Coordinate</LocalizedString>
+          <LocalizedString Language="ru">Отступ по вертикали</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodePaperPrint_Width" ID="BB4A8DFC-8CA1-46BE-9AF5-8D3A25A1D7AB" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Barcode width</LocalizedString>
+          <LocalizedString Language="ru">Ширина штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodePaperPrint_Height" ID="D7903509-2350-46CC-A2E0-08F0AB3E577E" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Barcode height</LocalizedString>
+          <LocalizedString Language="ru">Высота штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="BarcodePaperPrint_Angle" ID="F26252C8-6D03-468E-8336-9FB39DDBC95D" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Barcode print angle (0-360)</LocalizedString>
+          <LocalizedString Language="ru">Угол печати штрих-кода</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="Angle_0" Value="1">
+          <Name>
+            <LocalizedString Language="en">0 degrees</LocalizedString>
+            <LocalizedString Language="ru">0 градусов</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Angle_90" Value="2">
+          <Name>
+            <LocalizedString Language="en">90 degrees</LocalizedString>
+            <LocalizedString Language="ru">90 градусов</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Angle_180" Value="3">
+          <Name>
+            <LocalizedString Language="en">180 degrees</LocalizedString>
+            <LocalizedString Language="ru">180 градусов</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="Angle_270" Value="4">
+          <Name>
+            <LocalizedString Language="en">270 degrees</LocalizedString>
+            <LocalizedString Language="ru">270 градусов</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="BarcodeProtectionPassword" ID="EC795618-7AB6-474D-B258-170E1E4F0DE8" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Protection password</LocalizedString>
+          <LocalizedString Language="ru">Пароль защиты документов от изменений</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <DisplayFields />
+    </Section>
+    <Section Alias="UniversalApprovalSetup" Type="struct" ID="E95F03C1-BBDB-429A-8056-925FCE92112C">
+      <Name>
+        <LocalizedString Language="en">Universal Approval Setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки карточки согласования</LocalizedString>
+      </Name>
+      <Field Alias="UniversalBPTemplate" ID="06E33E2D-9289-4D8E-9037-E67ED0DCFF9B" Type="refcardid" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">BP Template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон бизнес-процесса</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="UniversalBPStartingFolder" ID="87CECC3F-D0BB-4E34-92C4-E26E23E857C2" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">BP Starting Folder</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих процессов</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="UniversalBPInstanceFolder" ID="490978F5-DC03-4173-AC9C-9CF0441B023B" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">BP Instance Folder</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процессов</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="UniversalApprovalDuration" ID="6A425DB6-C2CA-4C39-917A-FDEEED8010BD" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Approval Duration</LocalizedString>
+          <LocalizedString Language="ru">Срок согласования</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="UniversalCorrectionDuration" ID="1EC3BF5E-93DC-4744-A64A-C0782ACC101C" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Correction Duration</LocalizedString>
+          <LocalizedString Language="ru">Срок доработки</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="UniversalSignedDuration" ID="B30DDE64-0221-4066-8ACB-A13EDB57F491" Type="int" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Signed Duration</LocalizedString>
+          <LocalizedString Language="ru">Срок подписания</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="UniversalApprovalFolder" ID="AE2A211C-3B5A-43CB-8F50-A4CA66645BD2" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Universal approval folder</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения документов</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="UniversalAlternativeProcessCorrection" ID="516F682B-20FD-4819-B4B6-56A1E6D56D79" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Alternative correction process</LocalizedString>
+          <LocalizedString Language="ru">Альтернативный процесс доработки заданий</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="UniversalDocTypesNumerators" RowAlias="" Type="coll" ID="AF6239BF-B868-4FF0-B85C-2B278C7BE699">
+        <Name>
+          <LocalizedString Language="en">Document Types Numerators</LocalizedString>
+          <LocalizedString Language="ru">Нумероторы видов документов</LocalizedString>
+        </Name>
+        <Field Alias="UniversalDocTypeName" ID="44137E3F-D2F8-4811-A1D4-C96B76E75F1B" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Doc Type Name</LocalizedString>
+            <LocalizedString Language="ru">Вид документа</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <Field Alias="UniversalDocTypeNumerator" ID="2A145427-C4B0-48FB-A6DC-C2CA664AC6C0" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Doc Type Numerator</LocalizedString>
+            <LocalizedString Language="ru">Нумератор вида</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <DisplayFields />
+    </Section>
+    <Section Alias="DurableAssignmentSetup" Type="struct" ID="5586CF8E-1C01-40D2-8C6A-8CA808927725">
+      <Name>
+        <LocalizedString Language="en">Durable Assignment Setup</LocalizedString>
+        <LocalizedString Language="ru">Настройки длительного поручения</LocalizedString>
+      </Name>
+      <Field Alias="DurableBPTemplate" ID="0A87C5DC-0D0B-4737-BE88-7F1AD4F1F950" Type="refcardid" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">BPTemplate</LocalizedString>
+          <LocalizedString Language="ru">Шаблон процесса</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DurableBPStartingFolder" ID="7E9A6DB6-2800-48B0-83DE-2D674C0167B9" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">BPStartingFolder</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих БП</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DurableBPInstanceFolder" ID="23AEC6CC-DBC3-426F-8B89-611B87A6F6F4" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">BPInstanceFolder</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процесса</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DurableStoreFolder" ID="EF28BADE-50EA-4C53-981E-6959118E2385" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Store Folder</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="DurableAssignmentNumerator" ID="5E90506C-332F-4D60-84C1-9E49070F0A03" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Durable Assignment Numerator</LocalizedString>
+          <LocalizedString Language="ru">Длительные поручения</LocalizedString>
+        </Name>
+      </Field>
+      <DisplayFields />
+    </Section>
+    <Section Alias="NRDSetup" Type="struct" ID="DFB6EB87-5957-4E54-8809-CBE0CCB7F4F4">
+      <Name>
+        <LocalizedString Language="en">NRD setup</LocalizedString>
+        <LocalizedString Language="ru">Настройка НРД</LocalizedString>
+      </Name>
+      <Field Alias="NRDStoreFolder" ID="5A65E79B-3FF6-44BF-9FD7-EF66D6D66B13" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Root folder for storing NRD</LocalizedString>
+          <LocalizedString Language="ru">Папка хранения НРД</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="NRDNumerator" ID="9526F938-B4D0-464E-87BE-84F81B8B48FB" Type="refid" RefType="D4491E04-F030-4798-BD11-7912C0CA6714" RefSection="59B14465-F598-4A83-9811-55D987868D91" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Numerator</LocalizedString>
+          <LocalizedString Language="ru">Нумератор</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="NRDBPTemplate" ID="CD3F9B2B-48C7-4813-9DC5-73218CA1254F" Type="refcardid" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">BPTemplate</LocalizedString>
+          <LocalizedString Language="ru">Шаблон процесса</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="NRDBPStartingFolder" ID="0782DECB-118F-4223-96A0-E7C040EF6623" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">BPStartingFolder</LocalizedString>
+          <LocalizedString Language="ru">Папка запускающих БП</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="NRDBPInstanceFolder" ID="6261EDAE-AFDD-416B-8CED-AC0E38D619AE" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">BPInstanceFolder</LocalizedString>
+          <LocalizedString Language="ru">Папка экземпляров процесса</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="NRDPrintTemplate" ID="35906C8F-B1CA-418F-A1B3-648807E514C4" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+        <Name>
+          <LocalizedString Language="en">PrintTemplate</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати документа</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="NRDAlternativeProcessCorrection" ID="C2697C1A-E6AB-4B40-9FFF-8F847C6762AF" Type="bool" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Alternative correction process</LocalizedString>
+          <LocalizedString Language="ru">Альтернативный процесс доработки заданий</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Field Alias="NRDNotificationListPrintTemplate" ID="AD6C9DF0-83CC-46E1-A1E4-F9BF61EF08AF" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Notification list print template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон печати листа рассылки</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="NRDDevelopers" RowAlias="" Type="coll" ID="13641961-5B15-4EED-B911-C8AEF2D5AD63">
+        <Name>
+          <LocalizedString Language="en">Developers</LocalizedString>
+          <LocalizedString Language="ru">Разработчики</LocalizedString>
+        </Name>
+        <Field Alias="NRDDeveloper" ID="C9EF2A7B-BE11-4594-94E2-4312229F1E3E" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Developer</LocalizedString>
+            <LocalizedString Language="ru">Разработчик</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <Section Alias="NRDDocumentKinds" RowAlias="" Type="coll" ID="58DD7F37-6042-4CC2-B3C1-6B29F49366BD">
+        <Name>
+          <LocalizedString Language="en">DocumentKinds</LocalizedString>
+          <LocalizedString Language="ru">Виды документов</LocalizedString>
+        </Name>
+        <Field Alias="NRDDocumentKind" ID="D432885C-5B1F-4537-8482-DC2ED47958A9" Type="unistring" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">DocumentKind</LocalizedString>
+            <LocalizedString Language="ru">Вид документа</LocalizedString>
+          </Name>
+          <Description />
+        </Field>
+        <DisplayFields FormatString="" />
+      </Section>
+      <DisplayFields />
+    </Section>
+  </Sections>
+  <VirtualFields>
+    <VirtualField Alias="CurrentDateTime" ID="46D3F634-CDB5-411D-B66F-ED1E8A517FE9">
+      <Name>
+        <LocalizedString Language="en">Current date/time</LocalizedString>
+        <LocalizedString Language="ru">Текущая дата/время</LocalizedString>
+      </Name>
+      <Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="2F43792D-A3B0-4C12-B4DA-CC5BBE263069" Version="4000" Type="datetime"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="datetime"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="07/07/2009 13:30:56" Function="GetDate" Type="datetime" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="None" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;/VirtualField&gt;</Data>
+    </VirtualField>
+  </VirtualFields>
+</CardDefinition>

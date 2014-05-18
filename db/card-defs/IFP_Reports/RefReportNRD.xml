@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="452B19D9-56C9-4E49-A501-0C0EA4B5169F" Alias="RefReportNRD" Version="14" LibraryID="5631E33F-63E9-40DD-B44E-6110546F8884" ProgID="clsid:{00f22f70-e307-41df-ad82-47f7ce5ade1a}" Dictionary="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\gazprom.ico" FolderCard="true" AlwaysRead="true" SimpleSecurity="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">NRD Report</LocalizedString>
+		<LocalizedString Language="ru">Поиск НРД</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="C5E63756-ED2C-4557-9CCD-E4BEC95F0DA2">
+			<Name>
+				<LocalizedString Language="en">Main Info</LocalizedString>
+				<LocalizedString Language="ru">Основная информация</LocalizedString>
+			</Name>
+			<Field Alias="Field" ID="2FFDB716-D348-4DC3-B477-99E1DC5961EF" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Field</LocalizedString>
+					<LocalizedString Language="ru">Поле</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1636446B-ED1C-4282-B82C-CF0D89B7B406" Alias="RefReports" Version="82" LibraryID="5631E33F-63E9-40DD-B44E-6110546F8884" ProgID="clsid:{1636446B-ED1C-4282-B82C-CF0D89B7B406}" Dictionary="true" NonSearchable="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\gazprom.ico" NoLockOnOpen="true" FolderCard="true" SimpleSecurity="true" NonArchivable="true">
+  <Name>
+    <LocalizedString Language="en">Reports</LocalizedString>
+    <LocalizedString Language="ru">Справочник отчётов</LocalizedString>
+  </Name>
+  <Sections>
+    <Section Alias="Reports" RowAlias="" Type="coll" ID="D5E37123-BF9A-4EAF-BA7E-DE114DF56CFD" SimpleSecurity="true">
+      <Name>
+        <LocalizedString Language="en">Folders</LocalizedString>
+        <LocalizedString Language="ru">Папки</LocalizedString>
+      </Name>
+      <Field Alias="Folder" ID="816EDC2D-FA60-4D77-9C37-0C976A9D828F" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Folder</LocalizedString>
+          <LocalizedString Language="ru">Папка</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ReportType" ID="00F77FDC-458E-4123-8A03-9B71E0AFE954" Type="enum" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Type of report</LocalizedString>
+          <LocalizedString Language="ru">Тип отчёта</LocalizedString>
+        </Name>
+        <Description />
+        <Enum Alias="IncDocsGeneral" Value="0">
+          <Name>
+            <LocalizedString Language="en">General incoming documents report </LocalizedString>
+            <LocalizedString Language="ru">Справка по входящим</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="IncDocsRemovedFromControl" Value="1">
+          <Name>
+            <LocalizedString Language="en">Removed from control</LocalizedString>
+            <LocalizedString Language="ru">Входящие документы снятые с контроля</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="IncDocsOnControl" Value="2">
+          <Name>
+            <LocalizedString Language="en">Incoming documents on control</LocalizedString>
+            <LocalizedString Language="ru">Входящие документы не снятые с контроля</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="OutDocSendingInfo" Value="4">
+          <Name>
+            <LocalizedString Language="en">Outdoc sending info</LocalizedString>
+            <LocalizedString Language="ru">Отправки исходящих документов</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="KIDByDepartment" Value="5">
+          <Name>
+            <LocalizedString Language="en">KID report by department</LocalizedString>
+            <LocalizedString Language="ru">Отчет по КИД для руководителя подразделения</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="KIDGeneral" Value="6">
+          <Name>
+            <LocalizedString Language="en">KID report</LocalizedString>
+            <LocalizedString Language="ru">Отчет по КИД для руководства общества по подразделениям</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="WorkflowValue" Value="7">
+          <Name>
+            <LocalizedString Language="en">Workflow value</LocalizedString>
+            <LocalizedString Language="ru">Отчет по объему документооборота</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="TransferRegistry" Value="8">
+          <Name>
+            <LocalizedString Language="en">Transfer registry</LocalizedString>
+            <LocalizedString Language="ru">Реестр передач</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="ExpenseReport" Value="9">
+          <Name>
+            <LocalizedString Language="en">Expense report</LocalizedString>
+            <LocalizedString Language="ru">Авансовый отчет</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="IncDocSearchFolder" Value="10">
+          <Name>
+            <LocalizedString Language="en">Incoming documents</LocalizedString>
+            <LocalizedString Language="ru">Входящие документы (поисковая папка)</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="KIDIncTasksWithWhereFrom" Value="11">
+          <Name>
+            <LocalizedString Language="en">KID. Incoming tasks with "Where from" field</LocalizedString>
+            <LocalizedString Language="ru">КИД. Входящие поручения с полем "Откуда"</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="KIDIncTasksWithResponsibleDepartment" Value="12">
+          <Name>
+            <LocalizedString Language="en">KID. Incoming tasks with responsible department</LocalizedString>
+            <LocalizedString Language="ru">КИД. Входящие поручения с ответственным подразделением</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="KIDIncTasksManagerView" Value="13">
+          <Name>
+            <LocalizedString Language="en">KID. Incoming tasks for manager without signing</LocalizedString>
+            <LocalizedString Language="ru">КИД. Входящие поручения руководителя без подписания</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="KIDIncTasksODView" Value="14">
+          <Name>
+            <LocalizedString Language="en">KID. Incoming tasks view for OD</LocalizedString>
+            <LocalizedString Language="ru">КИД. Входящие поручения для ОД</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="ContractBreaches" Value="16">
+          <Name>
+            <LocalizedString Language="en">ContractBreaches</LocalizedString>
+            <LocalizedString Language="ru">Справка по нарушениям текущего согласования договоров</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="DocReturnsFromApproving" Value="17">
+          <Name>
+            <LocalizedString Language="en">Document returns from approving</LocalizedString>
+            <LocalizedString Language="ru">Отчет по возвратам документов с согласования</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="AverageApprovingDuration" Value="18">
+          <Name>
+            <LocalizedString Language="en">Average documents approving duration report</LocalizedString>
+            <LocalizedString Language="ru">Отчет о среднем времени согласования документов</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="ContractBreachesInfoWithLimits" Value="21">
+          <Name>
+            <LocalizedString Language="en">ContractBreachesInfoWithLimits</LocalizedString>
+            <LocalizedString Language="ru">Информационный отчет по нарушениям согласования проектов договоров</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="AverageApprovingByUnitsDuration" Value="22">
+          <Name>
+            <LocalizedString Language="en">Average documents approving duration report by departments</LocalizedString>
+            <LocalizedString Language="ru">Отчет о среднем времени согласования документов подразделениями</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="DocReturnsFromApprovingByUnits" Value="23">
+          <Name>
+            <LocalizedString Language="en">Document returns from approving by units</LocalizedString>
+            <LocalizedString Language="ru">Отчет по возвратам документов с согласования подразделениями</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="MemorandumsOnControlReport" Value="24">
+          <Name>
+            <LocalizedString Language="en">MemorandumsOnControlReport</LocalizedString>
+            <LocalizedString Language="ru">СЗ на контроле</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="IncDocsOnControlToGD" Value="25">
+          <Name>
+            <LocalizedString Language="en">Notice about control assignment to GD</LocalizedString>
+            <LocalizedString Language="ru">Уведомление о контрольных поручениях Генерального директора</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="IncDocGetRecieved" Value="26">
+          <Name>
+            <LocalizedString Language="en">Incoming documents. Get recieved</LocalizedString>
+            <LocalizedString Language="ru">Входящие документы. Найти полученные</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="IncDocsRemovedFromControlNew" Value="27">
+          <Name>
+            <LocalizedString Language="en">Performance report on the control orders</LocalizedString>
+            <LocalizedString Language="ru">Отчет об исполнении контрольных поручений</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="IncDocsOnControlNew" Value="28">
+          <Name>
+            <LocalizedString Language="en">Report incoming documents on control and order</LocalizedString>
+            <LocalizedString Language="ru">Отчет по входящим контрольным документам и поручениям за период</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="AssignmentViewForEmployee" Value="29">
+          <Name>
+            <LocalizedString Language="en">Employee Assignments (with last comments)</LocalizedString>
+            <LocalizedString Language="ru">Отчет по поручениям выданным сотрудником (с последними комментариями)</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="DurableAssignmentViewForActor" Value="30">
+          <Name>
+            <LocalizedString Language="en">Durable Assignment View For Actor</LocalizedString>
+            <LocalizedString Language="ru">Отчет по длительным поручениям для автора</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="ProtocolStatisticByType" Value="31">
+          <Name>
+            <LocalizedString Language="en">ProtocolType</LocalizedString>
+            <LocalizedString Language="ru">Отчет по протоколам по типу совещания</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="DurableAssignmentViewForPerformer" Value="32">
+          <Name>
+            <LocalizedString Language="en">Durable Assignment View For Performer</LocalizedString>
+            <LocalizedString Language="ru">Отчет по длительным поручениям для исполнителя</LocalizedString>
+          </Name>
+        </Enum>
+        <Enum Alias="IncDocNewSearchFolder" Value="33">
+          <Name>
+            <LocalizedString Language="ru">Входящие документы (новая поисковая папка)</LocalizedString>
+            <LocalizedString Language="en">Incoming documents</LocalizedString>
+          </Name>
+        </Enum>
+      </Field>
+      <Field Alias="ForEmployee" ID="D582B198-B84D-4ADE-9FBB-CBBAF7C4113B" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">For employee</LocalizedString>
+          <LocalizedString Language="ru">Для сотрудника</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="ExportTemplate" ID="DBDE236F-5854-4167-BDEE-6745DAED50DE" Type="refcardid" RefType="6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Export template</LocalizedString>
+          <LocalizedString Language="ru">Шаблон экспорта</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <Section Alias="ODEmployees" Type="coll" ID="BD3D6E98-E346-4E73-BEDD-A0065A01FA88">
+        <Name>
+          <LocalizedString Language="en">OD employees</LocalizedString>
+          <LocalizedString Language="ru">Сотрудники ОД</LocalizedString>
+        </Name>
+        <Field Alias="Employee" ID="106DD0A6-3271-4671-AF58-D6000C2C732B" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Employee</LocalizedString>
+            <LocalizedString Language="ru">Сотрудник ОД</LocalizedString>
+          </Name>
+        </Field>
+        <DisplayFields />
+      </Section>
+      <Section Alias="DefaultDepartments" Type="coll" ID="F9BF19E6-DD95-47AB-8896-4607ACA73AAF">
+        <Name>
+          <LocalizedString Language="en">DefaultDepartments</LocalizedString>
+          <LocalizedString Language="ru">Подразделения по умолчанию</LocalizedString>
+        </Name>
+        <Field Alias="Department" ID="D98E7711-BB7A-40E9-A55C-9B203FCBAAD3" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="7473F07F-11ED-4762-9F1E-7FF10808DDD1" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Department</LocalizedString>
+            <LocalizedString Language="ru">Подразделение по умолчанию</LocalizedString>
+          </Name>
+        </Field>
+        <DisplayFields />
+      </Section>
+      <Section Alias="CustomOptions" Type="coll" ID="201BBFAB-DB9F-4113-B7D3-D61A06B8CADE">
+        <Name>
+          <LocalizedString Language="en">Custom options</LocalizedString>
+          <LocalizedString Language="ru">Настройки отчета</LocalizedString>
+        </Name>
+        <Field Alias="Name" ID="D9F7A7C9-CFFA-487D-90F7-6937AD24CF0A" Type="string" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Name</LocalizedString>
+            <LocalizedString Language="ru">Название настройки</LocalizedString>
+          </Name>
+        </Field>
+        <Field Alias="Value" ID="A88E253C-1B3D-4B5A-B634-B3811ADF6FD4" Type="text" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Value</LocalizedString>
+            <LocalizedString Language="ru">Значение настройки</LocalizedString>
+          </Name>
+        </Field>
+        <DisplayFields />
+      </Section>
+      <Section Alias="SortListEmployees" Type="coll" ID="B4732707-F066-48BE-B19E-94C019FCE4CC">
+        <Name>
+          <LocalizedString Language="en">Sort list of employees</LocalizedString>
+          <LocalizedString Language="ru">Список сортировки сотрудников</LocalizedString>
+        </Name>
+        <Field Alias="Employee" ID="6EF208CB-1120-458A-982E-E0F04CE7B139" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+          <Name>
+            <LocalizedString Language="en">Employee</LocalizedString>
+            <LocalizedString Language="ru">Сотрудник</LocalizedString>
+          </Name>
+        </Field>
+        <DisplayFields />
+      </Section>
+      <DisplayFields FormatString="" />
+    </Section>
+    <Section Alias="MainConfig" Type="struct" ID="7EDF1F7E-9E62-4621-AAD1-5E24833BDE50">
+      <Name>
+        <LocalizedString Language="en">Main info</LocalizedString>
+        <LocalizedString Language="ru">Основная информация</LocalizedString>
+      </Name>
+      <Field Alias="DefaultCalendarID" ID="7041D747-7ED5-4067-9DD1-5A0F4171AB12" Type="refid" RefType="F31B9F60-F81F-4825-8216-FC3C1FF15222" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Default calendar</LocalizedString>
+          <LocalizedString Language="ru">Календарь по умолчанию</LocalizedString>
+        </Name>
+      </Field>
+      <DisplayFields />
+    </Section>
+  </Sections>
+</CardDefinition>

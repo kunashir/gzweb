@@ -1,0 +1,4 @@
+BEGIN
+SELECT ParentRowID as RowID From [dvtable_{ED414CB4-B205-4BE4-A2FA-5C0D3347CEB3}]
+WHERE DeputyID = @deputyID
+END

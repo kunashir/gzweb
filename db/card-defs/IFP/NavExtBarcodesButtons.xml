@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="50012E0D-2DCA-4701-9B77-64E5F3863A72" Alias="NavExtBarcodesButtons" Version="13" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{0675DC39-8C82-42c5-A90B-8639DD7D89B5}" Dictionary="true" NonViewable="true" NonCreatable="true" IconFile="" UIExtension="true" NoHardShortcuts="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Barcodes related buttons</LocalizedString>
+		<LocalizedString Language="ru">Кнопки связанные со штрих-кодами</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="Section1" Type="struct" ID="829E4AA9-7CF2-466A-A5C7-F9F0D6B426E8">
+			<Name>
+				<LocalizedString Language="en">Section1</LocalizedString>
+				<LocalizedString Language="ru">Section1</LocalizedString>
+			</Name>
+			<Field Alias="Field1" ID="4227E94A-80B4-49C2-911D-ABD1D84ECE0E" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Field1</LocalizedString>
+					<LocalizedString Language="ru">Field1</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

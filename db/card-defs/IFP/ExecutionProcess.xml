@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3A4C0EDB-A661-40DF-A6DF-06946755578A" Alias="ExecutionProcess" Version="5" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="" NonSearchable="true" NonViewable="true" NonCreatable="true" IconFile="" ShowLinked="true" Copyable="true" SimpleSecurity="true" NonArchivable="false">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Execution process card</LocalizedString>
+		<LocalizedString Language="ru">Ход исполнения</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="91A9AF10-4F1E-4D8B-82B0-7D30389931AC">
+			<Name>
+				<LocalizedString Language="en">Main Info</LocalizedString>
+				<LocalizedString Language="ru">Основная информация</LocalizedString>
+			</Name>
+			<Field Alias="ParentCard" ID="9967EE30-946C-405C-9B73-49EE66C7AD45" Type="refcardid" DefaultValue="" RefKind="Simple" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Parent card</LocalizedString>
+					<LocalizedString Language="ru">Родительская карточка</LocalizedString>
+				</Name>
+			</Field>
+			<Section Alias="ExecutionProcessList" Type="coll" ID="BF140314-F669-4686-AAFE-0A33F1A7E87D">
+				<Name>
+					<LocalizedString Language="en">Execution process</LocalizedString>
+					<LocalizedString Language="ru">Ход исполнения</LocalizedString>
+				</Name>
+				<Field Alias="ExecutionProcessKind" ID="A53B2C94-239D-456A-AA61-ADC4080810D2" Type="enum" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Record kind</LocalizedString>
+						<LocalizedString Language="ru">Вид записи</LocalizedString>
+					</Name>
+					<Enum Alias="Comment" Value="0">
+						<Name>
+							<LocalizedString Language="en">Comment</LocalizedString>
+							<LocalizedString Language="ru">Комментарий</LocalizedString>
+						</Name>
+					</Enum>
+					<Enum Alias="CardState" Value="1">
+						<Name>
+							<LocalizedString Language="en">Card state</LocalizedString>
+							<LocalizedString Language="ru">Состояние карточки</LocalizedString>
+						</Name>
+					</Enum>
+				</Field>
+				<Field Alias="Employee" ID="E4367473-5CED-4337-A1C3-596BFE14D499" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Employee</LocalizedString>
+						<LocalizedString Language="ru">Автор записи</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="RecordDate" ID="21E5D9AE-CF53-4D70-9D94-1A47C659283F" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Record date</LocalizedString>
+						<LocalizedString Language="ru">Дата записи</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="Comments" ID="641DBB2F-275E-4206-8A28-A9E81A1D90A9" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Comments</LocalizedString>
+						<LocalizedString Language="ru">Комментарии</LocalizedString>
+					</Name>
+				</Field>
+			</Section>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

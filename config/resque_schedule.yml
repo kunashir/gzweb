@@ -1,0 +1,6 @@
+sync_job:
+  every:
+    - '30s'
+    - :first_in: '0s'
+  class: SyncJob
+  description: "Synchronizing data with DocsVision"

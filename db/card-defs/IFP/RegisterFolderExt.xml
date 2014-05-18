@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="001FAE54-E918-4D6F-B620-07C00AD0A780" Alias="RegisterFolderExt" Version="18" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{6D40F329-E242-4453-AB80-E5CF3A89F296}" Dictionary="true" NonSearchable="true" NonViewable="true" NonCreatable="true" IconFile="Icons\gazprom.ico" NoLockOnOpen="true" NoHardShortcuts="true" FolderCard="true" SimpleSecurity="true" NonArchivable="true">
+  <Name>
+    <LocalizedString Language="en">Register folder card</LocalizedString>
+    <LocalizedString Language="ru">Карточка-папка Реестра</LocalizedString>
+  </Name>
+  <Sections>
+    <Section Alias="MainInfo" Type="struct" ID="715A3AFF-93D6-42CE-B8A3-FBAE8CBA38F3">
+      <Name>
+        <LocalizedString Language="en">Main info</LocalizedString>
+        <LocalizedString Language="ru">Основная информация</LocalizedString>
+      </Name>
+      <Field Alias="Recipient" ID="980049F9-7418-4C45-96D7-68F16470EB61" Type="refid" RefType="65FF9382-17DC-4E9F-8E93-84D6D3D8FE8C" RefSection="C78ABDED-DB1C-4217-AE0D-51A400546923" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Recipient</LocalizedString>
+          <LocalizedString Language="ru">Получатель</LocalizedString>
+        </Name>
+      </Field>
+      <Field Alias="SendingType" ID="B9E5A9DF-4AF0-4C49-8C47-35ED5EA7F601" Type="refid" RefType="56E0990F-B9CF-43CC-9041-EBB492B13863" RefSection="432E82D0-D10C-48D6-BA02-58820644A4A7" DefaultValue="" CopyBehavior="Copy">
+        <Name>
+          <LocalizedString Language="en">Sending type</LocalizedString>
+          <LocalizedString Language="ru">Тип отправления</LocalizedString>
+        </Name>
+        <Description />
+      </Field>
+      <DisplayFields />
+    </Section>
+  </Sections>
+</CardDefinition>

@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="BFC9D190-BCD6-411A-B9F9-3160D3F68819" Alias="FileList" Version="29" LibraryID="C257FEAA-7F8C-48BD-AB05-397507F88985" ProgID="" NonSearchable="true" NonViewable="true" NonCreatable="true" IconFile="" Copyable="true" FetchMode="1" SimpleSecurity="true">
+	<Name>
+		<LocalizedString Language="en">File List</LocalizedString>
+		<LocalizedString Language="uk">Список файлів</LocalizedString>
+		<LocalizedString Language="ru">Список файлов</LocalizedString>
+		<LocalizedString Language="lv">Faila saraksts</LocalizedString>
+		<LocalizedString Language="ka">ფაილის სია</LocalizedString>
+		<LocalizedString Language="ro">Lista fişierelor</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="FileReferences" Type="coll" ID="E962AC85-0F53-4439-A1CD-171E46C3EF91" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">File References</LocalizedString>
+				<LocalizedString Language="uk">Посилання на файли</LocalizedString>
+				<LocalizedString Language="ru">Ссылки на файлы</LocalizedString>
+				<LocalizedString Language="lv">Faila atsauce</LocalizedString>
+				<LocalizedString Language="ka">ფაილის კავშირები</LocalizedString>
+				<LocalizedString Language="ro">Referinţe la fişiere</LocalizedString>
+			</Name>
+			<Field Alias="CardFileID" ID="F8509420-CF86-4166-8D91-9388D79DDD86" Type="refcardid" NotNull="true" RefType="2BBD0A41-265E-4FF8-82D6-C6342F34B1AF" RefSection="B4562DF8-AF19-4D0F-85CA-53A311354D39" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+				<Name>
+					<LocalizedString Language="en">File Card ID</LocalizedString>
+					<LocalizedString Language="uk">Картка файлу</LocalizedString>
+					<LocalizedString Language="ru">Карточка файла</LocalizedString>
+					<LocalizedString Language="lv">Faila kartiņas ID</LocalizedString>
+					<LocalizedString Language="ka">ფაილის ბარათის იდენტიფიკატორი</LocalizedString>
+					<LocalizedString Language="ro">ID-ul fişei fişierului</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="" SysField="false">FileName</RefField>
+					<RefField Alias="" SysField="false">FileID</RefField>
+					<RefField Alias="" SysField="false">Author</RefField>
+					<RefField Alias="" SysField="false">VersioningType</RefField>
+					<RefField Alias="" SysField="false">IsCheckedOut</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="CanModify" ID="0081ABE9-B720-4F3A-A127-88C95E5E7C54" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Modifying Allowed</LocalizedString>
+					<LocalizedString Language="uk">Дозволено редагування</LocalizedString>
+					<LocalizedString Language="ru">Разрешено изменение</LocalizedString>
+					<LocalizedString Language="lv">Izmaiņu veikšana atļauta</LocalizedString>
+					<LocalizedString Language="ka">შეცვლა ნებადართულია</LocalizedString>
+					<LocalizedString Language="ro">Modificarea este permisă</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CanCheckout" ID="3850D831-B64D-4FD3-B97B-F4BE81108D1D" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Checking-out Allowed</LocalizedString>
+					<LocalizedString Language="uk">Дозволено блокування</LocalizedString>
+					<LocalizedString Language="ru">Разрешено блокирование</LocalizedString>
+					<LocalizedString Language="lv">Bloķēšana atļauta</LocalizedString>
+					<LocalizedString Language="ka">დაბლოკვა ნებადართულია</LocalizedString>
+					<LocalizedString Language="ro">Blocarea este permisă</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CanDelete" ID="1D3DACC4-F861-4677-8466-6EC7FB29EE69" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Deleting Allowed</LocalizedString>
+					<LocalizedString Language="uk">Дозволено видалення</LocalizedString>
+					<LocalizedString Language="ru">Разрешено удаление</LocalizedString>
+					<LocalizedString Language="lv">Dzēšana atļauta</LocalizedString>
+					<LocalizedString Language="ka">ნებადართულია წაშლა</LocalizedString>
+					<LocalizedString Language="ro">Ştergerea este permisă</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CommentRequired" ID="B9DF02DE-2843-4C66-9A3E-5DD8172E7ECF" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Comment Required</LocalizedString>
+					<LocalizedString Language="uk">Необхідний коментар</LocalizedString>
+					<LocalizedString Language="ru">Необходим комментарий</LocalizedString>
+					<LocalizedString Language="lv">Nepieciešams komentārs</LocalizedString>
+					<LocalizedString Language="ka">მოთხოვნილია კომენტარი</LocalizedString>
+					<LocalizedString Language="ro">Este necesar un comentariu</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ResultFolder" ID="0F0401A0-4229-4505-A770-2B87159B27E8" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Result folder</LocalizedString>
+					<LocalizedString Language="uk">Папка результуючого документа</LocalizedString>
+					<LocalizedString Language="ru">Папка результирующего документа</LocalizedString>
+					<LocalizedString Language="lv">Rezultātu mape</LocalizedString>
+					<LocalizedString Language="ka">შემაჯამებელი დოკუმენტის საქაღალდე</LocalizedString>
+					<LocalizedString Language="ro">Mapa documentului rezultativ</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FieldsToFile" ID="4F1677C4-757F-4298-A33B-DB035C3DD884" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Copy fields to file properties</LocalizedString>
+					<LocalizedString Language="ru">Копировать поля в свойства файла</LocalizedString>
+					<LocalizedString Language="uk">Копіювання полів до властивостей файлу</LocalizedString>
+					<LocalizedString Language="lv">Kopēt laukus uz faila rekvizītiem</LocalizedString>
+					<LocalizedString Language="ka">ველების ასლგადაღება ფაილის თვისებებში</LocalizedString>
+					<LocalizedString Language="ro">Copie cîmpurile în proprietăţile fişierului</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FileToFields" ID="D01ADA49-416F-471C-B4F6-44814CBE6343" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Copy file properties to fields</LocalizedString>
+					<LocalizedString Language="ru">Копировать свойства файла в поля</LocalizedString>
+					<LocalizedString Language="uk">Копіювати властивості файла в поля</LocalizedString>
+					<LocalizedString Language="lv">Kopēt faila rekvizītus uz laukiem</LocalizedString>
+					<LocalizedString Language="ka">ფაილის თვისებების ასლგადაღება ველებში</LocalizedString>
+					<LocalizedString Language="ro">Copie proprietăţile fişierului în cîmpuri</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="IsNew" ID="B44A8835-6208-4AFB-8473-E73715D55B2B" Type="bool" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Is new</LocalizedString>
+					<LocalizedString Language="uk">Новий</LocalizedString>
+					<LocalizedString Language="ru">Новый файл</LocalizedString>
+					<LocalizedString Language="lv">Jauns</LocalizedString>
+					<LocalizedString Language="ka">ახალი ფაილი</LocalizedString>
+					<LocalizedString Language="ro">Nou</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="IsDeleted" ID="B3E420EB-EEA7-4FA3-AA42-77F5462BD5E2" Type="bool" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Is deleted</LocalizedString>
+					<LocalizedString Language="uk">Видаляється</LocalizedString>
+					<LocalizedString Language="ru">Файл удален</LocalizedString>
+					<LocalizedString Language="lv">Dzēsts</LocalizedString>
+					<LocalizedString Language="ka">წაშლილია</LocalizedString>
+					<LocalizedString Language="ro">Fişierul este şters</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="OpenFileWithCard" ID="F6983C1A-9B0A-4AD0-AB8C-DE188898A8FC" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Open file</LocalizedString>
+					<LocalizedString Language="ru">Открывать файл</LocalizedString>
+					<LocalizedString Language="lv">Atvērt failu</LocalizedString>
+					<LocalizedString Language="ka">ფაილის გახსნა</LocalizedString>
+					<LocalizedString Language="ro">Deschiderea fişierului</LocalizedString>
+					<LocalizedString Language="uk">Відкрити файл</LocalizedString>
+				</Name>
+			</Field>
+			<Constraints>
+				<Constraint Type="UniqueCard">
+					<ConstraintField>CardFileID</ConstraintField>
+				</Constraint>
+			</Constraints>
+			<DisplayFields />
+		</Section>
+		<Section Alias="MainInfo" Type="struct" ID="3F8270DB-3603-463C-BA59-26B89EBB6CB5" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Main info</LocalizedString>
+				<LocalizedString Language="uk">Головна інформація</LocalizedString>
+				<LocalizedString Language="ru">Основная информация</LocalizedString>
+				<LocalizedString Language="lv">Pamatinformācija</LocalizedString>
+				<LocalizedString Language="ka">ძირითადი ინფორმაცია</LocalizedString>
+				<LocalizedString Language="ro">Principal</LocalizedString>
+			</Name>
+			<Field Alias="Count" ID="264C566F-22B8-46A3-BD8A-A56E3E994808" Type="int" DefaultValue="0" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">File count</LocalizedString>
+					<LocalizedString Language="uk">Число файлів</LocalizedString>
+					<LocalizedString Language="ru">Количество файлов</LocalizedString>
+					<LocalizedString Language="lv">Failu skaits</LocalizedString>
+					<LocalizedString Language="ka">ფაილის რაოდენობა</LocalizedString>
+					<LocalizedString Language="ro">Numărul fişierelor</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+	</Sections>
+	<VirtualFields>
+		<VirtualField Alias="FileNames" ID="443D5066-64FC-4042-A7E8-AC8885F22DC9">
+			<Name>
+				<LocalizedString Language="en">File names</LocalizedString>
+				<LocalizedString Language="ru">Имена файлов</LocalizedString>
+				<LocalizedString Language="lv">Failu nosaukumi</LocalizedString>
+				<LocalizedString Language="ka">ფაილის სახელები</LocalizedString>
+				<LocalizedString Language="ro">Denumirele fişierilor</LocalizedString>
+				<LocalizedString Language="uk">Імена файлів</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="3F8270DB-3603-463C-BA59-26B89EBB6CB5" Version="4000" Type="unistring"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="unistring"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="FileName" SectionAlias="__CardFileMain" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="URL" SectionAlias="__CardFileMain" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Concatenate" SectionAlias="Main" Delimiter="; " PrimaryKey="RowID" KeyType="uniqueid" Type="unistring" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__FileReferences" SectionID="E962AC85-0F53-4439-A1CD-171E46C3EF91" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__CardFileMain" SectionID="B4562DF8-AF19-4D0F-85CA-53A311354D39" SourceAlias="__FileReferences" SourceField="CardFileID" DestField="InstanceID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+	</VirtualFields>
+</CardDefinition>

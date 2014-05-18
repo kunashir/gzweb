@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="546E7C65-9ECD-4A76-B984-78C29BF20A22" Alias="RefBreaches" Version="9" LibraryID="7F4DC00C-886C-426F-8D72-48432BC057EA" ProgID="clsid:{3fdefe8f-482b-4974-b0a3-4dc64170de24}" Dictionary="true" NonSearchable="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\gazprom.ico" NoLockOnOpen="true" FolderCard="true" SimpleSecurity="true" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Breach of the contracts </LocalizedString>
+		<LocalizedString Language="ru">Справочник нарушений</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="Breaches" Type="coll" ID="A725EA78-1C4D-4882-B73D-D023707A51A5">
+			<Name>
+				<LocalizedString Language="en">Breaches</LocalizedString>
+				<LocalizedString Language="ru">Нарушения</LocalizedString>
+			</Name>
+			<Field Alias="Name" ID="6E3F7BB9-893A-44D5-8FDB-6A2672AAC449" Type="string" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Name</LocalizedString>
+					<LocalizedString Language="ru">Пункт ПРД</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Description" ID="D323FBAD-20C0-4E46-A6C6-A606A57E6F37" Type="string" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Description</LocalizedString>
+					<LocalizedString Language="ru">Наименование</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Duration" ID="9F8734CC-21EE-4066-AA66-45E61DD5DA4A" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Duration</LocalizedString>
+					<LocalizedString Language="ru">Кол-во дней</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="IsCalendar" ID="BA52361B-846D-4FB8-8BEE-79200C569A45" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Is calendar</LocalizedString>
+					<LocalizedString Language="ru">Календарные</LocalizedString>
+				</Name>
+			</Field>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

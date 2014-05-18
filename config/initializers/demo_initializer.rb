@@ -1,0 +1,1 @@
+User.create_demo_user

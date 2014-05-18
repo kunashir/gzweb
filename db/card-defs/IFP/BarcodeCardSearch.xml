@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="A9A78ECA-06F9-46CB-A0ED-453FC0B55A29" Alias="BarcodeCardSearch" Version="36" LibraryID="48C35AD6-06C0-46E5-929A-DDA120C5C58B" ProgID="clsid:{bb3042d6-af18-418f-98c2-c15bf7ca0840}" Dictionary="true" NonSearchable="true" IconFile="Icons\BarcodeCardSearch_small.ico" NoLockOnOpen="true" UIExtension="true" FetchMode="8" NonArchivable="true">
+	<Actions />
+	<Modes />
+	<Name>
+		<LocalizedString Language="en">Search the document by barcode</LocalizedString>
+		<LocalizedString Language="ru">Поиск документа по штрих-коду</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="main" Type="struct" ID="C9EB6629-B92C-4804-82D7-5F48113F7A31">
+			<Name>
+				<LocalizedString Language="en">main</LocalizedString>
+				<LocalizedString Language="ru">главная</LocalizedString>
+			</Name>
+			<Field Alias="Field1" ID="0B96B44C-A026-4F1E-B5F1-29C73E8F3FF2" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Field1</LocalizedString>
+					<LocalizedString Language="ru">Поле1</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Field2" ID="5FA97408-FE2A-4BD6-8376-B4D43A999DF4" Type="int" DeleteLinkedOnValueChange="false" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Field2</LocalizedString>
+					<LocalizedString Language="ru">Поле2</LocalizedString>
+				</Name>
+			</Field>
+			<SortBy>
+				<Field>Field1</Field>
+				<Field>Field2</Field>
+			</SortBy>
+			<DisplayFields>
+				<DisplayField>Field1</DisplayField>
+			</DisplayFields>
+		</Section>
+	</Sections>
+	<Transformations />
+	<VirtualFields />
+</CardDefinition>

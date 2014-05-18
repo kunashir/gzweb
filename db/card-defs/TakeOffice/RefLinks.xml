@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="38165FA6-FA69-4261-9EC3-675FEBB89C8B" Alias="RefLinks" Version="25" LibraryID="C257FEAA-7F8C-48BD-AB05-397507F88985" ProgID="clsid:{86408a47-0f9d-45c6-9388-159c9144f49c},license:kknljjhkimtirlsiuhjg" Dictionary="true" NonSearchable="true" NonCreatable="true" NonDeletable="true" IconFile="Icons\RefLinks.ico" AlwaysRead="true" ItemsSelectable="true" FetchMode="8" NonArchivable="true" DefaultSecurity="">
+	<Name>
+		<LocalizedString Language="ru">Справочник ссылок</LocalizedString>
+		<LocalizedString Language="uk">Довідник посилань</LocalizedString>
+		<LocalizedString Language="en">Link Types</LocalizedString>
+		<LocalizedString Language="lv">Saišu tipi</LocalizedString>
+		<LocalizedString Language="ka">ბმულის ტიპები</LocalizedString>
+		<LocalizedString Language="ro">Nomenclatorul referinţelor</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="LinkTypes" RowAlias="" Type="coll" ID="5C103E40-BA13-44EF-A628-E6286DC687D6" ItemsSelectable="true">
+			<Name>
+				<LocalizedString Language="en">Link Types</LocalizedString>
+				<LocalizedString Language="uk">Типи посилань</LocalizedString>
+				<LocalizedString Language="ru">Типы ссылок</LocalizedString>
+				<LocalizedString Language="lv">Saišu tipi</LocalizedString>
+				<LocalizedString Language="ka">ბმულის ტიპები</LocalizedString>
+				<LocalizedString Language="ro">Tipurile referinţelor</LocalizedString>
+			</Name>
+			<Field Alias="LinkName" ID="3FD27BC4-91FB-4C3A-A5DF-46817D980BAF" Type="unistring" Max="128" NotNull="true" DefaultValue="" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Link Name</LocalizedString>
+					<LocalizedString Language="uk">Назва посилання</LocalizedString>
+					<LocalizedString Language="ru">Название ссылки</LocalizedString>
+					<LocalizedString Language="lv">Saites nosaukums</LocalizedString>
+					<LocalizedString Language="ka">ბმულის სახელი</LocalizedString>
+					<LocalizedString Language="ro">Denumirea referinţei</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="OppositeLinkName" ID="8BBAAB43-D631-4EF1-8923-D2ACF6FF7BA1" Type="unistring" Max="128" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">OppositeLinkName</LocalizedString>
+					<LocalizedString Language="uk">Назва зворотнього посилання</LocalizedString>
+					<LocalizedString Language="ru">Название обратной ссылки</LocalizedString>
+					<LocalizedString Language="lv">Pretējas saites nosaukums</LocalizedString>
+					<LocalizedString Language="ka">საპირისპირო ბმულის სახელი</LocalizedString>
+					<LocalizedString Language="ro">Denumirea referinţei inverse</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="SyncTag" ID="78B4AB30-7C12-4327-BFAC-96166FDB0DF9" Type="unistring" Max="256" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Synchronization Tag</LocalizedString>
+					<LocalizedString Language="uk">Поле синхронізації</LocalizedString>
+					<LocalizedString Language="ru">Поле синхронизации</LocalizedString>
+					<LocalizedString Language="lv">Sinhronizācijas tags</LocalizedString>
+					<LocalizedString Language="ka">სინქრონიზაციის ტეგი</LocalizedString>
+					<LocalizedString Language="ro">Cîmpul sincronizării</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="IncomingName" ID="C6B5E43E-025C-4004-9BB2-A720850B7B15" Type="unistring" Max="256" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Incoming name</LocalizedString>
+					<LocalizedString Language="ru">Тема входящего</LocalizedString>
+					<LocalizedString Language="lv">Saņemtā dokumenta nosaukums</LocalizedString>
+					<LocalizedString Language="ka">შემოსული დოკუმენტის თემა</LocalizedString>
+					<LocalizedString Language="ro">Tema intrărilor</LocalizedString>
+					<LocalizedString Language="uk">Вхідні імена</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="OutgoingName" ID="885713A3-2580-4F0F-BBF4-78A17038776B" Type="unistring" Max="256" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Outgoing name</LocalizedString>
+					<LocalizedString Language="ru">Тема исходящего</LocalizedString>
+					<LocalizedString Language="lv">Nosūtāmā dok. nosaukums</LocalizedString>
+					<LocalizedString Language="ka">გამავალი სახელი</LocalizedString>
+					<LocalizedString Language="ro">Tema de ieşire</LocalizedString>
+					<LocalizedString Language="uk">Тема вихідного</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="InternalName" ID="0844E88F-EFE4-4A47-94D8-386677072E0A" Type="unistring" Max="256" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Order name</LocalizedString>
+					<LocalizedString Language="ru">Тема внутреннего</LocalizedString>
+					<LocalizedString Language="lv">Nosaukums</LocalizedString>
+					<LocalizedString Language="ka">დავალების სახელი</LocalizedString>
+					<LocalizedString Language="ro">Numele ordinii</LocalizedString>
+					<LocalizedString Language="uk">Замовлення ім'я</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="NotAvailable" ID="96EA5909-9F63-486A-9B50-483294C3A74E" Type="bool" DefaultValue="0" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Not available</LocalizedString>
+					<LocalizedString Language="ru">Не показывать при выборе</LocalizedString>
+				</Name>
+				<Description />
+			</Field>
+			<SortBy>
+				<Field>LinkName</Field>
+			</SortBy>
+			<Constraints>
+				<Constraint Type="UniqueCard">
+					<ConstraintField>LinkName</ConstraintField>
+				</Constraint>
+			</Constraints>
+			<DisplayFields FormatString="">
+				<DisplayField>LinkName</DisplayField>
+			</DisplayFields>
+		</Section>
+	</Sections>
+</CardDefinition>

@@ -1,0 +1,1197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="E724C058-B678-42FE-9C73-441705698CDB" Alias="CardUni" Version="264" LibraryID="C257FEAA-7F8C-48BD-AB05-397507F88985" ProgID="clsid:{70ee36c0-a013-48f2-8504-f822e8db751f},license:woulwpqolnjouq" IconFile="Icons\CardUni.ico" Copyable="true" CanBeTemplate="true" FetchMode="1" SimpleSecurity="true" DefaultSecurity="">
+	<Actions>
+		<Action ID="016D90E6-EC47-4EFD-A4A7-7D57ED00381C" Alias="OpenCard">
+			<Name>
+				<LocalizedString Language="en">Open card</LocalizedString>
+				<LocalizedString Language="ru">Открыть карточку</LocalizedString>
+				<LocalizedString Language="lv">Atvērt kartiņu</LocalizedString>
+				<LocalizedString Language="ka">ბარათის გახსნა</LocalizedString>
+				<LocalizedString Language="ro">Deschiderea fişei</LocalizedString>
+				<LocalizedString Language="uk">Відкрити картку</LocalizedString>
+			</Name>
+		</Action>
+	</Actions>
+	<Modes>
+		<Mode ID="B6752FF8-CB5B-4D63-9D32-A406ED0938C1" Alias="OpenCard">
+			<Name>
+				<LocalizedString Language="en">Open card</LocalizedString>
+				<LocalizedString Language="ru">Открыть карточку</LocalizedString>
+				<LocalizedString Language="lv">Atvērt kartiņu</LocalizedString>
+				<LocalizedString Language="ka">ბარათის გახსნა</LocalizedString>
+				<LocalizedString Language="ro">Deschiderea fişei</LocalizedString>
+				<LocalizedString Language="uk">Відкрити картку</LocalizedString>
+			</Name>
+		</Mode>
+	</Modes>
+	<Name>
+		<LocalizedString Language="en">Universal document</LocalizedString>
+		<LocalizedString Language="ru">Универсальный документ</LocalizedString>
+		<LocalizedString Language="lv">Universāls dokuments</LocalizedString>
+		<LocalizedString Language="ka">უნივერსალური დოკუმენტი</LocalizedString>
+		<LocalizedString Language="ro">Document universal</LocalizedString>
+		<LocalizedString Language="uk">Універсальний документ</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="MainInfo" Type="struct" ID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">General Information</LocalizedString>
+				<LocalizedString Language="uk">Загальна інформація</LocalizedString>
+				<LocalizedString Language="ru">Основная информация</LocalizedString>
+				<LocalizedString Language="lv">Pamatinformācija</LocalizedString>
+				<LocalizedString Language="ka">ძირითადი ინფორმაცია</LocalizedString>
+				<LocalizedString Language="ro">Informaţia de bază</LocalizedString>
+			</Name>
+			<Field Alias="Name" ID="9CDCB38E-B6DA-4B13-84DD-908532569562" Type="unistring" Max="512" NotNull="true" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Document Name</LocalizedString>
+					<LocalizedString Language="uk">Назва документа</LocalizedString>
+					<LocalizedString Language="ru">Тема документа</LocalizedString>
+					<LocalizedString Language="lv">Kartiņas nosaukums</LocalizedString>
+					<LocalizedString Language="ka">დოკუმენტის სახელი</LocalizedString>
+					<LocalizedString Language="ro">Tema documentului</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Type" ID="AB5A47BE-9174-4988-B39B-5FFA2E994515" Type="refid" RefType="BE14D55D-92B7-4345-AD10-32588981F83D" RefSection="49AD5A2D-17EC-46E2-A49E-C58D0BBD9C1A" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Document Type</LocalizedString>
+					<LocalizedString Language="uk">Тип документа</LocalizedString>
+					<LocalizedString Language="ru">Вид документа</LocalizedString>
+					<LocalizedString Language="lv">Dokumenta tips</LocalizedString>
+					<LocalizedString Language="ka">დოკუმენტის ტიპი</LocalizedString>
+					<LocalizedString Language="ro">Tipul documentului</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="DocType_Name" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="DocState" ID="C9E7CB83-22C0-413E-BF42-386E29FFDF87" Type="refid" RefType="BE14D55D-92B7-4345-AD10-32588981F83D" RefSection="49AD5A2D-17EC-46E2-A49E-C58D0BBD9C1A" DefaultValue="" ShownInUI="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="ru">Состояние документа</LocalizedString>
+					<LocalizedString Language="uk">Державний документ</LocalizedString>
+					<LocalizedString Language="en">Document state</LocalizedString>
+					<LocalizedString Language="lv">Kartiņas stāvoklis</LocalizedString>
+					<LocalizedString Language="ka">დოკუმენტის მდგომარეობა</LocalizedString>
+					<LocalizedString Language="ro">Starea documentului</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="StateName" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="FilesID" ID="F71B8F76-BE1E-4B8B-BDFB-1E81CD71B6B8" Type="refcardid" RefType="BFC9D190-BCD6-411A-B9F9-3160D3F68819" RefSection="3F8270DB-3603-463C-BA59-26B89EBB6CB5" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+				<Name>
+					<LocalizedString Language="en">Files</LocalizedString>
+					<LocalizedString Language="uk">Файли</LocalizedString>
+					<LocalizedString Language="ru">Список файлов</LocalizedString>
+					<LocalizedString Language="lv">Faili</LocalizedString>
+					<LocalizedString Language="ka">ფაილები</LocalizedString>
+					<LocalizedString Language="ro">Fişiere</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="BarcodeNumber" ID="2690BE44-8438-4A10-B454-20C27D3BFA6D" Type="string" Max="32" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Barcode number</LocalizedString>
+					<LocalizedString Language="ru">Номер штрих-кода</LocalizedString>
+					<LocalizedString Language="lv">Svītrkoda numurs</LocalizedString>
+					<LocalizedString Language="ka">შტრიხ-კოდის რიცხვი</LocalizedString>
+					<LocalizedString Language="ro">Numărul bar-codului</LocalizedString>
+					<LocalizedString Language="uk">Номер штрих-коду</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ParentCardID" ID="1D67ACD8-F97E-4D59-8454-8C4738720852" Type="refcardid" DefaultValue="" RefKind="Weak" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Parent card ID</LocalizedString>
+					<LocalizedString Language="uk">Головна ID картка</LocalizedString>
+					<LocalizedString Language="ru">Родительская карточка (ID)</LocalizedString>
+					<LocalizedString Language="lv">Sākotnējās kartiņas ID</LocalizedString>
+					<LocalizedString Language="ka">მშობელი ბარათის იდენტიფიკატორი</LocalizedString>
+					<LocalizedString Language="ro">Fişa principală</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="PropsAsForm" ID="250D230D-5187-4CF5-8686-B72A69D46399" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Properties as form</LocalizedString>
+					<LocalizedString Language="uk">Властивості в режимі форми</LocalizedString>
+					<LocalizedString Language="ru">Свойства в режиме формы</LocalizedString>
+					<LocalizedString Language="lv">Rekvizīti formas režīmā</LocalizedString>
+					<LocalizedString Language="ka">თვისებები ფორმის რეჟიმში</LocalizedString>
+					<LocalizedString Language="ro">Proprietăţi în regimul formei</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+		<Section Alias="CardReferences" Type="coll" ID="EF30744A-7A2C-4ADC-B275-28FF3C57E754" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Card References</LocalizedString>
+				<LocalizedString Language="uk">Посилання на картки</LocalizedString>
+				<LocalizedString Language="ru">Ссылки на карточки</LocalizedString>
+				<LocalizedString Language="lv">Kartiņas atsauces</LocalizedString>
+				<LocalizedString Language="ka">კავშირები ბარათზე</LocalizedString>
+				<LocalizedString Language="ro">Referinţe la fişe</LocalizedString>
+			</Name>
+			<Field Alias="Type" ID="7FBC3FD6-89B7-416D-B166-DD9B7A19B218" Type="refid" RefType="38165FA6-FA69-4261-9EC3-675FEBB89C8B" RefSection="5C103E40-BA13-44EF-A628-E6286DC687D6" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Link Type</LocalizedString>
+					<LocalizedString Language="uk">Тип посилання</LocalizedString>
+					<LocalizedString Language="ru">Тип ссылки</LocalizedString>
+					<LocalizedString Language="lv">Saites tips</LocalizedString>
+					<LocalizedString Language="ka">ბმულის ტიპი</LocalizedString>
+					<LocalizedString Language="ro">Tipul referinţei</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="" SysField="false">LinkName</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="Link" ID="C1ECD20C-CE2F-49F0-915E-2A1719B509B0" Type="refcardid" DefaultValue="" RefKind="Auto" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Card</LocalizedString>
+					<LocalizedString Language="uk">Картка</LocalizedString>
+					<LocalizedString Language="ru">Карточка</LocalizedString>
+					<LocalizedString Language="lv">Kartiņa</LocalizedString>
+					<LocalizedString Language="ka">ბარათი</LocalizedString>
+					<LocalizedString Language="ro">Fişa</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="" SysField="true">Description</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="Comments" ID="8E657D4B-8595-462F-9CC7-EFDED6B05B9D" Type="unistring" Max="2048" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Comments</LocalizedString>
+					<LocalizedString Language="uk">Коментарі</LocalizedString>
+					<LocalizedString Language="ru">Комментарии</LocalizedString>
+					<LocalizedString Language="lv">Komentāri</LocalizedString>
+					<LocalizedString Language="ka">კომენტარები</LocalizedString>
+					<LocalizedString Language="ro">Comentarii</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CreationDate" ID="EA5DF7DA-BF69-46F2-9F88-D375B88B28D1" Type="datetime" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Creation Date</LocalizedString>
+					<LocalizedString Language="uk">Дата створення</LocalizedString>
+					<LocalizedString Language="ru">Дата создания</LocalizedString>
+					<LocalizedString Language="lv">Izveides datums</LocalizedString>
+					<LocalizedString Language="ka">შექმნის თარიღი</LocalizedString>
+					<LocalizedString Language="ro">Data de creare</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CreatedBy" ID="5C5CD995-D5F8-4C4F-833F-04D99FDEAB81" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Creator</LocalizedString>
+					<LocalizedString Language="uk">Розробник</LocalizedString>
+					<LocalizedString Language="ru">Кем добавлена</LocalizedString>
+					<LocalizedString Language="lv">Izveidotājs</LocalizedString>
+					<LocalizedString Language="ka">შემქნელი</LocalizedString>
+					<LocalizedString Language="ro">Adăugat de</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="Create_FName" SysField="false">FirstName</RefField>
+					<RefField Alias="Create_MName" SysField="false">MiddleName</RefField>
+					<RefField Alias="Create_LName" SysField="false">LastName</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="URL" ID="5231A4E1-488E-411B-A97E-662AEBA13BAF" Type="unistring" Max="512" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">URL</LocalizedString>
+					<LocalizedString Language="uk">URL</LocalizedString>
+					<LocalizedString Language="ru">URL</LocalizedString>
+					<LocalizedString Language="lv">URL</LocalizedString>
+					<LocalizedString Language="ka">ვებ მისამართი</LocalizedString>
+					<LocalizedString Language="ro">Referinţa URL la obiect</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="LinkDesc" ID="3A981EE4-D16E-4D39-BC28-C85D52A0E744" Type="unistring" Max="32" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Description</LocalizedString>
+					<LocalizedString Language="uk">Опис</LocalizedString>
+					<LocalizedString Language="ru">Описание</LocalizedString>
+					<LocalizedString Language="lv">Apraksts</LocalizedString>
+					<LocalizedString Language="ka">აღწერილობა</LocalizedString>
+					<LocalizedString Language="ro">Descrierea</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FolderID" ID="B7175406-4A0B-4E19-BC8D-C8CA444B1D0A" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Folder</LocalizedString>
+					<LocalizedString Language="ru">Папка</LocalizedString>
+					<LocalizedString Language="lv">Mape</LocalizedString>
+					<LocalizedString Language="ka">საქაღალდე</LocalizedString>
+					<LocalizedString Language="ro">Mapa</LocalizedString>
+					<LocalizedString Language="uk">Папка</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+		<Section Alias="Properties" Type="coll" ID="D25F1089-C63D-43E1-9FA4-864C48EECCB4" ContainsProperties="true" PropName="Name" PropValue="Value" PropDispValue="DisplayValue" SimpleSecurity="true" PropType="ParamType">
+			<Name>
+				<LocalizedString Language="en">Properties</LocalizedString>
+				<LocalizedString Language="uk">Властивості …</LocalizedString>
+				<LocalizedString Language="ru">Свойства</LocalizedString>
+				<LocalizedString Language="lv">Rekvizīti</LocalizedString>
+				<LocalizedString Language="ka">თვისებები</LocalizedString>
+				<LocalizedString Language="ro">Proprietăţi</LocalizedString>
+			</Name>
+			<Field Alias="Name" ID="0B52C27A-CF04-43D7-9DEB-C63BC845708D" Type="unistring" Max="128" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Property Name</LocalizedString>
+					<LocalizedString Language="uk">Назва властивості</LocalizedString>
+					<LocalizedString Language="ru">Название свойства</LocalizedString>
+					<LocalizedString Language="lv">Rekvizīta nosaukums</LocalizedString>
+					<LocalizedString Language="ka">თვისების სახელი</LocalizedString>
+					<LocalizedString Language="ro">Denumirea proprietăţii</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Value" ID="0A8B0A71-92A1-4BF0-9A37-6DACB7E85FB3" Type="variant" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Property Value</LocalizedString>
+					<LocalizedString Language="uk">Значення властивості</LocalizedString>
+					<LocalizedString Language="ru">Значение свойства</LocalizedString>
+					<LocalizedString Language="lv">Rekvizīta vērtība</LocalizedString>
+					<LocalizedString Language="ka">თვისების მნიშვნელობა</LocalizedString>
+					<LocalizedString Language="ro">Valoarea proprietăţii</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="WriteToCard" ID="93FEB4DC-3B34-4433-81B0-9BB42C7AF5EF" Type="bool" DefaultValue="1" SuppressSearch="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Write to card</LocalizedString>
+					<LocalizedString Language="uk">Записувати в картку</LocalizedString>
+					<LocalizedString Language="ru">Записывать в карточку</LocalizedString>
+					<LocalizedString Language="lv">Rakstīt kartiņā</LocalizedString>
+					<LocalizedString Language="ka">ბარათზე ჩაწერა</LocalizedString>
+					<LocalizedString Language="ro">A înscrie în fişă</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Order" ID="4F5068C3-05EB-40F7-B2F5-1FBFF018E349" Type="int" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Order</LocalizedString>
+					<LocalizedString Language="uk">Замовлення</LocalizedString>
+					<LocalizedString Language="ru">Порядковый номер</LocalizedString>
+					<LocalizedString Language="lv">Kārtība:</LocalizedString>
+					<LocalizedString Language="ka">წესი</LocalizedString>
+					<LocalizedString Language="ro">Ordine</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ParamType" ID="CF9AEA76-9F6D-495A-A8C3-50ADE1A1C541" Type="enum" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Property type</LocalizedString>
+					<LocalizedString Language="uk">Тип властивості</LocalizedString>
+					<LocalizedString Language="ru">Тип свойства</LocalizedString>
+					<LocalizedString Language="lv">Rekvizīta tips</LocalizedString>
+					<LocalizedString Language="ka">თვისების ტიპი</LocalizedString>
+					<LocalizedString Language="ro">Tipul proprietăţii</LocalizedString>
+				</Name>
+				<Enum Alias="String" Value="0">
+					<Name>
+						<LocalizedString Language="en">String</LocalizedString>
+						<LocalizedString Language="uk">Рядок</LocalizedString>
+						<LocalizedString Language="ru">Строка</LocalizedString>
+						<LocalizedString Language="lv">Virkne</LocalizedString>
+						<LocalizedString Language="ka">სტრიქონი</LocalizedString>
+						<LocalizedString Language="ro">Şir</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Integer" Value="1">
+					<Name>
+						<LocalizedString Language="en">Integer</LocalizedString>
+						<LocalizedString Language="uk">Ціле число</LocalizedString>
+						<LocalizedString Language="ru">Целое число</LocalizedString>
+						<LocalizedString Language="lv">Vesels skaitlis</LocalizedString>
+						<LocalizedString Language="ka">მთელი რიცხვი</LocalizedString>
+						<LocalizedString Language="ro">Număr întreg</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Double" Value="2">
+					<Name>
+						<LocalizedString Language="en">Double</LocalizedString>
+						<LocalizedString Language="uk">Подвійний</LocalizedString>
+						<LocalizedString Language="ru">Дробное число</LocalizedString>
+						<LocalizedString Language="lv">Decimāls</LocalizedString>
+						<LocalizedString Language="ka">ორმაგი</LocalizedString>
+						<LocalizedString Language="ro">Număr fracţionar</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="DateTime" Value="3">
+					<Name>
+						<LocalizedString Language="en">Date / Time</LocalizedString>
+						<LocalizedString Language="uk">Дата / Час</LocalizedString>
+						<LocalizedString Language="ru">Дата / Время</LocalizedString>
+						<LocalizedString Language="lv">Datums/ Laiks</LocalizedString>
+						<LocalizedString Language="ka">თარიღი / დრო</LocalizedString>
+						<LocalizedString Language="ro">Data / Timpul</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Boolean" Value="4">
+					<Name>
+						<LocalizedString Language="en">Yes / No</LocalizedString>
+						<LocalizedString Language="uk">Так / Ні</LocalizedString>
+						<LocalizedString Language="ru">Да / Нет</LocalizedString>
+						<LocalizedString Language="lv">Jā / Nē</LocalizedString>
+						<LocalizedString Language="ka">დიახ / არა</LocalizedString>
+						<LocalizedString Language="ro">Da / Nu</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Employee" Value="5">
+					<Name>
+						<LocalizedString Language="en">Employee</LocalizedString>
+						<LocalizedString Language="uk">Співробітник</LocalizedString>
+						<LocalizedString Language="ru">Сотрудник</LocalizedString>
+						<LocalizedString Language="lv">Darbinieks</LocalizedString>
+						<LocalizedString Language="ka">თანამშრომელი</LocalizedString>
+						<LocalizedString Language="ro">Colaborator</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Department" Value="6">
+					<Name>
+						<LocalizedString Language="en">Department</LocalizedString>
+						<LocalizedString Language="uk">Департамент</LocalizedString>
+						<LocalizedString Language="ru">Подразделение</LocalizedString>
+						<LocalizedString Language="lv">Departaments</LocalizedString>
+						<LocalizedString Language="ka">განყოფილება</LocalizedString>
+						<LocalizedString Language="ro">Subdiviziune</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Group" Value="7">
+					<Name>
+						<LocalizedString Language="en">Group</LocalizedString>
+						<LocalizedString Language="uk">Група</LocalizedString>
+						<LocalizedString Language="ru">Группа</LocalizedString>
+						<LocalizedString Language="lv">Grupa</LocalizedString>
+						<LocalizedString Language="ka">ჯგუფი</LocalizedString>
+						<LocalizedString Language="ro">Grupul</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Role" Value="8">
+					<Name>
+						<LocalizedString Language="en">Role</LocalizedString>
+						<LocalizedString Language="uk">Роль</LocalizedString>
+						<LocalizedString Language="ru">Роль</LocalizedString>
+						<LocalizedString Language="lv">Loma</LocalizedString>
+						<LocalizedString Language="ka">როლი</LocalizedString>
+						<LocalizedString Language="ro">Rolul</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Universal" Value="9">
+					<Name>
+						<LocalizedString Language="en">Universal</LocalizedString>
+						<LocalizedString Language="uk">Універсальне</LocalizedString>
+						<LocalizedString Language="ru">Универсальное</LocalizedString>
+						<LocalizedString Language="lv">Universāls</LocalizedString>
+						<LocalizedString Language="ka">უნივერსალური</LocalizedString>
+						<LocalizedString Language="ro">Universal</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="PartnerEmployee" Value="10">
+					<Name>
+						<LocalizedString Language="en">Partner employee</LocalizedString>
+						<LocalizedString Language="ru">Контрагент</LocalizedString>
+						<LocalizedString Language="uk">Контрагент співробітника</LocalizedString>
+						<LocalizedString Language="lv">Partnera darbinieks</LocalizedString>
+						<LocalizedString Language="ka">პარტნიორის თანამშრომელი</LocalizedString>
+						<LocalizedString Language="ro">Contractant</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="PartnerDepartment" Value="11">
+					<Name>
+						<LocalizedString Language="en">Partner department</LocalizedString>
+						<LocalizedString Language="ru">Подразделение контрагента</LocalizedString>
+						<LocalizedString Language="uk">Партнер відділу</LocalizedString>
+						<LocalizedString Language="lv">Partnera departaments</LocalizedString>
+						<LocalizedString Language="ka">პარტნიორი ქვეგანყოფილება</LocalizedString>
+						<LocalizedString Language="ro">Subdiviziunea contractantului</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="CardRef" Value="12">
+					<Name>
+						<LocalizedString Language="en">Card reference</LocalizedString>
+						<LocalizedString Language="ru">Карточка</LocalizedString>
+						<LocalizedString Language="lv">Kartiņas atsauces</LocalizedString>
+						<LocalizedString Language="ka">კავშირი ბარათზე</LocalizedString>
+						<LocalizedString Language="ro">Referinţă la fişă</LocalizedString>
+						<LocalizedString Language="uk">Посилання на картку</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="CardType" Value="13">
+					<Name>
+						<LocalizedString Language="en">Card type</LocalizedString>
+						<LocalizedString Language="ru">Вид документа</LocalizedString>
+						<LocalizedString Language="lv">Kartiņas tips</LocalizedString>
+						<LocalizedString Language="ka">ბარათის ტიპი</LocalizedString>
+						<LocalizedString Language="ro">Tipul fişei</LocalizedString>
+						<LocalizedString Language="uk">Тип картки</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="CardState" Value="14">
+					<Name>
+						<LocalizedString Language="en">Card state</LocalizedString>
+						<LocalizedString Language="ru">Состояние документа</LocalizedString>
+						<LocalizedString Language="lv">Kartiņas stāvoklis</LocalizedString>
+						<LocalizedString Language="ka">ბარათის მდგომარეობა</LocalizedString>
+						<LocalizedString Language="ro">Starea documentului</LocalizedString>
+						<LocalizedString Language="uk">Стан картки</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="GateVariable" Value="15">
+					<Name>
+						<LocalizedString Language="en">Gate variable</LocalizedString>
+						<LocalizedString Language="ru">Переменная шлюза</LocalizedString>
+						<LocalizedString Language="lv">Vārtejas mainīgais</LocalizedString>
+						<LocalizedString Language="ka">კარიბჭის ცვლადი</LocalizedString>
+						<LocalizedString Language="ro">Variabila ecluzei</LocalizedString>
+						<LocalizedString Language="uk">Змінна шлюзу</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Enum" Value="16">
+					<Name>
+						<LocalizedString Language="en">Enum</LocalizedString>
+						<LocalizedString Language="ru">Перечисление</LocalizedString>
+						<LocalizedString Language="lv">Izvēlne</LocalizedString>
+						<LocalizedString Language="ka">ჩამონათვალი</LocalizedString>
+						<LocalizedString Language="ro">Enumerare</LocalizedString>
+						<LocalizedString Language="uk">Перелік</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Date" Value="17">
+					<Name>
+						<LocalizedString Language="en">Date</LocalizedString>
+						<LocalizedString Language="ru">Дата</LocalizedString>
+						<LocalizedString Language="lv">Datums</LocalizedString>
+						<LocalizedString Language="ka">თარიღი</LocalizedString>
+						<LocalizedString Language="ro">Data</LocalizedString>
+						<LocalizedString Language="uk">Дата</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Time" Value="18">
+					<Name>
+						<LocalizedString Language="en">Time</LocalizedString>
+						<LocalizedString Language="ru">Время</LocalizedString>
+						<LocalizedString Language="lv">Laiks</LocalizedString>
+						<LocalizedString Language="ka">დრო</LocalizedString>
+						<LocalizedString Language="ro">Timpul</LocalizedString>
+						<LocalizedString Language="uk">Час</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Button" Value="19">
+					<Name>
+						<LocalizedString Language="en">Button</LocalizedString>
+						<LocalizedString Language="ru">Кнопка</LocalizedString>
+						<LocalizedString Language="lv">Poga</LocalizedString>
+						<LocalizedString Language="ka">ღილაკი</LocalizedString>
+						<LocalizedString Language="ro">Valoare</LocalizedString>
+						<LocalizedString Language="uk">Кнопка</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Numerator" Value="20">
+					<Name>
+						<LocalizedString Language="en">Numerator</LocalizedString>
+						<LocalizedString Language="ru">Нумератор</LocalizedString>
+						<LocalizedString Language="lv">Numerators</LocalizedString>
+						<LocalizedString Language="ka">ნუმერატორი</LocalizedString>
+						<LocalizedString Language="ro">Numărător</LocalizedString>
+						<LocalizedString Language="uk">Чисельник</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Image" Value="21">
+					<Name>
+						<LocalizedString Language="en">Image</LocalizedString>
+						<LocalizedString Language="ru">Картинка</LocalizedString>
+						<LocalizedString Language="lv">Attēls</LocalizedString>
+						<LocalizedString Language="ka">სურათი</LocalizedString>
+						<LocalizedString Language="ro">Imagine </LocalizedString>
+						<LocalizedString Language="uk">Зображення</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="Folder" Value="22">
+					<Name>
+						<LocalizedString Language="en">Folder</LocalizedString>
+						<LocalizedString Language="ru">Папка</LocalizedString>
+						<LocalizedString Language="lv">Mape</LocalizedString>
+						<LocalizedString Language="ka">საქაღალდე</LocalizedString>
+						<LocalizedString Language="ro">Mapa</LocalizedString>
+						<LocalizedString Language="uk">Папка</LocalizedString>
+					</Name>
+				</Enum>
+				<Enum Alias="UniversalType" Value="23">
+					<Name>
+						<LocalizedString Language="en">Universal type</LocalizedString>
+						<LocalizedString Language="ru">Тип записи универсального справочника</LocalizedString>
+						<LocalizedString Language="lv">Universālās vienības tips</LocalizedString>
+						<LocalizedString Language="ka">უნივერსალური ცნობარის ჩანაწერთა ტიპი</LocalizedString>
+						<LocalizedString Language="ro">Tipul universal </LocalizedString>
+						<LocalizedString Language="uk">Тип запису універсального довідника</LocalizedString>
+					</Name>
+				</Enum>
+			</Field>
+			<Field Alias="ItemType" ID="F8D8F16B-4C17-4AD3-B2B3-ACA4030D7FA7" Type="refid" RefType="B2A438B7-8BB3-4B13-AF6E-F2F8996E148B" RefSection="5E3ED23A-2B5E-47F2-887C-E154ACEAFB97" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Item type</LocalizedString>
+					<LocalizedString Language="uk">Тип запису універсального довідника</LocalizedString>
+					<LocalizedString Language="ru">Тип записи универсального справочника</LocalizedString>
+					<LocalizedString Language="lv">Vienības tips</LocalizedString>
+					<LocalizedString Language="ka">ელემენტის ტიპი</LocalizedString>
+					<LocalizedString Language="ro">Tipul elementului</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ParentProp" ID="A33BFB0A-1A31-40B0-A612-36393F744C5A" Type="refid" RefType="C1FED883-08DE-420F-8FB4-C16CEFFC1630" RefSection="B822D7D1-2280-4B51-AE58-A1CF757C5672" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Parent property</LocalizedString>
+					<LocalizedString Language="uk">Головна властивість</LocalizedString>
+					<LocalizedString Language="ru">Родительское свойство</LocalizedString>
+					<LocalizedString Language="lv">Sākotnējais rekvizīts</LocalizedString>
+					<LocalizedString Language="ka">მშობელის თვისება</LocalizedString>
+					<LocalizedString Language="ro">Proprietatea principală</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ParentFieldName" ID="4546D368-6983-4234-A843-D67A664D6853" Type="string" Max="128" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Parent field name</LocalizedString>
+					<LocalizedString Language="uk">Ім'я головного поля</LocalizedString>
+					<LocalizedString Language="ru">Имя родительского поля</LocalizedString>
+					<LocalizedString Language="lv">Sākotnējā lauka nosaukums</LocalizedString>
+					<LocalizedString Language="ka">მშობელი ველის სახელი</LocalizedString>
+					<LocalizedString Language="ro">Numele cîmpului principal</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="DisplayValue" ID="B8F09207-2C63-4567-BECE-DC9C2F1E1B38" Type="unistring" Max="1900" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Display value</LocalizedString>
+					<LocalizedString Language="uk">Показати вартість</LocalizedString>
+					<LocalizedString Language="ru">Отображаемое значение</LocalizedString>
+					<LocalizedString Language="lv">Attēlot vērtību</LocalizedString>
+					<LocalizedString Language="ka">მნიშვნელობის ჩვენება</LocalizedString>
+					<LocalizedString Language="ro">Valoarea afişată</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ReadOnly" ID="2B1D591E-08F9-4689-BC9B-576CA63AA441" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Read-only</LocalizedString>
+					<LocalizedString Language="ru">Только для чтения</LocalizedString>
+					<LocalizedString Language="uk">Тільки для читання</LocalizedString>
+					<LocalizedString Language="lv">Tikai lasīt</LocalizedString>
+					<LocalizedString Language="ka">მხოლოდ წაკითხვადი</LocalizedString>
+					<LocalizedString Language="ro">Doar pentru citire</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="CreationReadOnly" ID="3DC02FBA-277D-4183-9427-43AB083DBA04" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Creation read-only</LocalizedString>
+					<LocalizedString Language="ru">Только для чтения при создании</LocalizedString>
+					<LocalizedString Language="lv">Izveides laikā lasīšanas režīmā </LocalizedString>
+					<LocalizedString Language="ka">მხოლოდ წაკითხვადის შექმნა</LocalizedString>
+					<LocalizedString Language="ro">Doar pentru citire din momentul creării</LocalizedString>
+					<LocalizedString Language="uk">Створення тільки для читання</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Required" ID="EF36F6BF-1A85-42DE-B8ED-2887C8D35A21" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Required</LocalizedString>
+					<LocalizedString Language="ru">Обязательное</LocalizedString>
+					<LocalizedString Language="uk">Обов'язкове</LocalizedString>
+					<LocalizedString Language="lv">Pieprasīts</LocalizedString>
+					<LocalizedString Language="ka">სავალდებულო</LocalizedString>
+					<LocalizedString Language="ro">Necesar</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="GateID" ID="C46F4D91-6017-4F66-987F-55B7CC5F8062" Type="uniqueid" RefType="C1887469-3D28-4EC6-84BD-7CAEA7607F0C" RefSection="42B598D5-B3F4-4349-B0E8-874EDB737ABE" DefaultValue="" SuppressSearch="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Gate</LocalizedString>
+					<LocalizedString Language="ru">Шлюз</LocalizedString>
+					<LocalizedString Language="lv">Vārteja</LocalizedString>
+					<LocalizedString Language="ka">კარიბჭე</LocalizedString>
+					<LocalizedString Language="ro">Ecluză</LocalizedString>
+					<LocalizedString Language="uk">Шлюз</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="VarTypeID" ID="5194D8DF-EDAD-4BFA-9475-7AA0C17F854D" Type="int" DefaultValue="" SuppressSearch="true" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Variable type in gate</LocalizedString>
+					<LocalizedString Language="ru">Тип переменной в шлюзе</LocalizedString>
+					<LocalizedString Language="lv">Mainīgā tips vārtejā</LocalizedString>
+					<LocalizedString Language="ka">ცვლადის ტიპი კარიბჭეში</LocalizedString>
+					<LocalizedString Language="ro">Tipul variabilei în ecluză</LocalizedString>
+					<LocalizedString Language="uk">Тип змінної в шлюзі</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Hidden" ID="44287B96-62DC-4ADE-8B57-1D50233F2F28" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Hidden</LocalizedString>
+					<LocalizedString Language="ru">Скрытое</LocalizedString>
+					<LocalizedString Language="lv">Slēpts</LocalizedString>
+					<LocalizedString Language="ka">დაფარული</LocalizedString>
+					<LocalizedString Language="ro">Ascuns</LocalizedString>
+					<LocalizedString Language="uk">Приховані</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="IsCollection" ID="C71FEE47-F4D1-4B63-BE0B-74D6B8863200" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Is collection</LocalizedString>
+					<LocalizedString Language="uk">Колекція</LocalizedString>
+					<LocalizedString Language="ru">Коллекция</LocalizedString>
+					<LocalizedString Language="lv">Kolekcija</LocalizedString>
+					<LocalizedString Language="ka">კოლექცია</LocalizedString>
+					<LocalizedString Language="ro">Colecţie</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="NumberID" ID="E51262CB-863E-4085-9FD7-8C316482F512" Type="refid" RefType="959FF5E2-7E47-4F6F-9CF6-E1E477CD01CF" RefSection="D47F2C38-6553-4864-BAFF-0BC4D3A85290" DeleteLinkedOnValueChange="true" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Number</LocalizedString>
+					<LocalizedString Language="ru">Номер</LocalizedString>
+					<LocalizedString Language="lv">Numurs</LocalizedString>
+					<LocalizedString Language="ka">ნომერი</LocalizedString>
+					<LocalizedString Language="ro">Număr</LocalizedString>
+					<LocalizedString Language="uk">Номер</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Image" ID="7E19BAD3-E623-49F9-A9CB-267F7B66CBE2" Type="image" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Image</LocalizedString>
+					<LocalizedString Language="ru">Картинка</LocalizedString>
+					<LocalizedString Language="lv">Attēls</LocalizedString>
+					<LocalizedString Language="ka">სურათი</LocalizedString>
+					<LocalizedString Language="ro">Imagine </LocalizedString>
+					<LocalizedString Language="uk">Зображення</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="TextValue" ID="614B26BC-A24D-4B86-A2E3-87038532F630" Type="unitext" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Text value</LocalizedString>
+					<LocalizedString Language="ru">Значение строки</LocalizedString>
+					<LocalizedString Language="lv">Virknes vērtība</LocalizedString>
+					<LocalizedString Language="ka">ველის მნიშვნელობა</LocalizedString>
+					<LocalizedString Language="ro">Valoarea textului</LocalizedString>
+					<LocalizedString Language="uk">Значення стрічки</LocalizedString>
+				</Name>
+			</Field>
+			<Section Alias="EnumValues" Type="coll" ID="DA4B6554-FEDF-4DE2-BFDA-4E985E21937E" SimpleSecurity="true">
+				<Name>
+					<LocalizedString Language="en">Enum values</LocalizedString>
+					<LocalizedString Language="uk">Значення переліку</LocalizedString>
+					<LocalizedString Language="ru">Значения перечисления</LocalizedString>
+					<LocalizedString Language="lv">Izvēlnes vērtības</LocalizedString>
+					<LocalizedString Language="ka">ჩამონათვალის მნიშვნელობები</LocalizedString>
+					<LocalizedString Language="ro">Valorile enumerării</LocalizedString>
+				</Name>
+				<Field Alias="ValueID" ID="1A5A2182-ACC8-4746-890E-6492F5D3C57D" Type="int" NotNull="true" DefaultValue="" SuppressSearch="true" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Value ID</LocalizedString>
+						<LocalizedString Language="uk">ID значення</LocalizedString>
+						<LocalizedString Language="ru">ID значения</LocalizedString>
+						<LocalizedString Language="lv">Vērtības ID</LocalizedString>
+						<LocalizedString Language="ka">მნიშვნელობის იდენტიფიკატორი</LocalizedString>
+						<LocalizedString Language="ro">ID valoarea</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="ValueName" ID="73419322-BB16-4225-8B71-492B3AD89EB0" Type="unistring" Max="128" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Value name</LocalizedString>
+						<LocalizedString Language="uk">Назва значення</LocalizedString>
+						<LocalizedString Language="ru">Название значения</LocalizedString>
+						<LocalizedString Language="lv">Vērtības nosaukums</LocalizedString>
+						<LocalizedString Language="ka">მნიშვნელობის სახელი</LocalizedString>
+						<LocalizedString Language="ro">Denumirea valorii</LocalizedString>
+					</Name>
+				</Field>
+				<SortBy>
+					<Field>ValueID</Field>
+				</SortBy>
+				<DisplayFields />
+			</Section>
+			<Section Alias="SelectedValues" Type="coll" ID="57F9D880-46CE-4D23-8FBE-68A654A86F75" SimpleSecurity="true">
+				<Name>
+					<LocalizedString Language="en">Selected values</LocalizedString>
+					<LocalizedString Language="uk">Вибране значення</LocalizedString>
+					<LocalizedString Language="ru">Выбранные значения</LocalizedString>
+					<LocalizedString Language="lv">Izvēlētās vērtības</LocalizedString>
+					<LocalizedString Language="ka">არჩეული მნიშვნელობები</LocalizedString>
+					<LocalizedString Language="ro">Valorile selectate</LocalizedString>
+				</Name>
+				<Field Alias="SelectedValue" ID="3C76C456-927B-431C-A3A0-60FE017AFCBD" Type="variant" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Selected value</LocalizedString>
+						<LocalizedString Language="uk">Вибране значення</LocalizedString>
+						<LocalizedString Language="ru">Выбранное значение</LocalizedString>
+						<LocalizedString Language="lv">Izvēlētā vērtība</LocalizedString>
+						<LocalizedString Language="ka">არჩეული მნიშვნელობა</LocalizedString>
+						<LocalizedString Language="ro">Valoarea selectată</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="Order" ID="664E005A-7C5C-4B3A-BA13-AB54011D2D9D" Type="int" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Order</LocalizedString>
+						<LocalizedString Language="ru">Порядок</LocalizedString>
+						<LocalizedString Language="uk">Замовлення</LocalizedString>
+						<LocalizedString Language="lv">Kārtība:</LocalizedString>
+						<LocalizedString Language="ka">წესი</LocalizedString>
+						<LocalizedString Language="ro">Ordine</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="IsResponsible" ID="FA1A85C5-CD4D-4277-A245-08DF94430807" Type="bool" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Is responsible</LocalizedString>
+						<LocalizedString Language="ru">Ответственный</LocalizedString>
+						<LocalizedString Language="lv">Atbildīgais</LocalizedString>
+						<LocalizedString Language="ka">პასუხისმგებელი</LocalizedString>
+						<LocalizedString Language="ro">Responsabil</LocalizedString>
+						<LocalizedString Language="uk">Відповідальна особа</LocalizedString>
+					</Name>
+				</Field>
+				<SortBy>
+					<Field>Order</Field>
+				</SortBy>
+				<DisplayFields />
+			</Section>
+			<SortBy>
+				<Field>Order</Field>
+			</SortBy>
+			<Constraints>
+				<Constraint Type="UniqueCard">
+					<ConstraintField>Name</ConstraintField>
+				</Constraint>
+			</Constraints>
+			<DisplayFields />
+		</Section>
+		<Section Alias="Categories" Type="coll" ID="A15C21EB-61BE-4DD9-A421-98F1DFFB8323" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Categories</LocalizedString>
+				<LocalizedString Language="uk">Категорії</LocalizedString>
+				<LocalizedString Language="ru">Категории</LocalizedString>
+				<LocalizedString Language="lv">Kategorijas</LocalizedString>
+				<LocalizedString Language="ka">კატეგორიები</LocalizedString>
+				<LocalizedString Language="ro">Categoriile</LocalizedString>
+			</Name>
+			<Field Alias="CategoryID" ID="16F98B1B-D292-4BC4-923A-D9A5D30446DD" Type="refid" NotNull="true" RefType="233CA964-5025-4187-80C1-F56BCC9DBD1E" RefSection="899C1470-9ADF-4D33-8E69-9944EB44DBE7" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="ru">Категория</LocalizedString>
+					<LocalizedString Language="uk">Категорія</LocalizedString>
+					<LocalizedString Language="en">Category</LocalizedString>
+					<LocalizedString Language="lv">Kategorija</LocalizedString>
+					<LocalizedString Language="ka">კატეგორია</LocalizedString>
+					<LocalizedString Language="ro">Categoria</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<Constraints>
+				<Constraint Type="UniqueCard">
+					<ConstraintField>CategoryID</ConstraintField>
+				</Constraint>
+			</Constraints>
+			<DisplayFields />
+		</Section>
+		<Section Alias="Resolutions" Type="coll" ID="997D01FD-F90D-4243-96B0-C6B29161C515" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Resolutions</LocalizedString>
+				<LocalizedString Language="uk">Реезолюція</LocalizedString>
+				<LocalizedString Language="ru">Задачи</LocalizedString>
+				<LocalizedString Language="lv">Rezolūcijas</LocalizedString>
+				<LocalizedString Language="ka">ამოცანები</LocalizedString>
+				<LocalizedString Language="ro">Însărcinări</LocalizedString>
+			</Name>
+			<Field Alias="ResolutionID" ID="DB450571-A678-4A10-BFFC-7EAC22654301" Type="refcardid" RefType="0056522E-FC72-48D2-8EBB-A60B838E36C9" RefSection="77C70C13-881A-4534-9704-C4F6B9ACDB0A" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+				<Name>
+					<LocalizedString Language="en">Resolution</LocalizedString>
+					<LocalizedString Language="uk">Резолюція</LocalizedString>
+					<LocalizedString Language="ru">Задача</LocalizedString>
+					<LocalizedString Language="lv">Rezolūcija</LocalizedString>
+					<LocalizedString Language="ka">ამოცანა</LocalizedString>
+					<LocalizedString Language="ro">Însărcinarea</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<DisplayFields />
+		</Section>
+		<Section Alias="Approvals" Type="coll" ID="312B571D-1CA5-400C-AE99-00B16921CF12" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Approvals</LocalizedString>
+				<LocalizedString Language="uk">Узгодження</LocalizedString>
+				<LocalizedString Language="ru">Согласования</LocalizedString>
+				<LocalizedString Language="lv">Saskaņošana</LocalizedString>
+				<LocalizedString Language="ka">თანხმობები</LocalizedString>
+				<LocalizedString Language="ro">Coordonări</LocalizedString>
+			</Name>
+			<Field Alias="ApprovalID" ID="925C298D-36F5-4B73-A70B-60DB11519A45" Type="refcardid" RefType="A231269C-6126-4C1A-9758-F55FF9571EF8" RefSection="3C2F1AC3-8D26-425F-956B-A3B0B52BAC5D" DefaultValue="" RefKind="Hard" CopyBehavior="CreateNew">
+				<Name>
+					<LocalizedString Language="en">Approval</LocalizedString>
+					<LocalizedString Language="uk">Узгодження</LocalizedString>
+					<LocalizedString Language="ru">Согласование</LocalizedString>
+					<LocalizedString Language="lv">Saskaņošana</LocalizedString>
+					<LocalizedString Language="ka">თანხმობა</LocalizedString>
+					<LocalizedString Language="ro">Coordonare</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<DisplayFields />
+		</Section>
+		<Section Alias="Processes" Type="coll" ID="1B4CDD13-862C-49DF-8587-EB785B19315F" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Business processes</LocalizedString>
+				<LocalizedString Language="ru">Бизнес-процессы</LocalizedString>
+				<LocalizedString Language="lv">Biznesa procesi</LocalizedString>
+				<LocalizedString Language="ka">ბიზნეს-პროცესები</LocalizedString>
+				<LocalizedString Language="ro">Business-procesele</LocalizedString>
+				<LocalizedString Language="uk">Бізнес-процеси</LocalizedString>
+			</Name>
+			<Field Alias="ProcessID" ID="1158CACD-8E35-4B3F-B113-39EEB0C96FEF" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" RefSection="0EF6BCCA-7A09-4027-A3A2-D2EEECA1BF4D" DefaultValue="" RefKind="Weak" CopyBehavior="CreateNew">
+				<Name>
+					<LocalizedString Language="en">Business process</LocalizedString>
+					<LocalizedString Language="ru">Бизнес-процесс</LocalizedString>
+					<LocalizedString Language="lv">Biznesa process</LocalizedString>
+					<LocalizedString Language="ka">ბიზნეს-პროცესი</LocalizedString>
+					<LocalizedString Language="ro">Business-procesul</LocalizedString>
+					<LocalizedString Language="uk">Бізнес-процес</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="IsHardLink" ID="EDE2BB1E-B730-4D03-9344-24869D2A8034" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Is hard link</LocalizedString>
+					<LocalizedString Language="ru">Жесткая ссылка на процесс</LocalizedString>
+					<LocalizedString Language="lv">Ciešā saite ar procesu</LocalizedString>
+					<LocalizedString Language="ka">მყარი ბმული</LocalizedString>
+					<LocalizedString Language="ro">Este o etichetă rigidă</LocalizedString>
+					<LocalizedString Language="uk">Є жорстким зв'язком</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ProcessFolder" ID="3063E6EC-E9A7-4CBC-A365-0503DE8F2ECA" Type="refid" RefType="DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2" RefSection="FE27631D-EEEA-4E2E-A04C-D4351282FB55" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Process folder</LocalizedString>
+					<LocalizedString Language="ru">Папка процесса</LocalizedString>
+					<LocalizedString Language="lv">Procesa mape</LocalizedString>
+					<LocalizedString Language="ka">პროცესის საქაღალდე</LocalizedString>
+					<LocalizedString Language="ro">Mapa procesului</LocalizedString>
+					<LocalizedString Language="uk">Папка процеса</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="HardProcessID" ID="5A86A3A1-3C21-490F-AF46-7C1A8054386A" Type="refcardid" RefType="AE82DD57-348C-4407-A50A-9F2C7D694DA8" RefSection="0EF6BCCA-7A09-4027-A3A2-D2EEECA1BF4D" DefaultValue="" SuppressSearch="true" RefKind="Hard" CopyBehavior="Null">
+				<Name>
+					<LocalizedString Language="en">Hard link on process</LocalizedString>
+					<LocalizedString Language="ru">Жесткая ссылка на процесс</LocalizedString>
+					<LocalizedString Language="lv">Ciešā saite ar procesu</LocalizedString>
+					<LocalizedString Language="ka">მყარი ბმული პროცესზე</LocalizedString>
+					<LocalizedString Language="ro">Referinţă rigidă la proces</LocalizedString>
+					<LocalizedString Language="uk">Жорсткі посилання на процес</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+		<Section Alias="TransferLog" Type="coll" ID="F9841C93-C4E7-48AF-90D8-DDF29D1742D3" NonCopyable="true" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Transfer log</LocalizedString>
+				<LocalizedString Language="ru">Журнал передач</LocalizedString>
+				<LocalizedString Language="lv">Pārvietošanas žurnāls</LocalizedString>
+				<LocalizedString Language="ka">გადატანის ჟურნალი</LocalizedString>
+				<LocalizedString Language="ro">Registrul transmiterilor</LocalizedString>
+				<LocalizedString Language="uk">Журнал передачі</LocalizedString>
+			</Name>
+			<Field Alias="IsReceived" ID="449E2305-ACE1-41C8-A2CA-1FCC43834C52" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Is received</LocalizedString>
+					<LocalizedString Language="ru">Принято</LocalizedString>
+					<LocalizedString Language="lv">Saņemts</LocalizedString>
+					<LocalizedString Language="ka">მიღებულია</LocalizedString>
+					<LocalizedString Language="ro">Primit</LocalizedString>
+					<LocalizedString Language="uk">особистий</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="FromEmployee" ID="0AFDDE4E-EF4E-43FC-9C84-0CFD2D6577FC" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Initiated by</LocalizedString>
+					<LocalizedString Language="ru">Инициатор действия</LocalizedString>
+					<LocalizedString Language="lv">Iniciators</LocalizedString>
+					<LocalizedString Language="ka">ინიციატორი</LocalizedString>
+					<LocalizedString Language="ro">Iniţiat de</LocalizedString>
+					<LocalizedString Language="uk">Ініційовано</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="From_LName" SysField="false">LastName</RefField>
+					<RefField Alias="From_FName" SysField="false">FirstName</RefField>
+					<RefField Alias="From_MName" SysField="false">MiddleName</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="ToEmployee" ID="E503B287-BBA4-4B9B-967A-18767D1AD5AF" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Employee</LocalizedString>
+					<LocalizedString Language="ru">Сотрудник</LocalizedString>
+					<LocalizedString Language="lv">Darbinieks</LocalizedString>
+					<LocalizedString Language="ka">თანამშრომელი</LocalizedString>
+					<LocalizedString Language="ro">Colaborator</LocalizedString>
+					<LocalizedString Language="uk">Співробітник</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="To_LName" SysField="false">LastName</RefField>
+					<RefField Alias="To_FName" SysField="false">FirstName</RefField>
+					<RefField Alias="To_MName" SysField="false">MiddleName</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="ToDepartment" ID="BB12C7B7-1C33-4B25-992B-4A594E6C5ED1" Type="refid" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="7473F07F-11ED-4762-9F1E-7FF10808DDD1" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Department</LocalizedString>
+					<LocalizedString Language="ru">Подразделение</LocalizedString>
+					<LocalizedString Language="lv">Departaments</LocalizedString>
+					<LocalizedString Language="ka">განყოფილება</LocalizedString>
+					<LocalizedString Language="ro">Subdiviziune</LocalizedString>
+					<LocalizedString Language="uk">Департамент</LocalizedString>
+				</Name>
+				<RefFields>
+					<RefField Alias="To_DepName" SysField="false">Name</RefField>
+				</RefFields>
+			</Field>
+			<Field Alias="TransferDate" ID="4CF0EF03-4CC8-4E80-80D6-90C9D25353DD" Type="datetime" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Transfer date</LocalizedString>
+					<LocalizedString Language="ru">Дата передачи</LocalizedString>
+					<LocalizedString Language="lv">Pārvietošanas datums</LocalizedString>
+					<LocalizedString Language="ka">გადატანის თარიღი</LocalizedString>
+					<LocalizedString Language="ro">Data de transmitere</LocalizedString>
+					<LocalizedString Language="uk">Дата передачі</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="IsCopy" ID="8DEF2A8F-8370-40CF-BBAC-EC16F0F80541" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Is copy</LocalizedString>
+					<LocalizedString Language="ru">Копия</LocalizedString>
+					<LocalizedString Language="lv">Kopija</LocalizedString>
+					<LocalizedString Language="ka">ასლი</LocalizedString>
+					<LocalizedString Language="ro">Copie</LocalizedString>
+					<LocalizedString Language="uk">Копія</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Comments" ID="78A7FF42-5DC7-4ADC-A826-00CF31A582CD" Type="unistring" Max="2048" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Comments</LocalizedString>
+					<LocalizedString Language="ru">Комментарии</LocalizedString>
+					<LocalizedString Language="lv">Komentāri</LocalizedString>
+					<LocalizedString Language="ka">კომენტარები</LocalizedString>
+					<LocalizedString Language="ro">Comentarii</LocalizedString>
+					<LocalizedString Language="uk">Коментарі</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+	</Sections>
+	<Transformations>
+		<Transformation ID="CFB1D925-AF2F-4704-A388-83065C5F5818" Type="XSLT" FileRef="XSLT\CardUni.xslt" Alias="PrintTemplateEn" ContentType="Text" Language="en">
+			<Name>
+				<LocalizedString Language="en">Print Template</LocalizedString>
+				<LocalizedString Language="uk">Англійський шаблон друку</LocalizedString>
+				<LocalizedString Language="ru">Английский шаблон печати</LocalizedString>
+				<LocalizedString Language="lv">Izdrukas šablons</LocalizedString>
+				<LocalizedString Language="ka">ბეჭდვის შაბლონი</LocalizedString>
+				<LocalizedString Language="ro">Imprimă Şablonul</LocalizedString>
+			</Name>
+		</Transformation>
+		<Transformation ID="6FF65AB9-24CB-4826-A576-463B81302DF3" Type="XSLT" FileRef="XSLT\CardUni.ru.xslt" Alias="PrintTemplateRu" ContentType="Text" Default="true" Language="ru">
+			<Name>
+				<LocalizedString Language="en">Russian Print Template</LocalizedString>
+				<LocalizedString Language="uk">Стандартний шаблон друку</LocalizedString>
+				<LocalizedString Language="ru">Стандартный шаблон печати</LocalizedString>
+				<LocalizedString Language="lv">Izdrukas šablons krievu valodā</LocalizedString>
+				<LocalizedString Language="ka">რუსული ამობეჭდვის შაბლონი</LocalizedString>
+				<LocalizedString Language="ro">Şablonul standard de imprimare</LocalizedString>
+			</Name>
+		</Transformation>
+	</Transformations>
+	<VirtualFields>
+		<VirtualField Alias="Categories" ID="75553B2F-146E-422F-9791-0A24E4794724">
+			<Name>
+				<LocalizedString Language="en">Categories</LocalizedString>
+				<LocalizedString Language="ru">Категории</LocalizedString>
+				<LocalizedString Language="lv">Kategorijas</LocalizedString>
+				<LocalizedString Language="ka">კატეგორიები</LocalizedString>
+				<LocalizedString Language="ro">Categoriile</LocalizedString>
+				<LocalizedString Language="uk">Категорії</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="unistring"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="unistring"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="Name" SectionAlias="__Categories2" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Concatenate" SectionAlias="Main" Delimiter="; " PrimaryKey="RowID" KeyType="uniqueid" Type="unistring" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Categories1" SectionID="A15C21EB-61BE-4DD9-A421-98F1DFFB8323" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__Categories2" SectionID="899C1470-9ADF-4D33-8E69-9944EB44DBE7" TableName="" SourceAlias="__Categories1" SourceField="CategoryID" DestField="RowID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="FilesCount" ID="3B6D8CCE-78C2-4E7F-B0A3-3089E9EC88CB">
+			<Name>
+				<LocalizedString Language="en">Files count</LocalizedString>
+				<LocalizedString Language="ru">Количество файлов</LocalizedString>
+				<LocalizedString Language="lv">Failu skaits</LocalizedString>
+				<LocalizedString Language="ka">ფაილების რაოდენობა</LocalizedString>
+				<LocalizedString Language="ro">Numărul de fişiere pentru adăugare</LocalizedString>
+				<LocalizedString Language="uk">Кількість файлів</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="int"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="int"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="SysRowTimestamp" SectionAlias="__FileReferences1" Type="int" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Count" SectionAlias="Main" Delimiter="" PrimaryKey="RowID" KeyType="uniqueid" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="References" ID="0186307B-2E14-40E1-9A5B-29084C166A4C">
+			<Name>
+				<LocalizedString Language="en">Card references</LocalizedString>
+				<LocalizedString Language="ru">Ссылки на карточки</LocalizedString>
+				<LocalizedString Language="lv">Kartiņas atsauces</LocalizedString>
+				<LocalizedString Language="ka">კავშირები ბარათზე</LocalizedString>
+				<LocalizedString Language="ro">Referinţe la fişe</LocalizedString>
+				<LocalizedString Language="uk">Посилання на картки</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="unistring"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="unistring"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="Description" SectionAlias="__Instances" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="URL" SectionAlias="__CardReferences" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="Name" SectionAlias="__Folders" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Concatenate" SectionAlias="Main" Delimiter="; " PrimaryKey="RowID" KeyType="uniqueid" Type="unistring" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__CardReferences" SectionID="EF30744A-7A2C-4ADC-B275-28FF3C57E754" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__Instances" SectionID="" TableName="dvsys_instances" SourceAlias="__CardReferences" SourceField="Link" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__Folders" SectionID="FE27631D-EEEA-4E2E-A04C-D4351282FB55" TableName="" SourceAlias="__CardReferences" SourceField="FolderID" DestField="RowID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="ParentCard" ID="95564436-F12B-45CB-ADB5-69C7E57CF8DB">
+			<Name>
+				<LocalizedString Language="en">Parent card</LocalizedString>
+				<LocalizedString Language="ru">Родительская карточка</LocalizedString>
+				<LocalizedString Language="lv">Sākotnējā kartiņa</LocalizedString>
+				<LocalizedString Language="ka">მშობელი ბარათი</LocalizedString>
+				<LocalizedString Language="ro">Fişa principală</LocalizedString>
+				<LocalizedString Language="uk">Головна карта</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="unistring"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="unistring"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="Description" SectionAlias="__Instances" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="None" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Instances" SectionID="" TableName="dvsys_instances" SourceAlias="Main" SourceField="ParentCardID" DestField="InstanceID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="ResolutionsList" ID="5C69D884-3576-4FD5-B465-2A893EC5CB20">
+			<Name>
+				<LocalizedString Language="en">Resolutions list</LocalizedString>
+				<LocalizedString Language="ru">Список задач</LocalizedString>
+				<LocalizedString Language="lv">Rezolūciju saraksts</LocalizedString>
+				<LocalizedString Language="ka">ამოცანათა სია</LocalizedString>
+				<LocalizedString Language="ro">Lista însărcinărilor</LocalizedString>
+				<LocalizedString Language="uk">Список резолюцій</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="unistring"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="unistring"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="Name" SectionAlias="__ResMainInfo" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Concatenate" SectionAlias="Main" Delimiter="; " PrimaryKey="RowID" KeyType="uniqueid" Type="unistring" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Resolutions" SectionID="997D01FD-F90D-4243-96B0-C6B29161C515" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__ResMainInfo" SectionID="77C70C13-881A-4534-9704-C4F6B9ACDB0A" SourceAlias="__Resolutions" SourceField="ResolutionID" DestField="InstanceID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="ResolutionsCount" ID="388AF8BF-0428-4841-BB88-82D5D19BDAA9">
+			<Name>
+				<LocalizedString Language="en">Resolutions count</LocalizedString>
+				<LocalizedString Language="ru">Количество задач</LocalizedString>
+				<LocalizedString Language="lv">Rezolūciju skaits</LocalizedString>
+				<LocalizedString Language="ka">ამოცანების რაოდენობა</LocalizedString>
+				<LocalizedString Language="ro">Cantitatea însărcinărilor</LocalizedString>
+				<LocalizedString Language="uk">Кількість резолюцій</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="unistring"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="int"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="SysRowTimestamp" SectionAlias="__Resolutions" Type="int" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Count" SectionAlias="Main" Delimiter="" PrimaryKey="RowID" KeyType="uniqueid" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Resolutions" SectionID="997D01FD-F90D-4243-96B0-C6B29161C515" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="ResolutionsCompleted" ID="C3FF1D83-0EE1-4E56-9B28-45221B0477DB">
+			<Name>
+				<LocalizedString Language="en">Resolutions completed</LocalizedString>
+				<LocalizedString Language="ru">Количество завершенных задач</LocalizedString>
+				<LocalizedString Language="lv">Izpildītās rezolūcijas</LocalizedString>
+				<LocalizedString Language="ka">დასრულებული ამოცანები</LocalizedString>
+				<LocalizedString Language="ro">Însarcinarea este finalizată</LocalizedString>
+				<LocalizedString Language="uk">Кількість завершених резолюцій</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="int"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="int"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="SysRowTimestamp" SectionAlias="__ResMainInfo" Type="int" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Count" SectionAlias="Main" Delimiter="" PrimaryKey="RowID" KeyType="uniqueid" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Resolutions" SectionID="997D01FD-F90D-4243-96B0-C6B29161C515" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__ResMainInfo" SectionID="77C70C13-881A-4534-9704-C4F6B9ACDB0A" SourceAlias="__Resolutions" SourceField="ResolutionID" DestField="InstanceID"&gt;&lt;ConditionGroup Operation="And"&gt;&lt;Conditions&gt;&lt;Condition Operation="EQUALS"&gt;&lt;ConditionItems&gt;&lt;ConditionItem Value="ResolutionState" SectionAlias="__ResMainInfo" /&gt;&lt;ConditionItem Value="3" Type="int" /&gt;&lt;/ConditionItems&gt;&lt;/Condition&gt;&lt;/Conditions&gt;&lt;ConditionGroups /&gt;&lt;/ConditionGroup&gt;&lt;/JoinDef&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="ResolutionsRecalled" ID="827D9B66-278C-429C-9CF1-5A1499FC7F2F">
+			<Name>
+				<LocalizedString Language="en">Resolutions recalled</LocalizedString>
+				<LocalizedString Language="ru">Количество отозванных задач</LocalizedString>
+				<LocalizedString Language="lv">Atsauktās rezolūcijas</LocalizedString>
+				<LocalizedString Language="ka">გამოხმობილი ამოცანები</LocalizedString>
+				<LocalizedString Language="ro">Însarcinari reapelate</LocalizedString>
+				<LocalizedString Language="uk">Кількість відізваних резолюцій</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="int"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="int"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="SysRowTimestamp" SectionAlias="__ResMainInfo" Type="int" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Count" SectionAlias="Main" Delimiter="" PrimaryKey="RowID" KeyType="uniqueid" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Resolutions" SectionID="997D01FD-F90D-4243-96B0-C6B29161C515" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__ResMainInfo" SectionID="77C70C13-881A-4534-9704-C4F6B9ACDB0A" SourceAlias="__Resolutions" SourceField="ResolutionID" DestField="InstanceID"&gt;&lt;ConditionGroup Operation="And"&gt;&lt;Conditions&gt;&lt;Condition Operation="EQUALS"&gt;&lt;ConditionItems&gt;&lt;ConditionItem Value="ResolutionState" SectionAlias="__ResMainInfo" /&gt;&lt;ConditionItem Value="4" Type="int" /&gt;&lt;/ConditionItems&gt;&lt;/Condition&gt;&lt;/Conditions&gt;&lt;ConditionGroups /&gt;&lt;/ConditionGroup&gt;&lt;/JoinDef&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="ResolutionsInProcess" ID="FCEDBFFC-3A1F-44BE-B8BF-7111722B34D2">
+			<Name>
+				<LocalizedString Language="en">Resolutions in process</LocalizedString>
+				<LocalizedString Language="ru">Количество незавершенных задач</LocalizedString>
+				<LocalizedString Language="lv">Neizpildītās rezolūcijas</LocalizedString>
+				<LocalizedString Language="ka">ამოცანები შესრულების პროცესში</LocalizedString>
+				<LocalizedString Language="ro">Însarcinarea este în proces</LocalizedString>
+				<LocalizedString Language="uk">Кількість незавершених резолюцій</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="int"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="int"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="SysRowTimestamp" SectionAlias="__ResMainInfo" Type="int" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Count" SectionAlias="Main" Delimiter="" PrimaryKey="RowID" KeyType="uniqueid" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Resolutions" SectionID="997D01FD-F90D-4243-96B0-C6B29161C515" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__ResMainInfo" SectionID="77C70C13-881A-4534-9704-C4F6B9ACDB0A" SourceAlias="__Resolutions" SourceField="ResolutionID" DestField="InstanceID"&gt;&lt;ConditionGroup Operation="And"&gt;&lt;Conditions&gt;&lt;Condition Operation="EQUALS"&gt;&lt;ConditionItems&gt;&lt;ConditionItem Value="ResolutionState" SectionAlias="__ResMainInfo" /&gt;&lt;ConditionItem Value="2" Type="int" /&gt;&lt;/ConditionItems&gt;&lt;/Condition&gt;&lt;/Conditions&gt;&lt;ConditionGroups /&gt;&lt;/ConditionGroup&gt;&lt;/JoinDef&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="ApprovalsList" ID="81E13D27-6473-4B0B-B0DB-0456AD88B9CF">
+			<Name>
+				<LocalizedString Language="en">Approvals list</LocalizedString>
+				<LocalizedString Language="ru">Список согласований</LocalizedString>
+				<LocalizedString Language="lv">Saskaņošanu saraksts</LocalizedString>
+				<LocalizedString Language="ka">თანხმობების ნუსხა</LocalizedString>
+				<LocalizedString Language="ro">Lista coordonărilor</LocalizedString>
+				<LocalizedString Language="uk">Список узгоджень</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="unistring"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="unistring"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="Name" SectionAlias="__AppMainInfo" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Concatenate" SectionAlias="Main" Delimiter="; " PrimaryKey="RowID" KeyType="uniqueid" Type="unistring" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Approvals" SectionID="312B571D-1CA5-400C-AE99-00B16921CF12" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__AppMainInfo" SectionID="3C2F1AC3-8D26-425F-956B-A3B0B52BAC5D" SourceAlias="__Approvals" SourceField="ApprovalID" DestField="InstanceID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="ApprovalsCount" ID="CA5676FB-A13F-45F0-8082-578BF08D99AA">
+			<Name>
+				<LocalizedString Language="en">Approvals count</LocalizedString>
+				<LocalizedString Language="ru">Количество согласований</LocalizedString>
+				<LocalizedString Language="lv">Saskaņošanu skaits</LocalizedString>
+				<LocalizedString Language="ka">თანხმობების ანგარიში</LocalizedString>
+				<LocalizedString Language="ro">Cantitatea coordonărilor</LocalizedString>
+				<LocalizedString Language="uk">Кількість узгоджень</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="int"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="int"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="SysRowTimestamp" SectionAlias="__Approvals" Type="int" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Count" SectionAlias="Main" Delimiter="" PrimaryKey="RowID" KeyType="uniqueid" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Approvals" SectionID="312B571D-1CA5-400C-AE99-00B16921CF12" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="ApprovalsCompleted" ID="94857606-A916-48F4-98F1-A4A2F9D5B437">
+			<Name>
+				<LocalizedString Language="en">Approvals completed</LocalizedString>
+				<LocalizedString Language="ru">Количество завершенных согласований</LocalizedString>
+				<LocalizedString Language="lv">Saskaņošana pabeigta</LocalizedString>
+				<LocalizedString Language="ka">დასრულებული თანხმობები</LocalizedString>
+				<LocalizedString Language="ro">Coordonari finalizare</LocalizedString>
+				<LocalizedString Language="uk">Кількість закінчених узгоджень</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="int"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="int"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="SysRowTimestamp" SectionAlias="__AppMainInfo" Type="int" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Count" SectionAlias="Main" Delimiter="" PrimaryKey="RowID" KeyType="uniqueid" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Aprovals" SectionID="312B571D-1CA5-400C-AE99-00B16921CF12" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__AppMainInfo" SectionID="3C2F1AC3-8D26-425F-956B-A3B0B52BAC5D" SourceAlias="__Aprovals" SourceField="ApprovalID" DestField="InstanceID"&gt;&lt;ConditionGroup Operation="And"&gt;&lt;Conditions&gt;&lt;Condition Operation="EQUALS"&gt;&lt;ConditionItems&gt;&lt;ConditionItem Value="DocumentState" SectionAlias="__AppMainInfo" /&gt;&lt;ConditionItem Value="3" Type="int" /&gt;&lt;/ConditionItems&gt;&lt;/Condition&gt;&lt;/Conditions&gt;&lt;ConditionGroups /&gt;&lt;/ConditionGroup&gt;&lt;/JoinDef&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="TasksList" ID="D8979FA7-F8A8-46A5-A730-D4552F6955C0">
+			<Name>
+				<LocalizedString Language="en">Resolutions task list</LocalizedString>
+				<LocalizedString Language="ru">Список заданий по задачам</LocalizedString>
+				<LocalizedString Language="lv">Rezolūciju uzdevumu saraksts</LocalizedString>
+				<LocalizedString Language="ka">ამოცანების რაოდენობა</LocalizedString>
+				<LocalizedString Language="ro">Lista însărcinărilor</LocalizedString>
+				<LocalizedString Language="uk">Список завдань по резолюціям </LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="unistring"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="unistring"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="Description" SectionAlias="__ResTasks" ProtectNull="true" Default="" Type="unistring" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Concatenate" SectionAlias="Main" Delimiter="; " PrimaryKey="RowID" KeyType="uniqueid" Type="unistring" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Resolutions" SectionID="997D01FD-F90D-4243-96B0-C6B29161C515" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__ResPerformers" SectionID="A565A4B4-446D-400B-91F0-FD23AE2A4208" SourceAlias="__Resolutions" SourceField="ResolutionID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__ResTasks" SectionID="" TableName="dvsys_instances" SourceAlias="__ResPerformers" SourceField="TaskID" DestField="InstanceID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="TasksCount" ID="7F3D2A0E-937E-4FCD-AFC5-0912FCADD7DA">
+			<Name>
+				<LocalizedString Language="en">Resolutions task count</LocalizedString>
+				<LocalizedString Language="ru">Количество заданий по задачам</LocalizedString>
+				<LocalizedString Language="lv">Rezolūciju uzdevumu skaits</LocalizedString>
+				<LocalizedString Language="ka">ამოცანების რაოდენობა</LocalizedString>
+				<LocalizedString Language="ro">Numărul Însarcinărilor la sarcini. </LocalizedString>
+				<LocalizedString Language="uk">Кількість завдань по резолюціях</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="int"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="int"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="SysRowTimestamp" SectionAlias="__TaskPerforming" Type="int" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Count" SectionAlias="Main" Delimiter="" PrimaryKey="RowID" Distinct="true" KeyType="uniqueid" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Resolutions" SectionID="997D01FD-F90D-4243-96B0-C6B29161C515" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__ResPerformers" SectionID="A565A4B4-446D-400B-91F0-FD23AE2A4208" SourceAlias="__Resolutions" SourceField="ResolutionID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__TaskPerforming" SectionID="D48E6155-C774-4205-AB70-7A67AB69DF22" SourceAlias="__ResPerformers" SourceField="TaskID" DestField="InstanceID" /&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="TasksCompleted" ID="6CC1ED27-2ABA-42FA-AB97-B37392B0EEE7">
+			<Name>
+				<LocalizedString Language="en">Resolution tasks completed</LocalizedString>
+				<LocalizedString Language="ru">Количество завершенных заданий по задачам</LocalizedString>
+				<LocalizedString Language="lv">Rezolūcijas uzdevumi ir izpildīti</LocalizedString>
+				<LocalizedString Language="ka">ბარათის ამოცანები დასრულებულია</LocalizedString>
+				<LocalizedString Language="ro">Însarcinări finalizate</LocalizedString>
+				<LocalizedString Language="uk">Кількість завершених завдань по реезолюції</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="int"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="int"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="SysRowTimestamp" SectionAlias="__TaskPerforming" Type="int" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Count" SectionAlias="Main" Delimiter="" PrimaryKey="RowID" Distinct="true" KeyType="uniqueid" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Resolutions" SectionID="997D01FD-F90D-4243-96B0-C6B29161C515" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__ResPerformers" SectionID="A565A4B4-446D-400B-91F0-FD23AE2A4208" SourceAlias="__Resolutions" SourceField="ResolutionID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__TaskPerforming" SectionID="D48E6155-C774-4205-AB70-7A67AB69DF22" SourceAlias="__ResPerformers" SourceField="TaskID" DestField="InstanceID"&gt;&lt;ConditionGroup Operation="And"&gt;&lt;Conditions&gt;&lt;Condition Operation="EQUALS"&gt;&lt;ConditionItems&gt;&lt;ConditionItem Value="TaskState" SectionAlias="__TaskPerforming" /&gt;&lt;ConditionItem Value="5" Type="int" /&gt;&lt;/ConditionItems&gt;&lt;/Condition&gt;&lt;/Conditions&gt;&lt;ConditionGroups /&gt;&lt;/ConditionGroup&gt;&lt;/JoinDef&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="TasksOverdue" ID="B4E9DE87-F3F9-425B-B839-244FC861E14F">
+			<Name>
+				<LocalizedString Language="en">Resolution tasks overdue</LocalizedString>
+				<LocalizedString Language="ru">Количество просроченных заданий по задачам</LocalizedString>
+				<LocalizedString Language="lv">Kavēta rezolūcijas uzdevumu izpilde</LocalizedString>
+				<LocalizedString Language="ka">ბარათის ამოცანების შესრულება გვიანდება</LocalizedString>
+				<LocalizedString Language="ro">Însarcinări întîrziate</LocalizedString>
+				<LocalizedString Language="uk">Кількість прострочених завдань по реезолюції</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="int"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="int"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="SysRowTimestamp" SectionAlias="__TaskPerforming" Type="int" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Count" SectionAlias="Main" Delimiter="" PrimaryKey="RowID" Distinct="true" KeyType="uniqueid" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Resolutions" SectionID="997D01FD-F90D-4243-96B0-C6B29161C515" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__ResPerformers" SectionID="A565A4B4-446D-400B-91F0-FD23AE2A4208" SourceAlias="__Resolutions" SourceField="ResolutionID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__TaskPerforming" SectionID="D48E6155-C774-4205-AB70-7A67AB69DF22" SourceAlias="__ResPerformers" SourceField="TaskID" DestField="InstanceID"&gt;&lt;ConditionGroup Operation="And"&gt;&lt;Conditions&gt;&lt;Condition Operation="EQUALS"&gt;&lt;ConditionItems&gt;&lt;ConditionItem Value="IsOverdue" SectionAlias="__TaskPerforming" /&gt;&lt;ConditionItem Value="1" Type="bool" /&gt;&lt;/ConditionItems&gt;&lt;/Condition&gt;&lt;/Conditions&gt;&lt;ConditionGroups /&gt;&lt;/ConditionGroup&gt;&lt;/JoinDef&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="TasksToPerform" ID="702C3654-2F16-47B9-A419-A57AC535032B">
+			<Name>
+				<LocalizedString Language="en">Resolution tasks to perform</LocalizedString>
+				<LocalizedString Language="ru">Количество заданий на исполнение по задачам</LocalizedString>
+				<LocalizedString Language="lv">Izpildāmie rezolūcijas uzdevumi</LocalizedString>
+				<LocalizedString Language="ka">ბარათის შესასრულებელი ამოცანები</LocalizedString>
+				<LocalizedString Language="ro">Însarcinări de efectuat</LocalizedString>
+				<LocalizedString Language="uk">Кількість завдань на виконання по реезолюції</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="int"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="int"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="SysRowTimestamp" SectionAlias="__TaskSettings" Type="int" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Count" SectionAlias="Main" Delimiter="" PrimaryKey="RowID" Distinct="true" KeyType="uniqueid" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Resolutions" SectionID="997D01FD-F90D-4243-96B0-C6B29161C515" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__ResPerformers" SectionID="A565A4B4-446D-400B-91F0-FD23AE2A4208" SourceAlias="__Resolutions" SourceField="ResolutionID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__TaskSettings" SectionID="B9FF9E65-FBDB-4883-A4F8-38D31F8322D6" SourceAlias="__ResPerformers" SourceField="TaskID" DestField="InstanceID"&gt;&lt;ConditionGroup Operation="Or"&gt;&lt;Conditions&gt;&lt;Condition Operation="EQUALS"&gt;&lt;ConditionItems&gt;&lt;ConditionItem Value="ToRead" SectionAlias="__TaskSettings" /&gt;&lt;ConditionItem Value="0" Type="bool" /&gt;&lt;/ConditionItems&gt;&lt;/Condition&gt;&lt;Condition Operation="ISNULL"&gt;&lt;ConditionItems&gt;&lt;ConditionItem Value="ToRead" SectionAlias="__TaskSettings" /&gt;&lt;/ConditionItems&gt;&lt;/Condition&gt;&lt;/Conditions&gt;&lt;ConditionGroups /&gt;&lt;/ConditionGroup&gt;&lt;/JoinDef&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+		<VirtualField Alias="TasksToRead" ID="1401E4CD-02BB-4E5C-B2F4-40F60A1C68DF">
+			<Name>
+				<LocalizedString Language="en">Resolution tasks to read</LocalizedString>
+				<LocalizedString Language="ru">Количество заданий на ознакомление по задачам</LocalizedString>
+				<LocalizedString Language="lv">Rezolūcijas uzdevumi informācijai</LocalizedString>
+				<LocalizedString Language="ka">ბარათის წასაკითხი ამოცანები</LocalizedString>
+				<LocalizedString Language="ro">Însarcinări de citit</LocalizedString>
+				<LocalizedString Language="uk">Кількість завдань на ознайомлення по реезолюції</LocalizedString>
+			</Name>
+			<Data>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;VirtualField xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SectionTypeID="4BF5A4C4-CA53-4294-9D6B-00FAA48AB320" Version="4000" Type="int"&gt;&lt;ComputedField&gt;&lt;ComputationGroup Operation="Add" Type="int"&gt;&lt;ComputationParts&gt;&lt;ComputationPart Type="Simple"&gt;&lt;DataItem Value="SysRowTimestamp" SectionAlias="__TaskSettings" Type="int" /&gt;&lt;/ComputationPart&gt;&lt;Aggregation Function="Count" SectionAlias="Main" Delimiter="" PrimaryKey="RowID" Distinct="true" KeyType="uniqueid" Type="int" /&gt;&lt;/ComputationParts&gt;&lt;ComputationGroups /&gt;&lt;/ComputationGroup&gt;&lt;/ComputedField&gt;&lt;JoinDefs&gt;&lt;JoinDef Alias="__Resolutions" SectionID="997D01FD-F90D-4243-96B0-C6B29161C515" SourceAlias="Main" SourceField="InstanceID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__ResPerformers" SectionID="A565A4B4-446D-400B-91F0-FD23AE2A4208" SourceAlias="__Resolutions" SourceField="ResolutionID" DestField="InstanceID" /&gt;&lt;JoinDef Alias="__TaskSettings" SectionID="B9FF9E65-FBDB-4883-A4F8-38D31F8322D6" SourceAlias="__ResPerformers" SourceField="TaskID" DestField="InstanceID"&gt;&lt;ConditionGroup Operation="And"&gt;&lt;Conditions&gt;&lt;Condition Operation="EQUALS"&gt;&lt;ConditionItems&gt;&lt;ConditionItem Value="ToRead" SectionAlias="__TaskSettings" /&gt;&lt;ConditionItem Value="1" Type="bool" /&gt;&lt;/ConditionItems&gt;&lt;/Condition&gt;&lt;/Conditions&gt;&lt;ConditionGroups /&gt;&lt;/ConditionGroup&gt;&lt;/JoinDef&gt;&lt;/JoinDefs&gt;&lt;/VirtualField&gt;</Data>
+		</VirtualField>
+	</VirtualFields>
+</CardDefinition>

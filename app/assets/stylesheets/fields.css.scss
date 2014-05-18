@@ -1,0 +1,117 @@
+// .tabs {
+// 	position: absolute;
+// 	top: 2em;
+// 	left: 0em;
+// 	right: 0em;
+// 	bottom: 0em;
+// 	margin: 0.5em;
+
+// }
+
+// .tabs-header {
+// 	height: 1.53em;
+// 	border-bottom: 0.1em solid black;
+// }
+
+// .tabs-header div {
+// 	float: left;
+// 	border-top: 0.1em solid black;
+// 	border-left: 0.1em solid black;
+// 	border-right: 0.1em solid black;
+// 	border-bottom: 0.2em solid white;
+// 	height: 1em;
+// 	padding: 0.16em 0.2em 0.2em 0.2em;
+// }
+
+// .tab {
+// 	position: absolute;
+// 	top: 1.63em;
+// 	left: 0;
+// 	right: 0;
+// 	bottom: 0;
+// 	border-left: 0.1em solid black;
+// 	border-right: 0.1em solid black;
+// 	border-bottom: 0.1em solid black;
+// 	padding: 0.5em;
+// 	overflow: scroll;
+// }
+
+.row {
+	overflow: hidden;
+	padding-left: 2.5%;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+
+.row div {
+	float: left;
+}
+
+.row label {
+	width: 20%;
+	float: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.row .field-value {
+	width: 75%;
+	padding: 0px;
+}
+
+.row .field-value input {
+	width: 100%;
+	margin: 0px;
+	border: 1px solid #DDD;
+	padding: 2px 3px;
+	display: block;
+	box-sizing:border-box;
+}
+
+.row .field-value input.date-picker {
+	width: 10em;
+	float: left;
+}
+
+.ui-datepicker-trigger {
+	margin-left: -20px;
+	margin-top: 5px;
+}
+
+.row .field-value textarea {
+	height: 5em;
+	border: 0px;
+	display: block;
+	box-sizing:border-box;
+	width: 100%;
+	border: 1px solid #DDD;
+}
+
+.ui-button.custom-combobox-toggle {
+	height: 100%;
+	margin: 0px 0px;
+}
+
+.lookup-container {
+	width: 100%;
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+}
+
+.lookup-container input {
+	border: 0px;
+}
+
+.edit-actions {
+	position: absolute;
+	right: 0.05em;
+	top: 1px;
+	bottom: 1px;
+}
+
+.edit-actions a.ui-button {
+	width: 1.2em;
+	border: 0px;
+}

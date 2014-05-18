@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CardDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="10C5434D-4663-4059-AFCE-4ECF85A47480" Alias="AgentSettings" Version="23" LibraryID="C257FEAA-7F8C-48BD-AB05-397507F88985" ProgID="" Dictionary="true" NonSearchable="true" NonViewable="true" NonCreatable="true" NonDeletable="true" IconFile="" FetchMode="2" SimpleSecurity="true" NonReplicable="true" NonArchivable="true">
+	<Name>
+		<LocalizedString Language="en">Personal assistant settings</LocalizedString>
+		<LocalizedString Language="uk">Налаштування агента</LocalizedString>
+		<LocalizedString Language="ru">Настройки помощника</LocalizedString>
+		<LocalizedString Language="lv">Aģenta uzstādījumi</LocalizedString>
+		<LocalizedString Language="ka">აგენტის პარამეტრები</LocalizedString>
+		<LocalizedString Language="ro">Parametrii de setări a agentului</LocalizedString>
+	</Name>
+	<Sections>
+		<Section Alias="AdminSearchSettings" Type="coll" ID="26F95C5A-9815-4A6E-8185-2944B032ECA5" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Common search settings</LocalizedString>
+				<LocalizedString Language="uk">Загальні параметри пошуку</LocalizedString>
+				<LocalizedString Language="ru">Общие настройки поиска</LocalizedString>
+				<LocalizedString Language="lv">Meklēšanas uzstādījumi</LocalizedString>
+				<LocalizedString Language="ka">ძიების პარამეტრები</LocalizedString>
+				<LocalizedString Language="ro">Setările căutării</LocalizedString>
+			</Name>
+			<Field Alias="Name" ID="76CBF5F1-F19D-41D7-987B-96514D890A21" Type="unistring" Max="128" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Name</LocalizedString>
+					<LocalizedString Language="uk">Назва</LocalizedString>
+					<LocalizedString Language="ru">Название</LocalizedString>
+					<LocalizedString Language="lv">Nosaukums</LocalizedString>
+					<LocalizedString Language="ka">სახელი</LocalizedString>
+					<LocalizedString Language="ro">Denumirea</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="QueryText" ID="59CEBDC1-5D4F-4976-BA90-9A7763B687B7" Type="unitext" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Query text</LocalizedString>
+					<LocalizedString Language="uk">Текст запиту</LocalizedString>
+					<LocalizedString Language="ru">Текст запроса</LocalizedString>
+					<LocalizedString Language="lv">Vaicājuma teksts</LocalizedString>
+					<LocalizedString Language="ka">მოთხოვნის ტექსტი</LocalizedString>
+					<LocalizedString Language="ro">Textul interogării</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="OpenMode" ID="0DB25482-018B-4621-B152-20DCCC8FBB61" Type="uniqueid" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Open mode</LocalizedString>
+					<LocalizedString Language="uk">Режим відкриття</LocalizedString>
+					<LocalizedString Language="ru">Режим открытия</LocalizedString>
+					<LocalizedString Language="lv">Atvēršanas režīms</LocalizedString>
+					<LocalizedString Language="ka">გახსნის რეჟიმი</LocalizedString>
+					<LocalizedString Language="ro">Modul de deschidere</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="PlaySound" ID="F49394AE-5FAF-46B4-9FE2-3E175B729B4F" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Play sound</LocalizedString>
+					<LocalizedString Language="uk">Звуковий сигнал</LocalizedString>
+					<LocalizedString Language="ru">Звуковой сигнал</LocalizedString>
+					<LocalizedString Language="lv">Skaņas signāls</LocalizedString>
+					<LocalizedString Language="ka">ხმოვანი სიგნალი</LocalizedString>
+					<LocalizedString Language="ro">Semnal sonor</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="WavPath" ID="76373DAE-A135-47C2-BF9C-85AA4EADC40C" Type="unistring" Max="256" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Wave path</LocalizedString>
+					<LocalizedString Language="uk">Шлях до wav файла</LocalizedString>
+					<LocalizedString Language="ru">Путь к wav файлу</LocalizedString>
+					<LocalizedString Language="lv">Wave faila ceļš</LocalizedString>
+					<LocalizedString Language="ka">WAV ფაილის მდებარეობა</LocalizedString>
+					<LocalizedString Language="ro">Calea la fişierul wav</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ChangeIcon" ID="0D420956-1A1D-4AA0-BC2A-7A39A18050C3" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Change icon</LocalizedString>
+					<LocalizedString Language="uk">Змінити іконку</LocalizedString>
+					<LocalizedString Language="ru">Менять иконку</LocalizedString>
+					<LocalizedString Language="lv">Mainīt ikonu</LocalizedString>
+					<LocalizedString Language="ka">ხატულას შეცვლა</LocalizedString>
+					<LocalizedString Language="ro">Schimbă iconiţa</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ShowMessage" ID="4EBE0E58-CA2B-4991-ABCE-C12FDE6B9556" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Show message</LocalizedString>
+					<LocalizedString Language="uk">Показати повідомлення</LocalizedString>
+					<LocalizedString Language="ru">Показать сообщение</LocalizedString>
+					<LocalizedString Language="lv">Rādīt ziņu</LocalizedString>
+					<LocalizedString Language="ka">შეტყობინების ჩვენება</LocalizedString>
+					<LocalizedString Language="ro">Arată mesajul</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="ShowInfoWindow" ID="007E53A6-FBDD-4987-A942-53B1C4662B50" Type="bool" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Show info window</LocalizedString>
+					<LocalizedString Language="uk">Вікно зі списком карток</LocalizedString>
+					<LocalizedString Language="ru">Окно со списком карточек</LocalizedString>
+					<LocalizedString Language="lv">Rādīt informācijas logu</LocalizedString>
+					<LocalizedString Language="ka">საინფორმაციო ფანჯრის ჩვენება</LocalizedString>
+					<LocalizedString Language="ro">Fereastra cu lista fişelor</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="NotAvailable" ID="03F60C92-9587-4327-8B0B-7635FFB3C6CF" Type="bool" UserDependent="true" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Not available</LocalizedString>
+					<LocalizedString Language="uk">Не доступно</LocalizedString>
+					<LocalizedString Language="ru">Не использовать</LocalizedString>
+					<LocalizedString Language="lv">Nav pieejams </LocalizedString>
+					<LocalizedString Language="ka">ხელმიუწვდომელია</LocalizedString>
+					<LocalizedString Language="ro">Nu este disponibil</LocalizedString>
+				</Name>
+			</Field>
+			<Field Alias="Interval" ID="98C7C129-DD17-4578-ACA5-C3B1E0735FA1" Type="int" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Interval</LocalizedString>
+					<LocalizedString Language="ru">Интервал</LocalizedString>
+					<LocalizedString Language="lv">Intervāls</LocalizedString>
+					<LocalizedString Language="ka">ინტერვალი</LocalizedString>
+					<LocalizedString Language="ro">Interval</LocalizedString>
+					<LocalizedString Language="uk">Інтервал</LocalizedString>
+				</Name>
+			</Field>
+			<DisplayFields />
+		</Section>
+		<Section Alias="AgentUsers" Type="coll" ID="8746C1F5-BB66-4B00-8D6B-0802025D4572" SimpleSecurity="true">
+			<Name>
+				<LocalizedString Language="en">Agent users</LocalizedString>
+				<LocalizedString Language="uk">Користувачі</LocalizedString>
+				<LocalizedString Language="ru">Пользователи</LocalizedString>
+				<LocalizedString Language="lv">Aģenta lietotāji</LocalizedString>
+				<LocalizedString Language="ka">აგენტის მომხმარებლები</LocalizedString>
+				<LocalizedString Language="ro">Utilizatori</LocalizedString>
+			</Name>
+			<Field Alias="EmployeeID" ID="2BD77588-0E28-434C-8505-6B6FCA4915E9" Type="refid" NotNull="true" RefType="6710B92A-E148-4363-8A6F-1AA0EB18936C" RefSection="DBC8AE9D-C1D2-4D5E-978B-339D22B32482" DefaultValue="" CopyBehavior="Copy">
+				<Name>
+					<LocalizedString Language="en">Employee</LocalizedString>
+					<LocalizedString Language="uk">Співробітник</LocalizedString>
+					<LocalizedString Language="ru">Сотрудник</LocalizedString>
+					<LocalizedString Language="lv">Darbinieks</LocalizedString>
+					<LocalizedString Language="ka">თანამშრომელი</LocalizedString>
+					<LocalizedString Language="ro">Colaborator</LocalizedString>
+				</Name>
+			</Field>
+			<Section Alias="SearchSettings" Type="coll" ID="AC10CA69-064B-41A0-B9F5-2ED874B0BD5C" SimpleSecurity="true">
+				<Name>
+					<LocalizedString Language="en">User search settings</LocalizedString>
+					<LocalizedString Language="uk">Налаштування пошуку</LocalizedString>
+					<LocalizedString Language="ru">Настройки поиска пользователя</LocalizedString>
+					<LocalizedString Language="lv">Meklēšanas uzstādījumi</LocalizedString>
+					<LocalizedString Language="ka">ძიების პარამეტრები</LocalizedString>
+					<LocalizedString Language="ro">Setările căutării</LocalizedString>
+				</Name>
+				<Field Alias="Name" ID="256689D8-B574-4379-858F-7DE0ABDB26F9" Type="unistring" Max="128" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Name</LocalizedString>
+						<LocalizedString Language="uk">Назва</LocalizedString>
+						<LocalizedString Language="ru">Название</LocalizedString>
+						<LocalizedString Language="lv">Nosaukums</LocalizedString>
+						<LocalizedString Language="ka">სახელი</LocalizedString>
+						<LocalizedString Language="ro">Denumirea</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="QueryText" ID="5C58DE20-AEF1-4B3D-B7C5-29E961EA1313" Type="unitext" NotNull="true" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Query text</LocalizedString>
+						<LocalizedString Language="uk">Текст запиту</LocalizedString>
+						<LocalizedString Language="ru">Текст запроса</LocalizedString>
+						<LocalizedString Language="lv">Vaicājuma teksts</LocalizedString>
+						<LocalizedString Language="ka">მოთხოვნის ტექსტი</LocalizedString>
+						<LocalizedString Language="ro">Textul interogării</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="OpenMode" ID="41920A3D-A998-408E-92C1-E752B8A9F42A" Type="uniqueid" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Open mode</LocalizedString>
+						<LocalizedString Language="uk">Режим відкриття</LocalizedString>
+						<LocalizedString Language="ru">Режим открытия</LocalizedString>
+						<LocalizedString Language="lv">Atvēršanas režīms</LocalizedString>
+						<LocalizedString Language="ka">გახსნის რეჟიმი</LocalizedString>
+						<LocalizedString Language="ro">Modul de deschidere</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="PlaySound" ID="F3A978FD-A073-49E3-9E1D-E44C8CD810BE" Type="bool" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Play sound</LocalizedString>
+						<LocalizedString Language="uk">Звуковий сигнал</LocalizedString>
+						<LocalizedString Language="ru">Звуковой сигнал</LocalizedString>
+						<LocalizedString Language="lv">Skaņas signāls</LocalizedString>
+						<LocalizedString Language="ka">ხმოვანი სიგნალი</LocalizedString>
+						<LocalizedString Language="ro">Semnal sonor</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="WavPath" ID="1347E431-3442-4FC6-81E5-B38BBCCBB62D" Type="unistring" Max="256" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Wave path</LocalizedString>
+						<LocalizedString Language="uk">Шлях до wav файла</LocalizedString>
+						<LocalizedString Language="ru">Путь к wav файлу</LocalizedString>
+						<LocalizedString Language="lv">Wave faila ceļš</LocalizedString>
+						<LocalizedString Language="ka">WAV ფაილის მდებარეობა</LocalizedString>
+						<LocalizedString Language="ro">Calea la fişierul wav</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="ChangeIcon" ID="A54ED092-ED55-4B87-9420-AF8E6F578F15" Type="bool" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Change icon</LocalizedString>
+						<LocalizedString Language="uk">Змінити іконку</LocalizedString>
+						<LocalizedString Language="ru">Менять иконку</LocalizedString>
+						<LocalizedString Language="lv">Mainīt ikonu</LocalizedString>
+						<LocalizedString Language="ka">ხატულას შეცვლა</LocalizedString>
+						<LocalizedString Language="ro">Schimbă iconiţa</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="ShowMessage" ID="C21AD348-15CA-4E64-9458-16C09F5B5FC8" Type="bool" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Show message</LocalizedString>
+						<LocalizedString Language="uk">Показати повідомлення</LocalizedString>
+						<LocalizedString Language="ru">Показать сообщение</LocalizedString>
+						<LocalizedString Language="lv">Rādīt ziņu</LocalizedString>
+						<LocalizedString Language="ka">შეტყობინების ჩვენება</LocalizedString>
+						<LocalizedString Language="ro">Arată mesajul</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="ShowInfoWindow" ID="DF6EEFAF-0455-4D15-87FD-8481ED57A7D2" Type="bool" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Show info window</LocalizedString>
+						<LocalizedString Language="uk">Вікно зі списком карток</LocalizedString>
+						<LocalizedString Language="ru">Окно со списком карточек</LocalizedString>
+						<LocalizedString Language="lv">Rādīt informācijas logu</LocalizedString>
+						<LocalizedString Language="ka">საინფორმაციო ფანჯრის ჩვენება</LocalizedString>
+						<LocalizedString Language="ro">Fereastra cu lista fişelor</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="NotAvailable" ID="6D4C1DFC-902A-4B91-8915-0ACD3711C76A" Type="bool" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Not available</LocalizedString>
+						<LocalizedString Language="uk">Не доступно</LocalizedString>
+						<LocalizedString Language="ru">Не использовать</LocalizedString>
+						<LocalizedString Language="lv">Nav pieejams </LocalizedString>
+						<LocalizedString Language="ka">ხელმიუწვდომელია</LocalizedString>
+						<LocalizedString Language="ro">Nu este disponibil</LocalizedString>
+					</Name>
+				</Field>
+				<Field Alias="Interval" ID="EDC490C6-AAA9-44CE-8465-7CF7E2F8ABAB" Type="int" DefaultValue="" CopyBehavior="Copy">
+					<Name>
+						<LocalizedString Language="en">Interval</LocalizedString>
+						<LocalizedString Language="ru">Интервал</LocalizedString>
+						<LocalizedString Language="lv">Intervāls</LocalizedString>
+						<LocalizedString Language="ka">ინტერვალი</LocalizedString>
+						<LocalizedString Language="ro">Interval</LocalizedString>
+						<LocalizedString Language="uk">Інтервал</LocalizedString>
+					</Name>
+				</Field>
+				<DisplayFields />
+			</Section>
+			<DisplayFields />
+		</Section>
+	</Sections>
+</CardDefinition>

@@ -1,0 +1,30 @@
+@import 'style';
+
+td.task-list-date,
+td.task-list-deadline,
+td.task-list-author,
+td.task-list-delegated_to
+{
+	width: 10em;
+}
+
+td.task-list-date,
+td.task-list-deadline,
+td.task-list-doc_number
+{
+	text-align: center;
+}
+
+td.task-list-subject
+{
+	min-width: 15em;
+}
+
+.task-list-container {
+	position: absolute;
+	top: 1em;
+	bottom: 1em;
+	left: 1em;
+	right: 1em;
+	overflow: scroll;
+}
