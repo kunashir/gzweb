@@ -14,9 +14,47 @@
   </div>
   <%= render 'task_info/task_info', task_info: @task_info %>
   <script id="task-template" type="text/x-jsrender">
-      <div>
-          {{:#index+1}}: <b>{{>content}}</b> ({{>subject}})
+    <div class="task-area">
+      <div class="task-area-header">
+        <div class="task-subject-area">
+          <div class="task-subject">{{>subject}}</div>
+          <div class="task-date">{{>date}}</div>
+        </div>
+        <div class="task-author-area">
+          <div class="header"><%=t "task.author" %></div>
+          <div class="task-author-name">{{>author_name}}</div>
+          <div class="task-author-position">{{>author_position}}</div>
+        </div>
+        {{if deadline }}
+        <div class="task-deadline-area">
+          <div class="header"><%=t "task.deadline" %></div>
+          <div class="task-deadline-date">{{>deadline_date}}</div>
+          <div class="task-deadline-time">{{>deadline_time}}</div>
+        </div>
+        {{/if}}
       </div>
+      <div class="task-content">{{:content}}</div>
+      {{if controler_name }}
+        <div class="task-controler-area">
+          <div class="header"><%=t "task.controller" %></div>
+          <div class="task-controler-name">{{>controler_name}}</div>
+          {{if controler_position }}
+            <div class="task-controler-position">{{>controler_position}}</div>
+          {{/if}}
+        </div>
+      {{/if}}
+      {{if parent_document }}
+        <div class="task-document-area">
+          <div class="header"><%=t "task.document" %></div>
+          <div class="task-document">{{>parent_document}}</div>
+        </div>
+      {{/if}}
+      <div class="task-files-area">
+      {{for files }}
+        <a href="/file/{{>file_id}}" target="_blank">{{>filename}}</a>
+      {{/for}}
+      </div>
+    </div>
   </script>
   <div class="data-area">
     <div id="task-shadow">

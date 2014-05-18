@@ -406,6 +406,10 @@ function load_list(folder) {
 }
 
 function fill_list(data) {
+	for(i in data.task_list) {
+		data.task_list[i].content = $('<div/>').text(data.task_list[i].content).html().replace("\n", "<br/>");
+		data.task_list[i].deadline_time = "к " + data.task_list[i].deadline_time + " часам"
+	}
 	$("#task-list").html(
         $("#task-template").render(data.task_list)
     );
@@ -413,4 +417,18 @@ function fill_list(data) {
     	.animate({ opacity: 0 }, 400, 'easeOutCirc');
     $("#task-list")
     	.animate({ opacity: 1 }, 400, 'easeOutCirc');
+	selectedTask = null;
+    $(".task-area").click(task_select);
+}
+
+function task_select(event) {
+	if (event.originalEvent.srcElement.localName == 'a')
+		return;
+	event.preventDefault();
+	if (selectedTask == event.currentTarget)
+		return;
+	if (selectedTask)
+		$(selectedTask).removeClass("selected");
+	selectedTask = event.currentTarget;
+	$(selectedTask).addClass("selected");
 }

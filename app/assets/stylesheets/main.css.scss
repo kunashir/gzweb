@@ -341,3 +341,172 @@ body {
 	opacity: 0;
 }
 
+.task-area {
+	height: 9em;
+	overflow: hidden;
+	border: 1px solid #DDD;
+	border-radius: 10px;
+	margin-bottom: 1em;
+	background-color: #FFF;
+	position: relative;
+}
+
+.task-subject-area {
+	background-color: #999;
+	color: #EEE;
+	padding: 0.2em 0.5em;
+}
+
+.task-subject {
+}
+
+.task-date {
+	float: right;
+	margin-top: -1.3em;
+}
+
+.task-author-area {
+	float: left;
+	width: 60%;
+}
+
+.task-deadline-area {
+	float: left;
+	width: 40%;
+	
+	.header {
+		text-align: right;
+		padding-right: 0.6em;
+		font-size: 0.9em;
+		font-weight: bold;
+		color: #222;
+		padding-top: 0.5em;
+	}
+}
+
+.task-deadline-date {
+	float: right;
+	padding-right: 0.5em;
+	font-size: 1.1em;
+	font-weight: bold;
+	padding-left: 0.4em;
+}
+
+.task-deadline-time {
+	float: right;
+	font-size: 0.9em;
+	padding-top: 0.3em;
+}
+
+.task-content {
+	clear: both;
+	padding: 0.5em;
+	height: 3em;
+	min-height: 3em;
+}
+
+.task-area-header {
+	height: 5.5em;
+	overflow: hidden;
+}
+
+.task-area.selected {
+	height: auto;
+	border: 1px solid #18187E;
+	.task-subject-area {
+		background-color: #18187E;
+		color: #FFF;
+	}
+	.task-content {
+		height: auto;
+	}
+}
+
+.task-author-area {
+	.header {
+		padding-top: 0.2em;
+		padding-left: 0.6em;
+		font-weight: bold;
+		color: #ADADFF;
+		font-size: 0.9em;
+	}
+	.task-author-name {
+		font-weight: bold;
+		padding-left: 0.5em;
+	}
+	.task-author-position {
+		font-style: italic;
+		font-size: 0.8em;
+		padding-left: 0.7em;
+	}
+}
+
+.task-controler-area {
+	.header {
+		padding-top: 0.1em;
+		padding-left: 0.6em;
+		font-weight: bold;
+		color: #76DD62;
+		font-size: 0.9em;
+		padding-bottom: 0.2em;
+		float: left;
+	}
+	.task-controler-name {
+		padding-left: 0.5em;
+		float: left;
+	}
+	.task-controler-position {
+		font-style: italic;
+		font-size: 0.8em;
+		padding-left: 0.1em;
+		padding-top: 0.15em;
+		float: left;
+	}
+	.task-controler-position:before {
+    	content: ", ";
+   	}		
+}
+
+.task-document-area {
+	clear: both;
+	padding-top: 0.5em;
+
+	.header {
+		padding-top: 0.2em;
+		padding-left: 0.6em;
+		font-weight: bold;
+		color: #76DD62;
+		font-size: 0.9em;
+		padding-bottom: 0.2em;
+		float: left;
+	}
+	.task-document {
+		padding-left: 1em;
+		float: left;
+		text-decoration: underline;
+		padding-top: 0.1em;
+		color: #00F;
+	}
+}
+
+.task-files-area {
+	clear: both;
+	padding-top: 1em;
+
+	a {
+		display: block;
+		float: left;
+		margin: 0.5em;
+		padding: 0.2em 0.5em;
+		background: #DDD;
+		color: #222;
+		text-decoration: none;
+		border-radius: 2px;
+		border: 1px solid #DDD;
+	}
+	a:hover {
+		border: 1px solid #CCC;
+		background: #E4E4E4;
+		color: #111;
+	}
+}
