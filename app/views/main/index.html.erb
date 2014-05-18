@@ -1,4 +1,7 @@
 <div class="app-area">
+  <div class="logo-bar">
+	<img src="/assets/logo.png"/>
+  </div>
   <div class="header-bar">
     <%= render 'user_control', user: @user %>
     <!-- <%= render 'task_info/task_summary', task_info: @task_info %> -->
@@ -8,7 +11,7 @@
         <li><%= link_to t("actions.refresh"), "/", { :class => 'task-info-refresh' } %></li>
         <li><%= link_to t("actions.new-task"), new_task_path(), { target: '_blank',:class => 'window-link' }  %></li>
         <li><%= link_to t("actions.new-long-task"), "/bad", { class: 'window-link', target: '_blank' }  %></li>
-        <li><%= link_to t("actions.phones"), "/bad", { target: '_blank' }  %></li>
+        <li><%= link_to t("actions.phones"), "http://01srvnsi.gz.local/GZPhoneBook/sait/страница1.html", { target: '_blank' }  %></li>
       </ul>
     </div>
   </div>

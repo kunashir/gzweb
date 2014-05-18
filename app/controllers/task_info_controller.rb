@@ -9,7 +9,7 @@ class TaskInfoController < ApplicationController
   end
 
   def tasks
-    @task_list = TaskList.get(current_user, params[:kind].to_sym).sort_by { |x| x.date }
+    @task_list = TaskList.get(current_user, params[:kind].to_sym).sort_by { |x| x.date }.reverse
     respond_to do |format|
       format.html # tasks.html.erb
       format.json { render json: { task_list: format_task_list(@task_list) } }

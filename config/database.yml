@@ -5,10 +5,11 @@
 #   gem 'sqlite3'
 development:
   adapter: sqlserver
-  host: 10.0.2.2
-  database: gz_45
+  host: 01DVTSQL01
+  database: dv
   username: sa 
-  password: 1
+  password: Goznak1818
+  timeout: 600000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

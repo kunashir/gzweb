@@ -19,10 +19,6 @@ body {
 
 .app-area {
 	background-color: $back-color;
-	background-image: url('/assets/logo.png');
-	background-position: left top;
-	background-repeat: no-repeat;
-	background-size: 5em 5em;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -30,6 +26,16 @@ body {
 	bottom: 0;
 	overflow: hidden;
 	z-index: -2;
+}
+
+.logo-bar {
+	position: fixed;
+	width: 5em;
+	height: 5em;
+	img {
+		width: 5em;
+		height: 5em;
+	}
 }
 
 .header-bar {
@@ -323,7 +329,7 @@ body {
 	right: 0;
 	top: 0;
 	bottom: 0;
-	opacity: 1;
+	opacity: 0;
 	z-index: 1;
 	background-image: url("/assets/ajax-loader.gif");
 	background-repeat: no-repeat;
@@ -413,6 +419,7 @@ body {
 .task-area.selected {
 	height: auto;
 	border: 1px solid #18187E;
+	background-color: #FFFFE0;
 	.task-subject-area {
 		background-color: #18187E;
 		color: #FFF;

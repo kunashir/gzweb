@@ -26,11 +26,10 @@ class User < CacheBase
     u.display_name = 'Трачук Аркадий Владимирович'
     u.position = 'Генеральный директор ФГУП "Гознак"'
     if u.respond_to? 'employee_id='
-      u.employee_id = '423C7538-AC52-46DC-946C-7DECF5176BFE'
-      u.employee_id = 'BAB94E8C-A3C8-4DDE-93CB-8AD829B91B1A'
+      u.employee_id = '422ECC62-A548-4E4F-BAB9-A12E9923DB62'
     end
     if u.respond_to? 'account_name='
-      u.account_name = 'dvvm\\Администратор'
+      u.account_name = 'GZ\\Trachuk'
     end
     u.save
   end

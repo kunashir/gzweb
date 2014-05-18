@@ -45,6 +45,7 @@ jQuery.fn.extend({
 });
 
 function initMainAreaLayout() {
+	$(function () {
 	initTiles();
 	layoutMainArea();
 	$(window).resize(layoutMainArea);
@@ -52,6 +53,8 @@ function initMainAreaLayout() {
 		.click(tileSelect);
 	taskInfoGrid
 		.click(toGrid);
+	$('#task-shadow').css('opacity', 0);
+});
 }
 
 
@@ -135,7 +138,7 @@ function calcLayout() {
 
 		performBoxRect = new Rect({
 			top: 6.5,
-			width: tileWidth * 3 + tileSep * 3,
+			width: tileWidth * 3 + tileSep * 3
 		}).centerX(width);
 
 		$('.task-info-item').removeClass('single-line');
@@ -154,7 +157,7 @@ function calcLayout() {
 		performBoxRect = new Rect({
 			left: tileSep / 2,
 			top: 6.5,
-			width: width - tileSep,
+			width: width - tileSep
 		});
 
 		if (width < 400) {
@@ -194,9 +197,9 @@ function calcLayout() {
 	});
 
 	headerActionsRect = new Rect({
-		left: performBoxRect.left,
+		left: performBoxRect.left - 70,
 		top: performBoxRect.top - 5,
-		width: performBoxRect.width * 0.6,
+		width: performBoxRect.width * 0.6 + 70,
 		height: 5
 	});
 
@@ -339,7 +342,7 @@ function tileSelect(event) {
 	headerActions
 		.animate({ height: '4em', top: '0em', left: tileWidth + tileSep, width: 3 * tileWidth }, 400, 'easeOutCirc');
 	userControl
-		.animate({ height: '5.2em', top: '1.2em', right: '1em', width: tileWidth }, 400, 'easeOutCirc');
+		.animate({ height: '5.2em', top: '1.2em', right: '20px', width: tileWidth }, 400, 'easeOutCirc');
 	taskInfoGrid
 		.animate({ width: '4em', opacity: 1 }, 400, 'easeOutCirc');
 	switch_to_list(folder);
@@ -393,6 +396,7 @@ function toGrid() {
 }
 
 function switch_to_list(folder) {
+console.log('switching to list');
 	$("#task-shadow").css('z-index', 1).css('opacity', 1);
 	$("#task-list").css('opacity', 0);
 	$("#task-list").html('');
@@ -413,6 +417,7 @@ function fill_list(data) {
 	$("#task-list").html(
         $("#task-template").render(data.task_list)
     );
+console.log('fill list');
     $("#task-shadow").css('z-index', -1)
     	.animate({ opacity: 0 }, 400, 'easeOutCirc');
     $("#task-list")
@@ -422,7 +427,7 @@ function fill_list(data) {
 }
 
 function task_select(event) {
-	if (event.originalEvent.srcElement.localName == 'a')
+	if (event.originalEvent.srcElement.nodeName == 'A')
 		return;
 	event.preventDefault();
 	if (selectedTask == event.currentTarget)
