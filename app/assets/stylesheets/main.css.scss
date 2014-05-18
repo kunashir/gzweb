@@ -474,6 +474,25 @@ body {
    	}		
 }
 
+.task-delegated-area {
+	float: left;
+	
+	.header {
+		float: left;
+		color: #76DD62;
+		font-size: 0.9em;
+		padding-bottom: 0.2em;
+		padding-top: 0.1em;
+		padding-left: 0em;
+		margin-left: -0.4em;
+		font-weight: bold;
+	}
+	.task-delegated {
+		float: left;
+	}
+	
+}
+
 .task-document-area {
 	clear: both;
 	padding-top: 0.5em;
@@ -498,7 +517,7 @@ body {
 
 .task-files-area {
 	clear: both;
-	padding-top: 1em;
+	padding-top: 0.5em;
 
 	a {
 		display: block;
@@ -510,6 +529,10 @@ body {
 		text-decoration: none;
 		border-radius: 2px;
 		border: 1px solid #DDD;
+		max-width: 16em;
+		text-overflow: ellipsis;
+		overflow: hidden;
+//		white-space: nowrap;
 	}
 	a:hover {
 		border: 1px solid #CCC;
@@ -517,3 +540,34 @@ body {
 		color: #111;
 	}
 }
+
+.task-actions-area {
+	border-top: 2px solid #CCC;
+	margin: 0px 0.5em;
+	padding: 0.5em;
+}
+
+.task-actions {
+	float: right;
+	a {
+		display: block;
+		float: left;		
+		padding: 0.2em 0.5em;
+		margin: 0em 0em 0em 0.5em;
+		background-color: #DDD;
+		color: #222;
+		text-decoration: none;
+		border-radius: 2px;
+		border: 1px solid #DDD;
+	}
+	a:hover {
+		border: 1px solid #CCC;
+		background: #E4E4E4;
+		color: #111;
+	}
+}
+
+.breaker {
+	clear: both;
+}
+

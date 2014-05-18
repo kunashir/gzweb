@@ -54,6 +54,8 @@ function initMainAreaLayout() {
 	taskInfoGrid
 		.click(toGrid);
 	$('#task-shadow').css('opacity', 0);
+	$('#task-list').css('opacity', 0);
+	$('.data-area').css('opacity', 0);
 });
 }
 
@@ -412,7 +414,7 @@ function load_list(folder) {
 function fill_list(data) {
 	for(i in data.task_list) {
 		data.task_list[i].content = $('<div/>').text(data.task_list[i].content).html().replace("\n", "<br/>");
-		data.task_list[i].deadline_time = "к " + data.task_list[i].deadline_time + " часам"
+		data.task_list[i].deadline_time = "до " + data.task_list[i].deadline_time + " часов"
 	}
 	$("#task-list").html(
         $("#task-template").render(data.task_list)
