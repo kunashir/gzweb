@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # FreeTDS needed to access MSSql databases
 apt-get install -y freetds-dev freetds-bin tdsodbc
 # Redis is used as key-value storage for scheduler and worker process
