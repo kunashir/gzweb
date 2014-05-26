@@ -5,6 +5,14 @@
 #   gem 'sqlite3'
 development:
   adapter: sqlserver
+  host: 10.0.2.2
+  database: gz_45
+  username: sa
+  password: 1
+  timeout: 600000
+
+gz_test:
+  adapter: sqlserver
   host: 01DVTSQL01
   database: dv
   username: sa 
