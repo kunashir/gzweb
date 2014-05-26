@@ -16,5 +16,6 @@ rvm install 1.9.3
 rvm use 1.9.3 --default
 rvm rubygems current
 gem install rails
+apt-get install ruby-railties-4.0
 # Installing gems
-../bundle install
+bundle install
