@@ -1,0 +1,29 @@
+development:
+  user:
+    last_name: 'Захаров'
+    first_name: 'Евгений'
+    middle_name: 'Владимирович'
+    display_name: 'Захаров Евгений Владимирович'
+    position: 'Разработчик приложения'
+    employee_id: '423C7538-AC52-46DC-946C-7DECF5176BFE'
+    account_name: 'dvvm\Администратор'
+
+gz_test:
+  user:
+    last_name: 'Трачук'
+    first_name: 'Аркадий'
+    middle_name: 'Владимирович'
+    display_name: 'Трачук Аркадий Владимирович'
+    position: 'Генеральный директор ФГУП "Гознак"'
+    employee_id: '422ECC62-A548-4E4F-BAB9-A12E9923DB62'
+    account_name: 'GZ\Trachuk'
+
+idoc:
+  user:
+    last_name: 'Сидоренков'
+    first_name: 'Александр'
+    middle_name: 'Юрьевич'
+    display_name: 'Сидоренков Александр Юрьевич'
+    position: 'Генеральный директор ООО "АйДок"'
+    employee_id: '96D2F321-5CB7-4B13-8E46-EE4978D92A8A'
+    account_name: 'GOZNAK\dv01'
