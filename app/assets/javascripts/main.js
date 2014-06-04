@@ -88,11 +88,11 @@ function initTiles() {
 		$('.task-info-delegated')];
 	issuedRects = new Array(itemsToPerform.count);
 
-	headerActions = $('.header-actions');
+	headerActions = $('.header-bar > .header-actions');
 	headerActions
 		.css('position', 'fixed');
 
-	userControl = $('.user-control');
+	userControl = $('.header-bar > .user-control');
 	userControl
 		.css('position', 'fixed');
 

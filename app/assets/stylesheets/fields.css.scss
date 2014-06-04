@@ -38,54 +38,40 @@
 
 .row {
 	overflow: hidden;
-	padding-left: 2.5%;
-	padding-top: 0.3em;
-	padding-bottom: 0.3em;
-}
+	padding: 0.5em 2em;
+	
+	.field-value {
+		width: 100%;
+		padding: 0px;
 
-.row div {
-	float: left;
-}
+		input {
+			width: 100%;
+			margin: 0px;
+			border: 1px solid #DDD;
+			padding: 2px 3px;
+			display: block;
+			box-sizing:border-box;
+		}
 
-.row label {
-	width: 20%;
-	float: left;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-.row .field-value {
-	width: 75%;
-	padding: 0px;
-}
-
-.row .field-value input {
-	width: 100%;
-	margin: 0px;
-	border: 1px solid #DDD;
-	padding: 2px 3px;
-	display: block;
-	box-sizing:border-box;
-}
-
-.row .field-value input.date-picker {
-	width: 10em;
-	float: left;
+		input.date-picker {
+			width: 10em;
+			float: left;
+		}
+		
+		textarea {
+			height: 5em;
+			border: 0px;
+			display: block;
+			box-sizing:border-box;
+			width: 100%;
+			border: 1px solid #DDD;
+		}
+	}
 }
 
 .ui-datepicker-trigger {
 	margin-left: -20px;
 	margin-top: 5px;
-}
-
-.row .field-value textarea {
-	height: 5em;
-	border: 0px;
-	display: block;
-	box-sizing:border-box;
-	width: 100%;
-	border: 1px solid #DDD;
 }
 
 .ui-button.custom-combobox-toggle {
@@ -115,3 +101,34 @@
 	width: 1.2em;
 	border: 0px;
 }
+
+.row-group-container {
+	display: block;
+	position: relative;
+	margin: 0em 2em;
+}
+
+.row-group {
+	display: table;
+	width: 100%;
+
+	.row {
+		display: table-row;
+
+		label {
+			display: table-cell;
+			width: 1px;
+			float: none;
+			vertical-align: top;
+			padding: 0.5em 0em;
+			white-space: nowrap;
+		}
+
+		.field-value {
+			display: table-cell;
+			width: 100%;
+			padding: 0.5em 0em 0.5em 1em;
+		}
+	}
+}
+

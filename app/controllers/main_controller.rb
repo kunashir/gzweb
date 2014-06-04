@@ -4,6 +4,7 @@ class MainController < ApplicationController
   def index
     @task_info = TasksInfo.get(current_user)
     @user = current_user
+    @quick_performers = TakeOffice::Employee.all.take(6)
   end
 
   def file

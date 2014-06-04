@@ -1,0 +1,76 @@
+.form-window {
+	background-color: #F1F8FA;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+#task-main {
+	background-color: #F1F8FA;
+}
+
+.task-header-bar {
+	height: 6em;
+	
+	.user-control {
+		float: right;
+		height: 5em;
+		margin: 0.5em 1em;
+	}
+
+	.title {
+		font-size: 2em;
+		padding: 0.8em 1em;
+		font-weight: bold;
+		color: #85735A;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+.performer-quick-list {
+	list-style: none;
+	overflow: hidden;
+
+	li {
+		float: left;
+		width: 6em;
+		padding: 0.2em;
+		border: 1px solid #DDD;
+		border-radius: 5px;
+		margin: 0 0.4em;
+	}
+}
+
+.performer-quick-block {
+	color: #595959;
+
+	.performer-image {
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		height: 5em;
+		margin-bottom: 0.5em;
+		border-style:none;
+	}
+
+	.performer-last-name {
+		font-weight: bold;
+		font-size: 0.9em;
+		text-align: center;
+	}
+
+	.performer-first-name {
+		font-size: 0.7em;
+		text-align: center;
+	}
+}
+
+.actors-selector {
+	.checkbox-text {
+		margin-right: 1em;
+	}
+}

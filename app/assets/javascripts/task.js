@@ -1,9 +1,4 @@
-$(initTabs);
 $(initDatepickers);
-
-function initTabs() {
-	$("#task-tabs").tabs({active: 1});
-}
 
 function initDatepickers() {
 	$.datepicker.setDefaults({
@@ -21,3 +16,46 @@ function initDatepickers() {
 	});
 	$(".date-picker").datepicker();
 }
+
+$(function () {
+	$('.performer-quick-block .performer-image').css("background-size", "contain");
+})
+
+function TaskActors() {
+	this.actors = [
+	{ 
+		checkbox: $('.co_performers-selector'),
+		input: $('.co_performers-row')
+	},
+	{ 
+		checkbox: $('.informants-selector'),
+		input: $('.informants-row')
+	},
+	{ 
+		checkbox: $('.controller-selector'),
+		input: $('.controller-row')
+	}];
+
+	this.init = function () {
+		$this = this;
+		$this.actors.forEach(function (actor) {
+			actor.checkbox.change(function (e) {
+				e.preventDefault();
+				$this.updateInputs();
+			})
+		});
+		$this.updateInputs();
+	}
+
+	this.updateInputs = function () {
+		this.actors.forEach(function (actor) {
+			actor.input.css('display', actor.checkbox.prop("checked") ? "table-row" : "none");
+		});
+	}
+
+	this.init();
+}
+
+$(function () {
+	actors = new TaskActors();
+});

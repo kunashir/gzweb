@@ -6,7 +6,8 @@ Inlook::Application.routes.draw do
 
   resources :tasks, only: [ :new, :create, :show ]
   get 'employees/find' => 'employees#find', constraints: { format: :json }, defaults: { format: :json }
-  get 'file/:id' => 'main#file'
+  get 'file/:id' => 'main#file', as: :file
+  get 'employees/:id/photo' => 'employees#photo', as: :employee_photo
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

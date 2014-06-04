@@ -4,13 +4,13 @@
   </div>
   <div class="header-bar">
     <%= render 'user_control', user: @user %>
-    <!-- <%= render 'task_info/task_summary', task_info: @task_info %> -->
+    <%# render 'task_info/task_summary', task_info: @task_info %>
     <div class="header-actions">
       <ul>
         <li><%= image_tag('grid.png', { :class => 'task-info-grid' }) %></li>
         <li><%= link_to t("actions.refresh"), "/", { :class => 'task-info-refresh' } %></li>
-        <li><%= link_to t("actions.new-task"), new_task_path(), { target: '_blank',:class => 'window-link' }  %></li>
-        <li><%= link_to t("actions.new-long-task"), "/bad", { class: 'window-link', target: '_blank' }  %></li>
+        <li><%= link_to t("actions.new-task"), new_task_path(), { target: '_blank',:class => 'create-task-link' }  %></li>
+        <li><%= link_to t("actions.new-long-task"), new_task_path(), { target: '_blank', class: 'window-link' }  %></li>
         <li><%= link_to t("actions.phones"), "http://01srvnsi.gz.local/GZPhoneBook/sait/страница1.html", { target: '_blank' }  %></li>
       </ul>
     </div>
@@ -79,5 +79,8 @@
     </div>
     <div id="task-list">
     </div>
+  </div>
+  <div class="create-task-area">
+    <%= render 'tasks/task_form', user: @user, quick_performers: @quick_performers %>
   </div>
 </div>

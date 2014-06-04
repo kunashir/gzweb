@@ -20,4 +20,4 @@ sudo apt-get install ruby-railties-4.0
 # Installing gems
 bundle install
 # Redirecting 80 port to 3000
-iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000
+sudo iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000

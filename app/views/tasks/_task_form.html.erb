@@ -1,0 +1,51 @@
+<div class="create-task">
+  <form id="data-form">
+    <%= render '/tasks/menu', items:
+      [ save: { action: tasks_path, method: :post } ] 
+    %>
+    <div id="task-main">
+      <div class="task-header-bar">
+        <%= render "main/user_control", user: user %>
+        <div class="header-actions">
+          <div class="title">Новое поручение</div>
+        </div>
+      </div>
+      <% unless quick_performers.nil? %>
+        <ul class="performer-quick-list">
+          <% quick_performers.each do |performer| %>
+            <li>
+              <%= render '/tasks/quick_performer', performer: performer %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= row(employee_select(@task, :Task, :performer)) %>
+      <div class="row actors-selector">
+        <label>
+            <input class="co_performers-selector" type="checkbox"/>
+            <%=t "task.co_performers" %>
+        </label>
+        <label>
+          <input class="informants-selector" type="checkbox"/>
+          <%=t "task.informants" %>
+        </label>
+        <label>
+          <input class="controller-selector" type="checkbox">
+          <%=t "task.controller" %>
+        </label>
+      </div>
+      <div class="row-group-container">
+        <div class="row-group">
+          <%= row(employees_select(@task, :Task, :co_performers), 
+            label: "task.co_performers", class: 'co_performers-row') %>
+          <%= row(employees_select(@task, :Task, :informants), 
+            label: "task.informants", class: 'informants-row' ) %>
+          <%= row(employee_select(@task, :Task, :controller),
+            label: "task.controller", class: 'controller-row' ) %>
+        </div>
+      </div>
+      <%= row(text_edit(@task, :Task, :content)) %>
+      <%= row(datetime_edit(@task, :Task, :deadline)) %>
+    </div>
+  </form>
+</div>

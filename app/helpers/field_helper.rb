@@ -1,33 +1,45 @@
 module FieldHelper
 
-  def row(name, field_descriptor)
-    raw <<-html
-      <div class="row">
-        <label for="#{field_descriptor.id}">#{t(name)}</label>
-        <div class="field-value">
-          #{field_descriptor.field}
+  def row(field_descriptor, options = {})
+    field_class = "row"
+    field_class += " " + options[:class] unless options[:class].nil?
+    if options[:label].nil?
+      raw <<-html
+        <div class="#{field_class}">
+          <div class="field-value">
+            #{field_descriptor.field}
+          </div>
         </div>
-      </div>
-    html
+      html
+    else
+      raw <<-html
+        <div class="#{field_class}">
+          <label for="#{field_descriptor.id}">#{t(options[:label])}:</label>
+          <div class="field-value">
+            #{field_descriptor.field}
+          </div>
+        </div>
+      html
+    end
   end
 
-  def employee_select(object, property)
-    object_name = model_name_from_record_or_class(object).param_key
+  def employee_select(object, object_name, property)
+    #object_name = model_name_from_record_or_class(object).param_key
     EmployeeFieldDescriptor.new(object, object_name, property)
   end
 
-  def employees_select(object, property)
-    object_name = model_name_from_record_or_class(object).param_key
+  def employees_select(object, object_name, property)
+    #object_name = model_name_from_record_or_class(object).param_key
     EmployeesFieldDescriptor.new(object, object_name, property)
   end
 
-  def text_edit(object, property)
-    object_name = model_name_from_record_or_class(object).param_key
+  def text_edit(object, object_name, property)
+    #object_name = model_name_from_record_or_class(object).param_key
     TextEditFieldDescriptor.new(object, object_name, property)
   end
 
-  def datetime_edit(object, property)
-    object_name = model_name_from_record_or_class(object).param_key
+  def datetime_edit(object, object_name, property)
+    #object_name = model_name_from_record_or_class(object).param_key
     DateTimeFieldDescriptor.new(object, object_name, property)
   end
 

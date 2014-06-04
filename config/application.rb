@@ -26,8 +26,8 @@ module Inlook
     # config.i18n.default_locale = :de
 
     # config.middleware.use "Ntlm"
-    # config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
+    config.autoload_paths += Dir[Rails.root.join('lib', '{**}')]
 
     config.generators do |g|
       g.test_framework :rspec
