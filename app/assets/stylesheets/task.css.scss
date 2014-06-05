@@ -28,6 +28,7 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		text-align: left;
 	}
 }
 
@@ -61,11 +62,17 @@
 		font-weight: bold;
 		font-size: 0.9em;
 		text-align: center;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.performer-first-name {
 		font-size: 0.7em;
 		text-align: center;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 }
 
