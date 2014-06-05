@@ -73,4 +73,153 @@
 	.checkbox-text {
 		margin-right: 1em;
 	}
+
+	label { 
+		font-weight: bold;
+	}
+}
+
+.task-content-deadline-area {
+	display: table;
+	width: 100%;
+	margin-top: 0.5em;
+
+	.task-bottom-area-row {
+		display: table-row;
+	}
+
+	.task-content {
+		display: table-cell;
+		width: 100%;
+		padding: 0 0.5em 0 2em;
+
+		textarea {
+			height: 14.5em;
+			border: 1px solid #34AADC;
+		}
+	}
+
+	.task-deadline {
+		display: table-cell;
+		width: 1px;
+		padding: 0 2em 0 0.5em;
+		vertical-align: top;
+
+		input {
+			width: 100%;
+			margin: 0 0em;
+			margin-bottom: 0.5em;
+			border: 1px solid #34AADC;
+		}
+	}
+
+	.task-files-container {
+		display: table-cell;
+		width: 100%;
+		padding: 1em 0.5em 1em 2em;
+
+		.task-files {
+			border: 1px solid #34AADC;
+			background-color: white;
+			height: 6.7em;
+		}
+	}
+
+	.task-action-area {
+		display: table-cell;
+		width: 1px;
+		padding: 1em 2em 0 0.5em;
+		vertical-align: top;
+
+		a { 
+			display: block;
+			text-align: center;
+		}
+
+		a.task-send {
+			border: 1px solid #A5C06B;
+			background-color: #A5C06B;
+			color: white;
+			text-decoration: none;
+			font-size: 1.5em;
+			padding: 0.7em;
+			margin: 0em 1em;
+		}
+
+		a.task-send:hover {
+			border-color: green;
+			background-color: #AFCC72;
+		}
+
+		a.task-send:active {
+			background-color: #90A85E;
+		}
+
+		a.task-cancel {
+			margin: 0.5em 2em 0em 2em;
+			border: 1px solid transparent;
+			color: #85735A;
+			text-decoration: none;
+			font-size: 1.3em;
+			padding: 0.3em 0.8em;
+		}
+
+		a.task-cancel:hover {
+			border-color: #34AADC;
+		}
+
+		a.task-cancel:active {
+			background-color: #E3E9EA;
+		}
+	}
+}
+
+div.date-picker {
+
+	.ui-datepicker-inline {
+		width: auto;
+	}
+
+	.ui-widget-content {
+		height: 9em;
+		border: 1px solid #34AADC;
+		border-radius: 0;
+		background: white;
+	}
+
+	.ui-datepicker-header {
+		background: none;
+		border-radius: 0;
+		border: none;
+		font-size: 0.6em;
+	}
+
+	.ui-datepicker-calendar {
+		border: none;
+		font-size: 0.6em;
+		background: white;
+
+		th {
+			padding: 0.2em 0.2em;
+			border: none;
+			background: none;
+			color: #222;
+		}
+
+		td {
+			border: none;
+			background: none;
+			padding: 0.1em 0.3em;
+
+			a {
+				border: none;
+				background: none;
+				padding: 0.1em;
+				color: #222;
+				text-align: center;
+				font-weight: normal;
+
+			}
+		}
+	}
 }

@@ -2,16 +2,16 @@ $(initDatepickers);
 
 function initDatepickers() {
 	$.datepicker.setDefaults({
-		dateFormat: 'dd.mm.yy',
+		dateFormat: 'dd.mm.yyyy hh:MM',
 		firstDay: 1,
 		dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
-		dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+		dayNamesMin: ['В', 'П', 'В', 'С', 'Ч', 'П', 'С'],
 		dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
 		monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
 		monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
 		buttonImage: '/assets/calendar.png',
 		buttonImageOnly: 1,
-		showOn: 'button',
+		showOn: 'none',
 		duration: 'fast'
 	});
 	$(".date-picker").datepicker();

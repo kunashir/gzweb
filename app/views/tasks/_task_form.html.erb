@@ -44,8 +44,22 @@
             label: "task.controller", class: 'controller-row' ) %>
         </div>
       </div>
-      <%= row(text_edit(@task, :Task, :content)) %>
-      <%= row(datetime_edit(@task, :Task, :deadline)) %>
+      <div class="task-content-deadline-area">
+        <div class="task-bottom-area-row">
+          <%= row(text_edit(@task, :Task, :content), class: 'task-content') %>
+          <%= row(datetime_edit(@task, :Task, :deadline), class: 'task-deadline') %>
+        </div>
+        <div class="task-bottom-area-row">
+          <div class="task-files-container">
+            <div class="task-files">
+            </div>
+          </div>
+          <div class="task-action-area">
+            <a href="#" class="task-send">Отправить</a>
+            <a href="#" class="task-cancel">Отмена</a>
+          </div>
+        </div>
+      </div>
     </div>
   </form>
 </div>

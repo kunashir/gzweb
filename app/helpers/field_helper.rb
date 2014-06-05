@@ -127,7 +127,7 @@ module FieldHelper
     end
 
     def field
-      "<input id=\"#{id}\" class=\"date-picker\"/>"
+      "<input id=\"#{id}\" class=\"date-picker\"/><div class=\"date-picker\"></div>"
     end
   end
 

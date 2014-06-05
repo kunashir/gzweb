@@ -39,6 +39,7 @@
 .row {
 	overflow: hidden;
 	padding: 0.5em 2em;
+	text-align: left;
 	
 	.field-value {
 		width: 100%;
@@ -47,15 +48,14 @@
 		input {
 			width: 100%;
 			margin: 0px;
-			border: 1px solid #DDD;
+			border: 1px solid #34AADC;
 			padding: 2px 3px;
 			display: block;
 			box-sizing:border-box;
 		}
 
 		input.date-picker {
-			width: 10em;
-			float: left;
+			width: 100%;
 		}
 		
 		textarea {
@@ -64,7 +64,8 @@
 			display: block;
 			box-sizing:border-box;
 			width: 100%;
-			border: 1px solid #DDD;
+			border: 1px solid #34AADC;
+			resize: none;
 		}
 	}
 }
@@ -122,6 +123,8 @@
 			vertical-align: top;
 			padding: 0.5em 0em;
 			white-space: nowrap;
+			color: #34AADC;
+			font-weight: bold;
 		}
 
 		.field-value {
