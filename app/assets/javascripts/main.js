@@ -398,7 +398,6 @@ function toGrid() {
 }
 
 function switch_to_list(folder) {
-console.log('switching to list');
 	$("#task-shadow").css('z-index', 1).css('opacity', 1);
 	$("#task-list").css('opacity', 0);
 	$("#task-list").html('');

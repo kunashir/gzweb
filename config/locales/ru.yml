@@ -41,3 +41,6 @@ ru:
     deadline: "Срок исполнения"
     controller: "Контролер"
     document: "По документу"
+    send: "Отправить"
+    cancel: "Отмена"
+    add_file: "Добавить документ"

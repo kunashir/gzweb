@@ -18,4 +18,9 @@ class MainController < ApplicationController
       send_data file.data, filename: file.name, type: content_type, disposition: :inline
     end
   end
+
+  def upload
+    logger.debug params.inspect
+    render json: { status: :ok }
+  end
 end

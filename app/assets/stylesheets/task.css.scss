@@ -230,3 +230,23 @@ div.date-picker {
 		}
 	}
 }
+
+.task-files {
+	position: relative;
+
+	input {
+		position: fixed;
+		top: -1000px;
+	}
+
+	.task-add-file {
+		position: absolute;
+		left: 0.5em;
+		bottom: 0.5em;
+		background-image: url("/assets/attach.png");
+		background-repeat: no-repeat;
+		background-position: left center;
+		background-size: contain;
+		padding: 0.5em 0.5em 0.5em 2.5em;
+	}
+}
