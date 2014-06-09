@@ -128,7 +128,7 @@
 		.task-files {
 			border: 1px solid #34AADC;
 			background-color: white;
-			height: 6.7em;
+			height: 7.1em;
 		}
 	}
 
@@ -241,12 +241,30 @@ div.date-picker {
 
 	.task-add-file {
 		position: absolute;
-		left: 0.5em;
-		bottom: 0.5em;
+		left: 0.1em;
+		bottom: 0.1em;
 		background-image: url("/assets/attach.png");
 		background-repeat: no-repeat;
 		background-position: left center;
 		background-size: contain;
 		padding: 0.5em 0.5em 0.5em 2.5em;
+	}
+
+	.task-file {
+		display: table;
+		padding: 0.2em;
+		float: left;
+
+		.task-file-icon {
+			display: table-cell;
+			width: 2em;
+			height: 2em;
+		}
+
+		.task-file-name {
+			display: table-cell;
+			padding: 0 0.5em;
+			vertical-align: middle;
+		}
 	}
 }

@@ -48,7 +48,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# gem 'devise', '~> 3.0.0'
+gem 'devise', '~> 3.0.0'
 # gem 'net-ldap', '~> 0.3.1'
 # gem 'ntlm-http'
 # gem 'devise_ldap_authenticatable'
@@ -70,3 +70,5 @@ end
 gem "resque"
 gem "rufus-scheduler", '~> 2.0.24'
 gem "resque-scheduler"
+
+gem 'rails-file-icons', git: 'https://github.com/sodalis/rails-file-icons.git'

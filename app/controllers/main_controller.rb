@@ -23,4 +23,9 @@ class MainController < ApplicationController
     logger.debug params.inspect
     render json: { status: :ok }
   end
+
+  def file_icon
+    ext = params[:ext] || ''
+    render json: { icon: ActionController::Base.helpers.asset_path(Icon.for_ext(ext)) }
+  end
 end

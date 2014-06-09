@@ -91,12 +91,31 @@ function TaskFiles() {
 		fileInput[0].dispatchEvent(evt);
 	}
 
-	function addFileToUpload() {
-		$("<div></div>")
-			.addClass('task-file')
-			.text(fileInput.val().split('\\').pop())
-			.appendTo(fileArea);
 
+	function addFileToUpload() {
+		var re = /(?:\.([^.]+))?$/;
+		var fileName = fileInput.val().split('\\').pop();
+		$.get(
+			"/file/icon?ext=" + re.exec(fileName)[1],
+			function (data) {
+				console.log(data);
+				console.log(data.icon);
+				var taskFileDiv = $("<div></div>")
+					.addClass('task-file');
+				$("<img></img>")
+					.addClass('task-file-icon')
+					.attr('src', data.icon)
+					.appendTo(taskFileDiv);
+				$("<div></div>")
+					.addClass('task-file-name')
+					.text(fileName)
+					.appendTo(taskFileDiv);
+				taskFileDiv.appendTo(fileArea);
+				uploadFile();
+			});
+	}
+
+	function uploadFile() {
 	    var file = fileInput[0].files[0];
 	    var xhr = new XMLHttpRequest();
 	    xhr.file = file; // not necessary if you create scopes like this
