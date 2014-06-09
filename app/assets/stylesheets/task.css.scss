@@ -261,10 +261,17 @@ div.date-picker {
 			height: 2em;
 		}
 
-		.task-file-name {
+		.task-file-name-container {
 			display: table-cell;
 			padding: 0 0.5em;
 			vertical-align: middle;
+
+			.task-file-progress {
+				height: 2px;
+				margin-top: 0.3em;
+				width: 0;
+				background-color: #D4D421;
+			}
 		}
 	}
 }

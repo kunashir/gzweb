@@ -1,3 +1,5 @@
+require "dv_binary"
+
 class MainController < ApplicationController
   #http_basic_authenticate_with name: "dhh", password: "secret"
 
@@ -20,7 +22,11 @@ class MainController < ApplicationController
   end
 
   def upload
-    logger.debug params.inspect
+    if params[:file].nil?
+      render json: { error: 'file not found'}, status: 422
+      return
+    end
+    binary = DVCore::Binary.create_binary(params[:file].original_filename, params[:file].read)
     render json: { status: :ok }
   end
 

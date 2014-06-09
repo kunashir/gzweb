@@ -106,31 +106,40 @@ function TaskFiles() {
 					.addClass('task-file-icon')
 					.attr('src', data.icon)
 					.appendTo(taskFileDiv);
+				var taskFileNameContainer = $("<div></div>")
+					.addClass('task-file-name-container')
+					.appendTo(taskFileDiv);
 				$("<div></div>")
 					.addClass('task-file-name')
 					.text(fileName)
-					.appendTo(taskFileDiv);
+					.appendTo(taskFileNameContainer);
+				var taskFileProgress = $("<div></div>")
+					.addClass('task-file-progress')
+					.appendTo(taskFileNameContainer);
 				taskFileDiv.appendTo(fileArea);
-				uploadFile();
+				uploadFile(taskFileProgress);
 			});
 	}
 
-	function uploadFile() {
+	function uploadFile(progressBar) {
 	    var file = fileInput[0].files[0];
 	    var xhr = new XMLHttpRequest();
 	    xhr.file = file; // not necessary if you create scopes like this
 	    xhr.addEventListener('progress', function(e) {
 	        var done = e.position || e.loaded, total = e.totalSize || e.total;
+	        progressBar.css('width', (Math.floor(done/total*1000)/10) + '%');
 	        console.log('xhr progress: ' + (Math.floor(done/total*1000)/10) + '%');
 	    }, false);
 	    if ( xhr.upload ) {
 	        xhr.upload.onprogress = function(e) {
 	            var done = e.position || e.loaded, total = e.totalSize || e.total;
+		        progressBar.css('width', (Math.floor(done/total*1000)/10) + '%');
 	            console.log('xhr.upload progress: ' + done + ' / ' + total + ' = ' + (Math.floor(done/total*1000)/10) + '%');
 	        };
 	    }
 	    xhr.onreadystatechange = function(e) {
 	        if ( 4 == this.readyState ) {
+	        	progressBar.css('background-color', 'green');
 	            console.log(['xhr upload complete', e]);
 	        }
 	    };
