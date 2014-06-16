@@ -3,6 +3,7 @@ module TakeOffice
   class Employee < ActiveRecord::Base
     self.table_name = "dvtable_{DBC8AE9D-C1D2-4D5E-978B-339D22B32482}"
     self.primary_key = "RowID"
+    @@quick_performers = []
 
     belongs_to :parent, class_name: :Department, primary_key: 'RowID', foreign_key: 'ParentRowID'
     validates :parent, presence: true
@@ -26,6 +27,19 @@ module TakeOffice
 
     def has_photo?
       photos.any?
+    end
+
+    def self.quick_performers_ids=(ids)
+      @@quick_performers = []
+      ids.each { |id| 
+        employee = TakeOffice::Employee.where(RowID: id).first
+        @@quick_performers << employee unless employee.nil?
+      }
+    end
+
+    def self.quick_performers
+      return @@quick_performers unless @@quick_performers.nil? || @@quick_performers.blank?
+      return TakeOffice::Employee.all.take(6)
     end
 
     protected

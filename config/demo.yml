@@ -8,6 +8,7 @@ development:
     # employee_id: '423C7538-AC52-46DC-946C-7DECF5176BFE'
     employee_id: 'BAB94E8C-A3C8-4DDE-93CB-8AD829B91B1A'
     account_name: 'dvvm\Администратор'
+  # quick: ["423C7538-AC52-46DC-946C-7DECF5176BFE"]
 
 gz_test:
   user:
@@ -18,6 +19,7 @@ gz_test:
     position: 'Генеральный директор ФГУП "Гознак"'
     employee_id: '422ECC62-A548-4E4F-BAB9-A12E9923DB62'
     account_name: 'GZ\Trachuk'
+  quick: ["415A25BD-20E3-4D3B-8161-DDFE374D33D2", "1D6BA4B4-465B-4224-80E6-B340A55827AE", "4F161A63-A504-4649-907B-E6DC32CEDD35", "9B5BC1F0-EA10-483E-B1E3-6DE172DFDF7E", "EE22DF86-51B8-43A4-BEBD-B7048338ED34", "7FEFAD2C-5DE9-42B5-942D-AE24A7A01CA3"]
 
 idoc:
   user:
