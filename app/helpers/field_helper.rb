@@ -1,3 +1,5 @@
+require 'take_office/employee'
+
 module FieldHelper
 
   def row(field_descriptor, options = {})
@@ -61,12 +63,14 @@ module FieldHelper
 
     def value
       return "" if employee.nil? 
-      employee.display_name
+      return employee.display_name if employee.is_a? TakeOffice::Employee
+      return ""
     end
 
     def value_id
       return "" if employee.nil?
-      employee.id
+      return employee.id if employee.is_a? TakeOffice::Employee
+      return ""
     end
 
     def field

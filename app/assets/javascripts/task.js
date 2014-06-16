@@ -171,7 +171,9 @@ function onPerformerSelected(element) {
 }
 
 function TaskActors() {
-	this.actors = [
+	var $this = this;
+
+	$this.actors = [
 	{ 
 		checkbox: $('.co_performers-selector'),
 		input: $('.co_performers-row')
@@ -185,8 +187,7 @@ function TaskActors() {
 		input: $('.controller-row')
 	}];
 
-	this.init = function () {
-		var $this = this;
+	$this.init = function () {
 		$this.actors.forEach(function (actor) {
 			actor.checkbox.change(function (e) {
 				e.preventDefault();
@@ -196,13 +197,20 @@ function TaskActors() {
 		$this.updateInputs();
 	}
 
-	this.updateInputs = function () {
-		this.actors.forEach(function (actor) {
+	$this.updateInputs = function () {
+		$this.actors.forEach(function (actor) {
 			actor.input.css('display', actor.checkbox.prop("checked") ? "table-row" : "none");
 		});
 	}
 
-	this.init();
+	$this.reset = function() {
+		$this.actors.forEach(function (actor) {
+			actor.checkbox.prop("checked", false);
+		});
+		$this.updateInputs();
+	}
+
+	$this.init();
 }
 
 $(function () {
