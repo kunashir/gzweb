@@ -5,7 +5,8 @@ development:
     middle_name: 'Владимирович'
     display_name: 'Захаров Евгений Владимирович'
     position: 'Разработчик приложения'
-    employee_id: '423C7538-AC52-46DC-946C-7DECF5176BFE'
+    # employee_id: '423C7538-AC52-46DC-946C-7DECF5176BFE'
+    employee_id: 'BAB94E8C-A3C8-4DDE-93CB-8AD829B91B1A'
     account_name: 'dvvm\Администратор'
 
 gz_test:

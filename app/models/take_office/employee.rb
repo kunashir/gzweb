@@ -12,6 +12,8 @@ module TakeOffice
     before_create :assign_id
     after_initialize :init
 
+    alias_attribute :account_sid, :AccountSID
+
     def self.search(filter)
       ActiveRecord::Base.connection.
         execute_procedure("[dvreport_get_data_{7E898C46-5751-42AC-B55A-1AC867F4B7FA}]", filter).

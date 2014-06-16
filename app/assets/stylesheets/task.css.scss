@@ -39,15 +39,28 @@
 	li {
 		float: left;
 		width: 6em;
-		padding: 0.2em;
 		border: 1px solid #DDD;
 		border-radius: 5px;
 		margin: 0 0.4em;
+		cursor: pointer;
+	}
+
+	li:hover {
+		background-color: #D9E7FF;
+	}
+
+	li.pressed {
+		background-color: #5B98FF;
+
+		.performer-quick-block {
+			color: #FEFEFE;
+		}
 	}
 }
 
 .performer-quick-block {
 	color: #595959;
+	margin: 0.2em;
 
 	.performer-image {
 		background-repeat: no-repeat;
@@ -101,7 +114,7 @@
 		padding: 0 0.5em 0 2em;
 
 		textarea {
-			height: 14.5em;
+			height: 10.45em;
 			border: 1px solid #34AADC;
 		}
 	}
@@ -188,7 +201,7 @@ div.date-picker {
 	}
 
 	.ui-widget-content {
-		height: 9em;
+		height: 9.1em;
 		border: 1px solid #34AADC;
 		border-radius: 0;
 		background: white;
@@ -217,17 +230,21 @@ div.date-picker {
 			border: none;
 			background: none;
 			padding: 0.1em 0.3em;
+			background-color: white;
 
-			a {
-				border: none;
-				background: none;
+ 			a {
 				padding: 0.1em;
-				color: #222;
 				text-align: center;
 				font-weight: normal;
-
-			}
+ 			}
 		}
+	}
+}
+
+.unset {
+	.ui-state-active {
+		background: none;
+		color: #2779aa;
 	}
 }
 

@@ -1,4 +1,4 @@
-<div class="performer-quick-block">
+<div class="performer-quick-block" data-text="<%= performer.DisplayString %>" data-id="<%= performer.id %>" >
   <div class="performer-image" style="background-image: url(<%= performer.has_photo? ? employee_photo_path(performer.id) : image_path("person.png") %>);">
   </div>
   <div class="performer-last-name">

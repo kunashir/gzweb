@@ -1,3 +1,18 @@
+var lookupHandlers;
+
+function LookupHandlers() {
+  var select_handlers = [];
+
+  this.select = function ( callback ) {
+    select_handlers[select_handlers.length] = callback;
+  }
+
+  this.onSelect = function (element) {
+    for (var i in select_handlers)
+      select_handlers[i](element);
+  }
+}
+
 (function( $ ) {
     $.widget( "custom.lookup", {
       _create: function() {
@@ -83,6 +98,7 @@
             input.val("");
             input.data( "id", "" );
             input.data( "text", "" );
+            lookupHandlers.onSelect(input[0]);
           });
       },
 
@@ -113,6 +129,7 @@
         this.element.val( ui.item.value.name );
         this.element.data( "id", ui.item.value.id );
         this.element.data( "text", ui.item.value.name );
+        lookupHandlers.onSelect(this.element[0]);
       },
 
       _change: function (event, ui) {
@@ -132,5 +149,6 @@
 $(initLookups);
 
 function initLookups() {
+  lookupHandlers = new LookupHandlers();
   $(".edit-lookup").lookup();
 }
