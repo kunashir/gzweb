@@ -4,6 +4,8 @@ class ProcessMainInfo < ActiveRecord::Base
 
   before_create :assign_id
 
+  alias_attribute :name, :Name
+
   def instance_id
     self.InstanceID
   end

@@ -292,3 +292,60 @@ div.date-picker {
 		}
 	}
 }
+
+.task-sending-lid {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: transparent;
+	display: none;
+	width: 100%;
+	height: 100%;
+
+	.task-sending-cell {
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+
+		.task-sending-box {
+			border: 2px solid #009ABC;
+			background-color: #F1F8FA;
+			padding: 0.5em;
+			display: inline-block;
+			border-radius: 5px;
+			font-size: 1.5em;
+
+			.task-sending-error {
+				font-size: 0.5em;
+				width: 30em;
+				text-align: left;
+				margin: 1.5em 0em 0.5em 0em;
+				overflow: hidden;
+				max-height: 10em;
+			}
+
+			.task-sending-progress {
+				margin-top: 0.5em;
+			}
+
+			.task-sending-close {
+				display: inline-block;
+				border: 1px solid transparent;
+				font-size: 0.7em;
+				padding: 0.3em 0.5em;
+				text-decoration: none;
+				color: #444;
+			}
+			
+			.task-sending-close:hover {
+				border-color: #34AADC;
+			}
+
+			.task-sending-close:active {
+				background-color: #E3E9EA;
+			}
+		}
+	}
+}

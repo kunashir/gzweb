@@ -36,9 +36,9 @@
       </div>
       <div class="row-group-container">
         <div class="row-group">
-          <%= row(employees_select(@task, :Task, :co_performers), 
+          <%= row(employee_select(@task, :Task, :co_performers), 
             label: "task.co_performers", class: 'co_performers-row') %>
-          <%= row(employees_select(@task, :Task, :informants), 
+          <%= row(employee_select(@task, :Task, :informants), 
             label: "task.informants", class: 'informants-row' ) %>
           <%= row(employee_select(@task, :Task, :controller),
             label: "task.controller", class: 'controller-row' ) %>
@@ -64,4 +64,18 @@
       </div>
     </div>
   </form>
+  <div class="task-sending-lid">
+    <div class="task-sending-cell">
+      <div class="task-sending-box">
+        <div class="task-sending-message">
+          Отправка поручения
+        </div>
+        <div class="task-sending-error">
+          Здесь идет текст ошибки в случае неудачной отправки. Он может быть достаточно длинным и даже в несколько строк. Пишем и пишем и пишем долго и много
+        </div>
+        <%= image_tag 'ajax-loader.gif', class: 'task-sending-progress' %>
+        <a class="task-sending-close" href="#">Закрыть</a>
+      </div>
+    </div>
+  </div>
 </div>

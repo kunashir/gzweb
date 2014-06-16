@@ -212,17 +212,26 @@ $(function () {
 });
 
 function TaskActions() {
-	var $this = this;
+	var $this = this,
+		$cancelBtn = $('.task-cancel'),
+		$sendBtn = $('.task-send'),
+		$sendMessage = $('.task-sending-message'),
+		$sendError = $('.task-sending-error'),
+		$sendLid = $('.task-sending-lid'),
+		$sendCloseBtn = $('.task-sending-close'),
+		$sendProgress = $('.task-sending-progress')
 
-	$('.task-cancel').click(function (e) {
+	$cancelBtn.click(function (e) {
 		e.preventDefault();
-		$this.closeHandler();
+		onClose();
 	})
 
-	$('.task-send').click(function (e) {
+	$sendBtn.click(function (e) {
 		e.preventDefault();
 		var taskData = {
 			performer: $('#Task-performer').data('id'),
+			co_performers: $('#Task-co_performers').data('id'),
+			informants: $('#Task-informants').data('id'),
 			controler: $('#Task-controller').data('id'),
 			content: $('#Task-content').val()
 		};
@@ -230,8 +239,50 @@ function TaskActions() {
 		if (date.val().trim().length > 0)
  			taskData.deadline = date.data("date") + " " + date.data("hour") + ":" + date.data("minute");
  		taskData.files = $('.task-files .task-file').map(function (i, file) { return $(file).data("id"); }).toArray();
- 		$.post('/tasks.json', taskData);
+ 		$sendError.css('display', 'none');
+ 		$sendProgress.css('display', 'inline-block');
+ 		$sendCloseBtn.css('display', 'none');
+ 		$sendMessage.text('Отправка поручения');
+ 		$sendLid.css('opacity', '0').css('display', 'table').animate({ opacity: 1 }, 400);
+ 		$.post('/tasks.json', taskData)
+ 			.done(onSendSuccess)
+  			.fail(function(data) {
+  				var errorText = "Внутренняя ошибка приложения";
+  				if (data.responseJSON && data.responseJSON.error)
+  					errorText = data.responseJSON.error;
+    			onSendError(errorText);
+  			});
 	})
+
+	$sendCloseBtn.click(function (e) {
+		hideSendingLid();
+	})
+
+	function hideSendingLid() {
+ 		$sendLid.animate({ opacity: 0 }, 200, function () {
+			$sendLid.css('display', 'none');
+ 		});
+	}
+
+	function onSendError(errorMessage) {
+		$sendMessage.text('Ошибка отправки');
+		$sendError.text(errorMessage).css('display', 'block');
+		$sendProgress.css('display', 'none');
+		$sendCloseBtn.css('display', 'inline-block');
+	}
+
+	function onSendSuccess() {
+		$sendMessage.text('Поручение отправлено');
+		$sendProgress.css('display', 'none');
+		setTimeout(function () {
+			hideSendingLid();
+			onClose();
+		}, 1000);
+	}
+
+	function onClose() {
+		$this.closeHandler();
+	}
 
 	this.closeHandler = function () {
 	}
