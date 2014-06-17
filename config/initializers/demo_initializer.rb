@@ -8,6 +8,8 @@ unless ActiveRecord::Migrator.needs_migration?
       user_data = env_data["user"].symbolize_keys!
       unless user_data.nil?
         User.create_demo_user(user_data)
+      end
+      unless env_data["quick"].nil?
         TakeOffice::Employee.quick_performers_ids = env_data["quick"]
       end
     end
