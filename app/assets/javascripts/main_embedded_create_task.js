@@ -7,6 +7,8 @@ function createNewTask(event) {
 
 	var taskArea = $('.create-task-area');
 
+	$('#Task-parent_task').data("id", "");
+	$('#Task-parent_document').data("id", "");
 	$('#Task-performer').val("").data("text", "").data("id", "");
 	$('.performer-quick-list li').removeClass('pressed');
 	$('#Task-co_performers').val("").data("text", "").data("id", "");

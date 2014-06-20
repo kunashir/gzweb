@@ -60,9 +60,6 @@ class TasksController < ApplicationController
           params[:files].each { |file_id| 
             file = FileCard.find(file_id)
             unless file.nil?
-              file.sid = sid
-              file.save!
-
               files.add_file(file)
             end
           }
@@ -75,6 +72,13 @@ class TasksController < ApplicationController
         card.main_info.registrator = current_employee
         card.main_info.controller = controller
         card.main_info.content = content
+        card.main_info.Version = 2
+        unless params[:parent_task].blank?
+          card.main_info.ParentTaskID = params[:parent_task]
+        end
+        unless params[:parent_document].blank?
+          card.main_info._ParentCard = params[:parent_document]
+        end
         card.main_info.add_performer(performer)
         co_performers.each { |co_performer| 
           card.main_info.add_co_performer(co_performer)
@@ -109,7 +113,7 @@ class TasksController < ApplicationController
         error = ex.message
         error = "Внутреняя ошибка приложения" if error.blank?
         logger.error ex.message
-        e.backtrace.each { |line| logger.error line }
+        ex.backtrace.each { |line| logger.error line }
       end
     end
     

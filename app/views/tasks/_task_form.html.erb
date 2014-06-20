@@ -4,6 +4,8 @@
       [ save: { action: tasks_path, method: :post } ] 
     %>
     <div id="task-main">
+      <div id="Task-parent_task"></div>
+      <div id="Task-parent_document"></div>
       <div class="task-header-bar">
         <%= render "main/user_control", user: user %>
         <div class="header-actions">

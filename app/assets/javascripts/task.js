@@ -31,46 +31,7 @@ function initDatepickers() {
 		}
 	});
 	var dateRegex = new RegExp("^\\s*(\\d{1,2})\\s*[\\.\\/]\\s*(\\d{1,2})\\s*([\\.\\/]\\s*(\\d{1,4})\\s*)?\\s*(\\s+(\\d{1,2})\\s*(:\\s*(\\d{1,2}))?)?\\s*$");
-	input.keyup(function () {
-		if (input.val().trim().length == 0)
-		{
-			var date = new Date();
-			selector.datepicker('setDate', date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear());
-			selector.addClass('unset');
-			return;
-		}
-		var regMatch = dateRegex.exec(input.val());
-		if (regMatch) {
-			var day = +regMatch[1];
-			var month = +regMatch[2];
-			var year = new Date().getFullYear();
-			if (regMatch[4]) {
-				if (("" + year).substring(0, regMatch[4].length) != regMatch[4])
-				{
-					if (regMatch[4].length == 3)
-						regMatch[4] += "0";
-					year = +regMatch[4];
-					if (year < 100)
-						year += 2000;
-				}
-			}
-			var hour = +(input.data("hour") || "18");
-			if (regMatch[6])
-				hour = +regMatch[6];
-			var minute = +(input.data("minute") || "00");
-			if (regMatch[8])
-				minute = +regMatch[8];
-			var date = new Date(year, month - 1, day, hour, minute);
-			if (date.getMinutes() == minute && 
-				date.getHours() == hour && 
-				date.getDate() == day && 
-				date.getMonth() == (month - 1) &&
-				date.getFullYear() == year) {
-				selector.datepicker('setDate', day + "." + month + "." + year);
-				selector.removeClass('unset');
-			}
-		}
-	});
+	input.keyup(updateTaskDatePicker);
 	input.blur(function () {
 		if (input.val().trim().length == 0)
 		{
@@ -131,6 +92,50 @@ function initDatepickers() {
 		for (var i = 0; i < len - str.length; i++)
 			result = "0" + result;
 		return result;
+	}
+}
+
+function updateTaskDatePicker() {
+	var input = $('input.date-picker');
+	var selector = $('div.date-picker');
+	var dateRegex = new RegExp("^\\s*(\\d{1,2})\\s*[\\.\\/]\\s*(\\d{1,2})\\s*([\\.\\/]\\s*(\\d{1,4})\\s*)?\\s*(\\s+(\\d{1,2})\\s*(:\\s*(\\d{1,2}))?)?\\s*$");
+	if (input.val().trim().length == 0)
+	{
+		var date = new Date();
+		selector.datepicker('setDate', date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear());
+		selector.addClass('unset');
+		return;
+	}
+	var regMatch = dateRegex.exec(input.val());
+	if (regMatch) {
+		var day = +regMatch[1];
+		var month = +regMatch[2];
+		var year = new Date().getFullYear();
+		if (regMatch[4]) {
+			if (("" + year).substring(0, regMatch[4].length) != regMatch[4])
+			{
+				if (regMatch[4].length == 3)
+					regMatch[4] += "0";
+				year = +regMatch[4];
+				if (year < 100)
+					year += 2000;
+			}
+		}
+		var hour = +(input.data("hour") || "18");
+		if (regMatch[6])
+			hour = +regMatch[6];
+		var minute = +(input.data("minute") || "00");
+		if (regMatch[8])
+			minute = +regMatch[8];
+		var date = new Date(year, month - 1, day, hour, minute);
+		if (date.getMinutes() == minute && 
+			date.getHours() == hour && 
+			date.getDate() == day && 
+			date.getMonth() == (month - 1) &&
+			date.getFullYear() == year) {
+			selector.datepicker('setDate', day + "." + month + "." + year);
+			selector.removeClass('unset');
+		}
 	}
 }
 
@@ -210,6 +215,20 @@ function TaskActors() {
 		$this.updateInputs();
 	}
 
+	$this.set = function(name) {
+		var i = -1;
+		if (name == 'co_performers')
+			i = 0;
+		if (name == 'informants')
+			i = 1;
+		if (name == 'controller')
+			i = 2;
+		if (i == -1)
+			return;
+		$this.actors[i].checkbox.prop("checked", true);
+		$this.updateInputs();
+	}
+
 	$this.init();
 }
 
@@ -237,6 +256,8 @@ function TaskActions() {
 	$sendBtn.click(function (e) {
 		e.preventDefault();
 		var taskData = {
+			parent_task: $('#Task-parent_task').data('id'),
+			parent_document: $('#Task-parent_document').data('id'),
 			performer: $('#Task-performer').data('id'),
 			co_performers: $('#Task-co_performers').data('id'),
 			informants: $('#Task-informants').data('id'),
@@ -313,6 +334,34 @@ function TaskFiles() {
 		fileInput[0].dispatchEvent(evt);
 	}
 
+	$this.addFile = function (fileName, fileId) {
+		console.log("addFile(" + fileName + "," + fileId + ")");
+		var re = /(?:\.([^.]+))?$/;
+		$.get(
+			"/file/icon?ext=" + re.exec(fileName)[1],
+			function (data) {
+				var taskFileDiv = $("<div></div>")
+					.addClass('task-file')
+					.data("id", fileId);
+				$("<img></img>")
+					.addClass('task-file-icon')
+					.attr('src', data.icon)
+					.appendTo(taskFileDiv);
+				var taskFileNameContainer = $("<div></div>")
+					.addClass('task-file-name-container')
+					.appendTo(taskFileDiv);
+				$("<div></div>")
+					.addClass('task-file-name')
+					.text(fileName)
+					.appendTo(taskFileNameContainer);
+				var taskFileProgress = $("<div></div>")
+					.addClass('task-file-progress')
+					.css('width', '100%')
+					.css('background-color', 'green')
+					.appendTo(taskFileNameContainer);
+				taskFileDiv.appendTo(fileArea);
+			});
+	}
 
 	function addFileToUpload() {
 		var re = /(?:\.([^.]+))?$/;
@@ -366,5 +415,9 @@ function TaskFiles() {
 		var fd = new FormData;
 		fd.append('file', file);
 	    xhr.send(fd);
+	}
+
+	$this.clear = function() {
+		fileArea.children(".task-file").remove();
 	}
 }

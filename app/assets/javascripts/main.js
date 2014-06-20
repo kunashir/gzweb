@@ -412,19 +412,19 @@ function load_list(folder) {
 
 function fill_list(data) {
 	for(i in data.task_list) {
-		data.task_list[i].content = $('<div/>').text(data.task_list[i].content).html().replace("\n", "<br/>");
-		data.task_list[i].deadline_time = "до " + data.task_list[i].deadline_time + " часов"
+		data.task_list[i].html_content = $('<div/>').text(data.task_list[i].content).html().replace("\n", "<br/>");
+		data.task_list[i].deadline_time_till = "до " + data.task_list[i].deadline_time + " часов"
 	}
-	$("#task-list").html(
+	task_item = $("#task-list").html(
         $("#task-template").render(data.task_list)
     );
-console.log('fill list');
     $("#task-shadow").css('z-index', -1)
     	.animate({ opacity: 0 }, 400, 'easeOutCirc');
     $("#task-list")
     	.animate({ opacity: 1 }, 400, 'easeOutCirc');
 	selectedTask = null;
     $(".task-area").click(task_select);
+    init_task_actions($(task_item));
 }
 
 function task_select(event) {
@@ -437,4 +437,66 @@ function task_select(event) {
 		$(selectedTask).removeClass("selected");
 	selectedTask = event.currentTarget;
 	$(selectedTask).addClass("selected");
+}
+
+function init_task_actions(task) {
+	task.find(".task-action-delegate").click(createSubTask);
+}
+
+function createSubTask(event) {
+	event.preventDefault();
+
+	var taskItem = $(event.currentTarget).parents('.task-area');
+	var taskId = taskItem.data("task-id");
+	console.log("ID = " + taskId);
+	var parentDocumentId = taskItem.find('.task-document').data("id");
+	console.log("ID = " + parentDocumentId);
+	var content = taskItem.find('.task-content').data("value");
+	var date = taskItem.find('.task-deadline-date').data("value");
+	var time = taskItem.find('.task-deadline-time').data("value");
+
+	var user_id = $('.user-info').data("value");
+	var user_name = $('.user-name').data("value");
+
+	var taskArea = $('.create-task-area');
+
+	$('#Task-parent_task').data("id", taskId);
+	$('#Task-parent_document').data("id", parentDocumentId);
+	$('#Task-performer').val("").data("text", "").data("id", "");
+	$('.performer-quick-list li').removeClass('pressed');
+	$('#Task-co_performers').val("").data("text", "").data("id", "");
+	$('#Task-informants').val("").data("text", "").data("id", "");
+	$('#Task-controller').val(user_name).data("text", user_name).data("id", user_id);
+	$('#Task-content').val(content);
+	if (date) {
+		$('input.date-picker').val(date + " " + time);
+	}
+	else {
+		$('input.date-picker').val("");
+	}
+	updateTaskDatePicker();
+	
+	taskFiles.clear();
+	var files = taskItem.find('.task-file-ref');
+	for (var i  = 0; i < files.length; i++) {
+		var fileId = files[i].getAttribute("data-value"),
+			fileName = files[i].getAttribute("data-name");
+		taskFiles.addFile(fileName, fileId);
+	}
+
+	actors.reset();
+	actors.set('controller');
+
+	taskArea
+		.css('opacity', 0)
+		.css('display', 'block')
+		.animate({'opacity': 1}, 400, 'easeOutCirc');
+
+	taskActions.closeHandler = function () {
+		taskArea
+			.animate({'opacity': 0}, 400, 'easeOutCirc',
+				function () {
+					taskArea.css('display', 'none');
+				});
+	}
 }

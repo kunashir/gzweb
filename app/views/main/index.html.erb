@@ -17,7 +17,7 @@
   </div>
   <%= render 'task_info/task_info', task_info: @task_info %>
   <script id="task-template" type="text/x-jsrender">
-    <div class="task-area">
+    <div class="task-area" data-task-id="{{>task_id}}" data-id="{{>id}}">
       <div class="task-area-header">
         <div class="task-subject-area">
           <div class="task-subject">{{>subject}}</div>
@@ -31,12 +31,12 @@
         {{if deadline }}
         <div class="task-deadline-area">
           <div class="header"><%=t "task.deadline" %></div>
-          <div class="task-deadline-date">{{>deadline_date}}</div>
-          <div class="task-deadline-time">{{>deadline_time}}</div>
+          <div class="task-deadline-date" data-value="{{>deadline_date}}">{{>deadline_date}}</div>
+          <div class="task-deadline-time" data-value="{{>deadline_time}}">{{>deadline_time_till}}</div>
         </div>
         {{/if}}
       </div>
-      <div class="task-content">{{:content}}</div>
+      <div class="task-content" data-value="{{>content}}">{{:html_content}}</div>
       {{if controler_name }}
         <div class="task-controler-area">
           <div class="header"><%=t "task.controller" %></div>
@@ -49,12 +49,12 @@
       {{if parent_document }}
         <div class="task-document-area">
           <div class="header"><%=t "task.document" %></div>
-          <div class="task-document">{{>parent_document}}</div>
+          <div class="task-document" data-id="{{>parent_document_id}}" data-name="{{>parent_document}}">{{>parent_document}}</div>
         </div>
       {{/if}}
       <div class="task-files-area">
       {{for files }}
-        <a href="/file/{{>file_id}}" target="_blank">{{>filename}}</a>
+        <a href="/file/{{>file_id}}" target="_blank" class="task-file-ref" data-value="{{>file_id}}" data-name="{{>filename}}">{{>filename}}</a>
       {{/for}}
 	<div class="breaker"></div>
       </div>
@@ -66,8 +66,8 @@
 	</div>
 	{{/if}}
 	<div class="task-actions">
-	  <a href="#">Распределить</a>
-	  <a href="#">Завершить</a>
+	  <a class="task-action-delegate" href="#">Распределить</a>
+	  <a class="task-action-complete" href="#">Завершить</a>
 	  <div class="breaker"></div>
 	</div>
 	<div class="breaker"></div>
