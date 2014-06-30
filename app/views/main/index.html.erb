@@ -1,13 +1,12 @@
 <div class="app-area">
   <div class="logo-bar">
-	<img src="/assets/logo.png"/>
+	<img src="/assets/logo.jpg"/>
   </div>
   <div class="header-bar">
     <%= render 'user_control', user: @user %>
     <%# render 'task_info/task_summary', task_info: @task_info %>
     <div class="header-actions">
       <ul>
-        <li><%= image_tag('grid.png', { :class => 'task-info-grid' }) %></li>
         <li><%= link_to t("actions.refresh"), "/", { :class => 'task-info-refresh' } %></li>
         <li><%= link_to t("actions.new-task"), new_task_path(), { target: '_blank',:class => 'create-task-link' }  %></li>
         <li><%= link_to t("actions.new-long-task"), new_task_path(), { target: '_blank', class: 'window-link' }  %></li>
@@ -20,7 +19,9 @@
     <div class="task-area" data-task-id="{{>task_id}}" data-id="{{>id}}">
       <div class="task-area-header">
         <div class="task-subject-area">
-          <div class="task-subject">{{>subject}}</div>
+          <div class="task-subject">
+            <div>{{>subject}}</div>
+          </div>
           <div class="task-date">{{>date}}</div>
         </div>
         <div class="task-author-area">

@@ -51,7 +51,7 @@ function initMainAreaLayout() {
 	$(window).resize(layoutMainArea);
 	$('.task-info-item > div')
 		.click(tileSelect);
-	taskInfoGrid
+	logoBar
 		.click(toGrid);
 	$('#task-shadow').css('opacity', 0);
 	$('#task-list').css('opacity', 0);
@@ -88,18 +88,29 @@ function initTiles() {
 		$('.task-info-delegated')];
 	issuedRects = new Array(itemsToPerform.count);
 
+	headerBar = $('.header-bar');
+
 	headerActions = $('.header-bar > .header-actions');
 	headerActions
-		.css('position', 'fixed');
+		.css('position', 'absolute');
+	headerActionLinks = $('.header-actions ul li a');
 
 	userControl = $('.header-bar > .user-control');
 	userControl
-		.css('position', 'fixed');
+		.css('position', 'absolute');
 
-	taskInfoGrid = $('.task-info-grid');
+	staskInfoGrid = $('.task-info-grid');
+	logoBar = $('.logo-bar');
 }
 
 function layoutMainArea() {
+	var body = $('body');
+	var appArea = $('.app-area');
+	if (appArea.width() < body.width())
+		appArea.css('left', ($('body').width() - appArea.width()) / 2);
+	else
+		appArea.css('left', '0px');
+
 	if (collapsed)
 		return;
 
@@ -120,12 +131,13 @@ function layoutMainArea() {
 }
 
 function calcLayout() {
-	var width = $(window).width();
-	var height = $(window).height();
+	var container = $('.app-area');
+	var width = container.width();
+	var height = container.height();
 
 	var issuedTop = 3.5;
 
-	if (width > 800)
+	if (width >= 800)
 	{
 		var tileWidth = 240;
 		var tileSep = 20;
@@ -139,7 +151,7 @@ function calcLayout() {
 		var topSpace = 0.5;
 
 		performBoxRect = new Rect({
-			top: 6.5,
+			top: 7.5,
 			width: tileWidth * 3 + tileSep * 3
 		}).centerX(width);
 
@@ -198,17 +210,21 @@ function calcLayout() {
 		height: 4.5 + Math.floor(((itemsIssued.length + tileCount - 1) / tileCount)) * (tileHeight + topSpace) - topSpace
 	});
 
+	var actionsLeft = 85;
+	if (performBoxRect.left > actionsLeft)
+		actionsLeft = performBoxRect.left;
+
 	headerActionsRect = new Rect({
-		left: performBoxRect.left - 70,
+		left: actionsLeft,
 		top: performBoxRect.top - 5,
-		width: performBoxRect.width * 0.6 + 70,
+		//width: performBoxRect.width * 0.6 + 50,
 		height: 5
 	});
 
 	userControlRect = new Rect({
-		right: width - performBoxRect.left - performBoxRect.width,
-		top: performBoxRect.top - 4.5,
-		width: performBoxRect.width * 0.4,
+		right: 10,
+		top: performBoxRect.top - 5,
+		width: 300,
 		height: 5.2
 	});
 
@@ -263,7 +279,7 @@ function tileSelect(event) {
 			if (itemsToPerform[i].data('folder') == folder)
 			{
 				color = (i >= 2) ? "#C8D9A6" : "#F7C6A3";
-				foreColor = "#333";
+				foreColor = "#696969";
 			}
 			itemsToPerform[i]
 				.animate({ "background-color": color}, 200);
@@ -295,6 +311,8 @@ function tileSelect(event) {
 
 	performBox
 		.animate({ height: '24.5em', width: tileWidth + tileSep, left: 10, top: '6em' }, 400, 'easeOutCirc', function () { collapsed = true; });
+	performBox.children('.header')
+		.animate({ 'background-color': '#D6CEC3', color: '#FFF'}, 400, 'easeOutCirc');
 	for(i in itemsToPerform)
 	{
 		color = "#FDEBDC";
@@ -320,6 +338,8 @@ function tileSelect(event) {
 	}		
 	issuedBox
 		.animate({ height: '14em', width: tileWidth + tileSep, left: 10, top: '31em' }, 400, 'easeOutCirc');
+	issuedBox.children('.header')
+		.animate({ 'background-color': '#D6CEC3', color: '#FFF'}, 400, 'easeOutCirc');
 	var top = 3.5;
 	for(i in itemsIssued)
 	{
@@ -342,11 +362,18 @@ function tileSelect(event) {
 		top += topShift;
 	}
 	headerActions
-		.animate({ height: '4em', top: '0em', left: tileWidth + tileSep, width: 3 * tileWidth }, 400, 'easeOutCirc');
+		.animate({ height: '4em', top: '0.7em', left: '85px' }, 400, 'easeOutCirc');
+	headerActionLinks
+		.animate({ color: '#E0E0E0'}, 400, 'easeOutCirc');
+	headerBar
+		.animate({ 'background-color': '#34AADC' }, 400, 'easeOutCirc');
 	userControl
-		.animate({ height: '5.2em', top: '1.2em', right: '20px', width: tileWidth }, 400, 'easeOutCirc');
-	taskInfoGrid
-		.animate({ width: '4em', opacity: 1 }, 400, 'easeOutCirc');
+		.animate({ height: '5.2em', top: '1.2em', right: '10px', width: '300px' }, 400, 'easeOutCirc');
+	logoBar
+		.animate({ top: '0.7em' }, 400, 'easeOutCirc');
+
+	/*taskInfoGrid
+		.animate({ width: '4em', opacity: 1 }, 400, 'easeOutCirc');*/
 	switch_to_list(folder);
 	$('.data-area')
 		.animate({ opacity:1 }, 400, 'easeInCirc');
@@ -358,12 +385,21 @@ function toGrid() {
 
 	calcLayout();
 
-	performBox
-		.animateMoveToRect(performBoxRect, 400, 'easeOutCirc', function () { collapsed = false; });
+	headerBar
+		.animate({ 'background-color': '#FFFFFF' }, 400, 'easeOutCirc');
 	headerActions
 		.animateMoveToRect(headerActionsRect, 400, 'easeOutCirc');
+	headerActionLinks
+		.animate({ color: '#696969'}, 400, 'easeOutCirc');
 	userControl
 		.animateMoveToRect(userControlRect, 400, 'easeOutCirc');
+	logoBar
+		.animate({ top: '2.1em' }, 400, 'easeOutCirc');
+
+	performBox
+		.animateMoveToRect(performBoxRect, 400, 'easeOutCirc', function () { collapsed = false; });
+	performBox.children('.header')
+		.animate({ 'background-color': '#F7F7F7', color: '#696969'}, 400, 'easeOutCirc');
 	for(i in itemsToPerform)
 	{
 		color = "#F7C6A3";
@@ -376,10 +412,12 @@ function toGrid() {
 		itemsToPerform[i].children('.new')
 			.animate({ bottom: '0.5em' }, 400, 'easeOutCirc');
 		itemsToPerform[i].children('.header')
-			.animate({ color: '#333', 'margin-right': 'inherit', 'margin-top': 'inherit' }, 400, 'easeOutCirc');
+			.animate({ color: '#696969', 'margin-right': 'inherit', 'margin-top': 'inherit' }, 400, 'easeOutCirc');
 	}		
 	issuedBox
 		.animateMoveToRect(issuedBoxRect, 400, 'easeOutCirc');
+	issuedBox.children('.header')
+		.animate({ 'background-color': '#F7F7F7', color: '#696969'}, 400, 'easeOutCirc');
 	for(i in itemsIssued)
 	{
 		itemsIssued[i]
@@ -389,10 +427,10 @@ function toGrid() {
 		itemsIssued[i].children('.new')
 			.animate({ bottom: '0.5em' }, 400, 'easeOutCirc');
 		itemsIssued[i].children('.header')
-			.animate({ color: '#333', 'margin-right': 'inherit', 'margin-top': 'inherit' }, 400, 'easeOutCirc');
+			.animate({ color: '#696969', 'margin-right': 'inherit', 'margin-top': 'inherit' }, 400, 'easeOutCirc');
 	}
-	taskInfoGrid
-		.animate({ width: '0em', opacity: 0}, 400, 'easeOutCirc');
+	/*taskInfoGrid
+		.animate({ width: '0em', opacity: 0}, 400, 'easeOutCirc');*/
 	$('.data-area')
 		.animate({ opacity:0 }, 400, 'easeOutCirc');
 }
@@ -448,9 +486,7 @@ function createSubTask(event) {
 
 	var taskItem = $(event.currentTarget).parents('.task-area');
 	var taskId = taskItem.data("task-id");
-	console.log("ID = " + taskId);
 	var parentDocumentId = taskItem.find('.task-document').data("id");
-	console.log("ID = " + parentDocumentId);
 	var content = taskItem.find('.task-content').data("value");
 	var date = taskItem.find('.task-deadline-date').data("value");
 	var time = taskItem.find('.task-deadline-time').data("value");
