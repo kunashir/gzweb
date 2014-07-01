@@ -1,0 +1,67 @@
+@import "variables";
+
+html {
+  // min-height: 653px;
+  overflow-y: auto;
+}
+html, body, main {
+  height: 100%;
+}
+
+body {
+  padding-top: $navbar-height;
+  min-width: 768px;
+}
+
+nav {
+  background-color: lightgreen;
+  min-width: 768px;
+  .container {
+    background-color: lightseagreen;
+    height: $navbar-height;
+  }
+}
+
+main {
+  padding: 1% 2% 0 2%;
+  background-color: lightpink;
+  position: relative;
+  min-height: 550px;
+}
+
+aside {
+  width: $aside_nav-width;
+  // max-height: 392px + 223px;
+  // height: 100%;
+  background-color: lightblue;
+  position: absolute;
+  font-weight: bold
+}
+
+section {
+  height: 100%;
+  background-color: lightskyblue;
+  margin-left: $aside_nav-width + 10px;
+  overflow-y: auto;
+  padding: 1% 0 1% 1%;
+  min-height: 540px;
+}
+
+.list-group-item {
+  height: $aside_nav-width/5.4;
+}
+
+.panel {
+  margin: 10px;
+}
+.navbar-fixed-top {
+  margin: auto;
+  position: absolute;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 10, /home/quercus/.rvm/gems/ruby-1.9.3-p484/gems/bootstrap-sass-3.1.1.0/vendor/assets/stylesheets/bootstrap/_grid.scss */
+  .container {
+    width: auto;
+  }
+}
