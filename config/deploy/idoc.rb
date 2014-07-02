@@ -20,3 +20,4 @@ set :ssh_options, {
 #rvm
 set :rvm_type, :user
 set :rvm_ruby_version, '1.9.3-p484'
+ 
