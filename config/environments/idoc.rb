@@ -10,9 +10,11 @@ Inlook::Application.configure do
   config.eager_load = true
 
   # Show full error reports and disable caching.
-  config.consider_all_requests_local       = false
-  config.action_controller.perform_caching = true
-
+  # config.consider_all_requests_local       = false
+  # config.action_controller.perform_caching = true
+  config.consider_all_requests_local       = true
+  config.action_controller.perform_caching = false
+  
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = false
 
@@ -36,6 +38,4 @@ Inlook::Application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
-  # AVIABLE LOCALES (set to false for skip warn message)
-  config.i18n.available_locales = false;
 end
