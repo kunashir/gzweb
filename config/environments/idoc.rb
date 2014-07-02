@@ -36,4 +36,6 @@ Inlook::Application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+  # AVIABLE LOCALES (set to false for skip warn message)
+  config.i18n.available_locales = false;
 end

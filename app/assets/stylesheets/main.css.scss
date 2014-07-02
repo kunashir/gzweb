@@ -356,7 +356,7 @@ body {
 	bottom: 0;
 	opacity: 0;
 	z-index: 1;
-	background-image: url("/assets/ajax-loader.gif");
+	background-image: image_url("ajax-loader.gif");
 	background-repeat: no-repeat;
 	background-position: center center;
 }
