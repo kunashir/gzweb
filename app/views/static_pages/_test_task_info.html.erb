@@ -1,0 +1,28 @@
+<aside class="task_info_group aside_startview">
+  <div class="task_info_group__performing">
+    <div class="task_info_group__header">Мне сделать</div>
+    <% [:performing, :to_accept, :long_tasks, :to_approve, :to_sign, :informational].each do |prop| %>
+      <div class="task_info__item">
+        <div class="task-info-<%= prop %>" data-folder="<%= prop %>">
+          <div class="header"><%=t "task_info.#{prop}" %></div>
+          <div class="total"><%= task_info.send(prop) %></div>
+          <div class="new <%= "non-zero" if task_info.send("#{prop}_new") > 0 %>"><%= task_info.send("#{prop}_new") %></div>
+          <div class="icon" /></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="task_info_group__issued">
+    <div class="task_info_group__header"><%=t "task_info.author" %></div>
+    <% [:issued, :long_issued, :delegated].each do |prop| %>
+      <div class="task_info__item">
+        <div class="task-info-<%= prop %>" data-folder="<%= prop %>">
+          <div class="header"><%=t "task_info.#{prop}" %></div>
+          <div class="total"><%= task_info.send(prop) %></div>
+          <div class="new <%= "non-zero" if task_info.send("#{prop}_new") > 0 %>"><%= task_info.send("#{prop}_new") %></div>
+          <div class="icon" /></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</aside>

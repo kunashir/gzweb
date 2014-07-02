@@ -1,32 +1,46 @@
+<script type="text/javascript">
+
+  function setMargins() {
+      width = 780;
+      containerWidth = $(".container").width();
+      leftMargin = (containerWidth - width)/2;
+      console.log(leftMargin, containerWidth, width)
+      $(".task_info_group").css("marginLeft", leftMargin);
+  }
+
+  $(document).ready(function() {
+    $('.task_info__item').on('click', function() {
+      if($(this).parents().hasClass('aside_startview')) {
+        $('.task_info_group').removeClass('aside_startview');
+        $(".task_info_group").css({"marginLeft": 0, "float": "left"});
+      }
+      timeout = setTimeout(function() {
+        $('section').fadeIn(1000);
+      }, 600);
+    });
+
+    $("nav").on('click', function() {
+      $('aside').addClass('aside_startview');
+      setMargins();
+      $('section').fadeOut();
+    });
+
+    setMargins();
+    $(window).resize(function() {
+      if($('.task_info_group').hasClass('aside_startview')) {
+        setMargins();
+      }
+    });
+
+  });
+</script>
+
 <nav class="navbar navbar-fixed-top">
     <div class="container"></div>
 </nav>
+
 <main class="container">
-  <aside>
-      <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Мне сделать</div>
-        <!-- List group -->
-        <ul class="list-group">
-          <li class="list-group-item">Исполняемые лично</li>
-          <li class="list-group-item">На приемку</li>
-          <li class="list-group-item">Длительные поручения</li>
-          <li class="list-group-item">На согласование</li>
-          <li class="list-group-item">На подписание</li>
-          <li class="list-group-item">На ознакомление</li>
-        </ul>
-      </div>
-      <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Отслеживание</div>
-        <!-- List group -->
-        <ul class="list-group">
-          <li class="list-group-item">Выданные мной</li>
-          <li class="list-group-item">Выданные мной(длительные)</li>
-          <li class="list-group-item">Распределены</li>
-        </ul>
-      </div>
-  </aside>
+  <%= render 'static_pages/test_task_info', task_info: @task_info %>
   <section>
     <%= render "static_pages/test_task_list" %>
   </section>

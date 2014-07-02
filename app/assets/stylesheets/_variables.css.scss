@@ -1,3 +1,25 @@
 $navbar-height: 90px;
 $aside_nav-width: 260px;
+
+$startview__tile-width: 253px;
+$startview__tile-height: $startview__tile-width/5*3;
+$aside__tile-width: $aside_nav-width;
+$aside__tile-height: ceil($aside_nav-width/4.5);
+
+
 $font-size-base: 16px;
+
+
+$task_info_group--transition_speed: 0.6s;
+%task_info_group--transition {
+  -moz-transition: all $task_info_group--transition_speed cubic-bezier(0.320, 0.755, 0.465, 0.975);
+  -ms-transition: all $task_info_group--transition_speed cubic-bezier(0.320, 0.755, 0.465, 0.975);
+  -o-transition: all $task_info_group--transition_speed cubic-bezier(0.320, 0.755, 0.465, 0.975);
+  -webkit-transition: all $task_info_group--transition_speed cubic-bezier(0.320, 0.755, 0.465, 0.975);
+  transition: all $task_info_group--transition_speed cubic-bezier(0.320, 0.755, 0.465, 0.975);
+}
+
+// @mixin size_px($width, $height) {
+//   width: $width + px;
+//   height: $height + px;
+// }

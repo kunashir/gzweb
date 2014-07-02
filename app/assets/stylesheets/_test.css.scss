@@ -14,54 +14,214 @@ body {
 }
 
 nav {
-  background-color: lightgreen;
   min-width: 768px;
   .container {
-    background-color: lightseagreen;
+    background-color: #34AADC;
     height: $navbar-height;
   }
 }
 
 main {
-  padding: 1% 2% 0 2%;
-  background-color: lightpink;
+  padding: 0% 2%;
+  background-color: #FDFDFD;
   position: relative;
   min-height: 550px;
+  padding-top: 1%;
 }
 
-aside {
+.task_info_group {
+  font-weight: bold;
+}
+.task_info_group__performing, .task_info_group__issued {
+  border: 1px solid rgba(51, 51, 51, 0.1);
+  border-radius: 8px;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.task_info_group__performing, .task_info_group__issued {
+  height: auto;
+  width: auto;
+  padding: 8px;
+}
+
+.task_info_group {
+  @extend %task_info_group--transition;
   width: $aside_nav-width;
+  margin-left: auto;
+  margin-right: auto;
   // max-height: 392px + 223px;
   // height: 100%;
-  background-color: lightblue;
-  position: absolute;
-  font-weight: bold
+  // position: absolute;
+  .task_info_group__header {
+    // width: $aside__tile-width;
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    color: #333;
+    // background-color: #D6CEC3;
+    // border-radius: 8px;
+    // display: table-cell;
+    // vertical-align: middle;
+    // &:nth-child(1) {
+    //   top: 20px;
+    // }
+    // &:nth-child(8) {
+    //   top: $aside__tile-height*7 + 20px;
+    // }
+  }
+  .task_info_group__performing {
+    height: 419px;
+  }
+  .task_info_group__issued {
+    height: 232px;
+  }
+  .task_info__item {
+    height: $aside__tile-height;
+    width: 242px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: rgba(51, 51, 51, 0.75);
+    // width: $aside__tile-width;
+
+    > div {
+      height: 100%;
+    }
+    .task-info-performing, .task-info-to_accept {
+      background-color: #FDEBDC;
+    }
+    .task-info-long_tasks, .task-info-to_approve, .task-info-to_sign, .task-info-informational {
+      background-color: #EDF2E1;
+    }
+    .task-info-issued, .task-info-long_issued, .task-info-delegated {
+      background-color: #E1F1F5;
+    }
+    // margin: 8px;
+
+    @for $i from 2 through 7 {
+      &:nth-child(#{$i}) {
+        top: $aside__tile-height*($i - 1) - 15px;
+      }
+    }
+    // @for $i from 9 through 11 {
+    //   &:nth-child(#{$i}) {
+    //     top: $aside__tile-height*($i - 1) + 20px;
+    //   }
+    // }
+  }
 }
 
+
+.aside_startview {
+   @extend %task_info_group--transition;
+   width: 780px;
+  .task_info_group__header {
+    height: 38px;
+    // width: 746px;
+    line-height: 38px;
+    width: 100%;
+    color: #696969;
+    background-color: #F7F7F7;
+    border-radius: 8px;
+
+    // &:nth-child(1) {
+    //   top: $startview__tile-height*2+40px;
+    // }
+    // &:nth-child(8) {
+    //   top: $startview__tile-height*2+60px;
+    // }
+  }
+  .task_info_group__performing {
+    height: 371px;
+  }
+  .task_info_group__issued {
+    height: 218px;
+  }
+  .task_info__item {
+    width: $startview__tile-width;
+    height: $startview__tile-height;
+    padding: 8px;
+    // margin: 8px;
+    // @for $i from 2 through 2 {
+    //   &:nth-child(#{$i}) {
+    //     margin-left: $startview__tile-width*($i - 2);
+    //   }
+    // }
+
+    @for $i from 2 through 4 {
+      &:nth-child(#{$i}) {
+        top: 50px;
+        // margin-top: -$startview__tile-height;
+        margin-left: $startview__tile-width*($i - 2);
+      }
+    }
+    // @for $i from 5 through 5 {
+    //   &:nth-child(#{$i}) {
+    //     // margin-top: 0;
+    //     margin-left: $startview__tile-width*($i - 5);
+    //   }
+    // }
+    @for $i from 5 through 7 {
+      &:nth-child(#{$i}) {
+        top: $startview__tile-height + 50px;
+        // margin-top: -$startview__tile-height;
+        margin-left: $startview__tile-width*($i - 5);
+      }
+    }
+
+    // @for $i from 9 through 11 {
+    //   &:nth-child(#{$i}) {
+    //     // margin-top: $startview__tile-height*2.5 + 50px;
+    //     margin-left: $startview__tile-width*($i - 9);
+    //   }
+    // }
+  }
+}
+
+.task_info_group__header, .task_info__item {
+  @extend %task_info_group--transition;
+  // position: relative;
+  // position: absolute;
+  // background-color: lightcoral;
+
+
+}
+.task_info__item {
+  position: absolute;
+  > div {
+    border: 1px solid transparent;
+  }
+  &:hover, &:focus {
+    color: #222;
+    cursor: pointer;
+    > div {
+      border: 1px solid #CECECE;
+    }
+  }
+}
 section {
+  background: #F8F8F8;
+  border: 1px solid #EEE;
   height: 100%;
-  background-color: lightskyblue;
-  margin-left: $aside_nav-width + 10px;
   overflow-y: auto;
   padding: 1% 0 1% 1%;
+  margin-left: $aside_nav-width + 10px;;
   min-height: 540px;
+  display: none;
 }
 
-.list-group-item {
-  height: $aside_nav-width/5.4;
-}
 
-.panel {
-  margin: 10px;
-}
 .navbar-fixed-top {
   margin: auto;
   position: absolute;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 10, /home/quercus/.rvm/gems/ruby-1.9.3-p484/gems/bootstrap-sass-3.1.1.0/vendor/assets/stylesheets/bootstrap/_grid.scss */
   .container {
     width: auto;
   }
+}
+.container {
+  padding-left: 10px;
+  padding-right: 10px;
 }
