@@ -1,20 +1,60 @@
-<div class="app-area">
-  <div class="logo-bar">
-	<img src="/assets/logo.jpg"/>
-  </div>
-  <div class="header-bar">
-    <%= render 'user_control', user: @user %>
-    <%# render 'task_info/task_summary', task_info: @task_info %>
-    <div class="header-actions">
-      <ul>
-        <li><%= link_to t("actions.refresh"), "/", { :class => 'task-info-refresh' } %></li>
-        <li><%= link_to t("actions.new-task"), new_task_path(), { target: '_blank',:class => 'create-task-link' }  %></li>
-        <li><%= link_to t("actions.new-long-task"), new_task_path(), { target: '_blank', class: 'window-link' }  %></li>
-        <li><%= link_to t("actions.phones"), "http://01srvnsi.gz.local/GZPhoneBook/sait/страница1.html", { target: '_blank' }  %></li>
-      </ul>
+<script type="text/javascript">
+
+  function setMargins() {
+      width = 780;
+      containerWidth = $(".container").width();
+      leftMargin = (containerWidth - width)/2;
+      console.log(leftMargin, containerWidth, width)
+      $(".task_info_group").css("marginLeft", leftMargin);
+  }
+
+  $(document).ready(function() {
+    $('.task_info__item').on('click', function() {
+      if($(this).parents().hasClass('aside_startview')) {
+        $('.task_info_group').removeClass('aside_startview');
+        $(".task_info_group").css({"marginLeft": 0, "float": "left"});
+      }
+      timeout = setTimeout(function() {
+        $('section').fadeIn(1000);
+      }, 600);
+    });
+
+    $("nav").on('click', function() {
+      $('aside').addClass('aside_startview');
+      setMargins();
+      $('section').fadeOut();
+    });
+
+    setMargins();
+    $(window).resize(function() {
+      if($('.task_info_group').hasClass('aside_startview')) {
+        setMargins();
+      }
+    });
+
+  });
+</script>
+<nav class="navbar navbar-fixed-top">
+  <div class="container">
+    <div class="logo-bar">
+  	  <img src="/assets/logo.jpg"/>
+    </div>
+    <div class="header-bar">
+      <%= render 'user_control', user: @user %>
+      <%# render 'task_info/task_summary', task_info: @task_info %>
+      <div class="header-actions">
+        <ul>
+          <li><%= link_to t("actions.refresh"), "/", { :class => 'task-info-refresh' } %></li>
+          <li><%= link_to t("actions.new-task"), new_task_path(), { target: '_blank',:class => 'create-task-link' }  %></li>
+          <li><%= link_to t("actions.new-long-task"), new_task_path(), { target: '_blank', class: 'window-link' }  %></li>
+          <li><%= link_to t("actions.phones"), "http://01srvnsi.gz.local/GZPhoneBook/sait/страница1.html", { target: '_blank' }  %></li>
+        </ul>
+      </div>
     </div>
   </div>
-  <%= render 'task_info/task_info', task_info: @task_info %>
+</nav>
+<main class="container">
+<%= render 'static_pages/test_task_info', task_info: @task_info %>
   <script id="task-template" type="text/x-jsrender">
     <div class="task-area" data-task-id="{{>task_id}}" data-id="{{>id}}">
       <div class="task-area-header">
@@ -75,12 +115,13 @@
       </div>
     </div>
   </script>
-  <div class="data-area">
+  <section class="data-area">
     <div id="task-shadow">
     </div>
     <div id="task-list">
     </div>
-  </div>
+  </section>
+  </main>
   <div class="create-task-area">
     <%= render 'tasks/task_form', user: @user, quick_performers: @quick_performers %>
   </div>

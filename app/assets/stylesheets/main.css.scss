@@ -1,7 +1,8 @@
-@import 'style';
 @import "variables";
 @import "bootstrap";
 @import "test";
+@import "style";
+
 
 $group-color: #F7F7F7;
 $fore-color: #333;
@@ -30,21 +31,22 @@ body {
 	right: 0;
 	bottom: 0;
 	overflow: hidden;
-	// z-index: -2;
+	z-index: -2;
 	color: $main-color;
 	min-width: 800px;
 	max-width: 1100px;
 }
 
 .logo-bar {
-	position: absolute;
-	width: 4.3em;
-	height: 4.3em;
-	background-color: white;
-	left: 0.5em;
-	top: 2.1em;
+	/* position: absolute; */
+	/* width: 4.3em; */
+	/* height: 4.3em; */
+	background-color: #FFF;
+	/* left: 0.5em; */
+	/* top: 2.1em; */
 	border-radius: 8px;
 	cursor: pointer;
+	float: left;
 	img {
 		width: 4em;
 		height: 4em;
@@ -53,7 +55,7 @@ body {
 }
 
 .header-bar {
-	width: 100%;
+	// width: 100%;
 	height: 5.7em;
 	overflow: hidden;
 }
