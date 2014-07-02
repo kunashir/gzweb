@@ -3,8 +3,8 @@ lock '3.1.0'
 application = 'GZWeb' #название приложения
 
 rpsec_log_path = "/var/www/apps/#{application}/shared/log/test.html"
-# set :repo_url,  "http://sergey.pleshanov:mirea2014@code.quercus.ru/git/gzweb.git"
-set :repo_url,  "file:///home/quercus/GZWeb/.git"
+set :repo_url,  "http://sergey.pleshanov:mirea2014@code.quercus.ru/git/gzweb.git"
+# set :repo_url,  "file:///home/quercus/GZWeb/.git"
 set :branch, "master"
 set :deploy_to, "/var/www/apps/#{application}" 
 

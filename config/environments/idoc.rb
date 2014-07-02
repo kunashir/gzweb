@@ -10,8 +10,6 @@ Inlook::Application.configure do
   config.eager_load = true
 
   # Show full error reports and disable caching.
-  # config.consider_all_requests_local       = false
-  # config.action_controller.perform_caching = true
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
   
@@ -19,7 +17,9 @@ Inlook::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  # config.assets.js_compressor = :uglifier
+
+  config.assets.comress = false
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
