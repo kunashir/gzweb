@@ -1,6 +1,6 @@
 <div class="user-control">
   <%# link_to t("actions.set-delegate"), "/bad" %>
-  <%= image_tag(person.jpg), class: 'user-photo' %>
+  <%= image_tag 'person.jpg', class: 'user-photo' %>
   <div class="user-info" data-value="<%= user.employee_id %>">
     <div class="user-name" data-value="<%= user.display_name %>"><%= user.display_name %></div>
     <div class="user-position"><%= user.position %></div>
