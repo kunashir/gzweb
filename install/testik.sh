@@ -10,6 +10,8 @@ fi
 
 echo -e "\033[31;47m Start deploying by $DEPLOYER \033[0m"
 
+
+#creating file in sudoers.d (need for get nopasswd access to deployer)
 file="/etc/sudoers.d/allow_access_for_$DEPLOYER"
 
 if [ -f "$file" ]
