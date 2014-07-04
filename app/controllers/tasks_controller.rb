@@ -123,7 +123,7 @@ class TasksController < ApplicationController
       end
     else
       respond_to do |format|
-        format.json { render json: { error: error }, status: 406 }
+        format.json { render json: { error: error }, status: 422 }
       end
     end
   end
