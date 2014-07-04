@@ -6,6 +6,8 @@ class CardType < ActiveRecord::Base
 
   belongs_to :sid, class_name: 'DVCore::Security', primary_key: 'ID', foreign_key: 'SDID'
 
+  before_save :assign_required_attributes
+
   def self.assignment
     self.find('FFF11133-DFC4-4CD6-A2D4-BD242E2A4670')
   end
@@ -32,6 +34,12 @@ class CardType < ActiveRecord::Base
 
   def self.process
     self.find('AE82DD57-348C-4407-A50A-9F2C7D694DA8')
+  end
+
+  protected
+
+  def assign_required_attributes
+    self.Timestamp ||= "\x00"
   end
 
 end

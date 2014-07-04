@@ -41,6 +41,7 @@ describe Card do
     its(:archive_state) { should == 0 }
     its(:change_date) { should be_nil }
     its(:create_date) { should be_nil }
+    its(:timestamp) { should be_nil }
   end
 
   it 'if sid is not specified for the new card, it is taken from card type' do
@@ -51,6 +52,15 @@ describe Card do
     card.save!
 
     card.sid.should == card_type.sid
+  end
+
+  it 'after save timestamp is assigned to non-nil value' do
+    card_type = CardType.first
+
+    card = Card.new(card_type: card_type)
+    card.save!
+
+    card.timestamp.should_not be_nil
   end
 
   context 'saving card creates record in dvsys_instances_date' do

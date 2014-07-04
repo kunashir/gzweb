@@ -1,4 +1,4 @@
-class ActiveRecord::Schema
+class ActiveRecord::Migration
 
   def create_dv_table(card_xml_file, section)
     p "Creating table for section #{section} from file #{card_xml_file}"
@@ -64,7 +64,14 @@ class ActiveRecord::Schema
     cardlib = Nokogiri::XML.parse(File.read("#{Rails.root}/db/#{cardlib_xml_file}"))
     cardlib.xpath("//Report").each do |report|
       begin
-        sql = "CREATE PROCEDURE [dbo].[dvreport_get_data_{#{report["ID"]}}] "
+        procedure_name = "[dbo].[dvreport_get_data_{#{report["ID"]}}]"
+
+        drop_sql = 
+          "IF NOT OBJECT_ID('#{procedure_name}') IS NULL" +
+          "  DROP PROCEDURE #{procedure_name}"
+
+        sql = "CREATE PROCEDURE #{procedure_name} "
+
         parameters = report.xpath("Parameter")
         if parameters.length > 0
           sql += "("
@@ -88,10 +95,12 @@ class ActiveRecord::Schema
         unless body =~ /END(\s*)$/i
           sql += " END"
         end
+        execute drop_sql
         execute sql
         p "Installed report #{report["Alias"]}"
-      rescue
-        p "Failed to install report #{report["Alias"]}"
+      rescue Exception => e
+        p "Failed to install report #{report["Alias"]} due to:"
+        p "! #{e}"
       end
     end
   end
