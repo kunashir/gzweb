@@ -9,7 +9,7 @@ $aside__tile-height: ceil($aside_nav-width/4.5);
 
 $font-size-base: 16px;
 
-
+$navbar--top_shift: 20px;
 $task_info_group--transition_speed: 0.6s;
 %task_info_group--transition {
   -moz-transition: all $task_info_group--transition_speed cubic-bezier(0.320, 0.755, 0.465, 0.975);
@@ -23,3 +23,17 @@ $task_info_group--transition_speed: 0.6s;
 //   width: $width + px;
 //   height: $height + px;
 // }
+
+$group-color: #F7F7F7;
+$fore-color: #333;
+$new-color: #f0f0f0;
+$dim-level: .25;
+$border-dim-level: .9;
+$performing-color: #F7C6A3;
+$group-gradient-level: 10%;
+$gradient-level: 0%;
+$outline-color: rgba(0,0,0,.3);
+$new-dim-level: .05;
+$informational-color: #C8D9A6;
+$issued-color: #A5D6E2;
+$main-color: #595959;

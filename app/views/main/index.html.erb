@@ -12,21 +12,35 @@
     $('.task_info__item').on('click', function(e) {
       var item = $(this),
           dataItem = item.children('div').first();
-      console.log(dataItem);
       if (item.parents().hasClass('aside_startview')) {
         $('.task_info_group').removeClass('aside_startview');
+        $('.task_info_group').addClass('aside_listview');
+        $('.task_info__item').find('.icon').hide();
+        $('.js--nav').removeClass("nav__start_view").addClass('nav__list_view');
         $(".task_info_group").css({"marginLeft": 0, "float": "left"});
       }
+
+      $(".task_info__item").removeClass("active");
+      item.addClass("active");
+      $('.data-area')
+        .animate({ opacity:1 }, 400, 'easeInCirc');
+
       timeout = setTimeout(function() {
         switch_to_list(dataItem.data("folder"));
+
+        $('.data-area').css({ "z-index": "0" });
         $('section').fadeIn(1000);
       }, 600);
     });
 
-    $("nav").on('click', function() {
+    $(".logo-bar").on('click', function() {
       $('aside').addClass('aside_startview');
+      $('.js--nav').removeClass("nav__list_view").addClass('nav__start_view');
+      $('.task_info_group').removeClass('aside_listview');
       setMargins();
-      $('section').fadeOut();
+      $('section').hide();
+      $('.task_info__item').find('.icon').fadeIn();
+      $(".task_info__item").removeClass("active");
     });
 
     setMargins();
@@ -38,7 +52,7 @@
 
   });
 </script>
-<nav class="navbar navbar-fixed-top">
+<nav class="navbar navbar-fixed-top nav__start_view js--nav top_shift--20px">
   <div class="container">
     <div class="logo-bar">
   	  <img src="/assets/logo.jpg"/>
@@ -48,10 +62,10 @@
       <%# render 'task_info/task_summary', task_info: @task_info %>
       <div class="header-actions">
         <ul>
-          <li><%= link_to t("actions.refresh"), "/", { :class => 'task-info-refresh' } %></li>
-          <li><%= link_to t("actions.new-task"), new_task_path(), { target: '_blank',:class => 'create-task-link' }  %></li>
-          <li><%= link_to t("actions.new-long-task"), new_task_path(), { target: '_blank', class: 'window-link' }  %></li>
-          <li><%= link_to t("actions.phones"), "http://01srvnsi.gz.local/GZPhoneBook/sait/страница1.html", { target: '_blank' }  %></li>
+          <li><%= link_to t("actions.refresh"), "/", { :class => 'nav__buttons task-info-refresh ' } %></li>
+          <li><%= link_to t("actions.new-task"), new_task_path(), { target: '_blank',:class => 'nav__buttons create-task-link' }  %></li>
+          <li><%= link_to t("actions.new-long-task"), new_task_path(), { target: '_blank', class: 'nav__buttons window-link' }  %></li>
+          <li><%= link_to t("actions.phones"), "http://01srvnsi.gz.local/GZPhoneBook/sait/страница1.html", { target: '_blank', class: 'nav__buttons' }  %></li>
         </ul>
       </div>
     </div>

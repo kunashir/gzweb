@@ -13,13 +13,34 @@ body {
   min-width: 768px;
 }
 
-nav {
+.js--nav {
+  @extend %task_info_group--transition;
   min-width: 768px;
   .container {
-    background-color: #34AADC;
+    padding: 3px 10px;
     height: $navbar-height;
+    @extend %task_info_group--transition;
   }
 }
+
+.nav__start_view {
+  top: $navbar--top_shift;
+  .container {
+    background-color: #FFF;
+  }
+}
+.nav__list_view {
+  top: 0;
+  .container {
+    background-color: #34AADC;
+  }
+  .nav__buttons {
+    color: #E0E0E0;
+    @extend %task_info_group--transition;
+  }
+}
+
+
 
 main {
   padding: 0% 2%;
@@ -49,7 +70,8 @@ main {
   @extend %task_info_group--transition;
   width: $aside_nav-width;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 20px;
+
   // max-height: 392px + 223px;
   // height: 100%;
   // position: absolute;
@@ -71,10 +93,10 @@ main {
     // }
   }
   .task_info_group__performing {
-    height: 419px;
+    height: 400px;
   }
   .task_info_group__issued {
-    height: 232px;
+    height: 225px;
   }
   .task_info__item {
     height: $aside__tile-height;
@@ -86,16 +108,9 @@ main {
 
     > div {
       height: 100%;
+      border: 1px solid transparentize($fore-color, $border-dim-level);
     }
-    .task-info-performing, .task-info-to_accept {
-      background-color: #FDEBDC;
-    }
-    .task-info-long_tasks, .task-info-to_approve, .task-info-to_sign, .task-info-informational {
-      background-color: #EDF2E1;
-    }
-    .task-info-issued, .task-info-long_issued, .task-info-delegated {
-      background-color: #E1F1F5;
-    }
+
     // margin: 8px;
 
     @for $i from 2 through 7 {
@@ -109,10 +124,69 @@ main {
     //   }
     // }
   }
+
+}
+$performing-color: #F7C6A3;
+$informational-color: #C8D9A6;
+$issued-color: #A5D6E2;
+
+.active {
+  .task-info-performing, .task-info-to_accept {
+    background-color: $performing-color !important;
+  }
+
+  .task-info-long_tasks, .task-info-informational, .task-info-to_approve, .task-info-to_sign {
+   background-color: $informational-color !important;
+  }
+
+  .task-info-issued, .task-info-long_issued, .task-info-delegated {
+   background-color: $issued-color !important;
+  }
+}
+.aside_listview {
+  .task-info-performing, .task-info-to_accept {
+          @extend %task_info_group--transition;
+    background-color: #FDEBDC;
+  }
+  .task-info-long_tasks, .task-info-to_approve, .task-info-to_sign, .task-info-informational {
+          @extend %task_info_group--transition;
+    background-color: #EDF2E1;
+  }
+  .task-info-issued, .task-info-long_issued, .task-info-delegated {
+
+    @extend %task_info_group--transition;
+    background-color: #E1F1F5;
+  }
+  .new {
+    font-size: 1.6em;
+    bottom: 0.1em;
+    right: 1.6em;
+  }
+  .total {
+    bottom: 0.4em;
+  }
 }
 
 
 .aside_startview {
+  margin-top: $navbar--top_shift;
+
+  .task-info-performing, .task-info-to_accept {
+    @extend %task_info_group--transition;
+    background-color: $performing-color;
+
+  }
+
+  .task-info-long_tasks, .task-info-informational, .task-info-to_approve, .task-info-to_sign {
+   @extend %task_info_group--transition;
+   background-color: $informational-color;
+  }
+
+  .task-info-issued, .task-info-long_issued, .task-info-delegated {
+   @extend %task_info_group--transition;
+   background-color: $issued-color;
+  }
+
    @extend %task_info_group--transition;
    width: 780px;
   .task_info_group__header {
@@ -176,6 +250,17 @@ main {
     //   }
     // }
   }
+  .new {
+    font-size: 2em;
+    bottom: 0.8em;
+    right: 1.2em;
+      @extend %task_info_group--transition;
+  }
+  .total {
+    bottom: 0.6em;
+    right: 0.8em;
+      @extend %task_info_group--transition;
+  }
 }
 
 .task_info_group__header, .task_info__item {
@@ -205,7 +290,7 @@ section {
   height: 100%;
   overflow-y: auto;
   padding: 1% 0 1% 1%;
-  margin-left: $aside_nav-width + 10px;;
+  // margin-left: $aside_nav-width + 10px;;
   min-height: 540px;
   display: none;
 }
