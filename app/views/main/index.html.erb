@@ -9,12 +9,16 @@
   }
 
   $(document).ready(function() {
-    $('.task_info__item').on('click', function() {
-      if($(this).parents().hasClass('aside_startview')) {
+    $('.task_info__item').on('click', function(e) {
+      var item = $(this),
+          dataItem = item.children('div').first();
+      console.log(dataItem);
+      if (item.parents().hasClass('aside_startview')) {
         $('.task_info_group').removeClass('aside_startview');
         $(".task_info_group").css({"marginLeft": 0, "float": "left"});
       }
       timeout = setTimeout(function() {
+        switch_to_list(dataItem.data("folder"));
         $('section').fadeIn(1000);
       }, 600);
     });
