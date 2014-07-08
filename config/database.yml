@@ -46,15 +46,8 @@ test_cache:
 # idoc server database
 idoc:
   adapter: sqlserver
-  host: 10.0.2.2
-  database: gz_45
+  host: sql-dev
+  database: gz45new
   username: sa
-  password: 1
+  password: QwertY123
   timeout: 600000
-
-  # adapter: sqlserver
-  # host: sql-dev
-  # database: gz45new
-  # username: sa
-  # password: QwertY123
-  # timeout: 600000
