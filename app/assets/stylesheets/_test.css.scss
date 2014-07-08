@@ -128,7 +128,7 @@ main {
   width: $aside_nav-width;
   margin-left: auto;
   margin-right: auto;
-  font-weight: bold;
+
 
   .task_info_group__header {
 
@@ -138,6 +138,8 @@ main {
     color: #333;
     padding-left: 10px;
     padding-right: 10px;
+    font-size: 16px;
+    font-weight: bold;
   }
 
   .task_info_group__performing {
@@ -202,6 +204,10 @@ main {
 
 .task-info-performing, .task-info-to_accept, .task-info-long_tasks, .task-info-informational, .task-info-to_approve, .task-info-to_sign, .task-info-issued, .task-info-long_issued, .task-info-delegated {
   padding: 2px 5px;
+  .header {
+    font-weight: 400;
+    font-size: 18px;
+  }
 }
 
 
@@ -252,7 +258,7 @@ main {
   .task_info__item {
     width: $startview__tile-width;
     height: $startview__tile-height;
-    padding: 8px;
+    padding: 6px 10px;
 
     //расположение первого и третьего ряда тайлов
     @for $i from 2 through 4 {

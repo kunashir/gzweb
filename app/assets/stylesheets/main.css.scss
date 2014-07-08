@@ -244,6 +244,7 @@ body {
 	// position: absolute;
 	// bottom: 0.6em;
 	// right: 0.8em;
+	font-weight: bold;
 	padding-left: 10px;
 }
 
@@ -253,7 +254,7 @@ body {
 
 .task_info__item .new.non-zero {
 	opacity: 1;
-
+	font-weight: bold;
 	color: $new-color;
 	// position: absolute;
 	// bottom: 0.8em;
