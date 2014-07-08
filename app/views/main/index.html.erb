@@ -93,12 +93,10 @@
   <script id="task-template" type="text/x-jsrender">
     <div class="task-area" data-task-id="{{>task_id}}" data-id="{{>id}}">
       <div class="task-area-header">
-        <div class="task-subject-area">
-          <div class="task-subject">
-            <div>{{>subject}}</div>
-          </div>
-          <div class="task-date">{{>date}}</div>
-        </div>
+        <table class="task-subject-area fullwidth clearfix">
+          <td class="task-subject"><table class="one_line_table" style="margin: 2px 5px;"><td class="text-cut">{{>subject}}</td></table></td>
+          <td class="task-date table_td--autowidth" style="white-space: nowrap">{{>date}}</td>
+        </table>
         <div class="task-author-area">
           <div class="header"><%=t "task.author" %></div>
           <div class="task-author-name">{{>author_name}}</div>
