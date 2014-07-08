@@ -227,7 +227,7 @@ function TaskActors() {
 $(function() {
     actors = new TaskActors();
     taskActions = new TaskActions();
-    taskFiles = new TaskFiles();
+    taskFiles = new TaskFiles($('.create-task'));
 });
 
 function TaskActions() {
@@ -314,9 +314,9 @@ function TaskActions() {
     this.closeHandler = function() {}
 }
 
-function TaskFiles() {
+function TaskFiles(root) {
     var $this = this,
-        fileArea = $('.task-files'),
+        fileArea = root.find('.task-files'),
         fileInput = fileArea.children('input'),
         fileAddButton = fileArea.children('.task-add-file'),
         url = "/file"
@@ -361,6 +361,8 @@ function TaskFiles() {
     }
 
     function addFileToUpload() {
+        if (fileInput.val() == '')
+            return;
         var re = /(?:\.([^.]+))?$/;
         var fileName = fileInput.val().split('\\').pop();
         $.get(
@@ -383,19 +385,25 @@ function TaskFiles() {
                     .addClass('task-file-progress')
                     .appendTo(taskFileNameContainer);
                 taskFileDiv.appendTo(fileArea);
+                console.log("before uploading file");
+                console.log(taskFileDiv);
+                console.log(taskFileProgress);
                 uploadFile(taskFileDiv, taskFileProgress);
             });
     }
 
     function uploadFile(fileDiv, progressBar) {
+        console.log("uploading file");
+        console.log(fileDiv);
+        console.log(progressBar);
         var file = fileInput[0].files[0];
         var xhr = new XMLHttpRequest();
         xhr.file = file; // not necessary if you create scopes like this
-        xhr.addEventListener('progress', function(e) {
-            var done = e.position || e.loaded,
-                total = e.totalSize || e.total;
-            progressBar.css('width', (Math.floor(done / total * 1000) / 10) + '%');
-        }, false);
+        // xhr.addEventListener('progress', function(e) {
+        //     var done = e.position || e.loaded,
+        //         total = e.totalSize || e.total;
+        //     progressBar.css('width', (Math.floor(done / total * 1000) / 10) + '%');
+        // }, false);
         if (xhr.upload) {
             xhr.upload.onprogress = function(e) {
                 var done = e.position || e.loaded,

@@ -32,6 +32,24 @@ class TasksInfo < CacheBase
     employee.tasks_info || TasksInfo.new
   end
 
+  def self.recount(employee)
+    tasks_info = employee.tasks_info
+    if tasks_info.nil?
+      tasks_info = TasksInfo.new
+      tasks_info.user = employee
+      employee.tasks_info = tasks_info
+    end
+    [:performing, :to_accept, :to_approve, 
+      :to_sign, :informational, :delegated].each do |filter| 
+      existing_tasks = employee.task_infos.where(folder: filter).to_a
+      total_count = existing_tasks.length
+      new_count = existing_tasks.select { |x| x.is_new }.length
+      tasks_info.send("#{filter}=", total_count)
+      tasks_info.send("#{filter}_new=", new_count)
+    end
+    tasks_info.save!
+  end
+
   def self.sync(employee)
     sql_connection = ActiveRecord::Base.connection
     tasks = sql_connection.execute_procedure(
@@ -76,7 +94,20 @@ class TasksInfo < CacheBase
     tasks_info
   end
 
+  def self.reload_task(id, user) 
+    sql_connection = ActiveRecord::Base.connection
+    tasks = sql_connection.execute_procedure(
+      '[dvreport_get_data_{8c688b6c-5e83-4208-a795-368d067c29eb}]',
+      user.employee_id,
+      user.account_name)
+    task = tasks.first { |x| x[:TaskID] == id }
+    cache_task = TaskInfo.where(task_id: id).first
+    fill_task_fields(cache_task, task)
+    cache_task.save
+  end
+
   def self.fill_task_fields(cache_task, task)
+    cache_task.is_new = task[:IsNew]
     cache_task.subject = task[:TaskSubject]
     cache_task.content = task[:TaskContents]
     cache_task.author_name = task[:TaskAuthor]
@@ -105,6 +136,15 @@ class TasksInfo < CacheBase
     cache_task.controler_position = fields["ControlerPosition"]
     cache_task.parent_document_id = fields["DocumentID"]
     cache_task.parent_document = fields["Document"]
+
+    cache_task.kind = nil
+
+    if !fields["DocumentTypeID"].nil? &&
+       CardType.incdoc_type_id.casecmp(fields["DocumentTypeID"]) == 0 && 
+       cache_task.task_type == 5
+      cache_task.kind = :incdoc_reviewal
+    end
+
     load_task_files(cache_task)
   end
 
@@ -118,7 +158,8 @@ class TasksInfo < CacheBase
         controler.DisplayString as ControlerName, 
         controlerPosition.Name as ControlerPosition,
         document.InstanceID as DocumentID,
-        document.Description as Document
+        document.Description as Document,
+        document.CardTypeID as DocumentTypeID
       FROM
         [dvtable_{7213A125-2CA4-40EE-A671-B52850F45E7D}] taskMain WITH (NOLOCK)
         LEFT JOIN [dvtable_{DBC8AE9D-C1D2-4D5E-978B-339D22B32482}] author WITH(NOLOCK)

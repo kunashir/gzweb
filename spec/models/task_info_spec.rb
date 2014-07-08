@@ -82,4 +82,55 @@ describe TaskInfo do
         delegated_to.select { |x| x.nil? }.should_not be_empty
         delegated_to.length.should >= RandomHelper.persons.count / 2 + 1
     end
+
+    context 'IncDoc reviewal task' do
+        it 'Should return single action with non-required comments' do
+            task = FactoryGirl.create(:task_info_dummy1)
+            task.kind = 'incdoc_reviewal'
+
+            task.actions.should =~ [ { action: :complete, text: 'task.incdoc_reviewal.complete', comments_required: false }]
+        end
+
+        it 'Should return :folder_remove after ''complete'' action is performed' do
+            task = FactoryGirl.create(:task_info_dummy1)
+            task.kind = 'incdoc_reviewal'
+
+            card = double('TaskCard')
+            TakeOffice::WorkflowTaskCard.stub(:find).with(task.task_id).and_return(card)
+            card.stub(:mark_completed)
+
+            task.perform('complete', User.first, {}).should == :folder_remove
+        end
+
+        it 'Should be removed from database after ''complete'' action is performed' do
+            task = FactoryGirl.create(:task_info_dummy1)
+            task.kind = 'incdoc_reviewal'
+
+            card = double('TaskCard')
+            TakeOffice::WorkflowTaskCard.stub(:find).with(task.task_id).and_return(card)
+            card.stub(:mark_completed)
+
+            task.should_receive(:destroy).and_return(true)
+            
+            task.perform('complete', User.first, {})
+        end
+
+        it 'should request task to be mark_completed in DV card when ''complete'' action is performed' do
+            task = FactoryGirl.create(:task_info_dummy1)
+            task.kind = :incdoc_reviewal
+
+            card = double('TaskCard')
+            TakeOffice::WorkflowTaskCard.should_receive(:find).with(task.task_id).and_return(card)
+            card.should_receive(:mark_completed).
+                with(User.first.employee, { comments: 'hello', blabla: 'ttrtrt '})
+
+            # main_info = double('TaskCardMainInfo')
+            # TaskCard.should_receive(:find).with(task.task_id).and_return(card)
+            # card.should_receive(:main_info).and_return(main_info)
+            # main_info.should_receive('state=').with(5)
+            # card.should_receive(:save!)
+
+            task.perform('complete', User.first, { comments: 'hello', blabla: 'ttrtrt '})
+        end
+    end
 end

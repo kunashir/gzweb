@@ -2,6 +2,7 @@ Inlook::Application.routes.draw do
 
   get 'task_info' => 'task_info#show'
   get 'task_info/:kind' => 'task_info#tasks'
+  post 'task_info/:id/perform' => 'task_info#perform', constraints: { format: :json }, defaults: { format: :json }
   root 'main#index'
 
   resources :tasks, only: [ :new, :create, :show ]

@@ -16,6 +16,21 @@ class TaskInfo < CacheBase
     TaskInfo.new.send(:init_random)
   end
 
+  def actions
+    case
+      when is_incdoc_reviewal?
+        [{action: :complete, text: 'task.incdoc_reviewal.complete', comments_required: false}]
+      else []
+    end
+  end
+
+  def perform(action, user, options = {})
+    # case
+    #   when is_incdoc_reviewal?
+        incdoc_reviewal_complete(user, options)
+    # end
+  end
+
   protected
 
   def self.rnd
@@ -60,5 +75,18 @@ class TaskInfo < CacheBase
           nil
       end
     self
+  end
+
+  def is_incdoc_reviewal?
+    'incdoc_reviewal' == self.kind.try(:to_s)
+  end
+
+  def incdoc_reviewal_complete(user, options = {})
+    TakeOffice::WorkflowTaskCard.find(self.task_id).mark_completed(user.employee, options)
+
+    self.destroy
+    TasksInfo.recount(user)
+    
+    :folder_remove
   end
 end 

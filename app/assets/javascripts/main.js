@@ -453,9 +453,7 @@ function fill_list(data) {
 		data.task_list[i].html_content = $('<div/>').text(data.task_list[i].content).html().replace("\n", "<br/>");
 		data.task_list[i].deadline_time_till = "до " + data.task_list[i].deadline_time + " часов"
 	}
-	task_item = $("#task-list").html(
-        $("#task-template").render(data.task_list)
-    );
+	task_item = $("#task-list").html($("#task-template").render(data.task_list));
     $("#task-shadow").css('z-index', -1)
     	.animate({ opacity: 0 }, 400, 'easeOutCirc');
     $("#task-list")
@@ -466,8 +464,8 @@ function fill_list(data) {
 }
 
 function task_select(event) {
-	if (event.originalEvent.srcElement.nodeName == 'A')
-		return;
+	/*if (event.originalEvent.srcElement.nodeName == 'A')
+		return;*/
 	event.preventDefault();
 	if (selectedTask == event.currentTarget)
 		return;
@@ -477,8 +475,14 @@ function task_select(event) {
 	$(selectedTask).addClass("selected");
 }
 
-function init_task_actions(task) {
-	task.find(".task-action-delegate").click(createSubTask);
+function init_task_actions(taskList) {
+	taskList.find(".task-action-delegate").click(createSubTask);
+	taskList.find(".task-action-complete").click(showTaskComplete);
+	taskList.find(".task-action-ok").click(completeTask);
+	taskList.find(".task-action-cancel").click(closeTaskComplete);
+	tasks = taskList.find(".task-area");
+	for (var i = 0; i < tasks.length; i++) 
+		tasks[i].taskFiles = new TaskFiles($(tasks[i]));
 }
 
 function createSubTask(event) {
@@ -535,4 +539,117 @@ function createSubTask(event) {
 					taskArea.css('display', 'none');
 				});
 	}
+}
+
+function showTaskComplete(event) {
+	event.preventDefault();
+
+	var taskItem = $(event.currentTarget).parents('.task-area'),
+	    taskCompleteArea = taskItem.find('.task-complete-area'),
+	    taskActions = taskItem.find('.task-actions'),
+	    comments = taskCompleteArea.find('textarea');
+
+	taskCompleteArea.animate({height: '15em'}, 400, 'easeOutCirc');
+	taskActions.animate({'margin-top': '-2.5em'}, 400, 'easeOutCirc');
+	comments.focus();
+}
+
+function closeTaskComplete(event) {
+	event.preventDefault();
+
+	var taskItem = $(event.currentTarget).parents('.task-area'),
+	    taskCompleteArea = taskItem.find('.task-complete-area'),
+	    taskActions = taskItem.find('.task-actions'),
+	    comments = taskCompleteArea.find('textarea');
+
+	comments.val('');
+    taskItem[0].taskFiles.clear();
+	taskCompleteArea.animate({height: '0em'}, 400, 'easeOutCirc');
+	taskActions.animate({'margin-top': '0.5em'}, 400, 'easeOutCirc');
+}
+
+function completeTask(event) {
+	event.preventDefault();
+
+	var taskItem = $(event.currentTarget).parents('.task-area'),
+		id = taskItem.data('id'),
+	    taskCompleteArea = taskItem.find('.task-complete-area'),
+	    taskActions = taskItem.find('.task-actions'),
+	    comments = taskCompleteArea.find('textarea'),
+	    commentsText = comments.val(),
+	    actionError = taskItem.find('.task-action-error'),
+	    actionProgress = taskItem.find('.task-action-progress'),
+	    actionCloseBtn = taskItem.find('.task-action-close'),
+	    actionMessage = taskItem.find('.task-action-message'),
+	    actionLid = taskItem.find('.task-action-lid');
+
+	var fileArray = taskItem.find('.task-files .task-file').map(function(i, file) {
+                return $(file).data("id");
+            }).toArray();
+
+	console.log("Comments text = '" + commentsText + "'");
+	console.log("Files = '" + fileArray + "'")
+
+    var taskData = {
+        task_action: 'complete',
+        comments: commentsText,
+        files: fileArray
+    };
+
+    actionError.css('display', 'none');
+    actionProgress.css('display', 'inline-block');
+    actionCloseBtn.css('display', 'none');
+    actionMessage.text('Завершение поручения');
+    actionLid.css('opacity', '0').css('display', 'block').animate({
+        opacity: 1
+    }, 400);
+
+    $.post('/task_info/' + id + '/perform.json', taskData)
+        .done(function (data) {
+        	var result = '';
+            if (data && data.result)
+                result = data.result;
+        	onCompleteTaskDone(result, taskItem, actionMessage, actionProgress, actionLid);
+        })
+        .fail(function (data) {
+            var errorText = "Внутренняя ошибка приложения";
+            if (data.responseJSON && data.responseJSON.error)
+                errorText = data.responseJSON.error;
+            onCompleteTaskError(errorText, actionMessage, actionError, actionProgress, actionCloseBtn);
+        });
+}
+
+
+function onCompleteTaskError(errorMessage, message, error, progress, closeBtn) {
+    message.text('Ошибка завершения поручения');
+    error.text(errorMessage).css('display', 'block');
+    progress.css('display', 'none');
+    closeBtn.css('display', 'inline-block');
+}
+
+function onCompleteTaskDone(result, task, message, progress, lid) {
+	console.log(result);
+    message.text('Поручение завершено');
+    progress.css('display', 'none');
+    setTimeout(function() {
+		hideTaskLid(lid, task, result);
+    }, 1000);
+}
+
+function removeTask(task) {
+	task.animate({
+		height: 0
+	}, 200, 'easeOutCirc', function() {
+		task.remove();
+	})
+}
+
+function hideTaskLid(lid, task, result) {
+	lid.animate({
+	    opacity: 0
+	}, 200, 'easeOutCirc', function() {
+	    lid.css('display', 'none');
+    	if (result == 'folder_remove')
+    		removeTask(task);
+	});
 }

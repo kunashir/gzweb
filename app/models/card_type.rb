@@ -36,6 +36,18 @@ class CardType < ActiveRecord::Base
     self.find('AE82DD57-348C-4407-A50A-9F2C7D694DA8')
   end
 
+  def self.workflow_task_id
+    'F7E2090A-EEC3-4B51-B1BB-567D4A0117D6'
+  end
+
+  def self.workflow_task
+    self.find(workflow_task_id)
+  end
+
+  def self.incdoc_type_id
+    '094DEF0A-2CA1-41D8-81B6-70F586FDDE56'
+  end
+
   protected
 
   def assign_required_attributes

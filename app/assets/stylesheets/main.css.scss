@@ -505,18 +505,17 @@ body {
 }
 
 .task-delegated-area {
-	float: left;
-	
+
 	.header {
-		float: left;
+		padding-top: 0.1em;
+		padding-left: 0.6em;
+		font-weight: bold;
 		color: #76DD62;
 		font-size: 0.9em;
 		padding-bottom: 0.2em;
-		padding-top: 0.1em;
-		padding-left: 0em;
-		margin-left: -0.4em;
-		font-weight: bold;
+		float: left;
 	}
+
 	.task-delegated {
 		float: left;
 	}
@@ -573,12 +572,14 @@ body {
 
 .task-actions-area {
 	border-top: 2px solid #CCC;
-	margin: 0px 0.5em;
-	padding: 0.5em;
+	overflow: hidden;
+	height: 2.5em;
+	margin: 0em 0.5em;
 }
 
-.task-actions {
+.task-actions, .task-actions-apply {
 	float: right;
+	margin: 0.5em 0em;
 	a {
 		display: block;
 		float: left;		
@@ -618,4 +619,104 @@ body {
 	max-width: 900px;
 	margin: auto;
 	text-align: center;
+}
+
+.task-complete-area {
+	height: 0em;
+	margin: 0em 0.5em;
+	overflow: hidden;
+
+	.border {
+		border-top: 2px solid #CCC;
+	}
+
+	.header { 
+		margin-top: 0.5em;
+		font-weight: bold;
+		font-size: 0.9em;
+		color: #ADADFF;
+	}
+
+	.task-comments-area {
+		width: 100%;
+		height: 5em;
+		margin: 0.5em 0em;
+
+		textarea {
+			box-sizing: border-box;
+			width: 100%;
+			height: 6em;
+			border: 1px solid #9BAAFD;
+			resize: none;
+		}
+	}
+
+	.task-files-container {
+		height: 7em;
+		background-color: white;
+		border: 1px solid #9BAAFD;
+
+		.task-files {
+			height: 7em;
+		}
+	}
+}
+
+.task-action-lid {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(157, 157, 157, 0.45);
+	display: none;
+	width: 100%;
+	height: 100%;
+
+	.task-action-cell {
+		display: block;
+		text-align: center;
+		position: absolute;
+		width: 100%;
+		bottom: 8em;
+
+		.task-action-box {
+			border: 2px solid #009ABC;
+			background-color: #F1F8FA;
+			padding: 0.5em;
+			display: inline-block;
+			border-radius: 5px;
+			font-size: 1.5em;
+
+			.task-action-error {
+				font-size: 0.5em;
+				width: 30em;
+				text-align: left;
+				margin: 1.5em 0em 0.5em 0em;
+				overflow: hidden;
+				max-height: 10em;
+			}
+
+			.task-action-progress {
+				margin-top: 0.5em;
+			}
+
+			.task-action-close {
+				display: inline-block;
+				border: 1px solid transparent;
+				font-size: 0.7em;
+				padding: 0.3em 0.5em;
+				text-decoration: none;
+				color: #444;
+			}
+			
+			.task-action-close:hover {
+				border-color: #34AADC;
+			}
+
+			.task-action-close:active {
+				background-color: #E3E9EA;
+			}
+		}
+	}
 }

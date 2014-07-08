@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704043802) do
+ActiveRecord::Schema.define(version: 20140708100021) do
 
   create_table "admins", force: true do |t|
     t.string   "login"
@@ -735,6 +735,21 @@ ActiveRecord::Schema.define(version: 20140704043802) do
   end
 
   create_table "dvtable_view_{44a6e879-c04e-4d29-bae5-c5bce6a42073}_keyset_selection", id: false, force: true do |t|
+    t.string  "CursorID",   limit: nil, null: false
+    t.integer "OldOrder",               null: false
+    t.string  "InstanceID", limit: nil, null: false
+  end
+
+  create_table "dvtable_view_{6aadc462-68e9-4305-b884-833273dc3bc7}_keyset", id: false, force: true do |t|
+    t.string  "CursorID",   limit: nil, null: false
+    t.integer "Order",                  null: false
+    t.boolean "IsSelected"
+    t.string  "InstanceID", limit: nil, null: false
+    t.string  "ShortcutID", limit: nil
+    t.integer "Rank",       limit: 2
+  end
+
+  create_table "dvtable_view_{6aadc462-68e9-4305-b884-833273dc3bc7}_keyset_selection", id: false, force: true do |t|
     t.string  "CursorID",   limit: nil, null: false
     t.integer "OldOrder",               null: false
     t.string  "InstanceID", limit: nil, null: false
@@ -13060,6 +13075,8 @@ ActiveRecord::Schema.define(version: 20140704043802) do
     t.string   "parent_document"
     t.string   "folder"
     t.integer  "user_id"
+    t.string   "kind"
+    t.boolean  "is_new"
   end
 
   add_index "task_infos", ["user_id"], name: "index_task_infos_on_user_id"
