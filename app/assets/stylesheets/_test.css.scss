@@ -1,7 +1,9 @@
 @import "variables";
 
+/////////////////////////////////////////////
+//  Стили основных лайаутов
+/////////////////////////////////////////////
 html {
-  // min-height: 653px;
   overflow-y: auto;
 }
 html, body, main {
@@ -13,7 +15,67 @@ body {
   min-width: 768px;
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    width: auto;
+  }
+}
+.container {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+main {
+  padding: 0% 2%;
+  position: relative;
+  min-height: 550px;
+  padding-top: 1%;
+}
+
+/////////////////////////////////////////////
+// Общие стили (используются в разных местах)
+/////////////////////////////////////////////
+
+.fullsize {
+  min-width: 100%;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+}
+
+.fullheight {
+  height: 100%;
+  min-height: 100%;
+}
+
+.fullwidth {
+  width: 100%;
+  min-width: 100%;
+}
+
+.table_td--autowidth {
+  width: 1px;
+}
+
+.unselectable {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  -o-user-select: none;
+  user-select: none;
+}
+
+
+/////////////////////////////////////////////
+// Стили верхней панели навигации
+/////////////////////////////////////////////
+
 .js--nav {
+  z-index: 1;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  left: 0;
   @extend %task_info_group--transition;
   min-width: 768px;
   .container {
@@ -23,260 +85,95 @@ body {
   }
 }
 
+// стиль верхней панели навигации при стартовом экране
 .nav__start_view {
   top: $navbar--top_shift;
   .container {
     background-color: #FFF;
   }
 }
+
+// стиль верхней панели навигации при отображении списка поручений
 .nav__list_view {
   top: 0;
   .container {
     background-color: #34AADC;
   }
   .nav__buttons {
-    color: #E0E0E0;
+    color: whitesmoke;
     @extend %task_info_group--transition;
   }
 }
 
+/////////////////////////////////////////////
+// Стили контейнера со списком поручений
+/////////////////////////////////////////////
 
-
-main {
-  padding: 0% 2%;
-  background-color: #FDFDFD;
-  position: relative;
-  min-height: 550px;
-  padding-top: 1%;
+.data-area {
+  background: #F8F8F8;
+  border: 1px solid #EEE;
+  height: 100%;
+  overflow-y: auto;
+  padding: 1% 0 1% 1%;
+  margin-left: $aside_nav-width + 10px;;
+  min-height: 12px+$task_info_group__performing--height + $task_info_group__issued--height;
+  display: none;
 }
 
-.task_info_group {
-  font-weight: bold;
-}
-.task_info_group__performing, .task_info_group__issued {
-  border: 1px solid rgba(51, 51, 51, 0.1);
-  border-radius: 8px;
-  position: relative;
-  margin-bottom: 12px;
-}
-
-.task_info_group__performing, .task_info_group__issued {
-  height: auto;
-  width: auto;
-  padding: 8px;
-}
-
+/////////////////////////////////////////////
+// Общие стили тайлов
+/////////////////////////////////////////////
 .task_info_group {
   @extend %task_info_group--transition;
   width: $aside_nav-width;
   margin-left: auto;
-  margin-right: 20px;
+  margin-right: auto;
+  font-weight: bold;
 
-  // max-height: 392px + 223px;
-  // height: 100%;
-  // position: absolute;
   .task_info_group__header {
-    // width: $aside__tile-width;
+
     width: 100%;
     height: 28px;
     line-height: 28px;
     color: #333;
-    // background-color: #D6CEC3;
-    // border-radius: 8px;
-    // display: table-cell;
-    // vertical-align: middle;
-    // &:nth-child(1) {
-    //   top: 20px;
-    // }
-    // &:nth-child(8) {
-    //   top: $aside__tile-height*7 + 20px;
-    // }
+    padding-left: 10px;
+    padding-right: 10px;
   }
+
   .task_info_group__performing {
-    height: 400px;
+    height: 490px;
   }
   .task_info_group__issued {
-    height: 225px;
+    height: 275px;
   }
   .task_info__item {
+    @extend %task_info_group--transition;
     height: $aside__tile-height;
     width: 242px;
     padding-top: 4px;
     padding-bottom: 4px;
     color: rgba(51, 51, 51, 0.75);
-    // width: $aside__tile-width;
 
     > div {
       height: 100%;
       border: 1px solid transparentize($fore-color, $border-dim-level);
     }
 
-    // margin: 8px;
-
     @for $i from 2 through 7 {
       &:nth-child(#{$i}) {
-        top: $aside__tile-height*($i - 1) - 15px;
+        top: $aside__tile-height*($i - 1) - 25px;
       }
     }
-    // @for $i from 9 through 11 {
-    //   &:nth-child(#{$i}) {
-    //     top: $aside__tile-height*($i - 1) + 20px;
-    //   }
-    // }
-  }
-
-}
-$performing-color: #F7C6A3;
-$informational-color: #C8D9A6;
-$issued-color: #A5D6E2;
-
-.active {
-  .task-info-performing, .task-info-to_accept {
-    background-color: $performing-color !important;
-  }
-
-  .task-info-long_tasks, .task-info-informational, .task-info-to_approve, .task-info-to_sign {
-   background-color: $informational-color !important;
-  }
-
-  .task-info-issued, .task-info-long_issued, .task-info-delegated {
-   background-color: $issued-color !important;
-  }
-}
-.aside_listview {
-  .task-info-performing, .task-info-to_accept {
-          @extend %task_info_group--transition;
-    background-color: #FDEBDC;
-  }
-  .task-info-long_tasks, .task-info-to_approve, .task-info-to_sign, .task-info-informational {
-          @extend %task_info_group--transition;
-    background-color: #EDF2E1;
-  }
-  .task-info-issued, .task-info-long_issued, .task-info-delegated {
-
-    @extend %task_info_group--transition;
-    background-color: #E1F1F5;
-  }
-  .new {
-    font-size: 1.6em;
-    bottom: 0.1em;
-    right: 1.6em;
-  }
-  .total {
-    bottom: 0.4em;
   }
 }
 
-
-.aside_startview {
-  margin-top: $navbar--top_shift;
-
-  .task-info-performing, .task-info-to_accept {
-    @extend %task_info_group--transition;
-    background-color: $performing-color;
-
-  }
-
-  .task-info-long_tasks, .task-info-informational, .task-info-to_approve, .task-info-to_sign {
-   @extend %task_info_group--transition;
-   background-color: $informational-color;
-  }
-
-  .task-info-issued, .task-info-long_issued, .task-info-delegated {
-   @extend %task_info_group--transition;
-   background-color: $issued-color;
-  }
-
-   @extend %task_info_group--transition;
-   width: 780px;
-  .task_info_group__header {
-    height: 38px;
-    // width: 746px;
-    line-height: 38px;
-    width: 100%;
-    color: #696969;
-    background-color: #F7F7F7;
-    border-radius: 8px;
-
-    // &:nth-child(1) {
-    //   top: $startview__tile-height*2+40px;
-    // }
-    // &:nth-child(8) {
-    //   top: $startview__tile-height*2+60px;
-    // }
-  }
-  .task_info_group__performing {
-    height: 371px;
-  }
-  .task_info_group__issued {
-    height: 218px;
-  }
-  .task_info__item {
-    width: $startview__tile-width;
-    height: $startview__tile-height;
-    padding: 8px;
-    // margin: 8px;
-    // @for $i from 2 through 2 {
-    //   &:nth-child(#{$i}) {
-    //     margin-left: $startview__tile-width*($i - 2);
-    //   }
-    // }
-
-    @for $i from 2 through 4 {
-      &:nth-child(#{$i}) {
-        top: 50px;
-        // margin-top: -$startview__tile-height;
-        margin-left: $startview__tile-width*($i - 2);
-      }
-    }
-    // @for $i from 5 through 5 {
-    //   &:nth-child(#{$i}) {
-    //     // margin-top: 0;
-    //     margin-left: $startview__tile-width*($i - 5);
-    //   }
-    // }
-    @for $i from 5 through 7 {
-      &:nth-child(#{$i}) {
-        top: $startview__tile-height + 50px;
-        // margin-top: -$startview__tile-height;
-        margin-left: $startview__tile-width*($i - 5);
-      }
-    }
-
-    // @for $i from 9 through 11 {
-    //   &:nth-child(#{$i}) {
-    //     // margin-top: $startview__tile-height*2.5 + 50px;
-    //     margin-left: $startview__tile-width*($i - 9);
-    //   }
-    // }
-  }
-  .new {
-    font-size: 2em;
-    bottom: 0.8em;
-    right: 1.2em;
-      @extend %task_info_group--transition;
-  }
-  .total {
-    bottom: 0.6em;
-    right: 0.8em;
-      @extend %task_info_group--transition;
-  }
-}
-
-.task_info_group__header, .task_info__item {
-  @extend %task_info_group--transition;
-  // position: relative;
-  // position: absolute;
-  // background-color: lightcoral;
-
-
-}
 .task_info__item {
   position: absolute;
   > div {
     border: 1px solid transparent;
   }
   &:hover, &:focus {
+    transition: all 0.2s ease-in-out;
     color: #222;
     cursor: pointer;
     > div {
@@ -284,29 +181,203 @@ $issued-color: #A5D6E2;
     }
   }
 }
-section {
-  background: #F8F8F8;
-  border: 1px solid #EEE;
-  height: 100%;
-  overflow-y: auto;
-  padding: 1% 0 1% 1%;
-  // margin-left: $aside_nav-width + 10px;;
-  min-height: 540px;
-  display: none;
+
+/////////////////////////////////////////////
+// Стили для контейнеров "Мне сделать" и "Отслеживание"
+/////////////////////////////////////////////
+.task_info_group__performing, .task_info_group__issued {
+  border: 1px solid rgba(51, 51, 51, 0.1);
+  border-radius: 8px;
+  position: relative;
+  margin-bottom: 12px;
+  height: auto;
+  width: auto;
+  padding: 8px;
 }
 
 
-.navbar-fixed-top {
-  margin: auto;
-  position: absolute;
+/////////////////////////////////////////////
+// Внутренние паддинги для каждого тайла
+/////////////////////////////////////////////
+
+.task-info-performing, .task-info-to_accept, .task-info-long_tasks, .task-info-informational, .task-info-to_approve, .task-info-to_sign, .task-info-issued, .task-info-long_issued, .task-info-delegated {
+  padding: 2px 5px;
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
-  .container {
-    width: auto;
+
+/////////////////////////////////////////////
+// Стили тайлов при стартовом окне
+/////////////////////////////////////////////
+
+.aside_startview {
+  @extend %task_info_group--transition;
+  margin-top: $navbar--top_shift;
+  width: 780px;
+
+  // Цвета тайлов
+  .task-info-performing, .task-info-to_accept {
+    @extend %task_info_group--transition;
+    background-color: $performing-color;
+  }
+  .task-info-long_tasks, .task-info-informational, .task-info-to_approve, .task-info-to_sign {
+   @extend %task_info_group--transition;
+   background-color: $informational-color;
+  }
+  .task-info-issued, .task-info-long_issued, .task-info-delegated {
+   @extend %task_info_group--transition;
+   background-color: $issued-color;
+  }
+
+  // Высота области "Мне сделать"
+  .task_info_group__performing {
+    height: 371px;
+  }
+  // Высота области "Отслеживание"
+  .task_info_group__issued {
+    height: 218px;
+  }
+  // Стили заголовков "Мне сделать" и "Отслеживание"
+  .task_info_group__header {
+    height: 48px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    line-height: 38px;
+    width: 100%;
+    color: #696969;
+    background-color: #F7F7F7;
+    border-radius: 8px;
+  }
+
+  //расположение тайлов
+  .task_info__item {
+    width: $startview__tile-width;
+    height: $startview__tile-height;
+    padding: 8px;
+
+    //расположение первого и третьего ряда тайлов
+    @for $i from 2 through 4 {
+      &:nth-child(#{$i}) {
+        top: 60px;
+        margin-left: $startview__tile-width*($i - 2);
+      }
+    }
+    //расположение второго ряда тайлов
+    @for $i from 5 through 7 {
+      &:nth-child(#{$i}) {
+        top: $startview__tile-height + 60px;
+        margin-left: $startview__tile-width*($i - 5);
+      }
+    }
+  }
+  // .. // .. //
+  // Эти стили надо объединить со стилями из файла main.css
+  .new {
+    font-size: 2em;
+      @extend %task_info_group--transition;
+  }
+  .total {
+      @extend %task_info_group--transition;
   }
 }
-.container {
-  padding-left: 10px;
-  padding-right: 10px;
+
+/////////////////////////////////////////////
+// Стили тайлов при отображении списка поручений
+/////////////////////////////////////////////
+
+.aside_listview {
+
+  // Цвета тайлов
+  .task-info-performing, .task-info-to_accept {
+    @extend %task_info_group--transition;
+    background-color: #FDEBDC;
+  }
+  .task-info-long_tasks, .task-info-to_approve, .task-info-to_sign, .task-info-informational {
+    @extend %task_info_group--transition;
+    background-color: #EDF2E1;
+  }
+  .task-info-issued, .task-info-long_issued, .task-info-delegated {
+    @extend %task_info_group--transition;
+    background-color: #E1F1F5;
+  }
+  // .. // .. //
+  // Эти стили надо объединить со стилями из файла main.css
+  .new {
+    font-size: 1.6em;
+  }
+  .total {
+  }
+  .header {
+    color: #777;
+  }
+
+  // хак для тайла "Выданные мной(длительные)"
+  .task-info-long_issued {
+    .header {
+      position: absolute; // чтобы не разрывать таблицу переносом строки
+    }
+  }
+}
+
+/////////////////////////////////////////////
+// Стили активных (выбранных) тайлов при отображении списка поручений
+/////////////////////////////////////////////
+.active {
+  .task-info-performing, .task-info-to_accept {
+    background-color: $performing-color !important;
+    .header {
+      color: #222;
+    }
+  }
+  .task-info-long_tasks, .task-info-informational, .task-info-to_approve, .task-info-to_sign {
+   background-color: $informational-color !important;
+   .header {
+     color: #222;
+   }
+  }
+  .task-info-issued, .task-info-long_issued, .task-info-delegated {
+   background-color: $issued-color !important;
+   .header {
+     color: #222;
+   }
+  }
+}
+
+/////////////////////////////////////////////
+// Стили светофора m&m's
+/////////////////////////////////////////////
+%js--m_ms {
+  font-weight: 400;
+  color: rgb(89,89,89);
+}
+.js--task_info__m_ms {
+  @extend %js--m_ms;
+}
+
+.js--nav__m_ms {
+  @extend %js--m_ms;
+
+}
+
+%m_ms__item {
+  border: 1px solid rgb(191,191,191);
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  text-align: center;
+  cursor: pointer;
+}
+.m_ms__item--red {
+  background-color: red;
+  @extend %m_ms__item;
+}
+
+.m_ms__item--orange {
+  @extend %m_ms__item;
+  background-color: rgb(255,219,76);
+}
+
+.m_ms__item--green {
+  @extend %m_ms__item;
+  background-color: rgb(76,217,100);
 }

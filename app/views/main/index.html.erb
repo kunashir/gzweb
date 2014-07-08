@@ -3,8 +3,11 @@
   function setMargins() {
       width = 780;
       containerWidth = $(".container").width();
-      leftMargin = (containerWidth - width)/2;
-      console.log(leftMargin, containerWidth, width)
+      if (containerWidth > 0) {
+        leftMargin = (containerWidth - width)/2;
+      } else {
+        leftMargin = 0;
+      }
       $(".task_info_group").css("marginLeft", leftMargin);
   }
 
@@ -17,6 +20,8 @@
         $('.task_info_group').addClass('aside_listview');
         $('.task_info__item').find('.icon').hide();
         $('.js--nav').removeClass("nav__start_view").addClass('nav__list_view');
+        $('.js--task_info__m_ms').fadeOut();
+        $('.js--nav__m_ms').fadeIn();
         $(".task_info_group").css({"marginLeft": 0, "float": "left"});
       }
 
@@ -25,12 +30,17 @@
       $('.data-area')
         .animate({ opacity:1 }, 400, 'easeInCirc');
 
-      timeout = setTimeout(function() {
-        switch_to_list(dataItem.data("folder"));
-
-        $('.data-area').css({ "z-index": "0" });
-        $('section').fadeIn(1000);
-      }, 600);
+      if (item.parents().hasClass('aside_startview')) {
+        timeout = setTimeout(function() {
+          switch_to_list(dataItem.data("folder"));
+          $('.data-area').css({ "z-index": "0" });
+          $('section').fadeIn();
+        }, 600);
+      } else {
+          switch_to_list(dataItem.data("folder"));
+          $('.data-area').css({ "z-index": "0" });
+          $('section').fadeIn();
+      }
     });
 
     $(".logo-bar").on('click', function() {
@@ -41,6 +51,8 @@
       $('section').hide();
       $('.task_info__item').find('.icon').fadeIn();
       $(".task_info__item").removeClass("active");
+      $('.js--task_info__m_ms').fadeIn();
+      $('.js--nav__m_ms').fadeOut();
     });
 
     setMargins();
@@ -49,25 +61,30 @@
         setMargins();
       }
     });
-
   });
 </script>
-<nav class="navbar navbar-fixed-top nav__start_view js--nav top_shift--20px">
+<nav class="navbar nav__start_view js--nav top_shift--20px">
   <div class="container">
     <div class="logo-bar">
   	  <img src="/assets/logo.jpg"/>
     </div>
     <div class="header-bar">
-      <%= render 'user_control', user: @user %>
       <%# render 'task_info/task_summary', task_info: @task_info %>
-      <div class="header-actions">
-        <ul>
-          <li><%= link_to t("actions.refresh"), "/", { :class => 'nav__buttons task-info-refresh ' } %></li>
-          <li><%= link_to t("actions.new-task"), new_task_path(), { target: '_blank',:class => 'nav__buttons create-task-link' }  %></li>
-          <li><%= link_to t("actions.new-long-task"), new_task_path(), { target: '_blank', class: 'nav__buttons window-link' }  %></li>
-          <li><%= link_to t("actions.phones"), "http://01srvnsi.gz.local/GZPhoneBook/sait/страница1.html", { target: '_blank', class: 'nav__buttons' }  %></li>
+      <div class="header-actions pull-left">
+        <ul class="pull-left">
+          <li class="btn"><%= link_to t("actions.refresh"), "/", { :class => 'nav__buttons task-info-refresh ' } %></li>
+          <li class="btn"><%= link_to t("actions.new-task"), new_task_path(), { target: '_blank',:class => 'nav__buttons create-task-link' }  %></li>
+          <li class="btn" style="white-space: normal"><%= link_to t("actions.new-long-task"), new_task_path(), { target: '_blank', class: 'nav__buttons window-link' }  %></li>
+          <li class="btn"><%= link_to t("actions.phones"), "http://01srvnsi.gz.local/GZPhoneBook/sait/страница1.html", { target: '_blank', class: 'nav__buttons' }  %></li>
+        </ul>
+        <ul class="js--nav__m_ms list-inline pull-left" style="padding-top: 7px; padding-left: 50px;display: none">
+          <li class="m_ms__item--red">11</li>
+          <li class="m_ms__item--orange">16</li>
+          <li class="m_ms__item--green">3</li>
         </ul>
       </div>
+
+      <%= render 'user_control', user: @user %>
     </div>
   </div>
 </nav>

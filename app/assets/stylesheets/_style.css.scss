@@ -1,5 +1,8 @@
 $back-color: #FFF;
 
+.task-list {
+
+
 table {
 	border: 2px solid #999;
 	background: #F8F8F8;
@@ -19,7 +22,7 @@ th:hover {
 	color: #EEE;
 }
 
-th > div { 
+th > div {
 	position: relative;
 	padding: 7px 20px;
 }
@@ -59,4 +62,5 @@ div.table-sorter.asc {
 
 div.table-sorter.desc {
 	background-image: asset-url("desc.png", image);
+}
 }

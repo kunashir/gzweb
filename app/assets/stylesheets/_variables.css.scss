@@ -4,10 +4,16 @@ $aside_nav-width: 260px;
 $startview__tile-width: 253px;
 $startview__tile-height: $startview__tile-width/5*3;
 $aside__tile-width: $aside_nav-width;
-$aside__tile-height: ceil($aside_nav-width/4.5);
+$aside__tile-height: ceil($aside_nav-width/3.7);
 
-
+  $task_info_group__performing--height: 490px;
+  $task_info_group__issued--height: 275px;
 $font-size-base: 16px;
+
+
+$performing-color: #F7C6A3;
+$informational-color: #C8D9A6;
+$issued-color: #A5D6E2;
 
 $navbar--top_shift: 20px;
 $task_info_group--transition_speed: 0.6s;
