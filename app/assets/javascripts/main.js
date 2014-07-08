@@ -440,6 +440,7 @@ function switch_to_list(folder) {
 	$("#task-list").css('opacity', 0);
 	$("#task-list").html('');
     load_list(folder);
+    activeFolder = folder;
 }
 
 function load_list(folder) {
@@ -640,6 +641,14 @@ function removeTask(task) {
 	task.animate({
 		height: 0
 	}, 200, 'easeOutCirc', function() {
+		if (activeFolder) {
+			var total = $('.task-info-' + activeFolder).find('.total')
+			if (+(total.text()) > 0)
+				total.text(+(total.text()) - 1);
+			var newTasks = $('.task-info-' + activeFolder).find('.new')
+			if (+(newTasks.text()) > 0)
+				newTasks.text(+(newTasks.text()) - 1);
+		}
 		task.remove();
 	})
 }
