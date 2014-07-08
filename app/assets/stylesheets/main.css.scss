@@ -590,7 +590,7 @@ body {
 	border-top: 2px solid #CCC;
 	overflow: hidden;
 	height: 2.5em;
-	margin: 0em 0.5em;
+	margin: 0em 0.5em 0.5em 0.5em;
 }
 
 .task-actions, .task-actions-apply {
@@ -656,7 +656,6 @@ body {
 
 	.task-comments-area {
 		width: 100%;
-		height: 5em;
 		margin: 0.5em 0em;
 
 		textarea {
@@ -672,6 +671,7 @@ body {
 		height: 7em;
 		background-color: white;
 		border: 1px solid #9BAAFD;
+		margin-bottom: 0.5em;
 
 		.task-files {
 			height: 7em;

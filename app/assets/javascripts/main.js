@@ -550,7 +550,7 @@ function showTaskComplete(event) {
 	    taskActions = taskItem.find('.task-actions'),
 	    comments = taskCompleteArea.find('textarea');
 
-	taskCompleteArea.animate({height: '15em'}, 400, 'easeOutCirc');
+	taskCompleteArea.animate({height: '17em'}, 400, 'easeOutCirc');
 	taskActions.animate({'margin-top': '-2.5em'}, 400, 'easeOutCirc');
 	comments.focus();
 }
