@@ -42,6 +42,10 @@ module TakeOffice
       return TakeOffice::Employee.all.take(6)
     end
 
+    def self.find(id)
+      self.where(RowID: id).first
+    end
+
     protected
 
     def init

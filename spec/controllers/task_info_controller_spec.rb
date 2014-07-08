@@ -26,6 +26,7 @@ describe TaskInfoController do
       { 
         task_info:
         { 
+          id: nil,
           performing: 10,
           performing_new: 2,
           to_accept: 1,
@@ -46,7 +47,8 @@ describe TaskInfoController do
           delegated_new: 17,
           overdue: 10,
           upcoming: 6,
-          controlled: 3
+          controlled: 3,
+          user_id: nil
         } 
       }.to_json
     end
@@ -54,47 +56,158 @@ describe TaskInfoController do
 
   let(:task_list_dummy) { FactoryGirl.create :task_list_dummy }
 
-  [:performing, :to_approve, :long_tasks,
-   :to_accept, :to_sign, :informational,
-   :issued, :long_issued, :delegated].each do |kind|
-    context "Requesting details on #{kind}" do
-      set_user_logged_in
+  context "Requesting details on dummy performing" do
+    set_user_logged_in
 
-      it "should request information from model for '#{kind}' of current user" do
-        TaskList.should_receive(:get).
-          with(subject.current_user, kind).
-          and_return(task_list_dummy)
-        get :tasks, format: :json, kind: kind
-        response.status.should == 200
-      end
+    it "should request information from model for current user" do
+      TaskList.should_receive(:get).
+        with(subject.current_user, :performing).
+        and_return(task_list_dummy)
+      task_list_dummy.each { |x| x.stub(:actions).and_return([]) }
+      get :tasks, format: :json, kind: :performing
+      response.status.should == 200
+    end
 
-      it "should format list received from model for '#{kind}' as json" do
-        TaskList.stub(:get).
-          with(subject.current_user, kind).
-          and_return(task_list_dummy)
-        get :tasks, format: :json, kind: kind
-        response.status.should == 200
-        response.body.should == 
-        { 
-          task_list:
-          [ 
-            { id: "C10B0DEC-1234-5678-ABCD-000000000001",
-              author: "Сидоренков А.Ю.",
-              date: "2013-04-13T00:00:00+00:00",
-              doc_number: "2/2014",
-              subject: "Исходящий документ подписан",
-              content: "Распечатайте пожалуйста и отсканируйте копию исходящего документа." },
-            { id: "C10B0DEC-1234-5678-ABCD-000000000002",
-              author: "Мирошин К.К.",
-              date: "2013-04-15T00:00:00+00:00",
-              doc_number: "6/2014",
-              subject: "Поручение от 10.02.2013",
-              content: "Проверить работу web-решения для работы с поручениями в ГОЗНАК",
-              deadline: "2014-05-12T18:00:00+00:00",
-              delegated_to: "Богданов Д.А." }
-          ]
-        }.to_json
-      end
+    it "should format list received from model as json" do
+      TaskList.stub(:get).
+        with(subject.current_user, :performing).
+        and_return(task_list_dummy)
+      task_list_dummy.each { |x| x.stub(:actions).and_return([]) }
+
+      get :tasks, format: :json, kind: :performing
+      response.status.should == 200
+      # order of tasks reveresed due to sort by date desc
+      response.body.should == 
+      { 
+        task_list:
+        [ 
+          { id: 2,
+            task_id: "3c8bf8fc-c412-472b-b642-f590c8022902",
+            author_id: "add2cdd1-9f00-47d1-9bc5-035398fcc5a8",
+            author_name: "Мирошин К.К.",
+            author_position: "Манагер",
+            controler_id: nil,
+            controler_name: nil,
+            controler_position: nil,
+            delegated_to: "Богданов Д.А.",
+            subject: "Поручение от 10.02.2013",
+            content: "Проверить работу web-решения для работы с поручениями в ГОЗНАК",
+            deadline: "12.05.2014 18:00",
+            date: "15.04.2013 00:00",
+            task_state: nil,
+            state: nil,
+            task_type: nil,
+            parent_document_id: "bcbce55c-c9df-4ba5-8d75-c19b558b66e6",
+            parent_document: "6/2014",
+            folder: nil,
+            user_id: nil,
+            kind: nil,
+            files: [],
+            deadline_time: "18:00",
+            deadline_date: "12.05.2014",
+            date_time: "00:00",
+            date_date: "15.04.2013",
+            actions: []
+          },
+          { id: 1,
+            task_id: "261a8630-0924-4e68-9170-f5b6def97cfe",
+            author_id: "577dadd4-27ba-4adb-8ea5-33e5d9cb1e43",
+            author_name: "Сидоренков А.Ю.",
+            author_position: "Генерал",
+            controler_id: "add2cdd1-9f00-47d1-9bc5-035398fcc5a8",
+            controler_name: "Мирошин К.К.",
+            controler_position: "Манагер",
+            delegated_to: nil,
+            subject: "Исходящий документ подписан",
+            content: "Распечатайте пожалуйста и отсканируйте копию исходящего документа.",
+            deadline: nil,
+            date: "13.04.2013 00:00",
+            task_state: nil,
+            state: nil,
+            task_type: nil,
+            parent_document_id: "2ef64727-818b-44d5-9e2f-e57fe6361c22",
+            parent_document: "2/2014",
+            folder: nil,
+            user_id: nil,
+            kind: nil,
+            files: [],
+            date_time: "00:00",
+            date_date: "13.04.2013",
+            actions: []
+          }
+        ]
+      }.to_json
+    end
+  end
+
+  it "should request actions for the task from model" do
+    incdoc_review_task = FactoryGirl.create :task_info_dummy1
+    incdoc_review_task.kind = :incdoc_reviewal
+
+    TaskList.stub(:get).
+      with(subject.current_user, :performing).
+      and_return(TaskList.new(incdoc_review_task))
+
+    incdoc_review_task.should_receive(:actions).
+      and_return([{ action: :complete, text: 'task.incdoc_reviewal.complete', comments_required: false }])
+
+    I18n.should_receive(:t).
+      with('task.incdoc_reviewal.complete').
+      and_return('Завершить')
+
+    get :tasks, format: :json, kind: :performing
+    response.status.should == 200
+    # order of tasks reveresed due to sort by date desc
+    response.body.should == 
+    { 
+      task_list:
+      [ 
+        { id: 1,
+          task_id: "261a8630-0924-4e68-9170-f5b6def97cfe",
+          author_id: "577dadd4-27ba-4adb-8ea5-33e5d9cb1e43",
+          author_name: "Сидоренков А.Ю.",
+          author_position: "Генерал",
+          controler_id: "add2cdd1-9f00-47d1-9bc5-035398fcc5a8",
+          controler_name: "Мирошин К.К.",
+          controler_position: "Манагер",
+          delegated_to: nil,
+          subject: "Исходящий документ подписан",
+          content: "Распечатайте пожалуйста и отсканируйте копию исходящего документа.",
+          deadline: nil,
+          date: "13.04.2013 00:00",
+          task_state: nil,
+          state: nil,
+          task_type: nil,
+          parent_document_id: "2ef64727-818b-44d5-9e2f-e57fe6361c22",
+          parent_document: "2/2014",
+          folder: nil,
+          user_id: nil,
+          kind: :incdoc_reviewal,
+          files: [],
+          date_time: "00:00",
+          date_date: "13.04.2013",
+          actions: [{ action: :complete, text: 'Завершить', comments_required: false}]
+        }
+      ]
+    }.to_json
+  end
+
+  context 'performing action' do
+    set_user_logged_in
+
+    it 'should invoke model''s perform for certain task' do
+      id = 5
+
+      task = double('TaskInfo')
+      TaskInfo.should_receive(:find_by_id).with(id.to_s).and_return(task)
+      task.should_receive(:perform).
+        with('complete', subject.current_user, { comments: 'some comments', files: ['234234234', 'sdfsfsdf'] }).
+        and_return(:folder_remove)
+
+      post :perform, { id: 5, task_action: 'complete', comments: 'some comments', files: ['234234234', 'sdfsfsdf'] }, format: :json
+
+      response.status.should == 200
+      response.body.should == { result: :folder_remove }.to_json
     end
   end
 end

@@ -15,7 +15,7 @@ describe EmployeesController do
     it 'should check that term parameter is passed' do
       get :find
       response.status.should == 400
-      response.body.should == { error: "Search term is not specified" }.to_json
+      response.body.should == { error: "Search filter is not specified" }.to_json
     end
 
     it 'should request TakeOffice::Employees.search to perform search' do

@@ -1,7 +1,6 @@
 #encoding: UTF-8
 
-class Task < ActiveRecord::Base
-
+class Task
   attr_accessor :registrator, :author, :performer, :controller,
     :co_performers, :informants, :date, :subject, :content, 
     :deadline, :files

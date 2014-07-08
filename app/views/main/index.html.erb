@@ -122,6 +122,12 @@
           {{/if}}
         </div>
       {{/if}}
+      {{if delegated_to }}
+        <div class="task-delegated-area">
+          <div class="header">Распределено:&nbsp;</div>
+          <div class="task-delegated">{{>delegated_to}}</div>
+        </div>
+      {{/if}}
       {{if parent_document }}
         <div class="task-document-area">
           <div class="header"><%=t "task.document" %></div>
@@ -132,22 +138,46 @@
       {{for files }}
         <a href="/file/{{>file_id}}" target="_blank" class="task-file-ref" data-value="{{>file_id}}" data-name="{{>filename}}">{{>filename}}</a>
       {{/for}}
-	<div class="breaker"></div>
+      <div class="breaker"></div>
+    </div>
+    <div class="task-complete-area">
+      <div class="border"></div>
+      <div class="header">Отчет / комментарии</div>
+      <div class="task-comments-area">
+        <textarea class="task-comments"></textarea>
       </div>
-      <div class="task-actions-area">
-	{{if delegated_to }}
-	<div class="task-delegated-area">
-		<div class="header">Распределено:&nbsp;</div>
-		<div class="task-delegated">{{>delegated_to}}</div>
-	</div>
-	{{/if}}
-	<div class="task-actions">
-	  <a class="task-action-delegate" href="#">Распределить</a>
-	  <a class="task-action-complete" href="#">Завершить</a>
-	  <div class="breaker"></div>
-	</div>
-	<div class="breaker"></div>
+      <div class="task-files-container">
+        <div class="task-files">
+          <input type="file"/>
+          <a href="#" class="task-add-file"><%=t "task.add_file" %></a>
+        </div>
       </div>
+    </div>
+    <div class="task-actions-area">
+       <div class="task-actions">
+         <a class="task-action-delegate" href="#">Распределить</a>
+         <a class="task-action-complete" href="#">Завершить</a>
+       </div>
+       <div class="breaker"></div>
+       <div class="task-actions-apply">
+         <a class="task-action-ok" href="#">OK (Завершить)</a>
+         <a class="task-action-cancel" href="#">Отмена</a>
+       </div>
+    </div>
+    <div class="task-action-lid">
+      <div class="task-action-cell">
+        <div class="task-action-box">
+          <div class="task-action-message">
+            Отправка поручения
+          </div>
+          <div class="task-action-error">
+            Здесь идет текст ошибки в случае неудачной отправки. Он может быть достаточно длинным и даже в несколько строк. Пишем и пишем и пишем долго и много
+          </div>
+          <%= image_tag 'ajax-loader.gif', class: 'task-action-progress' %>
+          <a class="task-action-close" href="#">Закрыть</a>
+        </div>
+      </div>
+    </div>
     </div>
   </script>
   <section class="data-area">

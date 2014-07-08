@@ -10,8 +10,9 @@ describe TasksController do
     end
 
     it 'should respond to create method' do
-      post :create
+      post :create, format: :json
       response.status.should == 422
+      puts response.body
     end
 
     it 'should request model to init new task fields' do
@@ -43,6 +44,7 @@ describe TasksController do
 
   context 'viewing existing task' do
     it 'should respond to show method' do
+      pending
       get :show, id: 1
       response.status.should == 404
     end

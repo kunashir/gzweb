@@ -69,6 +69,7 @@ class Card < ActiveRecord::Base
 
   def assign_card_type_sid
     self.sid ||= self.card_type.sid
+    self.timestamp ||= "\x00"
   end
 
   def assign_change_date

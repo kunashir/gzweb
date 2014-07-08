@@ -36,4 +36,14 @@ describe TaskList do
 
     counts.length.should > 20 # number of tasks should be randomized
   end
+
+  it 'should query over user task_infos for given folder' do
+    user = double("user")
+    task_infos = double("task_infos")
+    expect(user).to receive(:task_infos) { task_infos }
+    expect(task_infos).to receive(:where).with({folder: :performing})
+
+    TaskList.get(user, :performing)
+  end
+
 end

@@ -44,3 +44,5 @@ ru:
     send: "Отправить"
     cancel: "Отмена"
     add_file: "Добавить документ"
+    incdoc_reviewal:
+        complete: "Завершить"

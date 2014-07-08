@@ -33,21 +33,21 @@ describe TakeOffice::Employee do
   context 'searching' do
     it 'should find all database employees via "_" clause with NotAvailable = false' do
       search_result = TakeOffice::Employee.search('_')
-      search_result.map { |x| x.RowID }.should =~ 
-        TakeOffice::Employee.where(NotAvailable: false).map { |x| x.RowID }
+      search_result.map { |x| x.RowID.downcase }.should =~ 
+        TakeOffice::Employee.where(NotAvailable: false).map { |x| x.RowID.downcase }
     end
 
     it 'searching for "Ми" should return the only result "Мирошин К.Г."' do
       search_result = TakeOffice::Employee.search('Ми')
-      search_result.map { |x| x.RowID }.should =~ 
-        TakeOffice::Employee.where(DisplayString: 'Мирошин К.Г.').map { |x| x.RowID }
+      search_result.map { |x| x.RowID.downcase }.should =~ 
+        TakeOffice::Employee.where(DisplayString: 'Мирошин К.Г.').map { |x| x.RowID.downcase }
     end
 
     it 'searching for "М" should return "Мирошин К.Г." and "Мосолов К.В."' do
       search_result = TakeOffice::Employee.search('М')
-      search_result.map { |x| x.RowID }.should =~ 
-        [ TakeOffice::Employee.where(DisplayString: 'Мирошин К.Г.').map { |x| x.RowID }.first,
-          TakeOffice::Employee.where(DisplayString: 'Мосолов К.В.').map { |x| x.RowID }.first]
+      search_result.map { |x| x.RowID.downcase }.should =~ 
+        [ TakeOffice::Employee.where(DisplayString: 'Мирошин К.Г.').map { |x| x.RowID.downcase }.first,
+          TakeOffice::Employee.where(DisplayString: 'Мосолов К.В.').map { |x| x.RowID.downcase }.first]
     end
 
     it 'searcing for "За" should be empty, as long as "Захаров Е." is not available' do

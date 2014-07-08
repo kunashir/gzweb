@@ -12,6 +12,19 @@ class User < CacheBase
     display_name
   end
 
+  def employee
+    @employee ||= TakeOffice::Employee.where(RowID: employee_id).first
+  end
+
+  def employee=(value)
+    if value.nil?
+      self.employee_id = nil
+    else
+      self.employee_id = value.id
+    end
+    @employee = value
+  end
+
   def self.create_demo_user(demo_user_data = {})
     u = User.first || User.new
     u.last_name = demo_user_data[:last_name] || 'Трачук'

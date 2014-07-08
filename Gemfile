@@ -38,6 +38,20 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+
+group :gz_test, :idoc do
+  # Deployment
+  gem 'git'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'puma'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+  # gem 'capistrano3-foreman'
+  gem 'capistrano3-puma'
+end
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

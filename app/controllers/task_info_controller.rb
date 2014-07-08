@@ -1,3 +1,5 @@
+#encoding: UTF-8
+
 class TaskInfoController < ApplicationController
   
   def show
@@ -16,6 +18,34 @@ class TaskInfoController < ApplicationController
     end
   end
 
+  def perform
+    begin
+      @task = TaskInfo.find_by_id(params[:id])
+      options = {}
+      unless params[:comments].nil?
+        options[:comments] = params[:comments]
+      end
+      unless params[:files].nil?
+        options[:files] = params[:files]
+      end
+      result = @task.perform(params[:task_action], current_user, options)
+    rescue Exception => ex
+      error = ex.message
+      error = "Внутреняя ошибка приложения" if error.blank?
+      logger.error ex.message
+      ex.backtrace.each { |line| logger.error line }
+    end
+    if error.nil? || error.blank?
+      respond_to do |format|
+        format.json { render json: { result: result }, status: 200 }
+      end
+    else
+      respond_to do |format|
+        format.json { render json: { error: error }, status: 422 }
+      end
+    end
+  end
+
   protected
 
   def format_task_list(task_list)
@@ -31,6 +61,7 @@ class TaskInfoController < ApplicationController
     data["date_time"] = data["date"].strftime("%H:%M") unless data["date"].nil?
     data["date_date"] = data["date"].strftime("%d.%m.%Y") unless data["date"].nil?
     data["date"] = data["date"].strftime("%d.%m.%Y %H:%M") unless data["date"].nil?
+    data[:actions] = task.actions.map { |x| { action: x[:action], text: I18n.t(x[:text]), comments_required: x[:comments_required] } }
     data
   end
 

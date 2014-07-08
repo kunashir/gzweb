@@ -1,3 +1,5 @@
+require 'dvcore/link'
+
 class TaskCard
   attr_reader :instance, :main_info
 
@@ -54,5 +56,10 @@ class TaskCard
       @main_info.RowID,
       '56E4658F-8E49-43D1-ABE5-F18E2581D9AF',
       @main_info.RefsID)
+  end
+
+  def mark_completed(employee, options = {})
+    main_info.state = 5
+    save!
   end
 end
