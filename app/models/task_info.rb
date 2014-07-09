@@ -20,15 +20,34 @@ class TaskInfo < CacheBase
     case
       when is_incdoc_reviewal?
         [{action: :complete, text: 'task.incdoc_reviewal.complete', comments_required: false}]
-      else []
+      when is_memorandum_reviewal?
+        [ {action: :complete, text: 'task.memorandum_reviewal.complete', comments_required: false},
+          {action: :reject, text: 'task.memorandum_reviewal.reject', comments_required: true}]
+      else 
+        [{action: :complete, text: 'task.incdoc_reviewal.complete', comments_required: true}]
     end
   end
 
   def perform(action, user, options = {})
-    # case
-    #   when is_incdoc_reviewal?
-        incdoc_reviewal_complete(user, options)
-    # end
+    result = 
+      case
+        when is_incdoc_reviewal?
+          incdoc_reviewal_complete(user, options)
+        when is_memorandum_reviewal?
+          case action.to_sym
+            when :complete
+              memorandum_reviewal_complete(user, options)
+            when :reject
+              memorandum_reviewal_reject(user, options)
+          end
+        else
+          incdoc_reviewal_complete(user, options)
+      end
+    if result == :folder_remove
+      self.destroy
+      TasksInfo.recount(user)
+    end
+    return result
   end
 
   protected
@@ -81,12 +100,23 @@ class TaskInfo < CacheBase
     'incdoc_reviewal' == self.kind.try(:to_s)
   end
 
-  def incdoc_reviewal_complete(user, options = {})
-    TakeOffice::WorkflowTaskCard.find(self.task_id).mark_completed(user.employee, options)
-
-    self.destroy
-    TasksInfo.recount(user)
-    
-    :folder_remove
+  def is_memorandum_reviewal?
+    'memorandum_reviewal' == self.kind.try(:to_s)
   end
+
+  def incdoc_reviewal_complete(user, options = {})
+    TakeOffice::WorkflowTaskCard.find(self.task_id).mark_completed(1, user.employee, options)
+    return :folder_remove
+  end
+
+  def memorandum_reviewal_complete(user, options = {})
+    TakeOffice::WorkflowTaskCard.find(self.task_id).mark_completed(1, user.employee, options)
+    return :folder_remove
+  end
+
+  def memorandum_reviewal_reject(user, options = {})
+    TakeOffice::WorkflowTaskCard.find(self.task_id).mark_completed(2, user.employee, options)
+    return :folder_remove
+  end
+
 end 

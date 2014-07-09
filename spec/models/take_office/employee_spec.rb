@@ -1,5 +1,4 @@
 #encoding: UTF-8
-
 require 'spec_helper.rb'
 
 describe TakeOffice::Employee do

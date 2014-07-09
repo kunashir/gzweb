@@ -46,3 +46,6 @@ ru:
     add_file: "Добавить документ"
     incdoc_reviewal:
         complete: "Завершить"
+    memorandum_reviewal:
+        complete: "Завершить"
+        reject: "Отклонить"

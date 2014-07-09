@@ -13,7 +13,7 @@ module TakeOffice
         task.main_info.name = 'Поручение обычное'
         task.save!
 
-        task.mark_completed(completed_by, {})
+        task.mark_completed(1, completed_by, {})
         task = WorkflowTaskCard.find(task.id)
       }
 
@@ -54,7 +54,7 @@ module TakeOffice
       task.main_info.name = 'Поручение обычное'
       task.save!
 
-      task.mark_completed(completed_by, { comments: 'Всякий разный текст завершения' })
+      task.mark_completed(1, completed_by, { comments: 'Всякий разный текст завершения' })
       task = WorkflowTaskCard.find(task.id)
 
       task.comments.length.should == 1
@@ -72,5 +72,40 @@ module TakeOffice
       task.log[1].action_by.should == completed_by
       (task.log[1].action_date - db_now).should < 5
     end
+
+    it 'should set completion variant upon completion' do
+      completed_by = Employee.first
+      db_now = (Time.now + Time.zone_offset(Time.now.zone)).in_time_zone
+
+      task = WorkflowTaskCard.new
+      task.main_info.name = 'Поручение обычное'
+      task.add_completion_param(name: 'Вариант завершения:')
+      task.save!
+
+      task.mark_completed(2, completed_by, { comments: 'Всякий разный текст завершения' })
+      task = WorkflowTaskCard.find(task.id)
+
+      task.completion_params.length.should == 1
+      task.completion_params[0].name.should == "Вариант завершения:"
+      task.completion_params[0].value.to_i.should == 2
+    end    
+
+    it 'should store files in performer file list upon completion' do
+      completed_by = Employee.first
+      db_now = (Time.now + Time.zone_offset(Time.now.zone)).in_time_zone
+
+      task = WorkflowTaskCard.new
+      task.main_info.name = 'Поручение обычное'
+      task.save!
+
+      task.mark_completed(1, completed_by, { files: ['265d744b-40ad-4f38-aea2-159fc500f233', 'bb778cd4-cc7e-4e7d-acff-855c98a1e30e'] })
+      task = WorkflowTaskCard.find(task.id)
+
+      task.main_info.performer_files.should_not be_nil
+      task.main_info.performer_files.should be_instance_of(FileListCard)
+      task.main_info.performer_files.references.length.should == 2
+      task.main_info.performer_files.references[0].file_id.should == '265d744b-40ad-4f38-aea2-159fc500f233'
+      task.main_info.performer_files.references[1].file_id.should == 'bb778cd4-cc7e-4e7d-acff-855c98a1e30e'
+    end    
   end
 end

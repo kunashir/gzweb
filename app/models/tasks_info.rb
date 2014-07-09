@@ -144,6 +144,11 @@ class TasksInfo < CacheBase
        cache_task.task_type == 5
       cache_task.kind = :incdoc_reviewal
     end
+    if !fields["DocumentTypeID"].nil? &&
+       CardType.memorandum_type_id.casecmp(fields["DocumentTypeID"]) == 0 && 
+       cache_task.task_type == 5
+      cache_task.kind = :memorandum_reviewal
+    end
 
     load_task_files(cache_task)
   end

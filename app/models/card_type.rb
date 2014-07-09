@@ -24,8 +24,12 @@ class CardType < ActiveRecord::Base
     self.find('6E39AD2B-E930-4D20-AAFA-C2ECF812C2B3')
   end
 
+  def self.file_list_id
+    'BFC9D190-BCD6-411A-B9F9-3160D3F68819'
+  end
+
   def self.file_list
-    self.find('BFC9D190-BCD6-411A-B9F9-3160D3F68819')
+    self.find(self.file_list_id)
   end
 
   def self.refs_list
@@ -46,6 +50,10 @@ class CardType < ActiveRecord::Base
 
   def self.incdoc_type_id
     '094DEF0A-2CA1-41D8-81B6-70F586FDDE56'
+  end
+
+  def self.memorandum_type_id
+    '816AE98F-0E9C-4734-B368-642A34948527'
   end
 
   protected

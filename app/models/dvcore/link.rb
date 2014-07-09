@@ -16,6 +16,7 @@ module DVCore
     def assign_id
       self.id ||= SecureRandom.uuid
       self.type ||= 1
+      self.Timestamp ||= "\x00"
     end
 
     def self.create_hard_link(source_card_id, source_row_id, source_field_id, destination_card_id)

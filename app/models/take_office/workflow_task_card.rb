@@ -3,7 +3,7 @@
 module TakeOffice
   
   class WorkflowTaskCard
-    attr_reader :instance, :main_info, :performing, :log, :comments
+    attr_reader :instance, :main_info, :performing, :log, :comments, :completion_params
 
     delegate :id, to: :instance, allow_nil: true
     delegate :sid, to: :instance, allow_nil: true
@@ -28,6 +28,8 @@ module TakeOffice
       @log = WorkflowTaskLog.where(InstanceID: id).to_a || []
       
       @comments = WorkflowTaskComment.where(InstanceID: id).to_a || []
+
+      @completion_params = WorkflowTaskCompletionParam.where(InstanceID: id).to_a || []
     end
 
     def self.all
@@ -47,6 +49,13 @@ module TakeOffice
       return nil
     end
 
+    def add_completion_param(options = {})
+      options[:InstanceID] = id
+      param = WorkflowTaskCompletionParam.new(options)
+      completion_params << param
+      return param
+    end
+
     def save!
       ActiveRecord::Base.transaction do
         instance.save!
@@ -54,11 +63,12 @@ module TakeOffice
         performing.save!
         log.each { |x| x.save! }
         comments.each { |x| x.save! }
+        completion_params.each { |x| x.save! }
       end
       self
     end
 
-    def mark_completed(employee, options = {})
+    def mark_completed(result, employee, options = {})
       now = Time.now + Time.zone_offset(Time.now.zone)
       options = options.symbolize_keys
 
@@ -81,6 +91,17 @@ module TakeOffice
         log_item.action_by = employee
         log_item.action_date = now
         log << log_item
+      end
+
+      unless completion_params.length == 0
+        completion_params[0].value = result
+      end
+
+      if !options[:files].nil?
+        if main_info.performer_files.nil?
+          main_info.performer_files = FileListCard.new
+        end
+        options[:files].each { |file| main_info.performer_files.add_file(file) }
       end
 
       log_item = WorkflowTaskLog.new(InstanceID: id)

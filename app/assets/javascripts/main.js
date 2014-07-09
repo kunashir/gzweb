@@ -481,6 +481,10 @@ function init_task_actions(taskList) {
 	taskList.find(".task-action-complete").click(showTaskComplete);
 	taskList.find(".task-action-ok").click(completeTask);
 	taskList.find(".task-action-cancel").click(closeTaskComplete);
+	taskList.find(".task-action-error-close").click(closeErrorMessage);
+	taskList.find(".task-comments").change(commentsChanged);
+	taskList.find(".task-comments").keyup(commentsChanged);
+	taskList.find(".task-comments").bind('paste', commentsChanged);
 	tasks = taskList.find(".task-area");
 	for (var i = 0; i < tasks.length; i++) 
 		tasks[i].taskFiles = new TaskFiles($(tasks[i]));
@@ -545,14 +549,36 @@ function createSubTask(event) {
 function showTaskComplete(event) {
 	event.preventDefault();
 
-	var taskItem = $(event.currentTarget).parents('.task-area'),
+	var actionButton = $(event.currentTarget),
+ 	    taskItem = actionButton.parents('.task-area'),
 	    taskCompleteArea = taskItem.find('.task-complete-area'),
 	    taskActions = taskItem.find('.task-actions'),
-	    comments = taskCompleteArea.find('textarea');
+	    comments = taskCompleteArea.find('textarea'),
+	    okButton = taskItem.find('.task-action-ok');
+
+	taskItem.data('action', actionButton.data('action'));
+	taskItem.data('action-text', actionButton.text());
+	comments.data('required', actionButton.data('comments-required'));
+	if (comments.data('required'))
+		comments.addClass('required');
+	else
+		comments.removeClass('required');
+
+	okButton.text('OK (' + actionButton.text() + ")");
 
 	taskCompleteArea.animate({height: '15em'}, 400, 'easeOutCirc');
 	taskActions.animate({'margin-top': '-2.5em'}, 400, 'easeOutCirc');
 	comments.focus();
+}
+
+function commentsChanged(event) {
+	var comments = $(event.currentTarget);
+	
+	if (comments.data('required'))
+		if (comments.val().trim() == "")
+			comments.addClass('required');
+		else
+			comments.removeClass('required');
 }
 
 function closeTaskComplete(event) {
@@ -580,19 +606,27 @@ function completeTask(event) {
 	    commentsText = comments.val(),
 	    actionError = taskItem.find('.task-action-error'),
 	    actionProgress = taskItem.find('.task-action-progress'),
-	    actionCloseBtn = taskItem.find('.task-action-close'),
+	    actionCloseBtn = taskItem.find('.task-action-error-close'),
 	    actionMessage = taskItem.find('.task-action-message'),
 	    actionLid = taskItem.find('.task-action-lid');
+
+	if (comments.data("required") && comments.val().trim() == "") {
+	    actionMessage.text('Не задан комментарий');
+	    actionError.text('Комментарий обязателен при завершении поручения с решением "' + taskItem.data('action-text') + '"').css('display', 'block');
+	    actionProgress.css('display', 'none');
+	    actionCloseBtn.css('display', 'inline-block');
+	    actionLid.css('opacity', '0').css('display', 'block').animate({
+	        opacity: 1
+	    }, 400);
+	    return;
+	}
 
 	var fileArray = taskItem.find('.task-files .task-file').map(function(i, file) {
                 return $(file).data("id");
             }).toArray();
 
-	console.log("Comments text = '" + commentsText + "'");
-	console.log("Files = '" + fileArray + "'")
-
     var taskData = {
-        task_action: 'complete',
+        task_action: taskItem.data('action'),
         comments: commentsText,
         files: fileArray
     };
@@ -629,7 +663,6 @@ function onCompleteTaskError(errorMessage, message, error, progress, closeBtn) {
 }
 
 function onCompleteTaskDone(result, task, message, progress, lid) {
-	console.log(result);
     message.text('Поручение завершено');
     progress.css('display', 'none');
     setTimeout(function() {
@@ -646,11 +679,20 @@ function removeTask(task) {
 			if (+(total.text()) > 0)
 				total.text(+(total.text()) - 1);
 			var newTasks = $('.task-info-' + activeFolder).find('.new')
-			if (+(newTasks.text()) > 0)
+			if (task.data('new') && +(newTasks.text()) > 0)
 				newTasks.text(+(newTasks.text()) - 1);
 		}
 		task.remove();
 	})
+}
+
+function closeErrorMessage(e) {
+	event.preventDefault();
+
+	var taskItem = $(event.currentTarget).parents('.task-area'),
+	    actionLid = taskItem.find('.task-action-lid');
+
+	hideTaskLid(actionLid, taskItem, '');
 }
 
 function hideTaskLid(lid, task, result) {

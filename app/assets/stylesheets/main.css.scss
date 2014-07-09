@@ -648,6 +648,11 @@ body {
 			height: 6em;
 			border: 1px solid #9BAAFD;
 			resize: none;
+			outline: none;
+		}
+
+		textarea.required {
+			border: 1px solid red;
 		}
 	}
 
@@ -701,7 +706,7 @@ body {
 				margin-top: 0.5em;
 			}
 
-			.task-action-close {
+			.task-action-error-close {
 				display: inline-block;
 				border: 1px solid transparent;
 				font-size: 0.7em;
@@ -710,11 +715,11 @@ body {
 				color: #444;
 			}
 			
-			.task-action-close:hover {
+			.task-action-error-close:hover {
 				border-color: #34AADC;
 			}
 
-			.task-action-close:active {
+			.task-action-error-close:active {
 				background-color: #E3E9EA;
 			}
 		}

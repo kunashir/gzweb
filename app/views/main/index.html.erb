@@ -16,7 +16,7 @@
   </div>
   <%= render 'task_info/task_info', task_info: @task_info %>
   <script id="task-template" type="text/x-jsrender">
-    <div class="task-area" data-task-id="{{>task_id}}" data-id="{{>id}}">
+    <div class="task-area" data-task-id="{{>task_id}}" data-id="{{>id}}" data-new="{{>is_new}}">
       <div class="task-area-header">
         <div class="task-subject-area">
           <div class="task-subject">
@@ -60,7 +60,7 @@
         </div>
       {{/if}}
       <div class="task-files-area">
-      {{for files }}
+      {{for files}}
         <a href="/file/{{>file_id}}" target="_blank" class="task-file-ref" data-value="{{>file_id}}" data-name="{{>filename}}">{{>filename}}</a>
       {{/for}}
       <div class="breaker"></div>
@@ -81,11 +81,13 @@
     <div class="task-actions-area">
        <div class="task-actions">
          <a class="task-action-delegate" href="#">Распределить</a>
-         <a class="task-action-complete" href="#">Завершить</a>
+         {{for actions}}
+            <a class="task-action-complete" href="#" data-action="{{>action}}" data-comments-required="{{>comments_required}}">{{>text}}</a>
+         {{/for}}
        </div>
        <div class="breaker"></div>
        <div class="task-actions-apply">
-         <a class="task-action-ok" href="#">OK (Завершить)</a>
+         <a class="task-action-ok" href="#">OK</a>
          <a class="task-action-cancel" href="#">Отмена</a>
        </div>
     </div>
@@ -99,7 +101,7 @@
             Здесь идет текст ошибки в случае неудачной отправки. Он может быть достаточно длинным и даже в несколько строк. Пишем и пишем и пишем долго и много
           </div>
           <%= image_tag 'ajax-loader.gif', class: 'task-action-progress' %>
-          <a class="task-action-close" href="#">Закрыть</a>
+          <a class="task-action-error-close" href="#">Закрыть</a>
         </div>
       </div>
     </div>

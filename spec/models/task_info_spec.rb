@@ -95,7 +95,7 @@ describe TaskInfo do
             task = FactoryGirl.create(:task_info_dummy1)
             task.kind = 'incdoc_reviewal'
 
-            card = double('TaskCard')
+            card = double('TakeOffice::WorkflowTaskCard')
             TakeOffice::WorkflowTaskCard.stub(:find).with(task.task_id).and_return(card)
             card.stub(:mark_completed)
 
@@ -106,7 +106,7 @@ describe TaskInfo do
             task = FactoryGirl.create(:task_info_dummy1)
             task.kind = 'incdoc_reviewal'
 
-            card = double('TaskCard')
+            card = double('TakeOffice::WorkflowTaskCard')
             TakeOffice::WorkflowTaskCard.stub(:find).with(task.task_id).and_return(card)
             card.stub(:mark_completed)
 
@@ -119,18 +119,109 @@ describe TaskInfo do
             task = FactoryGirl.create(:task_info_dummy1)
             task.kind = :incdoc_reviewal
 
-            card = double('TaskCard')
+            card = double('TakeOffice::WorkflowTaskCard')
             TakeOffice::WorkflowTaskCard.should_receive(:find).with(task.task_id).and_return(card)
             card.should_receive(:mark_completed).
-                with(User.first.employee, { comments: 'hello', blabla: 'ttrtrt '})
-
-            # main_info = double('TaskCardMainInfo')
-            # TaskCard.should_receive(:find).with(task.task_id).and_return(card)
-            # card.should_receive(:main_info).and_return(main_info)
-            # main_info.should_receive('state=').with(5)
-            # card.should_receive(:save!)
+                with(1, User.first.employee, { comments: 'hello', blabla: 'ttrtrt '})
 
             task.perform('complete', User.first, { comments: 'hello', blabla: 'ttrtrt '})
+        end
+
+        it 'Should request task recount for user after ''complete'' action is performed' do
+            task = FactoryGirl.create(:task_info_dummy1)
+            task.kind = 'incdoc_reviewal'
+
+            card = double('TakeOffice::WorkflowTaskCard')
+            TakeOffice::WorkflowTaskCard.stub(:find).with(task.task_id).and_return(card)
+            card.stub(:mark_completed)
+
+            TasksInfo.should_receive(:recount).with(User.first)
+
+            task.perform('complete', User.first, {})
+        end
+    end
+
+    context 'Memorandum reviewal task' do
+        it 'Should return two actions' do
+            task = FactoryGirl.create(:task_info_dummy1)
+            task.kind = 'memorandum_reviewal'
+
+            task.actions.should =~ [ 
+                { action: :complete, text: 'task.memorandum_reviewal.complete', comments_required: false },
+                { action: :reject, text: 'task.memorandum_reviewal.reject', comments_required: true }
+            ]
+        end
+
+        it 'Should return :folder_remove after ''complete'' action is performed' do
+            task = FactoryGirl.create(:task_info_dummy1)
+            task.kind = 'memorandum_reviewal'
+
+            card = double('TakeOffice::WorkflowTaskCard')
+            TakeOffice::WorkflowTaskCard.stub(:find).with(task.task_id).and_return(card)
+            card.stub(:mark_completed)
+
+            task.perform('complete', User.first, {}).should == :folder_remove
+        end
+
+        it 'Should be removed from database after ''complete'' action is performed' do
+            task = FactoryGirl.create(:task_info_dummy1)
+            task.kind = 'memorandum_reviewal'
+
+            card = double('TakeOffice::WorkflowTaskCard')
+            TakeOffice::WorkflowTaskCard.stub(:find).with(task.task_id).and_return(card)
+            card.stub(:mark_completed)
+
+            task.should_receive(:destroy).and_return(true)
+            
+            task.perform('complete', User.first, {})
+        end
+
+        it 'should request task to be mark_completed in DV card when ''complete'' action is performed' do
+            task = FactoryGirl.create(:task_info_dummy1)
+            task.kind = :memorandum_reviewal
+
+            card = double('TakeOffice::WorkflowTaskCard')
+            TakeOffice::WorkflowTaskCard.should_receive(:find).with(task.task_id).and_return(card)
+            card.should_receive(:mark_completed).
+                with(1, User.first.employee, { comments: 'hello', blabla: 'ttrtrt '})
+
+            task.perform('complete', User.first, { comments: 'hello', blabla: 'ttrtrt '})
+        end
+
+        it 'Should return :folder_remove after ''reject'' action is performed' do
+            task = FactoryGirl.create(:task_info_dummy1)
+            task.kind = 'memorandum_reviewal'
+
+            card = double('TakeOffice::WorkflowTaskCard')
+            TakeOffice::WorkflowTaskCard.stub(:find).with(task.task_id).and_return(card)
+            card.stub(:mark_completed)
+
+            task.perform('reject', User.first, { comments: 'hello' }).should == :folder_remove
+        end
+
+        it 'Should be removed from database after ''reject'' action is performed' do
+            task = FactoryGirl.create(:task_info_dummy1)
+            task.kind = 'memorandum_reviewal'
+
+            card = double('TakeOffice::WorkflowTaskCard')
+            TakeOffice::WorkflowTaskCard.stub(:find).with(task.task_id).and_return(card)
+            card.stub(:mark_completed)
+
+            task.should_receive(:destroy).and_return(true)
+            
+            task.perform('reject', User.first, { comments: 'hello' })
+        end
+
+        it 'should request task to be mark_completed in DV card when ''reject'' action is performed' do
+            task = FactoryGirl.create(:task_info_dummy1)
+            task.kind = :memorandum_reviewal
+
+            card = double('TakeOffice::WorkflowTaskCard')
+            TakeOffice::WorkflowTaskCard.should_receive(:find).with(task.task_id).and_return(card)
+            card.should_receive(:mark_completed).
+                with(2, User.first.employee, { comments: 'hello', blabla: 'ttrtrt '})
+
+            task.perform('reject', User.first, { comments: 'hello', blabla: 'ttrtrt '})
         end
     end
 end

@@ -102,6 +102,7 @@ describe TaskInfoController do
             folder: nil,
             user_id: nil,
             kind: nil,
+            is_new: nil,
             files: [],
             deadline_time: "18:00",
             deadline_date: "12.05.2014",
@@ -130,7 +131,9 @@ describe TaskInfoController do
             folder: nil,
             user_id: nil,
             kind: nil,
+            is_new: nil,
             files: [],
+            is_new: nil,
             date_time: "00:00",
             date_date: "13.04.2013",
             actions: []
@@ -143,6 +146,7 @@ describe TaskInfoController do
   it "should request actions for the task from model" do
     incdoc_review_task = FactoryGirl.create :task_info_dummy1
     incdoc_review_task.kind = :incdoc_reviewal
+    incdoc_review_task.is_new = true
 
     TaskList.stub(:get).
       with(subject.current_user, :performing).
@@ -183,6 +187,7 @@ describe TaskInfoController do
           folder: nil,
           user_id: nil,
           kind: :incdoc_reviewal,
+          is_new: true,
           files: [],
           date_time: "00:00",
           date_date: "13.04.2013",
@@ -204,7 +209,7 @@ describe TaskInfoController do
         with('complete', subject.current_user, { comments: 'some comments', files: ['234234234', 'sdfsfsdf'] }).
         and_return(:folder_remove)
 
-      post :perform, { id: 5, task_action: 'complete', comments: 'some comments', files: ['234234234', 'sdfsfsdf'] }, format: :json
+      post :perform, { id: 5, task_action: 'complete', comments: 'some comments', files: ['234234234', 'sdfsfsdf'] }, { format: :json }
 
       response.status.should == 200
       response.body.should == { result: :folder_remove }.to_json

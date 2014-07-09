@@ -36,13 +36,9 @@ class TaskInfoController < ApplicationController
       ex.backtrace.each { |line| logger.error line }
     end
     if error.nil? || error.blank?
-      respond_to do |format|
-        format.json { render json: { result: result }, status: 200 }
-      end
+      render json: { result: result }, status: 200
     else
-      respond_to do |format|
-        format.json { render json: { error: error }, status: 422 }
-      end
+      render json: { error: error }, status: 422
     end
   end
 
