@@ -290,7 +290,7 @@ function tileSelect(event) {
 		{
 			color = "#E1F1F5";
 			foreColor = "#777";
-			if (itemsIssued[i].data('folder') == folder) 
+			if (itemsIssued[i].data('folder') == folder)
 			{
 				color = "#A5D6E2";
 				foreColor = "#777";
@@ -335,7 +335,7 @@ function tileSelect(event) {
 			itemsToPerform[i].children('.header')
 				.animate({ color: '#777', 'margin-right': '4em', 'margin-top': '-0.3em' }, 400, 'easeOutCirc');
 		top += topShift;
-	}		
+	}
 	issuedBox
 		.animate({ height: '14em', width: tileWidth + tileSep, left: 10, top: '31em' }, 400, 'easeOutCirc');
 	issuedBox.children('.header')
@@ -413,7 +413,7 @@ function toGrid() {
 			.animate({ bottom: '0.5em' }, 400, 'easeOutCirc');
 		itemsToPerform[i].children('.header')
 			.animate({ color: '#696969', 'margin-right': 'inherit', 'margin-top': 'inherit' }, 400, 'easeOutCirc');
-	}		
+	}
 	issuedBox
 		.animateMoveToRect(issuedBoxRect, 400, 'easeOutCirc');
 	issuedBox.children('.header')
@@ -443,9 +443,36 @@ function switch_to_list(folder) {
     activeFolder = folder;
 }
 
+function empty_list_text(folder) {
+	currentFolder = $(".task-info-" + folder).find(".header").text().toLocaleLowerCase();
+	if (currentFolder == "исполняемые лично") {
+		var currentText = "поручения на исполнение"
+	} else if (currentFolder == "на приемку") {
+		var currentText = "поручения на приемку"
+	} else if (currentFolder == "длительные поручения") {
+		var currentText = "поручения на приемку"
+	} else if (currentFolder == "на согласование") {
+		var currentText = "поручения на согласование"
+	} else if (currentFolder == "на подписание") {
+		var currentText = "поручения на подписание"
+	} else if (currentFolder == "на ознакомление") {
+		var currentText = "поручения на ознакмоление"
+	} else if (currentFolder == "выданные мной") {
+		var currentText = "выданные Вами поручения"
+	} else if (currentFolder == "выданные мной (длительные)") {
+		var currentText = "выданные Вами длительные поручения"
+	} else if (currentFolder == "распределены") {
+		var currentText = "распределенные Вами поручения"
+	}
+	return currentText;
+}
+
 function load_list(folder) {
 	$.get( "/task_info/" + folder + ".json", function (data) {
 		fill_list(data);
+		if ($("#task-list").html() == 0) {
+			$("#task-list").html("<table class=\"fullsize table__content--center\"><td>Здесь Вы будете видеть " + empty_list_text(folder) + "</td></table>")
+		}
 	});
 }
 
@@ -482,7 +509,7 @@ function init_task_actions(taskList) {
 	taskList.find(".task-action-ok").click(completeTask);
 	taskList.find(".task-action-cancel").click(closeTaskComplete);
 	tasks = taskList.find(".task-area");
-	for (var i = 0; i < tasks.length; i++) 
+	for (var i = 0; i < tasks.length; i++)
 		tasks[i].taskFiles = new TaskFiles($(tasks[i]));
 }
 
@@ -516,7 +543,7 @@ function createSubTask(event) {
 		$('input.date-picker').val("");
 	}
 	updateTaskDatePicker();
-	
+
 	taskFiles.clear();
 	var files = taskItem.find('.task-file-ref');
 	for (var i  = 0; i < files.length; i++) {
