@@ -467,7 +467,7 @@ function fill_list(data) {
 function task_select(event) {
 	/*if (event.originalEvent.srcElement.nodeName == 'A')
 		return;*/
-	event.preventDefault();
+	/*event.preventDefault();*/
 	if (selectedTask == event.currentTarget)
 		return;
 	if (selectedTask)

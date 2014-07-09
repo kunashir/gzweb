@@ -3,7 +3,7 @@ module TakeOffice
   class Employee < ActiveRecord::Base
     self.table_name = "dvtable_{DBC8AE9D-C1D2-4D5E-978B-339D22B32482}"
     self.primary_key = "RowID"
-    @@quick_performers = []
+    @@quick_performers = nil
 
     belongs_to :parent, class_name: :Department, primary_key: 'RowID', foreign_key: 'ParentRowID'
     validates :parent, presence: true
@@ -29,15 +29,8 @@ module TakeOffice
       photos.any?
     end
 
-    def self.quick_performers_ids=(ids)
-      @@quick_performers = []
-      ids.each { |id| 
-        employee = TakeOffice::Employee.where(RowID: id).first
-        @@quick_performers << employee unless employee.nil?
-      }
-    end
-
     def self.quick_performers
+      load_quick_performers_ids
       return @@quick_performers unless @@quick_performers.nil? || @@quick_performers.blank?
       return TakeOffice::Employee.all.take(6)
     end
@@ -56,6 +49,25 @@ module TakeOffice
     def assign_id
       self.RowID = SecureRandom.uuid
       self.InstanceID = RefStaff.InstanceID
+    end
+
+    def self.load_quick_performers_ids
+      return unless @@quick_performers.nil?
+      ids = []
+      demo_data = YAML.load_file("#{Rails.root}/config/demo.yml")
+      unless demo_data.nil?
+        env_data = demo_data[Rails.env]
+        unless env_data.nil?
+          unless env_data["quick"].nil?
+            ids = env_data["quick"]
+          end
+        end
+      end
+      @@quick_performers = []
+      ids.each { |id| 
+        employee = TakeOffice::Employee.where(RowID: id).first
+        @@quick_performers << employee unless employee.nil?
+      }
     end
 
   end
