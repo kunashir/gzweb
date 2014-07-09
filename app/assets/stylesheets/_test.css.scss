@@ -58,6 +58,11 @@ main {
   width: 1px;
 }
 
+.table__content--center {
+  text-align: center;
+  vertical-align: middle;
+}
+
 .unselectable {
   -webkit-user-select: none;  /* Chrome all / Safari all */
   -moz-user-select: none;     /* Firefox all */
@@ -184,7 +189,7 @@ main {
     border: 1px solid transparent;
   }
   &:hover, &:focus {
-    transition: all 0.2s ease-in-out;
+    transition: color 0.1s ease-in-out;
     color: #222;
     cursor: pointer;
     > div {
