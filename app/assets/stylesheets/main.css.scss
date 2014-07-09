@@ -394,12 +394,13 @@ body {
 	margin-right: 1em;
 	background-color: #FFF;
 	position: relative;
+	padding: 10px;
 }
 
 .task-subject-area {
 	background-color: #999;
 	color: #EEE;
-	padding: 0.2em 0.5em;
+	// padding: 0.2em 0.5em;
 }
 
 .task-subject {
@@ -421,36 +422,43 @@ body {
 }
 
 .task-author-area {
-	float: left;
-	width: 60%;
+	// float: left;
+	// width: 60%;
+	color: rgb(89,89,89);
+	vertical-align: top;
+	text-align: left;
 }
 
 .task-deadline-area {
-	float: left;
-	width: 40%;
-
+	// float: left;
+	width: 45%;
+	vertical-align: middle;
+	text-align: right;
 	.header {
 		text-align: right;
-		padding-right: 0.6em;
-		font-size: 0.9em;
+		// padding-right: 0.6em;
+		font-size: 0.8em;
 		font-weight: bold;
-		color: #222;
+		color: rgb(89,89,89);
 		padding-top: 0.5em;
 	}
 }
 
 .task-deadline-date {
-	float: right;
-	padding-right: 0.5em;
-	font-size: 1.1em;
+	// float: right;
+	// padding-right: 0.5em;
+	font-size: 1em;
 	font-weight: bold;
 	padding-left: 0.4em;
+	color: rgb(255,59,48);
 }
 
 .task-deadline-time {
-	float: right;
-	font-size: 0.9em;
-	padding-top: 0.3em;
+	// float: right;
+	font-weight: bold;
+	font-size: 0.8em;
+	// padding-top: 0.3em;
+	color: rgb(255,59,48);
 }
 
 .task-content {
@@ -460,8 +468,9 @@ body {
 }
 
 .task-area-header {
-	height: 5.5em;
-	overflow: hidden;
+	// height: 5.5em;
+	// overflow: hidden;
+	width: 100%;
 }
 
 .task-area.selected {
@@ -482,7 +491,7 @@ body {
 		padding-top: 0.2em;
 		padding-left: 0.6em;
 		font-weight: bold;
-		color: #ADADFF;
+		color: rgb(52,170,220);
 		font-size: 0.9em;
 	}
 	.task-author-name {

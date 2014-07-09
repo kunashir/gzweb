@@ -92,24 +92,24 @@
 <%= render 'static_pages/test_task_info', task_info: @task_info %>
   <script id="task-template" type="text/x-jsrender">
     <div class="task-area" data-task-id="{{>task_id}}" data-id="{{>id}}">
-      <div class="task-area-header">
-        <table class="task-subject-area fullwidth clearfix">
-          <td class="task-subject"><table class="one_line_table" style="margin: 2px 5px;"><td class="text-cut">{{>subject}}</td></table></td>
-          <td class="task-date table_td--autowidth" style="white-space: nowrap">{{>date}}</td>
-        </table>
-        <div class="task-author-area">
-          <div class="header"><%=t "task.author" %></div>
-          <div class="task-author-name">{{>author_name}}</div>
-          <div class="task-author-position">{{>author_position}}</div>
-        </div>
-        {{if deadline }}
-        <div class="task-deadline-area">
-          <div class="header"><%=t "task.deadline" %></div>
-          <div class="task-deadline-date" data-value="{{>deadline_date}}">{{>deadline_date}}</div>
-          <div class="task-deadline-time" data-value="{{>deadline_time}}">{{>deadline_time_till}}</div>
-        </div>
-        {{/if}}
-      </div>
+      <table class="task-area-header">
+        <tr>
+          <td class="table_td--autowidth"><img width="70" height="70"></img></td>
+          <td class="task-author-area">
+            <div class="header"><%=t "task.author" %>:</div>
+            <div class="task-author-name"><span>{{>author_name}}</span>,<span class="task-author-position">{{>author_position}}</span></div>
+          </td>
+          {{if deadline }}
+          <td class="task-deadline-area">
+            <div class="header"><%=t "task.deadline" %>:</div>
+            <div>
+              <span class="task-deadline-time" data-value="{{>deadline_time}}">{{>deadline_time_till}}</span>
+              <span class="task-deadline-date" data-value="{{>deadline_date}}">{{>deadline_date}}</span>
+            </div>
+          </td>
+          {{/if}}
+        </tr>
+      </table>
       <div class="task-content" data-value="{{>content}}">{{:html_content}}</div>
       {{if controler_name }}
         <div class="task-controler-area">
@@ -182,7 +182,7 @@
   <section class="data-area">
     <div id="task-shadow">
     </div>
-    <div id="task-list">
+    <div class="fullheight" id="task-list">
     </div>
   </section>
   </main>
