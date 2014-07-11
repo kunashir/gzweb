@@ -444,24 +444,23 @@ function switch_to_list(folder) {
 }
 
 function empty_list_text(folder) {
-	currentFolder = $(".task-info-" + folder).find(".header").text().toLocaleLowerCase();
-	if (currentFolder == "исполняемые лично") {
+	if (folder == "performing") {
 		var currentText = "поручения на исполнение"
-	} else if (currentFolder == "на приемку") {
+	} else if (folder == "to_accept") {
 		var currentText = "поручения на приемку"
-	} else if (currentFolder == "длительные поручения") {
+	} else if (folder == "long_tasks") {
 		var currentText = "поручения на приемку"
-	} else if (currentFolder == "на согласование") {
+	} else if (folder == "to_approve") {
 		var currentText = "поручения на согласование"
-	} else if (currentFolder == "на подписание") {
+	} else if (folder == "to_sign") {
 		var currentText = "поручения на подписание"
-	} else if (currentFolder == "на ознакомление") {
+	} else if (folder == "informational") {
 		var currentText = "поручения на ознакмоление"
-	} else if (currentFolder == "выданные мной") {
+	} else if (folder == "issued") {
 		var currentText = "выданные Вами поручения"
-	} else if (currentFolder == "выданные мной (длительные)") {
+	} else if (folder == "long_issued") {
 		var currentText = "выданные Вами длительные поручения"
-	} else if (currentFolder == "распределены") {
+	} else if (folder == "delegated") {
 		var currentText = "распределенные Вами поручения"
 	}
 	return currentText;
