@@ -121,12 +121,12 @@ function layoutMainArea() {
 
 	performBox.moveToRect(performBoxRect);
 
-	for(i in itemsToPerform)
+	for (var i = 0; i < itemsToPerform.length; i++)
 		itemsToPerform[i].moveToRect(itemRects[i]);
 
 	issuedBox.moveToRect(issuedBoxRect);
 
-	for(i in itemsIssued)
+	for (var i = 0; i < itemsIssued.length; i++)
 		itemsIssued[i].moveToRect(issuedRects[i]);
 }
 

@@ -135,38 +135,47 @@ function updateTaskDatePicker() {
     }
 }
 
-
 $(function() {
     $('.performer-quick-block .performer-image').css("background-size", "contain");
-    $('.performer-quick-list li').click(selectQuickPerformer);
-    lookupHandlers.select(onPerformerSelected);
+    $('.performer-quick-list li').mousedown(quickPerformerClick);
 })
 
-function selectQuickPerformer(e) {
+var activeLookup;
+
+function quickPerformerClick(e) {
     e.preventDefault();
-    $('.performer-quick-list li').removeClass('pressed');
+    if (!activeLookup)
+        return;
     var container = $(e.currentTarget);
-    container.addClass('pressed');
     var performer = container.children('.performer-quick-block');
-    $('#Task-performer').data("text", performer.data("text"));
-    $('#Task-performer').data("id", performer.data("id"));
-    $('#Task-performer').val(performer.data("text"));
+    if (container.hasClass('pressed'))
+        activeLookup.removeToken({ id: performer.data('id'), name: performer.data('text') })
+    else
+        activeLookup.addToken({ id: performer.data('id'), name: performer.data('text') })
 }
 
-function onPerformerSelected(element) {
-    if (element.id != 'Task-performer')
-        return;
-    var selectedID = $(element).data("id");
-    var current = $('.performer-quick-list li.pressed');
-    if (current != null && selectedID != current.data("id"))
-        current.removeClass("pressed");
-    var allQuickPerformers = $('.performer-quick-list li');
-    console.log(selectedID);
-    for (var i = 0; i < allQuickPerformers.length; i++) {
-        var container = $(allQuickPerformers[i]);
-        var quickID = container.children('.performer-quick-block').data("id");
-        if (quickID == selectedID)
-            container.addClass("pressed");
+function onActiveLookupChange(lookup) {
+    activeLookup = lookup;
+    if (lookup)    
+        onLookupChanged(lookup.selection);
+    else
+        $('.performer-quick-list li.pressed').removeClass('pressed');
+}
+
+function onLookupChanged(element) {
+    $('.performer-quick-list li.pressed').removeClass('pressed');
+    if (!element) return;
+    if (element instanceof Array)
+    {
+        element.forEach(function (item) {
+            var allQuickPerformers = $('.performer-quick-list li');
+            for (var i = 0; i < allQuickPerformers.length; i++) {
+                var container = $(allQuickPerformers[i]);
+                var quickID = container.children('.performer-quick-block').data("id");
+                if (quickID == item.id)
+                    container.addClass("pressed");
+            }
+        });
     }
 }
 
@@ -200,25 +209,56 @@ function TaskActors() {
         });
     }
 
-    $this.reset = function() {
-        $this.actors.forEach(function(actor) {
-            actor.checkbox.prop("checked", false);
-        });
+    $this.reset = function(name) {
+        console.log(name);
+        if (name) {
+            index = indexByName(name);
+            console.log(index);
+            if (index !== null)
+                $this.actors[index].checkbox.prop("checked", false);
+        }
+        else {
+            $this.actors.forEach(function(actor) {
+                actor.checkbox.prop("checked", false);
+            });
+        }
         $this.updateInputs();
     }
 
     $this.set = function(name) {
-        var i = -1;
-        if (name == 'co_performers')
-            i = 0;
-        if (name == 'informants')
-            i = 1;
-        if (name == 'controller')
-            i = 2;
-        if (i == -1)
-            return;
-        $this.actors[i].checkbox.prop("checked", true);
+        index = indexByName(name);
+        if (index !== null)
+            $this.actors[index].checkbox.prop("checked", true);
         $this.updateInputs();
+    }
+
+    $this.disable = function(name) {
+        index = indexByName(name);
+        if (index !== null)
+            $this.actors[index].checkbox.attr("disabled", true);
+    }
+
+    $this.enable = function(name) {
+        index = indexByName(name);
+        if (index !== null)
+            $this.actors[index].checkbox.attr("disabled", false);
+    }
+
+    $this.isSet = function(name) {
+        index = indexByName(name);
+        if (index !== null)
+            return $this.actors[index].checkbox.prop("checked");
+        return null;
+    }
+
+    function indexByName(name) {
+        if (name == 'co_performers')
+            return 0;
+        if (name == 'informants')
+            return 1;
+        if (name == 'controller')
+            return 2;
+        return null;
     }
 
     $this.init();
@@ -250,12 +290,18 @@ function TaskActions() {
             var taskData = {
                 parent_task: $('#Task-parent_task').data('id'),
                 parent_document: $('#Task-parent_document').data('id'),
-                performer: $('#Task-performer').data('id'),
-                co_performers: $('#Task-co_performers').data('id'),
-                informants: $('#Task-informants').data('id'),
-                controler: $('#Task-controller').data('id'),
+                performer: getPersons($('#Task-performer')),
+                co_performers: getPersons($('#Task-co_performers')),
+                informants: getPersons($('#Task-informants')),
+                controler: getPerson($('#Task-controller')),
                 content: $('#Task-content').val()
             };
+            if (!actors.isSet('co_performers'))
+                taskData.co_performers = null;
+            if (!actors.isSet('informants'))
+                taskData.informants = null;
+            if (!actors.isSet('controller'))
+                taskData.controler = null;
             var date = $('input.date-picker');
             if (date.val().trim().length > 0)
                 taskData.deadline = date.data("date") + " " + date.data("hour") + ":" + date.data("minute");
@@ -311,7 +357,21 @@ function TaskActions() {
             $this.closeHandler();
         }
 
-    this.closeHandler = function() {}
+        function getPersons(multilookup) {
+            var persons = multilookup.lookupMulti('widget')().selection;
+            if (persons)
+                return persons.map(function (e) { return e.id; });
+            return [];
+        }
+
+        function getPerson(multilookup) {
+            var persons = getPersons(multilookup);
+            if (persons.length == 0)
+                return null;
+            return persons[0];
+        }
+
+        this.closeHandler = function() {}
 }
 
 function TaskFiles(root) {
@@ -427,4 +487,50 @@ function TaskFiles(root) {
     $this.clear = function() {
         fileArea.children(".task-file").remove();
     }
+}
+
+$(initLookupMulti);
+
+function initLookupMulti() {
+
+    var performerEdit = $('#Task-performer'),
+        allEdits = $(".edit-lookup-multi")
+
+    allEdits.lookupMulti();
+
+    var performerLookup = performerEdit.lookupMulti('widget')();
+    activeLookup = performerLookup;
+    performerLookup.wrapper.addClass('active');
+
+    allEdits
+        .lookupMulti('focus', function (lookup) {
+            performerLookup.wrapper.removeClass('active');
+            lookup.wrapper.addClass('active');
+            onActiveLookupChange(lookup);
+        })
+        .lookupMulti('blur', function (lookup) {
+            lookup.wrapper.removeClass('active');
+            performerLookup.wrapper.addClass('active');
+            onActiveLookupChange(performerLookup);
+        })
+        .lookupMulti('change', function (lookup) {
+            onLookupChanged(lookup.selection);
+        });
+
+    performerLookup.focus();
+    performerLookup.change(function () {
+        console.log(performerLookup.selection);
+        console.log(performerLookup.selection.length);
+        if (performerLookup.selection && performerLookup.selection.length > 1) {
+            actors.reset('co_performers');
+            actors.disable('co_performers');
+        }
+        else
+            actors.enable('co_performers');
+    });
+
+    $('.performer-quick-list').mousedown(function (e) {
+        if (e.currentTarget == e.target && activeLookup)
+            activeLookup.preventFocusLoss();
+    })
 }

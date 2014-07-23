@@ -2,14 +2,33 @@ var lookupHandlers;
 
 function LookupHandlers() {
   var select_handlers = [];
+  var activeLookupField = null;
+  var activeLookupChangeHandlers = [];
+  var self = this;
 
-  this.select = function ( callback ) {
+  this.select = function (callback) {
     select_handlers[select_handlers.length] = callback;
   }
 
   this.onSelect = function (element) {
     for (var i in select_handlers)
       select_handlers[i](element);
+  }
+
+  this.activeLookup = function (lookup) {
+    if (arguments.length == 0)
+      return activeLookupField;
+    activeLookupField = lookup;
+    self.onActiveLookupChange();
+  }
+
+  this.onActiveLookupChange = function (handler) {
+    if (arguments.length == 0)
+      activeLookupChangeHandlers.forEach(function (listener) {
+        listener(activeLookupField);
+      });
+    else
+      activeLookupChangeHandlers.push(handler);
   }
 }
 

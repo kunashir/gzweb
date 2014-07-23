@@ -15,9 +15,10 @@ class TasksController < ApplicationController
   end
 
   def create
-    performer = TakeOffice::Employee.where(RowID: params[:performer]).first unless 
+    performers = []
+    performers = params[:performer].map { |x| TakeOffice::Employee.where(RowID: x).first }.select { |x| !x.nil? } unless 
       params[:performer].nil? || params[:performer].blank?
-    error ||= 'Исполнитель не задан' if performer.nil?
+    error ||= 'Исполнитель не задан' if performers.blank?
     content = params[:content]
     error ||= 'Не задано содержание поручения' if content.blank?
     begin
@@ -29,10 +30,10 @@ class TasksController < ApplicationController
     controller = TakeOffice::Employee.where(RowID: params[:controler]).first unless 
       params[:controler].nil? || params[:controler].blank?
     co_performers = []
-    co_performers = [TakeOffice::Employee.where(RowID: params[:co_performers]).first] unless 
+    co_performers = params[:co_performers].map { |x| TakeOffice::Employee.where(RowID: x).first }.select { |x| !x.nil? } unless 
       params[:co_performers].nil? || params[:co_performers].blank?
     informants = []
-    informants = [TakeOffice::Employee.where(RowID: params[:informants]).first] unless 
+    informants = params[:informants].map { |x| TakeOffice::Employee.where(RowID: x).first }.select { |x| !x.nil? } unless 
       params[:informants].nil? || params[:informants].blank?
     if error.nil?
       begin
@@ -79,7 +80,9 @@ class TasksController < ApplicationController
         unless params[:parent_document].blank?
           card.main_info._ParentCard = params[:parent_document]
         end
-        card.main_info.add_performer(performer)
+        performers.each { |performer| 
+          card.main_info.add_performer(performer) 
+        }
         co_performers.each { |co_performer| 
           card.main_info.add_co_performer(co_performer)
         }

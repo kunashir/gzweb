@@ -21,7 +21,7 @@
           <% end %>
         </ul>
       <% end %>
-      <%= row(employee_select(@task, :Task, :performer)) %>
+      <%= row(employees_select(@task, :Task, :performer)) %>
       <div class="row actors-selector">
         <label>
             <input class="co_performers-selector" type="checkbox"/>
@@ -38,9 +38,9 @@
       </div>
       <div class="row-group-container">
         <div class="row-group">
-          <%= row(employee_select(@task, :Task, :co_performers), 
+          <%= row(employees_select(@task, :Task, :co_performers), 
             label: "task.co_performers", class: 'co_performers-row') %>
-          <%= row(employee_select(@task, :Task, :informants), 
+          <%= row(employees_select(@task, :Task, :informants), 
             label: "task.informants", class: 'informants-row' ) %>
           <%= row(employee_select(@task, :Task, :controller),
             label: "task.controller", class: 'controller-row' ) %>

@@ -77,12 +77,13 @@ module FieldHelper
       <<-html
         <input id="#{id}" 
           value="#{value}" 
-          class="edit-lookup"
+          class="edit-lookup-multi"
           spellcheck="false" 
           data-id="#{value_id}"
           data-text="#{value}"
           data-lookup="/employees/find" 
-          data-lookup-term="filter" />
+          data-lookup-term="filter"
+          data-lookup-single="true" />
       html
     end
   end
@@ -98,8 +99,34 @@ module FieldHelper
       "#{@object_name}-#{@property_name}"
     end
 
+    def employee
+      return nil if @object.nil?
+      @object.send(@property_name)
+    end
+
+    def value
+      return "" if employee.nil? 
+      return employee.display_name if employee.is_a? TakeOffice::Employee
+      return ""
+    end
+
+    def value_id
+      return "" if employee.nil?
+      return employee.id if employee.is_a? TakeOffice::Employee
+      return ""
+    end
+
     def field
-      "<input id=\"#{id}\"/>"
+      <<-html
+        <input id="#{id}" 
+          value="#{value}" 
+          class="edit-lookup-multi"
+          spellcheck="false" 
+          data-id="#{value_id}"
+          data-text="#{value}"
+          data-lookup="/employees/find" 
+          data-lookup-term="filter" />
+      html
     end
   end
 

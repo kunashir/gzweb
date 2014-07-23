@@ -85,7 +85,7 @@ class TaskCardMainInfo < ActiveRecord::Base
   end
 
   def add_acquaintance(value)
-    acquaintance = acquaintance.new(InstanceID: self.InstanceID)
+    acquaintance = acquaintances.new(InstanceID: self.InstanceID)
     acquaintance.assignee = value
     return acquaintance
   end

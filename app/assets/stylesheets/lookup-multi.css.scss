@@ -1,0 +1,94 @@
+.token { 
+	display: inline-block;
+	margin: 3px;
+	border: 1px solid #999;
+	padding: 3px;
+	background-color: #EFEFEF;
+	color: #222;
+	transition: background-color 0.1s;
+
+	.close {
+		text-decoration: none;
+		color: #888;
+		font-weight: bold;
+		margin-left: 3px;
+		user-select: none;
+		outline: none;
+		transition: color 0.1s;
+		cursor: pointer;
+	}
+
+	.close:active {
+		padding-top: 1px;
+		outline: none;
+	}
+}
+
+.token.selected {
+	background-color: #D7EAFF;
+
+	.close {
+		color: black;
+	}
+}
+
+.token:hover {
+	.close {
+		color: black;
+	}
+}
+
+.inline-edit-control {
+	display: inline-block;
+	outline: none;
+	border: none;
+	margin: 2px 3px;
+	padding: 3px;
+	// background-color: blue;
+	// color: yellow;
+}
+
+.form-edit-control {
+	width: 100%;
+	border: 1px solid #34AADC;
+	background: white;
+}
+
+.form-edit-control.active {
+	background: #F9F9D9;
+	border-color: #2984AA;
+
+	.token { 
+		background-color: #FFF;
+	}
+
+	.token.selected {
+		background-color: #D7EAFF;
+
+		.close {
+			color: black;
+		}
+	}
+}
+
+.row {
+	overflow: hidden;
+	padding: 0.5em 2em;
+	text-align: left;
+	
+	.field-value {
+		width: 100%;
+		padding: 0px;
+
+		.inline-edit-control {
+			display: inline-block;
+			outline: none;
+			border: none;
+			margin: 2px 3px;
+			padding: 3px;
+			background-color: transparent;
+			// background-color: blue;
+			// color: yellow;
+		}
+	}
+}
