@@ -290,7 +290,7 @@ function tileSelect(event) {
 		{
 			color = "#E1F1F5";
 			foreColor = "#777";
-			if (itemsIssued[i].data('folder') == folder) 
+			if (itemsIssued[i].data('folder') == folder)
 			{
 				color = "#A5D6E2";
 				foreColor = "#777";
@@ -335,7 +335,7 @@ function tileSelect(event) {
 			itemsToPerform[i].children('.header')
 				.animate({ color: '#777', 'margin-right': '4em', 'margin-top': '-0.3em' }, 400, 'easeOutCirc');
 		top += topShift;
-	}		
+	}
 	issuedBox
 		.animate({ height: '14em', width: tileWidth + tileSep, left: 10, top: '31em' }, 400, 'easeOutCirc');
 	issuedBox.children('.header')
@@ -413,7 +413,7 @@ function toGrid() {
 			.animate({ bottom: '0.5em' }, 400, 'easeOutCirc');
 		itemsToPerform[i].children('.header')
 			.animate({ color: '#696969', 'margin-right': 'inherit', 'margin-top': 'inherit' }, 400, 'easeOutCirc');
-	}		
+	}
 	issuedBox
 		.animateMoveToRect(issuedBoxRect, 400, 'easeOutCirc');
 	issuedBox.children('.header')
@@ -443,9 +443,35 @@ function switch_to_list(folder) {
     activeFolder = folder;
 }
 
+function empty_list_text(folder) {
+	if (folder == "performing") {
+		var currentText = "поручения на исполнение"
+	} else if (folder == "to_accept") {
+		var currentText = "поручения на приемку"
+	} else if (folder == "long_tasks") {
+		var currentText = "поручения на приемку"
+	} else if (folder == "to_approve") {
+		var currentText = "поручения на согласование"
+	} else if (folder == "to_sign") {
+		var currentText = "поручения на подписание"
+	} else if (folder == "informational") {
+		var currentText = "поручения на ознакмоление"
+	} else if (folder == "issued") {
+		var currentText = "выданные Вами поручения"
+	} else if (folder == "long_issued") {
+		var currentText = "выданные Вами длительные поручения"
+	} else if (folder == "delegated") {
+		var currentText = "распределенные Вами поручения"
+	}
+	return currentText;
+}
+
 function load_list(folder) {
 	$.get( "/task_info/" + folder + ".json", function (data) {
 		fill_list(data);
+		if ($("#task-list").html() == 0) {
+			$("#task-list").html("<table class=\"fullsize table__content--center\"><td>Здесь Вы будете видеть " + empty_list_text(folder) + "</td></table>")
+		}
 	});
 }
 
@@ -486,7 +512,7 @@ function init_task_actions(taskList) {
 	taskList.find(".task-comments").keyup(commentsChanged);
 	taskList.find(".task-comments").bind('paste', commentsChanged);
 	tasks = taskList.find(".task-area");
-	for (var i = 0; i < tasks.length; i++) 
+	for (var i = 0; i < tasks.length; i++)
 		tasks[i].taskFiles = new TaskFiles($(tasks[i]));
 }
 
@@ -508,10 +534,13 @@ function createSubTask(event) {
 	$('#Task-parent_task').data("id", taskId);
 	$('#Task-parent_document').data("id", parentDocumentId);
 	$('#Task-performer').val("").data("text", "").data("id", "");
+	$('#Task-performer').lookupMulti('reset');
 	$('.performer-quick-list li').removeClass('pressed');
 	$('#Task-co_performers').val("").data("text", "").data("id", "");
+	$('#Task-co_performers').lookupMulti('reset');
 	$('#Task-informants').val("").data("text", "").data("id", "");
-	$('#Task-controller').val(user_name).data("text", user_name).data("id", user_id);
+	$('#Task-informants').lookupMulti('reset');
+	$('#Task-controller').lookupMulti('addToken', { id: user_id, name: user_name });
 	$('#Task-content').val(content);
 	if (date) {
 		$('input.date-picker').val(date + " " + time);
@@ -520,7 +549,7 @@ function createSubTask(event) {
 		$('input.date-picker').val("");
 	}
 	updateTaskDatePicker();
-	
+
 	taskFiles.clear();
 	var files = taskItem.find('.task-file-ref');
 	for (var i  = 0; i < files.length; i++) {
@@ -566,7 +595,7 @@ function showTaskComplete(event) {
 
 	okButton.text('OK (' + actionButton.text() + ")");
 
-	taskCompleteArea.animate({height: '15em'}, 400, 'easeOutCirc');
+	taskCompleteArea.animate({height: '17em'}, 400, 'easeOutCirc');
 	taskActions.animate({'margin-top': '-2.5em'}, 400, 'easeOutCirc');
 	comments.focus();
 }

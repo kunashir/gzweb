@@ -1,4 +1,8 @@
-@import 'style';
+@import "variables";
+@import "bootstrap";
+@import "test";
+@import "style";
+
 
 $group-color: #F7F7F7;
 $fore-color: #333;
@@ -6,13 +10,14 @@ $new-color: #f0f0f0;
 $dim-level: .25;
 $border-dim-level: .9;
 $performing-color: #F7C6A3;
-$group-gradient-level: 10%;	
+$group-gradient-level: 10%;
 $gradient-level: 0%;
 $outline-color: rgba(0,0,0,.3);
 $new-dim-level: .05;
 $informational-color: #C8D9A6;
 $issued-color: #A5D6E2;
 $main-color: #595959;
+
 
 body {
 	font-family: Verdana, Tahoma, serif;
@@ -33,14 +38,18 @@ body {
 }
 
 .logo-bar {
-	position: absolute;
-	width: 4.3em;
-	height: 4.3em;
-	background-color: white;
-	left: 0.5em;
-	top: 2.1em;
+	/* position: absolute; */
+	/* width: 4.3em; */
+	/* height: 4.3em; */
+	background-color: #FFF;
+	/* left: 0.5em; */
+	/* top: 2.1em; */
 	border-radius: 8px;
 	cursor: pointer;
+	float: left;
+	margin-top: 5px;
+	padding-top: 5px;
+	padding-bottom: 2px;
 	img {
 		width: 4em;
 		height: 4em;
@@ -49,8 +58,8 @@ body {
 }
 
 .header-bar {
-	width: 100%;
-	height: 5.7em;
+	// width: 100%;
+	// height: 5.7em;
 	overflow: hidden;
 }
 
@@ -77,29 +86,31 @@ body {
 	display: none;
 }
 
-.task-summary li .total {
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
-	width: 2em;
-	height: 2em;
+// .task-summary .total {
+// 	display: table-cell;
+// 	text-align: center;
+// 	vertical-align: middle;
+// 	width: 2em;
+// 	height: 2em;
+// }
+.header-actions {
+	margin-left: 15px;
 }
-
 .header-actions ul {
 	list-style: none;
-	margin: 0;
+	margin-top: 3%;
 	padding: 0;
-	height: 2em;
+	// height: 2em;
 }
 
 .header-actions ul {
 	li {
 
-		float: left;
+		// float: left;
 		border: 1px solid transparent;
-		margin: 1em 0em;
-		padding: 0.2em;
-		height: 2em;
+		// margin: 1em 0em;
+		// padding: 0.2em;
+		// height: 2em;
 
 		a {
 			color: #696969;
@@ -117,19 +128,21 @@ body {
 	}
 }
 
-.user-control { 
-	margin: -1em 0em -1em 0em;
+.user-control {
+	// margin: -1em 0em -1em 0em;
 	border: 1px solid #DDD;
 	border-radius: 10px;
 	background-color: white;
 }
 
 .user-photo {
-	height: 80%;
-	margin-left: 10px;
-	margin-top: 10px;
-	margin-right: 10px;
+	// height: 80%;
+	// margin-left: 10px;
+	// margin-top: 10px;
+	// margin-right: 10px;
 	float: left;
+	height: 82px;
+	padding: 10px;
 }
 
 .user-control a {
@@ -161,7 +174,7 @@ body {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	overflow: none;	
+	overflow: none;
 }
 
 .task-info-group > div {
@@ -205,20 +218,20 @@ body {
 	height: 6em;
 }
 
-.task-info-performing, .task-info-to_accept {
-	background-color: $performing-color;
-	/*background: linear-gradient(to right, $performing-color, mix(white, $performing-color, $gradient-level));*/
-}
+// .task-info-performing, .task-info-to_accept {
+// 	background-color: $performing-color;
+// 	/*background: linear-gradient(to right, $performing-color, mix(white, $performing-color, $gradient-level));*/
+// }
 
-.task-info-long_tasks, .task-info-informational, .task-info-to_approve, .task-info-to_sign {
-	background-color: $informational-color;
-	/*background: linear-gradient(to right, $informational-color, mix(white, $informational-color, $gradient-level));*/
-}
+// .task-info-long_tasks, .task-info-informational, .task-info-to_approve, .task-info-to_sign {
+// 	background-color: $informational-color;
+// 	/*background: linear-gradient(to right, $informational-color, mix(white, $informational-color, $gradient-level));*/
+// }
 
-.task-info-issued, .task-info-long_issued, .task-info-delegated {
-	background-color: $issued-color;
-	/*background: linear-gradient(to right, $issued-color, mix(white, $issued-color, $gradient-level));*/
-}
+// .task-info-issued, .task-info-long_issued, .task-info-delegated {
+// 	background-color: $issued-color;
+// 	/*background: linear-gradient(to right, $issued-color, mix(white, $issued-color, $gradient-level));*/
+// }
 
 .task-info-item .header {
 	overflow: hidden;
@@ -227,31 +240,33 @@ body {
 	padding: 0.5em;
 }
 
-.task-info-item .total {
-	position: absolute;
-	bottom: 0.2em;
-	right: 0.2em;
+.task_info__item .total {
+	// position: absolute;
+	// bottom: 0.6em;
+	// right: 0.8em;
+	font-weight: bold;
+	padding-left: 10px;
 }
 
-.task-info-item .new {
-	display: none;
+.task_info__item .new {
+	opacity: 0;
 }
 
-.task-info-item .new.non-zero {
-	display: block;
-	font-size: 2em;
+.task_info__item .new.non-zero {
+	opacity: 1;
+	font-weight: bold;
 	color: $new-color;
-	position: absolute;
-	bottom: 0.5em;
-	right: 1em;
+	// position: absolute;
+	// bottom: 0.8em;
+	// right: 1.2em;
    	text-shadow:
     	-1px -1px 0 $outline-color,
     	1px -1px 0 $outline-color,
     	-1px 1px 0 $outline-color,
-    	1px 1px 0 $outline-color;	
+    	1px 1px 0 $outline-color;
 }
 
-.task-info-item .icon {
+.task_info__item .icon {
 	position: absolute;
 	left: 0.3em;
 	bottom: 0.3em;
@@ -334,11 +349,12 @@ body {
 }
 
 .data-area {
-	position: absolute;
-	left: 280px;
-	top: 6em;
-	right: 0.5em;
-	bottom: 0em;
+	// position: absolute;
+	// left: 280px;
+	// top: 6em;
+	// right: 0.5em;
+	// bottom: 0em;
+	position: relative;
 	background: #F8F8F8;
 	border: 1px solid #EEE;
 	padding: 10px;
@@ -362,13 +378,13 @@ body {
 }
 
 #task-list {
-	position: absolute;
-	left: 0.1em;
-	top: 0.1em;
-	bottom: 0.1em;
-	padding: 0.5em;
+	// position: absolute;
+	// left: 0.1em;
+	// top: 0.1em;
+	// bottom: 0.1em;
+	// padding: 0.5em;
 	opacity: 0;
-	width: 100%;
+	// width: 100%;
 }
 
 .task-area {
@@ -378,16 +394,17 @@ body {
 	margin-right: 1em;
 	background-color: #FFF;
 	position: relative;
+	padding: 10px;
 }
 
 .task-subject-area {
 	background-color: #999;
 	color: #EEE;
-	padding: 0.2em 0.5em;
+	// padding: 0.2em 0.5em;
 }
 
 .task-subject {
-	margin-right: 10em;
+	// float: left;
 
 	div {
 		white-space: nowrap;
@@ -397,42 +414,51 @@ body {
 }
 
 .task-date {
-	float: right;
-	width: 9.5em;
-	margin-top: -1.12em;
+	// float: right;
+	// width: 9.5em;
+	// margin-top: -1.12em;
+	padding-right: 5px;
+	padding-left: 5px;
 }
 
 .task-author-area {
-	float: left;
-	width: 60%;
+	// float: left;
+	// width: 60%;
+	color: rgb(89,89,89);
+	vertical-align: top;
+	text-align: left;
 }
 
 .task-deadline-area {
-	float: left;
-	width: 40%;
-	
+	// float: left;
+	width: 45%;
+	vertical-align: middle;
+	text-align: right;
 	.header {
 		text-align: right;
-		padding-right: 0.6em;
-		font-size: 0.9em;
+		// padding-right: 0.6em;
+		font-size: 0.8em;
 		font-weight: bold;
-		color: #222;
+		color: rgb(89,89,89);
 		padding-top: 0.5em;
 	}
 }
 
 .task-deadline-date {
-	float: right;
-	padding-right: 0.5em;
-	font-size: 1.1em;
+	// float: right;
+	// padding-right: 0.5em;
+	font-size: 1em;
 	font-weight: bold;
 	padding-left: 0.4em;
+	color: rgb(255,59,48);
 }
 
 .task-deadline-time {
-	float: right;
-	font-size: 0.9em;
-	padding-top: 0.3em;
+	// float: right;
+	font-weight: bold;
+	font-size: 0.8em;
+	// padding-top: 0.3em;
+	color: rgb(255,59,48);
 }
 
 .task-content {
@@ -442,8 +468,9 @@ body {
 }
 
 .task-area-header {
-	height: 5.5em;
-	overflow: hidden;
+	// height: 5.5em;
+	// overflow: hidden;
+	width: 100%;
 }
 
 .task-area.selected {
@@ -464,7 +491,7 @@ body {
 		padding-top: 0.2em;
 		padding-left: 0.6em;
 		font-weight: bold;
-		color: #ADADFF;
+		color: rgb(52,170,220);
 		font-size: 0.9em;
 	}
 	.task-author-name {
@@ -501,7 +528,7 @@ body {
 	}
 	.task-controler-position:before {
     	content: ", ";
-   	}		
+   	}
 }
 
 .task-delegated-area {
@@ -519,7 +546,7 @@ body {
 	.task-delegated {
 		float: left;
 	}
-	
+
 }
 
 .task-document-area {
@@ -574,7 +601,7 @@ body {
 	border-top: 2px solid #CCC;
 	overflow: hidden;
 	height: 2.5em;
-	margin: 0em 0.5em;
+	margin: 0em 0.5em 0.5em 0.5em;
 }
 
 .task-actions, .task-actions-apply {
@@ -582,7 +609,7 @@ body {
 	margin: 0.5em 0em;
 	a {
 		display: block;
-		float: left;		
+		float: left;
 		padding: 0.2em 0.5em;
 		margin: 0em 0em 0em 0.5em;
 		background-color: #DDD;
@@ -610,6 +637,7 @@ body {
 	right: 0;
 	bottom: 0;
 	background-color: rgba(100, 100, 100, 0.5);
+	z-index: 10;
 }
 
 .create-task-area > div {
@@ -630,7 +658,7 @@ body {
 		border-top: 2px solid #CCC;
 	}
 
-	.header { 
+	.header {
 		margin-top: 0.5em;
 		font-weight: bold;
 		font-size: 0.9em;
@@ -639,7 +667,6 @@ body {
 
 	.task-comments-area {
 		width: 100%;
-		height: 5em;
 		margin: 0.5em 0em;
 
 		textarea {
@@ -660,6 +687,7 @@ body {
 		height: 7em;
 		background-color: white;
 		border: 1px solid #9BAAFD;
+		margin-bottom: 0.5em;
 
 		.task-files {
 			height: 7em;

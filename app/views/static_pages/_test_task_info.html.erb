@@ -1,0 +1,50 @@
+<aside class="task_info_group aside_startview">
+  <div class="task_info_group__performing">
+    <div class="task_info_group__header unselectable"><span>Мне сделать</span>
+      <ul class="js--task_info__m_ms list-inline pull-right">
+        <li class="m_ms__item--red">11</li>
+        <li class="m_ms__item--orange">16</li>
+        <li class="m_ms__item--green">3</li>
+      </ul>
+    </div>
+    <% [:performing, :to_accept, :long_tasks, :to_approve, :to_sign, :informational].each do |prop| %>
+      <div class="task_info__item unselectable">
+        <div class="task-info-<%= prop %>" data-folder="<%= prop %>">
+          <table class="fullsize">
+            <tbody>
+              <tr class="fullheight" style="vertical-align: top">
+                <td colspan="3" class="header fullwidth"><%=t "task_info.#{prop}" %></td>
+              </tr>
+              <tr>
+                <td class="fullwidth text-right new <%= "non-zero" if task_info.send("#{prop}_new") > 0 %>"><%= task_info.send("#{prop}_new") %></td>
+                <td style="vertical-align: bottom" class="table_td--autowidth total"><%= task_info.send(prop) %></td>
+                <td class="icon" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="task_info_group__issued">
+    <div class="task_info_group__header unselectable"><%=t "task_info.author" %></div>
+    <% [:issued, :long_issued, :delegated].each do |prop| %>
+      <div class="task_info__item unselectable">
+        <div class="task-info-<%= prop %>" data-folder="<%= prop %>">
+          <table class="fullsize">
+          <tbody>
+            <tr style="height: 100%; vertical-align: top">
+              <td colspan="3" class="header"><%=t "task_info.#{prop}" %></td>
+            </tr>
+            <tr>
+              <td class="fullwidth text-right new <%= "non-zero" if task_info.send("#{prop}_new") > 0 %>"><%= task_info.send("#{prop}_new") %></td>
+              <td style="vertical-align: bottom" class="table_td--autowidth total"><%= task_info.send(prop) %></td>
+              <td class="icon" /></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</aside>

@@ -210,10 +210,8 @@ function TaskActors() {
     }
 
     $this.reset = function(name) {
-        console.log(name);
         if (name) {
             index = indexByName(name);
-            console.log(index);
             if (index !== null)
                 $this.actors[index].checkbox.prop("checked", false);
         }
@@ -519,8 +517,6 @@ function initLookupMulti() {
 
     performerLookup.focus();
     performerLookup.change(function () {
-        console.log(performerLookup.selection);
-        console.log(performerLookup.selection.length);
         if (performerLookup.selection && performerLookup.selection.length > 1) {
             actors.reset('co_performers');
             actors.disable('co_performers');

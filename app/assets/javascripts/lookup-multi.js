@@ -207,12 +207,9 @@ function MultiLookupToken(options) {
                   .insertBefore(this.input)
                   .removed(function (token) { self.tokens.remove(token); self._updateValue(); });
         if (this.singleSelect)
-          this.tokens
-            .forEach(function (token) { token.remove(); });
+          this.reset();
         else
-          this.tokens
-            .filter(function (token) { return token.id == item.id })
-            .forEach(function (token) { token.remove(); });
+          this.removeToken(item);
 
         this.tokens.push(token);
         this._updateValue();
@@ -222,12 +219,19 @@ function MultiLookupToken(options) {
       },
 
       removeToken: function (item) {
-        this.tokens
-          .filter(function (token) { return token.id == item.id })
-          .forEach(function (token) { token.remove(); });
+        this.tokens.
+          filter(function (token) { return token.id == item.id }).
+          clone().
+          forEach(function (token) { token.remove(); });
 
-        this._updateValue();
-        this.input.val("");
+        this._updateSize();
+      },
+
+      reset: function () {
+        this.tokens.
+          clone().
+          forEach(function (token) { token.remove(); });
+
         this._updateSize();
       },
 

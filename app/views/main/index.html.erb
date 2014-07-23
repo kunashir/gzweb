@@ -1,42 +1,115 @@
-<div class="app-area">
-  <div class="logo-bar">
-  <%= image_tag('logo.jpg') %>
-  </div>
-  <div class="header-bar">
-    <%= render 'user_control', user: @user %>
-    <%# render 'task_info/task_summary', task_info: @task_info %>
-    <div class="header-actions">
-      <ul>
-        <li><%= link_to t("actions.refresh"), "/", { :class => 'task-info-refresh' } %></li>
-        <li><%= link_to t("actions.new-task"), new_task_path(), { target: '_blank',:class => 'create-task-link' }  %></li>
-        <li><%= link_to t("actions.new-long-task"), new_task_path(), { target: '_blank', class: 'window-link' }  %></li>
-        <li><%= link_to t("actions.phones"), "http://01srvnsi.gz.local/GZPhoneBook/sait/страница1.html", { target: '_blank' }  %></li>
-      </ul>
+<script type="text/javascript">
+
+  function setMargins() {
+      width = 780;
+      containerWidth = $(".container").width();
+      if (containerWidth > 0) {
+        leftMargin = (containerWidth - width)/2;
+      } else {
+        leftMargin = 0;
+      }
+      $(".task_info_group").css("marginLeft", leftMargin);
+  }
+
+  $(document).ready(function() {
+    $('.task_info__item').on('click', function(e) {
+      var item = $(this),
+          dataItem = item.children('div').first();
+      if (item.parents().hasClass('aside_startview')) {
+        $('.task_info_group').removeClass('aside_startview');
+        $('.task_info_group').addClass('aside_listview');
+        $('.task_info__item').find('.icon').hide();
+        $('.js--nav').removeClass("nav__start_view").addClass('nav__list_view');
+        $('.js--task_info__m_ms').fadeOut();
+        $('.js--nav__m_ms').fadeIn();
+        $(".task_info_group").css({"marginLeft": 0, "float": "left"});
+      }
+
+      $(".task_info__item").removeClass("active");
+      item.addClass("active");
+      $('.data-area')
+        .animate({ opacity:1 }, 400, 'easeInCirc');
+
+      if (item.parents().hasClass('aside_startview')) {
+        timeout = setTimeout(function() {
+          switch_to_list(dataItem.data("folder"));
+          $('.data-area').css({ "z-index": "0" });
+          $('section').fadeIn();
+        }, 600);
+      } else {
+          switch_to_list(dataItem.data("folder"));
+          $('.data-area').css({ "z-index": "0" });
+          $('section').fadeIn();
+      }
+    });
+
+    $(".logo-bar").on('click', function() {
+      $('aside').addClass('aside_startview');
+      $('.js--nav').removeClass("nav__list_view").addClass('nav__start_view');
+      $('.task_info_group').removeClass('aside_listview');
+      setMargins();
+      $('section').hide();
+      $('.task_info__item').find('.icon').fadeIn();
+      $(".task_info__item").removeClass("active");
+      $('.js--task_info__m_ms').fadeIn();
+      $('.js--nav__m_ms').fadeOut();
+    });
+
+    setMargins();
+    $(window).resize(function() {
+      if($('.task_info_group').hasClass('aside_startview')) {
+        setMargins();
+      }
+    });
+  });
+</script>
+<nav class="navbar nav__start_view js--nav top_shift--20px">
+  <div class="container">
+    <div class="logo-bar">
+  	  <img src="/assets/logo.jpg"/>
+    </div>
+    <div class="header-bar">
+      <%# render 'task_info/task_summary', task_info: @task_info %>
+      <div class="header-actions pull-left">
+        <ul class="pull-left">
+          <li class="btn"><%= link_to t("actions.refresh"), "/", { :class => 'nav__buttons task-info-refresh ' } %></li>
+          <li class="btn"><%= link_to t("actions.new-task"), new_task_path(), { target: '_blank',:class => 'nav__buttons create-task-link' }  %></li>
+          <li class="btn" style="white-space: normal"><%= link_to t("actions.new-long-task"), new_task_path(), { target: '_blank', class: 'nav__buttons window-link' }  %></li>
+          <li class="btn"><%= link_to t("actions.phones"), "http://01srvnsi.gz.local/GZPhoneBook/sait/страница1.html", { target: '_blank', class: 'nav__buttons' }  %></li>
+        </ul>
+        <ul class="js--nav__m_ms list-inline pull-left" style="padding-top: 7px; padding-left: 50px;display: none">
+          <li class="m_ms__item--red">11</li>
+          <li class="m_ms__item--orange">16</li>
+          <li class="m_ms__item--green">3</li>
+        </ul>
+      </div>
+
+      <%= render 'user_control', user: @user %>
     </div>
   </div>
-  <%= render 'task_info/task_info', task_info: @task_info %>
+</nav>
+<main class="container">
+<%= render 'static_pages/test_task_info', task_info: @task_info %>
   <script id="task-template" type="text/x-jsrender">
-    <div class="task-area" data-task-id="{{>task_id}}" data-id="{{>id}}" data-new="{{>is_new}}">
-      <div class="task-area-header">
-        <div class="task-subject-area">
-          <div class="task-subject">
-            <div>{{>subject}}</div>
-          </div>
-          <div class="task-date">{{>date}}</div>
-        </div>
-        <div class="task-author-area">
-          <div class="header"><%=t "task.author" %></div>
-          <div class="task-author-name">{{>author_name}}</div>
-          <div class="task-author-position">{{>author_position}}</div>
-        </div>
-        {{if deadline }}
-        <div class="task-deadline-area">
-          <div class="header"><%=t "task.deadline" %></div>
-          <div class="task-deadline-date" data-value="{{>deadline_date}}">{{>deadline_date}}</div>
-          <div class="task-deadline-time" data-value="{{>deadline_time}}">{{>deadline_time_till}}</div>
-        </div>
-        {{/if}}
-      </div>
+    <div class="task-area" data-task-id="{{>task_id}}" data-id="{{>id}}">
+      <table class="task-area-header">
+        <tr>
+          <td class="table_td--autowidth"><img width="70" height="70"></img></td>
+          <td class="task-author-area">
+            <div class="header"><%=t "task.author" %>:</div>
+            <div class="task-author-name"><span>{{>author_name}}</span>,<span class="task-author-position">{{>author_position}}</span></div>
+          </td>
+          {{if deadline }}
+          <td class="task-deadline-area">
+            <div class="header"><%=t "task.deadline" %>:</div>
+            <div>
+              <span class="task-deadline-time" data-value="{{>deadline_time}}">{{>deadline_time_till}}</span>
+              <span class="task-deadline-date" data-value="{{>deadline_date}}">{{>deadline_date}}</span>
+            </div>
+          </td>
+          {{/if}}
+        </tr>
+      </table>
       <div class="task-content" data-value="{{>content}}">{{:html_content}}</div>
       {{if controler_name }}
         <div class="task-controler-area">
@@ -90,6 +163,7 @@
          <a class="task-action-ok" href="#">OK</a>
          <a class="task-action-cancel" href="#">Отмена</a>
        </div>
+       <div class="breaker"></div>
     </div>
     <div class="task-action-lid">
       <div class="task-action-cell">
@@ -107,12 +181,13 @@
     </div>
     </div>
   </script>
-  <div class="data-area">
+  <section class="data-area">
     <div id="task-shadow">
     </div>
-    <div id="task-list">
+    <div class="fullheight" id="task-list">
     </div>
-  </div>
+  </section>
+  </main>
   <div class="create-task-area">
     <%= render 'tasks/task_form', user: @user, quick_performers: @quick_performers %>
   </div>

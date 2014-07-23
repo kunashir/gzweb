@@ -11,3 +11,7 @@ Array.prototype.last = function () {
 Array.prototype.isEmpty = function () {
 	return this.length == 0;
 }
+
+Array.prototype.clone = function () {
+	return this.splice(0);
+}

@@ -10,10 +10,14 @@ function createNewTask(event) {
 	$('#Task-parent_task').data("id", "");
 	$('#Task-parent_document').data("id", "");
 	$('#Task-performer').val("").data("text", "").data("id", "");
+	$('#Task-performer').lookupMulti('reset');
 	$('.performer-quick-list li').removeClass('pressed');
 	$('#Task-co_performers').val("").data("text", "").data("id", "");
+	$('#Task-co_performers').lookupMulti('reset');
 	$('#Task-informants').val("").data("text", "").data("id", "");
+	$('#Task-informants').lookupMulti('reset');
 	$('#Task-controller').val("").data("text", "").data("id", "");
+	$('#Task-controller').lookupMulti('reset');
 	$('#Task-content').val("");
 	$('input.date-picker').val("");
 	var date = new Date();
