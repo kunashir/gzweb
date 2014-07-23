@@ -42,6 +42,11 @@ class TaskInfoController < ApplicationController
     end
   end
 
+  def refresh
+    TasksInfo.sync(current_user)
+    head :no_content
+  end
+
   protected
 
   def format_task_list(task_list)

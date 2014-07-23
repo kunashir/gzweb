@@ -120,6 +120,19 @@ body {
 			font-weight: bold;
 			text-decoration: none;
 			font-size: 0.9em;
+			transition: opacity 0.1s;
+		}
+	}
+
+	li.in-progress {
+		background-image: url(/assets/ajax-loader-line2.gif);
+		background-repeat: no-repeat;
+		background-position: bottom;
+
+		a {
+			pointer-events: none;
+			cursor: default;
+			opacity: 0.4;
 		}
 	}
 
@@ -471,6 +484,12 @@ body {
 	// height: 5.5em;
 	// overflow: hidden;
 	width: 100%;
+
+	img {
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+	}
 }
 
 .task-area.selected {

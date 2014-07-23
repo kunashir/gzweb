@@ -2,6 +2,7 @@ Inlook::Application.routes.draw do
 
   get "static_pages/test"
   get 'task_info' => 'task_info#show'
+  post 'task_info/refresh' => 'task_info#refresh', constraints: { format: :json }, defaults: { format: :json }
   get 'task_info/:kind' => 'task_info#tasks'
   post 'task_info/:id/perform' => 'task_info#perform', constraints: { format: :json }, defaults: { format: :json }
   root 'main#index'

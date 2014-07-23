@@ -1,4 +1,5 @@
 var collapsed = false;
+var activeFolder = "";
 
 function Rect(options) {
 	options = options || {};
@@ -382,6 +383,8 @@ function tileSelect(event) {
 function toGrid() {
 	if (!collapsed)
 		return;
+	
+	activeFolder = "";
 
 	calcLayout();
 
