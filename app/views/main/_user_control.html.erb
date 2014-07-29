@@ -1,8 +1,10 @@
 <div class="user-control pull-right">
   <%# link_to t("actions.set-delegate"), "/bad" %>
-  <%= image_tag 'person.jpg', class: 'user-photo' %>
-  <div class="user-info" data-value="<%= user.employee_id %>">
-    <div class="user-name" data-value="<%= user.display_name %>"><%= user.display_name %></div>
-    <div class="user-position"><%= user.position %></div>
+  <%= image_tag employee.has_photo? ? employee_photo_path(employee.id) : "person.png", class: 'user-photo' %>
+  <div class="user-info" data-value="<%= employee.id %>">
+    <div class="user-name" data-value="<%= employee.display_name %>">
+      <%= [employee.last_name, employee.first_name, employee.middle_name].join(" ") %>
+    </div>
+    <div class="user-position"><%= employee.position.try(:name) %></div>
   </div>
 </div>

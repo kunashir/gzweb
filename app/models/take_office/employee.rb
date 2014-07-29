@@ -9,6 +9,7 @@ module TakeOffice
     validates :parent, presence: true
     belongs_to :sid, class_name: :SecurityDescriptor, primary_key: 'ID', foreign_key: 'SDID'
     has_many :photos, class_name: :EmployeePhoto, primary_key: 'RowID', foreign_key: 'ParentRowID'
+    belongs_to :position, class_name: :EmployeePosition, primary_key: 'RowID', foreign_key: 'Position'
 
     before_create :assign_id
     after_initialize :init
@@ -18,12 +19,14 @@ module TakeOffice
     def self.search(filter)
       ActiveRecord::Base.connection.
         execute_procedure("[dvreport_get_data_{7E898C46-5751-42AC-B55A-1AC867F4B7FA}]", filter).
-        map { |x| Employee.new(RowID: x[:RowID], DisplayString: x[:DisplayString]) }
+        map { |x| Employee.find(x[:RowID]) }
     end
 
-    def id
-      self.RowID
-    end
+    alias_attribute :id, :RowID
+    alias_attribute :display_name, :DisplayString
+    alias_attribute :first_name, :FirstName
+    alias_attribute :last_name, :LastName
+    alias_attribute :middle_name, :MiddleName
 
     def has_photo?
       photos.any?

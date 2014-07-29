@@ -146,6 +146,7 @@ body {
 	border: 1px solid #DDD;
 	border-radius: 10px;
 	background-color: white;
+	display: table;
 }
 
 .user-photo {
@@ -153,9 +154,9 @@ body {
 	// margin-left: 10px;
 	// margin-top: 10px;
 	// margin-right: 10px;
-	float: left;
 	height: 82px;
 	padding: 10px;
+	display: table-cell;
 }
 
 .user-control a {
@@ -166,17 +167,22 @@ body {
 }
 
 .user-control .user-info {
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin: 10px;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .user-name {
 	font-weight: bold;
+	margin-right: 10px;
+	max-width: 16em;
 }
 
 .user-position {
 	font-size: 0.8em;
 	font-style: italic;
+	margin-right: 10px;
+	max-width: 16em;
 }
 
 .task-info > .header {

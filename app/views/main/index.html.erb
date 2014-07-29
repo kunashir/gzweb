@@ -84,7 +84,7 @@
         </ul>
       </div>
 
-      <%= render 'user_control', user: @user %>
+      <%= render 'user_control', employee: @employee %>
     </div>
   </div>
 </nav>
@@ -189,6 +189,6 @@
   </section>
   </main>
   <div class="create-task-area">
-    <%= render 'tasks/task_form', user: @user, quick_performers: @quick_performers %>
+    <%= render 'tasks/task_form', employee: @employee, quick_performers: @quick_performers %>
   </div>
 </div>
