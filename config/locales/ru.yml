@@ -44,8 +44,15 @@ ru:
     send: "Отправить"
     cancel: "Отмена"
     add_file: "Добавить документ"
+    complete: "Завершить"
     incdoc_reviewal:
         complete: "Завершить"
     memorandum_reviewal:
         complete: "Завершить"
         reject: "Отклонить"
+    approval:
+        approve: 'Согласовано'
+        decline: 'Не согласовано'
+    signing:
+        sign: 'Подписано'
+        decline: 'Не подписано'

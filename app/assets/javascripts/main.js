@@ -45,6 +45,10 @@ jQuery.fn.extend({
 	}
 });
 
+$(function () {
+	$.templates("taskTmpl", {markup: "#task-template", allowCode: true });
+});
+
 function initMainAreaLayout() {
 	$(function () {
 	initTiles();
@@ -483,7 +487,7 @@ function fill_list(data) {
 		data.task_list[i].html_content = $('<div/>').text(data.task_list[i].content).html().replace("\n", "<br/>");
 		data.task_list[i].deadline_time_till = "до " + data.task_list[i].deadline_time + " часов"
 	}
-	task_item = $("#task-list").html($("#task-template").render(data.task_list));
+	task_item = $("#task-list").html($.render.taskTmpl(data.task_list));
     $("#task-shadow").css('z-index', -1)
     	.animate({ opacity: 0 }, 400, 'easeOutCirc');
     $("#task-list")
@@ -508,7 +512,6 @@ function task_select(event) {
 function init_task_actions(taskList) {
 	taskList.find(".task-action-delegate").click(createSubTask);
 	taskList.find(".task-action-complete").click(showTaskComplete);
-	taskList.find(".task-action-ok").click(completeTask);
 	taskList.find(".task-action-cancel").click(closeTaskComplete);
 	taskList.find(".task-action-error-close").click(closeErrorMessage);
 	taskList.find(".task-comments").change(commentsChanged);
@@ -586,17 +589,46 @@ function showTaskComplete(event) {
 	    taskCompleteArea = taskItem.find('.task-complete-area'),
 	    taskActions = taskItem.find('.task-actions'),
 	    comments = taskCompleteArea.find('textarea'),
-	    okButton = taskItem.find('.task-action-ok');
+	    subActionItems = actionButton.find('.task-action-sub-actions li'),
+	    taskActionsArea = taskItem.find('.task-actions-ok'),
+	    subActions;
 
-	taskItem.data('action', actionButton.data('action'));
-	taskItem.data('action-text', actionButton.text());
-	comments.data('required', actionButton.data('comments-required'));
-	if (comments.data('required'))
-		comments.addClass('required');
+	if (subActionItems.length == 0)
+	    subActions = [ 
+			{ action: actionButton.data('action'), 
+			  text: actionButton.text(), 
+			  buttonText: 'OK (' + actionButton.text() + ')',
+			  commentsRequired: actionButton.data('comments-required') }];
 	else
-		comments.removeClass('required');
+		subActions = subActionItems.map(function (index, value) { 
+			return { 
+				action: value.getAttribute('data-action'),
+			  	text: value.getAttribute('data-text'),
+			  	buttonText: value.getAttribute('data-text'),
+			  	commentsRequired: value.getAttribute('data-comments-required') == ("" + true)
+			} 
+		});
 
-	okButton.text('OK (' + actionButton.text() + ")");
+	taskActionsArea.html("");
+
+	for (var i = 0; i < subActions.length; i++) {
+		$("<a></a>")
+	 		.attr('href', '#')
+	 		.data('action', subActions[i].action)
+	 		.data('action-text', subActions[i].text)
+	 		.data('comments-required', subActions[i].commentsRequired)
+			.text(subActions[i].buttonText)
+			.click(completeTask)
+			.appendTo(taskActionsArea);
+	}
+
+	if (subActionItems.length == 0) {
+		comments.data('required', actionButton.data('comments-required'))
+		if (comments.data('required'))
+			comments.addClass('required');
+		else
+			comments.removeClass('required');
+	}
 
 	taskCompleteArea.animate({height: '17em'}, 400, 'easeOutCirc');
 	taskActions.animate({'margin-top': '-2.5em'}, 400, 'easeOutCirc');
@@ -630,7 +662,8 @@ function closeTaskComplete(event) {
 function completeTask(event) {
 	event.preventDefault();
 
-	var taskItem = $(event.currentTarget).parents('.task-area'),
+	var actionButton = $(event.currentTarget),
+		taskItem = actionButton.parents('.task-area'),
 		id = taskItem.data('id'),
 	    taskCompleteArea = taskItem.find('.task-complete-area'),
 	    taskActions = taskItem.find('.task-actions'),
@@ -642,9 +675,9 @@ function completeTask(event) {
 	    actionMessage = taskItem.find('.task-action-message'),
 	    actionLid = taskItem.find('.task-action-lid');
 
-	if (comments.data("required") && comments.val().trim() == "") {
+	if (actionButton.data("comments-required") && comments.val().trim() == "") {
 	    actionMessage.text('Не задан комментарий');
-	    actionError.text('Комментарий обязателен при завершении поручения с решением "' + taskItem.data('action-text') + '"').css('display', 'block');
+	    actionError.text('Комментарий обязателен при завершении поручения с решением "' + actionButton.data('action-text') + '"').css('display', 'block');
 	    actionProgress.css('display', 'none');
 	    actionCloseBtn.css('display', 'inline-block');
 	    actionLid.css('opacity', '0').css('display', 'block').animate({
@@ -658,7 +691,7 @@ function completeTask(event) {
             }).toArray();
 
     var taskData = {
-        task_action: taskItem.data('action'),
+        task_action: actionButton.data('action'),
         comments: commentsText,
         files: fileArray
     };
@@ -711,10 +744,18 @@ function removeTask(task) {
 			if (+(total.text()) > 0)
 				total.text(+(total.text()) - 1);
 			var newTasks = $('.task-info-' + activeFolder).find('.new')
-			if (task.data('new') && +(newTasks.text()) > 0)
+			if (task.data('new') && +(newTasks.text()) > 0) {
 				newTasks.text(+(newTasks.text()) - 1);
+				if (+(newTasks.text()) == 0)
+					newTasks.removeClass('non-zero');
+			}
 		}
 		task.remove();
+		if (activeFolder) {
+			if ($("#task-list").html() == 0) {
+				$("#task-list").html("<table class=\"fullsize table__content--center\"><td>Здесь Вы будете видеть " + empty_list_text(activeFolder) + "</td></table>")
+			}		
+		}
 	})
 }
 
@@ -736,3 +777,14 @@ function hideTaskLid(lid, task, result) {
     		removeTask(task);
 	});
 }
+
+function handleDocumentKey(e) 
+{ 
+	if ((e.which || e.keyCode) == 116)  // handling F5
+		taskInfoRefresh(e);
+};
+
+
+$(function () {
+	$(document).on("keydown", handleDocumentKey);	
+})

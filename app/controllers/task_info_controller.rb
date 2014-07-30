@@ -62,8 +62,13 @@ class TaskInfoController < ApplicationController
     data["date_time"] = data["date"].strftime("%H:%M") unless data["date"].nil?
     data["date_date"] = data["date"].strftime("%d.%m.%Y") unless data["date"].nil?
     data["date"] = data["date"].strftime("%d.%m.%Y %H:%M") unless data["date"].nil?
-    data[:actions] = task.actions.map { |x| { action: x[:action], text: I18n.t(x[:text]), comments_required: x[:comments_required] } }
+    data[:actions] = translate_actions(task.actions)
     data
+  end
+
+  def translate_actions(actions) 
+    return nil if actions.nil?
+    return actions.map { |x| { action: x[:action], text: I18n.t(x[:text]), comments_required: x[:comments_required], actions: translate_actions(x[:actions]) } }
   end
 
 end

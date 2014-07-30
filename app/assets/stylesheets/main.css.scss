@@ -648,6 +648,14 @@ body {
 		background: #E4E4E4;
 		color: #111;
 	}
+
+	.task-actions-ok {
+		float: left;
+	}
+}
+
+.task-action-sub-actions {
+	display: none;
 }
 
 .breaker {

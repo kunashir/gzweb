@@ -15,3 +15,10 @@ Array.prototype.isEmpty = function () {
 Array.prototype.clone = function () {
 	return this.splice(0);
 }
+
+Array.prototype.any = function (itemTest) {
+	for (var i = 0; i < this.length; i++)
+		if (itemTest(this[i]))
+			return true;
+	return false;
+}

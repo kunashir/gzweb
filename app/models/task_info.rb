@@ -19,12 +19,25 @@ class TaskInfo < CacheBase
   def actions
     case
       when is_incdoc_reviewal?
-        [{action: :complete, text: 'task.incdoc_reviewal.complete', comments_required: false}]
+        [ {action: :redirect},
+          {action: :complete, text: 'task.incdoc_reviewal.complete', comments_required: false}]
       when is_memorandum_reviewal?
-        [ {action: :complete, text: 'task.memorandum_reviewal.complete', comments_required: false},
+        [ {action: :redirect},
+          {action: :complete, text: 'task.memorandum_reviewal.complete', comments_required: false},
           {action: :reject, text: 'task.memorandum_reviewal.reject', comments_required: true}]
+      when is_approval?
+        [ {action: :complete, text: 'task.complete',
+          actions: [
+             {action: :approve, text: 'task.approval.approve', comments_required: false},
+             {action: :decline, text: 'task.approval.decline', comments_required: true}] }]
+      when is_signing?
+        [ {action: :complete, text: 'task.complete',
+          actions: [
+            {action: :sign, text: 'task.signing.sign', comments_required: false},
+            {action: :decline, text: 'task.signing.decline', comments_required: true}] }]
       else 
-        [{action: :complete, text: 'task.incdoc_reviewal.complete', comments_required: true}]
+        [ {action: :redirect},
+          {action: :complete, text: 'task.incdoc_reviewal.complete', comments_required: true}]
     end
   end
 
@@ -32,16 +45,30 @@ class TaskInfo < CacheBase
     result = 
       case
         when is_incdoc_reviewal?
-          incdoc_reviewal_complete(user, options)
+          task_complete(user, 1, options);
         when is_memorandum_reviewal?
           case action.to_sym
             when :complete
-              memorandum_reviewal_complete(user, options)
+              task_complete(user, 1, options);
             when :reject
-              memorandum_reviewal_reject(user, options)
+              task_complete(user, 2, options);
+          end
+        when is_approval?
+          case action.to_sym
+            when :approve
+              task_complete(user, 1, options);
+            when :decline
+              task_complete(user, 2, options);
+          end
+        when is_signing?
+          case action.to_sym
+            when :sign
+              task_complete(user, 1, options);
+            when :decline
+              task_complete(user, 2, options);
           end
         else
-          incdoc_reviewal_complete(user, options)
+          task_complete(user, 1, options);
       end
     if result == :folder_remove
       self.destroy
@@ -104,18 +131,16 @@ class TaskInfo < CacheBase
     'memorandum_reviewal' == self.kind.try(:to_s)
   end
 
-  def incdoc_reviewal_complete(user, options = {})
-    TakeOffice::WorkflowTaskCard.find(self.task_id).mark_completed(1, user.employee, options)
-    return :folder_remove
+  def is_approval?
+    'to_approve' == self.folder.try(:to_s)
   end
 
-  def memorandum_reviewal_complete(user, options = {})
-    TakeOffice::WorkflowTaskCard.find(self.task_id).mark_completed(1, user.employee, options)
-    return :folder_remove
+  def is_signing?
+    'to_sign' == self.folder.try(:to_s)
   end
 
-  def memorandum_reviewal_reject(user, options = {})
-    TakeOffice::WorkflowTaskCard.find(self.task_id).mark_completed(2, user.employee, options)
+  def task_complete(user, status, options = {})
+    TakeOffice::WorkflowTaskCard.find(self.task_id).mark_completed(status, user.employee, options)
     return :folder_remove
   end
 

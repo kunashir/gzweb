@@ -153,14 +153,26 @@
     </div>
     <div class="task-actions-area">
        <div class="task-actions">
-         <a class="task-action-delegate" href="#">Распределить</a>
+          {{* if (data.actions.any(function (action) { return action.action == 'redirect'; })) { }}
+            <a class="task-action-delegate" href="#">Распределить</a>
+          {{* } }}
          {{for actions}}
-            <a class="task-action-complete" href="#" data-action="{{>action}}" data-comments-required="{{>comments_required}}">{{>text}}</a>
+            {{if action != 'redirect' }}
+            <a class="task-action-complete" href="#" data-action="{{>action}}" data-comments-required="{{>comments_required}}">{{>text}}
+              {{if actions }}
+                <ul class="task-action-sub-actions">
+                  {{for actions}}
+                  <li data-text="{{>text}}" data-action="{{>action}}" data-comments-required="{{>comments_required}}"></li>
+                  {{/for}}}
+                </ul>
+              {{/if}}
+            </a>
+            {{/if}}
          {{/for}}
        </div>
        <div class="breaker"></div>
        <div class="task-actions-apply">
-         <a class="task-action-ok" href="#">OK</a>
+         <div class="task-actions-ok"></div>
          <a class="task-action-cancel" href="#">Отмена</a>
        </div>
        <div class="breaker"></div>
