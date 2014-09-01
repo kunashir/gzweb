@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708100021) do
+ActiveRecord::Schema.define(version: 20140901125007) do
 
   create_table "admins", force: true do |t|
     t.string   "login"
@@ -795,6 +795,21 @@ ActiveRecord::Schema.define(version: 20140708100021) do
   end
 
   create_table "dvtable_view_{7abb29ff-41a1-49ee-ba77-169092794513}_keyset_selection", id: false, force: true do |t|
+    t.string  "CursorID",   limit: nil, null: false
+    t.integer "OldOrder",               null: false
+    t.string  "InstanceID", limit: nil, null: false
+  end
+
+  create_table "dvtable_view_{88395b93-7ee9-4709-b8f1-013367cee92b}_keyset", id: false, force: true do |t|
+    t.string  "CursorID",   limit: nil, null: false
+    t.integer "Order",                  null: false
+    t.boolean "IsSelected"
+    t.string  "InstanceID", limit: nil, null: false
+    t.string  "ShortcutID", limit: nil
+    t.integer "Rank",       limit: 2
+  end
+
+  create_table "dvtable_view_{88395b93-7ee9-4709-b8f1-013367cee92b}_keyset_selection", id: false, force: true do |t|
     t.string  "CursorID",   limit: nil, null: false
     t.integer "OldOrder",               null: false
     t.string  "InstanceID", limit: nil, null: false
@@ -13065,7 +13080,7 @@ ActiveRecord::Schema.define(version: 20140708100021) do
     t.string   "controler_position"
     t.string   "delegated_to"
     t.string   "subject"
-    t.string   "content"
+    t.text     "content"
     t.datetime "deadline"
     t.datetime "date"
     t.integer  "task_state"

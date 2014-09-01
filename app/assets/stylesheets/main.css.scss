@@ -379,9 +379,13 @@ body {
 	padding: 10px 20px 10px 10px;
 	opacity: 0;
 	z-index: -1;
-	overflow-y: overlay;
+	overflow-y: scroll;
 	overflow-x: hidden;
+
+	// .scroller-active .scroller-content { padding-right: 2px; }
+	// .scroller-content { padding-right: 20px; }
 }
+
 
 #task-shadow {
 	position: absolute;
@@ -407,9 +411,10 @@ body {
 }
 
 .task-area {
-	overflow: hidden;
+	overflow-y: auto;
+	overflow-x: hidden;
 	position: relative;
-	padding-bottom: 30px;
+	margin-bottom: 30px;
 	display: table;
 	width: 100%;
 }
@@ -650,34 +655,65 @@ body {
 }
 
 .task-actions-area {
-	border-top: 2px solid #CCC;
+	border-top: 1px solid #CCC;
 	overflow: hidden;
 	height: 2.5em;
-	margin: 0em 0.5em 0.5em 0.5em;
+	margin: 0em -10px 0.5em -10px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .task-actions-apply {
 	float: right;
-	margin: 1.2em 0em 0em 0em;
+	margin: 1.4em 0em 0em 0em;
+
 	a {
-		display: block;
-		float: left;
-		padding: 0.2em 0.5em;
-		margin: 0em 0em 0em 0.5em;
-		background-color: #DDD;
-		color: #222;
-		text-decoration: none;
-		border-radius: 2px;
-		border: 1px solid #DDD;
-	}
-	a:hover {
-		border: 1px solid #CCC;
-		background: #E4E4E4;
-		color: #111;
+		margin-left: 10px;
 	}
 
 	.task-actions-ok {
 		float: left;
+
+		a {
+			text-indent: 0px;
+			width: auto;
+			text-align: center;
+			padding: 0.3em 1.2em;
+			border: 1px solid #6699FF;
+			background-color: #6699FF;
+			color: #F7F9FF;
+			text-decoration: none;
+		}
+
+		a:hover {
+			border-color: #5E93FF;
+			background-color: #84ADFF;
+		}
+
+		a:active {
+			background-color: #84ADFF;
+		}
+	}
+
+	a.task-action-cancel {
+		text-indent: 0px;
+		width: auto;
+		text-align: center;
+		padding: 0.3em 1.2em;		
+		border: 1px solid #A5A5A5;
+		background-color: #A5A5A5;
+		color: #F2F2F2;
+		text-decoration: none;
+	}
+
+	a.task-action-cancel:hover {
+		border-color: #7A7A7A;
+		background-color: #B0B0B0;
+	}
+
+	a.task-action-cancel:active {
+		border-color: #7A7A7A;
+		background-color: #B0B0B0;
 	}
 }
 
@@ -716,6 +752,7 @@ body {
 	a.task-action-reject {
 		background-image: image-url('reject.png');
 	}
+
 }
 
 
@@ -748,13 +785,103 @@ body {
 	text-align: center;
 }
 
+a.task-add-file {
+	background-image: image-url('attach.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+	display: block;
+	margin: 0em 0.3em;
+	height: 2.2em;
+	width: 2.2em;
+	text-indent: -9999px;
+}
+
+a.task-add-file:hover {
+	outline: 1px solid #CCC;
+}
+
 .task-complete-area {
+	margin: 0em -10px 0em -10px;
+	border-top: 1px solid #CCC;
+
+	.task-comments-row {
+		position: relative;
+		margin-left: 10px;
+		margin-right: 10px;
+		min-height: 60px;
+	}
+
+	.task-add-file-input {
+		display: none;
+	}
+
+	.task-add-file-wrapper {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 60px;
+		border-right: 1px solid #CCC;
+	}
+
+	.task-add-file {
+		position: absolute;
+		top: 12px;
+		left: 5px;
+	}
+
+	.task-comments-text {
+		// width: 100%;
+		margin-left: 60px;
+		padding-left: 10px;
+		// padding-right: 60px;
+		position: relative;
+
+		.task-comments-scroll {
+			overflow-y: auto;
+			max-height: 20em;
+		}
+
+		.textarea-container {
+			position: relative;
+			margin-top: 5px;
+
+			textarea {
+			    box-sizing: border-box;
+			    -moz-box-sizing: border-box;
+			    -ms-box-sizing: border-box;
+			    -webkit-box-sizing: border-box;
+			    border: none;
+			    outline: none;
+				font-size: 1em;
+			    height: 100%;
+			    overflow: hidden;
+			    position: absolute;
+			    width: 100%;
+			    resize: none;
+			}
+
+			.text-area-copy {
+			    box-sizing: border-box;
+			    -moz-box-sizing: border-box;
+			    -ms-box-sizing: border-box;
+			    -webkit-box-sizing: border-box;
+			    padding: 6px;   /* Same border+padding as text area. */
+			    padding-bottom: 1.15em; /* A bit more than one additional line of text. */ 
+			    visibility: hidden;
+			    width: 100%;
+			}		
+		}
+	}
+
 	height: 0em;
-	margin: 0em 0.5em;
 	overflow: hidden;
 
 	.border {
-		border-top: 2px solid #CCC;
+		border-top: 1px solid #CCC;
+		margin-left: -10px;
+		margin-right: -10px;
 	}
 
 	.header {
@@ -783,14 +910,8 @@ body {
 	}
 
 	.task-files-container {
-		height: 7em;
 		background-color: white;
-		border: 1px solid #9BAAFD;
 		margin-bottom: 0.5em;
-
-		.task-files {
-			height: 7em;
-		}
 	}
 }
 
@@ -810,7 +931,7 @@ body {
 		text-align: center;
 		position: absolute;
 		width: 100%;
-		bottom: 8em;
+		top: 8em;
 
 		.task-action-box {
 			border: 2px solid #009ABC;

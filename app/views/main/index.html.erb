@@ -153,15 +153,21 @@
             </div>
             <div class="task-footer-area">
               <div class="task-complete-area">
-                <div class="border"></div>
-                <div class="header">Отчет / комментарии</div>
-                <div class="task-comments-area">
-                  <textarea class="task-comments"></textarea>
-                </div>
-                <div class="task-files-container">
-                  <div class="task-files">
-                    <input type="file"/>
+                <input class="task-add-file-input" type="file"/>
+                <div class="task-comments-row">
+                  <div class="task-add-file-wrapper">
                     <a href="#" class="task-add-file"><%=t "task.add_file" %></a>
+                  </div>
+                  <div class="task-comments-text">
+                    <div class="task-comments-scroll">
+                      <div class="textarea-container">
+                        <textarea id="{{>id}}_content" placeholder="<%=t 'task.comments_placeholder' %>"></textarea>
+                        <div id="{{>id}}_content-copy" class="text-area-copy"></div>
+                      </div>
+                      <div class="task-files-container">
+                        <div class="task-files"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -222,10 +228,8 @@
     </div>
   </script>
   <section class="data-area">
-    <div id="task-shadow">
-    </div>
-    <div class="fullheight" id="task-list">
-    </div>
+    <div id="task-shadow"></div>
+    <div class="fullheight" id="task-list"></div>
   </section>
   </main>
   <div class="create-task-area">

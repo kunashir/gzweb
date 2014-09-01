@@ -46,6 +46,7 @@ ru:
     cancel: "Отмена"
     add_file: "Добавить документ"
     complete: "Завершить"
+    comments_placeholder: "Ваши комментарии/отчет"
     incdoc_reviewal:
         complete: "Завершить"
     memorandum_reviewal:

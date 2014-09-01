@@ -438,7 +438,7 @@ function TaskActions() {
 function TaskFiles(root) {
     var $this = this,
         fileArea = root.find('.task-files'),
-        fileInput = root.find('#task-add-file-input'),
+        fileInput = root.find('.task-add-file-input'),
         fileAddButton = root.find('.task-add-file'),
         url = "/file"
 
@@ -600,16 +600,21 @@ $(function() {
         .change(taskContentAutoSize)
         .keydown(taskContentAutoSize)
         .keyup(taskContentAutoSize);
-    taskContentAutoSize();
+    taskContentAutoSize($('#Task-content'));
 
     $('.task-content-row').click(taskContentClick);
 });
 
-function taskContentAutoSize() {
+function taskContentAutoSize(e) {
+    if (e.target)
+        e = e.target;
     // Copy textarea contents; browser will calculate correct height of copy,
     // which will make overall container taller, which will make textarea taller.
-    var text = $("#Task-content").val().replace(/\n/g, '<br/>&nbsp;');
-    $("#Task-content-copy").html(text);
+    var text = $(e).val().replace(/\n/g, '<br/>&nbsp;');
+    if (text == "")
+        text = "&nbsp;"
+    console.log("assigning text = " + text + " to #" + $(e)[0].id + "-copy");
+    $('#' + $(e)[0].id + "-copy").html(text);
 }
 
 function taskContentClick(e) {

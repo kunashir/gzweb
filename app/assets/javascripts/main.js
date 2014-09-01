@@ -491,7 +491,7 @@ function fill_list(data) {
     $("#task-shadow").css('z-index', -1)
     	.animate({ opacity: 0 }, 400, 'easeOutCirc');
     $("#task-list")
-    	.animate({ opacity: 1 }, 400, 'easeOutCirc');
+    	.animate({ opacity: 1 }, 400, 'easeOutCirc', showTaskScroll);
 	selectedTask = null;
     $(".task-area").click(task_select);
     init_task_actions($(task_item));
@@ -519,8 +519,17 @@ function init_task_actions(taskList) {
 	taskList.find(".task-comments").keyup(commentsChanged);
 	taskList.find(".task-comments").bind('paste', commentsChanged);
 	tasks = taskList.find(".task-area");
-	for (var i = 0; i < tasks.length; i++)
+	for (var i = 0; i < tasks.length; i++) {
 		tasks[i].taskFiles = new TaskFiles($(tasks[i]));
+		console.log($(tasks[i]));
+		console.log($(tasks[i]).find('textarea'));
+		var commentArea = $(tasks[i]).find('textarea');
+	    commentArea
+        	.change(taskContentAutoSize)
+        	.keydown(taskContentAutoSize)
+        	.keyup(taskContentAutoSize);
+    	taskContentAutoSize(commentArea);
+	}
 }
 
 function createSubTask(event) {
@@ -632,13 +641,15 @@ function showTaskComplete(event) {
 			comments.removeClass('required');
 	}
 
-	taskCompleteArea.animate({height: '17em'}, 400, 'easeOutCirc');
+	hideTaskScroll();
+	initialScroll = dataArea.scrollTop();
+	taskCompleteArea.animate({height: '60px', 'min-height': '60px'}, 400, 'easeOutCirc', function () { taskCompleteArea.css('height', 'auto')});
 	taskActions.animate({'margin-top': '-2.5em'}, 400, 'easeOutCirc');
 	comments.focus();
-	taskItem.animate({height: '100%'}, 100, 'easeOutCirc');
-	dataArea.css('overflow-y', 'hidden');
-	initialScroll = dataArea.scrollTop();
-	dataArea.animate({scrollTop: taskItem.position().top + dataArea.scrollTop() - 10}, 400, 'easeOutCirc');
+	dataArea.animate({scrollTop: taskItem.position().top + dataArea.scrollTop() - 10}, 200, 'easeOutCirc');
+	taskItem.animate({height: '100%'}, 200, 'easeOutCirc', function () { 
+		taskItem.css('display', 'block');
+	});
 	//dataArea.scrollTop(taskItem.position().top + dataArea.scrollTop() - 10);
 }
 
@@ -662,12 +673,14 @@ function closeTaskComplete(event) {
 	    comments = taskCompleteArea.find('textarea');
 
 	comments.val('');
+	console.log("Comments = " + comments.val());
+	taskContentAutoSize(comments);
     taskItem[0].taskFiles.clear();
-	taskCompleteArea.animate({height: '0em'}, 400, 'easeOutCirc');
+	taskItem.css('display', 'table');
+	taskCompleteArea.animate({height: '0em', 'min-height': '0em'}, 400, 'easeOutCirc');
 	taskActions.animate({'margin-top': '0.5em'}, 400, 'easeOutCirc');
 	taskItem.animate({height: '1px'}, 400, 'easeOutCirc');
-	$('.data-area').css('overflow-y', 'overlay');
-	dataArea.animate({ scrollTop:initialScroll}, 400, 'easeOutCirc');
+	dataArea.animate({ scrollTop:initialScroll}, 400, 'easeOutCirc', showTaskScroll);
 }
 
 function completeTask(event) {
@@ -728,6 +741,16 @@ function completeTask(event) {
                 errorText = data.responseJSON.error;
             onCompleteTaskError(errorText, actionMessage, actionError, actionProgress, actionCloseBtn);
         });
+}
+
+function hideTaskScroll() {
+	$('.data-area').css('overflow-y', 'hidden');
+	$('#task-list').css('padding-right', '17px');
+}
+
+function showTaskScroll() {
+	$('.data-area').css('overflow-y', 'scroll');
+	$('#task-list').css('padding-right', '0px');
 }
 
 
@@ -802,3 +825,4 @@ function handleDocumentKey(e)
 $(function () {
 	$(document).on("keydown", handleDocumentKey);	
 })
+
