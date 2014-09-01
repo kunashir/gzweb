@@ -35,6 +35,7 @@ ru:
     registrator: "Регистратор"
     performer: "Исполнитель"
     performers: "Исполнители"
+    performers_placeholder: "Исполнители"
     co_performers: "Соисполнители"
     informants: "На ознакомление"
     content: "Содержание"

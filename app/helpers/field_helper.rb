@@ -25,14 +25,14 @@ module FieldHelper
     end
   end
 
-  def employee_select(object, object_name, property)
+  def employee_select(object, object_name, property, placeholder_text = "")
     #object_name = model_name_from_record_or_class(object).param_key
-    EmployeeFieldDescriptor.new(object, object_name, property)
+    EmployeeFieldDescriptor.new(object, object_name, property, placeholder_text)
   end
 
-  def employees_select(object, object_name, property)
+  def employees_select(object, object_name, property, placeholder_text = "")
     #object_name = model_name_from_record_or_class(object).param_key
-    EmployeesFieldDescriptor.new(object, object_name, property)
+    EmployeesFieldDescriptor.new(object, object_name, property, placeholder_text)
   end
 
   def text_edit(object, object_name, property)
@@ -46,14 +46,19 @@ module FieldHelper
   end
 
   class EmployeeFieldDescriptor
-    def initialize(object, object_name, property_name)
+    def initialize(object, object_name, property_name, placeholder_text = "")
       @object = object
       @object_name = object_name
       @property_name = property_name
+      @placeholder_text = placeholder_text
     end
 
     def id
       "#{@object_name}-#{@property_name}"
+    end
+
+    def placeholder_text
+      @placeholder_text
     end
 
     def employee
@@ -79,9 +84,10 @@ module FieldHelper
           value="#{value}" 
           class="edit-lookup-multi"
           spellcheck="false" 
+          placeholder="#{placeholder_text}" 
           data-id="#{value_id}"
           data-text="#{value}"
-          data-lookup="/employees/find" 
+          data-lookup="/employees/find"
           data-lookup-term="filter"
           data-lookup-single="true" />
       html
@@ -89,14 +95,20 @@ module FieldHelper
   end
 
   class EmployeesFieldDescriptor
-    def initialize(object, object_name, property_name)
+    def initialize(object, object_name, property_name, placeholder_text = "")
       @object = object
       @object_name = object_name
       @property_name = property_name
+      @placeholder_text = placeholder_text
     end
 
     def id
       "#{@object_name}-#{@property_name}"
+    end
+
+    def placeholder_text
+      puts ("placeholder = #{@placeholder_text}")
+      @placeholder_text
     end
 
     def employee
@@ -122,6 +134,7 @@ module FieldHelper
           value="#{value}" 
           class="edit-lookup-multi"
           spellcheck="false" 
+          placeholder="#{placeholder_text}" 
           data-id="#{value_id}"
           data-text="#{value}"
           data-lookup="/employees/find" 

@@ -33,15 +33,50 @@
         <div class="task-data-table">
           <div class="performer-row">
             <div class="performer-row-border">
-              <div class="performer-row-header">
-                <%=t "task.informants" %>:
-              </div>
-              <div class="actor-selectors">
-                <div class="actor-selector"><%=t "task.co_performers" %></div>
-                <div class="actor-selector"><%=t "task.controller" %></div>
-                <div class="actor-selector"><%=t "task.informants" %></div>
-              </div>
-              <%= row(employees_select(@task, :Task, :performer)) %>
+              <table class="performer-table">
+                <tr class="performer-table-first-row">
+                  <td class="performer-name-column">
+                    <%=t "task.performers" %>:
+                  </td>
+                  <td class="performer-value-column">
+                    <%= row(employees_select(@task, :Task, :performer, t('task.performers_placeholder'))) %>
+                  </td>
+                  <td class="performer-selectors-column">
+                    <div class="actor-selectors">
+                      <a class="actor-selector co_performers" data-name="co_performers"><%=t "task.co_performers" %></a>
+                      <a class="actor-selector controller" data-name="controller"><%=t "task.controller" %></a>
+                      <a class="actor-selector informants" data-name="informants"><%=t "task.informants" %></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="performer-name-column">
+                    <%=t "task.co_performers" %>:
+                  </td>
+                  <td class="performer-value-column" colspan=2>
+                    <input class="co_performers-selector" type="checkbox"/>
+                    <%= row(employees_select(@task, :Task, :co_performers), class: 'co_performers-row') %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="performer-name-column">
+                    <%=t "task.controller" %>:
+                  </td>
+                  <td class="performer-value-column" colspan=2>
+                    <input class="controller-selector" type="checkbox"/>
+                    <%= row(employee_select(@task, :Task, :controller), class: 'controller-row' ) %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="performer-name-column">
+                    <%=t "task.informants" %>:
+                  </td>
+                  <td class="performer-value-column" colspan=2>
+                    <input class="informants-selector" type="checkbox"/>
+                    <%= row(employees_select(@task, :Task, :informants), class: 'informants-row' ) %>
+                  </td>
+                </tr>
+              </table>
             </div>
           </div>
   <!--         <div class="row actors-selector">

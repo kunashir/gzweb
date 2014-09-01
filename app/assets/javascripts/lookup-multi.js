@@ -140,6 +140,10 @@ function MultiLookupToken(options) {
         this.focusHandlers.forEach(function (handler) { handler(self); });
       },
 
+      realign: function() {
+        this._updateSize();
+      },
+
       _updateSize: function() {
         this._updateSizeBlur();
         var inputMarginLeft = parseInt(this.input.css('margin-left'), 10),

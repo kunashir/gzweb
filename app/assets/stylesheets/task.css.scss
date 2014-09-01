@@ -66,26 +66,29 @@ $blue-back: #F1F8FA;
 	list-style: none;
 	overflow: hidden;
 	width: 100%;
+	padding-left: 5px;
+	padding-bottom: 5px;
 
 	li {
 		float: left;
 		width: 6em;
-		border: 1px solid #DDD;
-		border-radius: 5px;
-		margin: 0 0.4em;
+		margin: 0 0.2em;
 		cursor: pointer;
+		border: 1px solid transparent;
 	}
 
 	li:hover {
-		background-color: #D9E7FF;
+		border: 1px solid #CCC;
+		// background-color: #D9E7FF;
 	}
 
 	li.pressed {
-		background-color: #5B98FF;
+		border: 1px solid #CCC;
+		background-color: #FDEBDC;
+	}
 
-		.performer-quick-block {
-			color: #FEFEFE;
-		}
+	li.pressed:hover {
+		border: 1px solid #999;
 	}
 }
 
@@ -95,16 +98,15 @@ $blue-back: #F1F8FA;
 
 	.performer-image {
 		background-repeat: no-repeat;
-		background-position: center;
+		background-position: center bottom;
 		background-size: contain;
 		height: 5em;
-		margin-bottom: 0.5em;
 		border-style:none;
 	}
 
 	.performer-last-name {
 		font-weight: bold;
-		font-size: 0.9em;
+		font-size: 0.8em;
 		text-align: center;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -112,7 +114,7 @@ $blue-back: #F1F8FA;
 	}
 
 	.performer-first-name {
-		font-size: 0.7em;
+		font-size: 0.6em;
 		text-align: center;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -135,7 +137,7 @@ $blue-back: #F1F8FA;
 	position: absolute;
 	left: 0;
 	right: 13em;
-	top: 14.2em;
+	top: 195px;
 	bottom: 3.4em;
 	background: white;
 
@@ -282,7 +284,7 @@ $blue-back: #F1F8FA;
 	position: absolute;
 	width: 13em;
 	right: 0em;
-	top: 14.2em;
+	top: 195px;
 	bottom: 3.4em;
 	overflow: hidden;
 	background: white;
@@ -513,10 +515,6 @@ $blue-back: #F1F8FA;
 	background: white;
 	display:table-row;
 
-	.row {
-		margin-left: 150px;
-	}
-
 	.form-edit-control {
 		border: none;
 		background: transparent;
@@ -533,23 +531,47 @@ $blue-back: #F1F8FA;
 	}
 }
 
-.performer-row-header {
-	float: left;
-	margin: 0.5em 0.5em;
+.performer-table {
+	border: 0;
+	width: 100%;
+}
+
+.performer-name-column {
+	width: 1px;
+	vertical-align: top;
 	font-weight: bold;
 	font-size: 0.8em;
 	color: #7A7A7A;
-	margin-bottom: calc(0.5em + 1px);
+	padding: 6px 5px 5px 5px;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.performer-value-column {
+	width: 100%;
+	vertical-align: top;
+
+	input[type=checkbox] {
+		display: none;
+	}
+}
+
+.performer-selectors-column {
+	width: 1px;
+	padding: 3px 0px 7px 0px;
+	vertical-align: top;
 }
 
 .actor-selectors {
 	float: right;
+	white-space: nowrap;
 }
 
 .actor-selector {
-	float: left;
 	font-size: 0.8em;
 	margin: 0.5em 0.5em;
+	white-space: nowrap;
+	cursor: pointer;
 }
 
 

@@ -211,6 +211,7 @@ function quickPerformerClick(e) {
         return;
     var container = $(e.currentTarget);
     var performer = container.children('.performer-quick-block');
+    activeLookup.focus();
     if (container.hasClass('pressed'))
         activeLookup.removeToken({ id: performer.data('id'), name: performer.data('text') })
     else
@@ -268,7 +269,7 @@ function TaskActors() {
 
     $this.updateInputs = function() {
         $this.actors.forEach(function(actor) {
-            actor.input.css('display', actor.checkbox.prop("checked") ? "table-row" : "none");
+            actor.input.closest('tr').css('display', actor.checkbox.prop("checked") ? "table-row" : "none");
         });
     }
 
@@ -291,6 +292,12 @@ function TaskActors() {
         if (index !== null)
             $this.actors[index].checkbox.prop("checked", true);
         $this.updateInputs();
+    }
+
+    $this.focus = function(name) {
+        index = indexByName(name);
+        if (index !== null)
+            $this.actors[index].input.find('.edit-lookup-multi').lookupMulti('focus');
     }
 
     $this.disable = function(name) {
@@ -328,8 +335,23 @@ function TaskActors() {
 $(function() {
     actors = new TaskActors();
     taskActions = new TaskActions();
-    taskFiles = new TaskFiles($('.create-task'));
+    taskFiles = new TaskFiles($('.create-task'), scrollContentToBottom);
+    $('.actor-selector').click(OnActorSelectorClick);
 });
+
+function OnActorSelectorClick(e) {
+    var sender = $(e.target),
+        name = sender.data('name');
+
+    actors.set(name);
+    actors.focus(name);
+    sender.css('display', 'none');
+}
+
+
+function scrollContentToBottom() {
+    $('.task-content-row-scroll').animate({ scrollTop: $('.task-content-row-scroll').height()});
+}
 
 function TaskActions() {
     var $this = this,
@@ -419,6 +441,7 @@ function TaskActions() {
         }
 
         function getPersons(multilookup) {
+            console.log(multilookup);
             var persons = multilookup.lookupMulti('widget')().selection;
             if (persons)
                 return persons.map(function (e) { return e.id; });
@@ -435,7 +458,7 @@ function TaskActions() {
         this.closeHandler = function() {}
 }
 
-function TaskFiles(root) {
+function TaskFiles(root, onFileAdd) {
     var $this = this,
         fileArea = root.find('.task-files'),
         fileInput = root.find('.task-add-file-input'),
@@ -506,9 +529,8 @@ function TaskFiles(root) {
                     .addClass('task-file-progress')
                     .appendTo(taskFileNameContainer);
                 taskFileDiv.appendTo(fileArea);
-                console.log("before uploading file");
-                console.log(taskFileDiv);
-                console.log(taskFileProgress);
+                if (onFileAdd)
+                    onFileAdd();
                 uploadFile(taskFileDiv, taskFileProgress);
             });
     }
@@ -584,9 +606,15 @@ function initLookupMulti() {
         if (performerLookup.selection && performerLookup.selection.length > 1) {
             actors.reset('co_performers');
             actors.disable('co_performers');
+            $('.actor-selector.co_performers').css('display', 'none');
         }
-        else
+        else {
             actors.enable('co_performers');
+            if (!actors.isSet('co_performers')) {
+                $('.performer-row .edit-lookup-multi').lookupMulti('realign');
+                $('.actor-selector.co_performers').css('display', 'initial');
+            }
+        }
     });
 
     $('.performer-quick-list').mousedown(function (e) {
@@ -603,6 +631,7 @@ $(function() {
     taskContentAutoSize($('#Task-content'));
 
     $('.task-content-row').click(taskContentClick);
+    $('.task-content-row-scroll').click(taskContentClick);
 });
 
 function taskContentAutoSize(e) {
@@ -613,7 +642,6 @@ function taskContentAutoSize(e) {
     var text = $(e).val().replace(/\n/g, '<br/>&nbsp;');
     if (text == "")
         text = "&nbsp;"
-    console.log("assigning text = " + text + " to #" + $(e)[0].id + "-copy");
     $('#' + $(e)[0].id + "-copy").html(text);
 }
 
@@ -624,7 +652,7 @@ function taskContentClick(e) {
     if (e.target.className == 'task-content-row')
         taskContent = $(e.target);
     else
-    if (e.target.className == 'task-files')
+    if (e.target.className == 'task-files' || e.target.className == 'task-content-row-scroll')
         taskContent = $($(e.target).parents('.task-content-row')[0]);
     if (!taskContent)
         return;
