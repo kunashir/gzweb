@@ -20,10 +20,7 @@ function createNewTask(event) {
 	$('#Task-controller').lookupMulti('reset');
 	$('#Task-content').val("");
 	$('input.date-picker').val("");
-	var date = new Date();
-	$('div.date-picker').
-		datepicker('setDate', date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear()).
-		addClass('unset');
+	updateTaskDatePicker();
 	$('.task-files .task-file').remove();
 	actors.reset();
 

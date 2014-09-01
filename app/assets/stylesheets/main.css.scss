@@ -376,10 +376,10 @@ body {
 	position: relative;
 	background: #F8F8F8;
 	border: 1px solid #EEE;
-	padding: 10px;
+	padding: 10px 20px 10px 10px;
 	opacity: 0;
 	z-index: -1;
-	overflow-y: auto;
+	overflow-y: overlay;
 	overflow-x: hidden;
 }
 
@@ -408,18 +408,45 @@ body {
 
 .task-area {
 	overflow: hidden;
-	border: 1px solid #DDD;
-	margin-bottom: 1em;
-	margin-right: 1em;
-	background-color: #FFF;
 	position: relative;
-	padding: 10px;
+	padding-bottom: 30px;
+	display: table;
+	width: 100%;
+}
+
+.task-border {
+	border: 1px solid #DDD;
+	background-color: #FFF;
+	padding: 10px 10px 0px 10px;
 }
 
 .task-subject-area {
 	background-color: #999;
 	color: #EEE;
 	// padding: 0.2em 0.5em;
+}
+
+.task-data-area {
+	max-height: 100%;
+	display: table;
+	width: 100%;
+}
+
+.task-header-area {
+	display: table-row;
+	width: 100%;
+}
+
+.task-content-area {
+	display: table-row;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.task-footer-area {
+	display: table-row;
+	width: 100%;
 }
 
 .task-subject {
@@ -448,7 +475,7 @@ body {
 	text-align: left;
 }
 
-.task-deadline-area {
+.task-view-deadline-area {
 	// float: left;
 	width: 45%;
 	vertical-align: middle;
@@ -500,8 +527,8 @@ body {
 
 .task-area.selected {
 	height: auto;
-	border: 1px solid #18187E;
-	background-color: #FFFFE0;
+	// border: 1px solid #18187E;
+	// background-color: #FFFFE0;
 	.task-subject-area {
 		background-color: #18187E;
 		color: #FFF;
@@ -629,9 +656,9 @@ body {
 	margin: 0em 0.5em 0.5em 0.5em;
 }
 
-.task-actions, .task-actions-apply {
+.task-actions-apply {
 	float: right;
-	margin: 0.5em 0em;
+	margin: 1.2em 0em 0em 0em;
 	a {
 		display: block;
 		float: left;
@@ -654,6 +681,44 @@ body {
 	}
 }
 
+.task-actions {
+	display: table;
+	width: 100%;
+	margin: 0.5em 0em;
+	.task-action-wrapper {
+		display: table-cell;
+		width: 1px;
+	}
+	a {
+		margin: auto;
+		width: 40px;
+		display: block;
+		background-size: contain;
+		background-position: center top;
+		background-repeat: no-repeat;
+		text-indent: -9999px;
+	}
+	a:hover {
+		opacity: 1;
+	}
+	.task-action-delegate-wrapper {
+		width: 100%;
+	}
+	a.task-action-comment {
+		background-image: image-url('comment.png');
+	}
+	a.task-action-delegate {
+		background-image: image-url('delegate.png');
+	}
+	a.task-action-complete {
+		background-image: image-url('complete.png');
+	}
+	a.task-action-reject {
+		background-image: image-url('reject.png');
+	}
+}
+
+
 .task-action-sub-actions {
 	display: none;
 }
@@ -675,7 +740,8 @@ body {
 
 .create-task-area > div {
 	position: relative;
-	top: 1em;
+	top: 5em;
+	height: 80%;
 	bottom: 3em;
 	max-width: 900px;
 	margin: auto;

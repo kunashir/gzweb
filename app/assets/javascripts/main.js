@@ -512,6 +512,7 @@ function task_select(event) {
 function init_task_actions(taskList) {
 	taskList.find(".task-action-delegate").click(createSubTask);
 	taskList.find(".task-action-complete").click(showTaskComplete);
+	taskList.find(".task-action-reject").click(showTaskComplete);
 	taskList.find(".task-action-cancel").click(closeTaskComplete);
 	taskList.find(".task-action-error-close").click(closeErrorMessage);
 	taskList.find(".task-comments").change(commentsChanged);
@@ -585,6 +586,7 @@ function showTaskComplete(event) {
 	event.preventDefault();
 
 	var actionButton = $(event.currentTarget),
+		dataArea = $('.data-area'),
  	    taskItem = actionButton.parents('.task-area'),
 	    taskCompleteArea = taskItem.find('.task-complete-area'),
 	    taskActions = taskItem.find('.task-actions'),
@@ -633,6 +635,11 @@ function showTaskComplete(event) {
 	taskCompleteArea.animate({height: '17em'}, 400, 'easeOutCirc');
 	taskActions.animate({'margin-top': '-2.5em'}, 400, 'easeOutCirc');
 	comments.focus();
+	taskItem.animate({height: '100%'}, 100, 'easeOutCirc');
+	dataArea.css('overflow-y', 'hidden');
+	initialScroll = dataArea.scrollTop();
+	dataArea.animate({scrollTop: taskItem.position().top + dataArea.scrollTop() - 10}, 400, 'easeOutCirc');
+	//dataArea.scrollTop(taskItem.position().top + dataArea.scrollTop() - 10);
 }
 
 function commentsChanged(event) {
@@ -648,7 +655,8 @@ function commentsChanged(event) {
 function closeTaskComplete(event) {
 	event.preventDefault();
 
-	var taskItem = $(event.currentTarget).parents('.task-area'),
+	var dataArea = $('.data-area'),
+		taskItem = $(event.currentTarget).parents('.task-area'),
 	    taskCompleteArea = taskItem.find('.task-complete-area'),
 	    taskActions = taskItem.find('.task-actions'),
 	    comments = taskCompleteArea.find('textarea');
@@ -657,6 +665,9 @@ function closeTaskComplete(event) {
     taskItem[0].taskFiles.clear();
 	taskCompleteArea.animate({height: '0em'}, 400, 'easeOutCirc');
 	taskActions.animate({'margin-top': '0.5em'}, 400, 'easeOutCirc');
+	taskItem.animate({height: '1px'}, 400, 'easeOutCirc');
+	$('.data-area').css('overflow-y', 'overlay');
+	dataArea.animate({ scrollTop:initialScroll}, 400, 'easeOutCirc');
 }
 
 function completeTask(event) {
@@ -736,9 +747,12 @@ function onCompleteTaskDone(result, task, message, progress, lid) {
 }
 
 function removeTask(task) {
+	$('.data-area').css('overflow-y', 'overlay').animate({ scrollTop:initialScroll}, 400, 'easeOutCirc');
+	task.css('display', 'block');
 	task.animate({
-		height: 0
-	}, 200, 'easeOutCirc', function() {
+		'height': '0px',
+		'padding-bottom': '0px'
+	}, 400, 'easeOutCirc', function() {
 		if (activeFolder) {
 			var total = $('.task-info-' + activeFolder).find('.total')
 			if (+(total.text()) > 0)

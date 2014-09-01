@@ -7,6 +7,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new.init(current_user)
+    @employee = current_employee
     @quick_performers = TakeOffice::Employee.quick_performers
     respond_to do |format|
       format.html # new.html.erb

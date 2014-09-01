@@ -40,9 +40,9 @@ module FieldHelper
     TextEditFieldDescriptor.new(object, object_name, property)
   end
 
-  def datetime_edit(object, object_name, property)
+  def datetime_2month_edit(object, object_name, property)
     #object_name = model_name_from_record_or_class(object).param_key
-    DateTimeFieldDescriptor.new(object, object_name, property)
+    DateTime2MonthFieldDescriptor.new(object, object_name, property)
   end
 
   class EmployeeFieldDescriptor
@@ -142,11 +142,11 @@ module FieldHelper
     end
 
     def field
-      "<textarea id=\"#{id}\"></textarea>"
+      "<textarea id=\"#{id}\"></textarea><div id=\"#{id}-copy\" class=\"text-area-copy\"></div>"
     end
   end
 
-  class DateTimeFieldDescriptor
+  class DateTime2MonthFieldDescriptor
     def initialize(object, object_name, property_name)
       @object = object
       @object_name = object_name
@@ -158,7 +158,7 @@ module FieldHelper
     end
 
     def field
-      "<input id=\"#{id}\" class=\"date-picker\"/><div class=\"date-picker\"></div>"
+      "<input id=\"#{id}\" class=\"date-picker\"/><div class=\"date-picker\"></div><div class=\"date-picker-2\"></div>"
     end
   end
 

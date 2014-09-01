@@ -19,24 +19,29 @@ class TaskInfo < CacheBase
   def actions
     case
       when is_incdoc_reviewal?
-        [ {action: :redirect},
+        [ #{action: :comment},
+          {action: :redirect},
           {action: :complete, text: 'task.incdoc_reviewal.complete', comments_required: false}]
       when is_memorandum_reviewal?
-        [ {action: :redirect},
-          {action: :complete, text: 'task.memorandum_reviewal.complete', comments_required: false},
-          {action: :reject, text: 'task.memorandum_reviewal.reject', comments_required: true}]
+        [ #{action: :comment},
+          {action: :redirect},
+          {action: :reject, text: 'task.memorandum_reviewal.reject', comments_required: true},
+          {action: :complete, text: 'task.memorandum_reviewal.complete', comments_required: false}]
       when is_approval?
-        [ {action: :complete, text: 'task.complete',
+        [ #{action: :comment},
+          {action: :complete, text: 'task.complete',
           actions: [
              {action: :approve, text: 'task.approval.approve', comments_required: false},
              {action: :decline, text: 'task.approval.decline', comments_required: true}] }]
       when is_signing?
-        [ {action: :complete, text: 'task.complete',
+        [ #{action: :comment},
+          {action: :complete, text: 'task.complete',
           actions: [
             {action: :sign, text: 'task.signing.sign', comments_required: false},
             {action: :decline, text: 'task.signing.decline', comments_required: true}] }]
       else 
-        [ {action: :redirect},
+        [ #{action: :comment},
+          {action: :redirect},
           {action: :complete, text: 'task.incdoc_reviewal.complete', comments_required: true}]
     end
   end

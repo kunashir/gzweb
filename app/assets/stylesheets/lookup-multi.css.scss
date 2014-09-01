@@ -1,42 +1,54 @@
 .token { 
 	display: inline-block;
 	margin: 3px;
-	border: 1px solid #999;
-	padding: 3px;
-	background-color: #EFEFEF;
-	color: #222;
+	padding: 0px 5px;
+	background-color: #FDEBDC;
+	color: #5F5F5F;
+	font-size: 1.3em;
 	transition: background-color 0.1s;
 
 	.close {
+		font-size: 1.3em;
 		text-decoration: none;
 		color: #888;
 		font-weight: bold;
-		margin-left: 3px;
+		margin-left: 15px;
 		user-select: none;
 		outline: none;
 		transition: color 0.1s;
 		cursor: pointer;
+		opacity: 1;
 	}
 
 	.close:active {
 		padding-top: 1px;
 		outline: none;
 	}
+
+	.close:hover {
+		color: #444;
+		opacity: 1;
+	}
 }
 
 .token.selected {
-	background-color: #D7EAFF;
+	background-color: #FDEBDC;
 
-	.close {
+/*	.close {
 		color: black;
 	}
+
+	.close:hover {
+		color: black;
+	}*/
 }
 
 .token:hover {
-	.close {
-		color: black;
-	}
-}
+ 	.close {
+		color: #444;
+		opacity: 1;
+ 	}
+ }
 
 .inline-edit-control {
 	display: inline-block;
@@ -59,15 +71,19 @@
 	border-color: #2984AA;
 
 	.token { 
-		background-color: #FFF;
+		background-color: #FDEBDC;
 	}
 
 	.token.selected {
-		background-color: #D7EAFF;
+		background-color: #FDEBDC;
 
-		.close {
+	/*	.close {
 			color: black;
 		}
+
+		.close:hover {
+			color: black;
+		}*/
 	}
 }
 

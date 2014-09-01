@@ -7,62 +7,95 @@
       <div id="Task-parent_task"></div>
       <div id="Task-parent_document"></div>
       <div class="task-header-bar">
-        <%= render "main/user_control", employee: employee %>
+        <div class="task-author-control">
+          <%# link_to t("actions.set-delegate"), "/bad" %>
+          <div class="task-author-info" data-value="<%= employee.id %>">
+            <div class="task-author-name" data-value="<%= employee.display_name %>">
+              Автор: <%= employee.last_name %>
+              <span class="task-author-first-name"><%= [employee.first_name, employee.middle_name].join(" ") %>
+            </div>
+            <div class="task-author-position"><%= employee.position.try(:name) %></div>
+          </div>
+          <%= image_tag employee.has_photo? ? employee_photo_path(employee.id) : "person.png", class: 'user-photo' %>
+        </div>
         <div class="header-actions">
           <div class="title">Новое поручение</div>
         </div>
       </div>
-      <% unless quick_performers.nil? %>
-        <ul class="performer-quick-list">
-          <% quick_performers.each do |performer| %>
-            <li>
-              <%= render '/tasks/quick_performer', performer: performer %>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
-      <%= row(employees_select(@task, :Task, :performer)) %>
-      <div class="row actors-selector">
-        <label>
-            <input class="co_performers-selector" type="checkbox"/>
-            <%=t "task.co_performers" %>
-        </label>
-        <label>
-          <input class="informants-selector" type="checkbox"/>
-          <%=t "task.informants" %>
-        </label>
-        <label>
-          <input class="controller-selector" type="checkbox">
-          <%=t "task.controller" %>
-        </label>
-      </div>
-      <div class="row-group-container">
-        <div class="row-group">
-          <%= row(employees_select(@task, :Task, :co_performers), 
-            label: "task.co_performers", class: 'co_performers-row') %>
-          <%= row(employees_select(@task, :Task, :informants), 
-            label: "task.informants", class: 'informants-row' ) %>
-          <%= row(employee_select(@task, :Task, :controller),
-            label: "task.controller", class: 'controller-row' ) %>
-        </div>
-      </div>
-      <div class="task-content-deadline-area">
-        <div class="task-bottom-area-row">
-          <%= row(text_edit(@task, :Task, :content), class: 'task-content') %>
-          <%= row(datetime_edit(@task, :Task, :deadline), class: 'task-deadline') %>
-        </div>
-        <div class="task-bottom-area-row">
-          <div class="task-files-container">
-            <div class="task-files">
-              <input type="file"/>
-              <a href="#" class="task-add-file"><%=t "task.add_file" %></a>
+      <ul class="performer-quick-list">
+        <% quick_performers.each do |performer| %>
+          <li>
+            <%= render '/tasks/quick_performer', performer: performer %>
+          </li>
+        <% end %>
+      </ul>
+      <div class="task-data-container">
+        <div class="task-data-table">
+          <div class="performer-row">
+            <div class="performer-row-border">
+              <div class="performer-row-header">
+                <%=t "task.informants" %>:
+              </div>
+              <div class="actor-selectors">
+                <div class="actor-selector"><%=t "task.co_performers" %></div>
+                <div class="actor-selector"><%=t "task.controller" %></div>
+                <div class="actor-selector"><%=t "task.informants" %></div>
+              </div>
+              <%= row(employees_select(@task, :Task, :performer)) %>
             </div>
           </div>
-          <div class="task-action-area">
+  <!--         <div class="row actors-selector">
+            <label>
+                <input class="co_performers-selector" type="checkbox"/>
+                <%=t "task.co_performers" %>
+            </label>
+            <label>
+              <input class="informants-selector" type="checkbox"/>
+              <%=t "task.informants" %>
+            </label>
+            <label>
+              <input class="controller-selector" type="checkbox">
+              <%=t "task.controller" %>
+            </label>
+          </div>
+          <div class="row-group-container">
+            <div class="row-group">
+              <%= row(employees_select(@task, :Task, :co_performers), 
+                label: "task.co_performers", class: 'co_performers-row') %>
+              <%= row(employees_select(@task, :Task, :informants), 
+                label: "task.informants", class: 'informants-row' ) %>
+              <%= row(employee_select(@task, :Task, :controller),
+                label: "task.controller", class: 'controller-row' ) %>
+            </div>
+          </div>
+   -->        
+          <div class="task-content-row">
+            <div class="task-content-row-scroll">
+              <%= row(text_edit(@task, :Task, :content), class: 'task-content') %>
+              <div class="task-files-container">
+                <div class="task-files">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="task-action-area">
+        <div class="task-actions">
+          <div class="task-action task-action-send">
             <a href="#" class="task-send"><%=t "task.send" %></a>
+          </div>
+          <input id="task-add-file-input" type="file"/>
+          <div class="task-action task-action-add-file">
+            <a href="#" class="task-add-file"><%=t "task.add_file" %></a>
+          </div>
+          <div class="task-action task-action-cancel">
             <a href="#" class="task-cancel"><%=t "task.cancel" %></a>
           </div>
         </div>
+      </div>
+      <div class="task-deadline-area">
+        <%= row(datetime_2month_edit(@task, :Task, :deadline), class: 'task-deadline') %>
       </div>
     </div>
   </form>

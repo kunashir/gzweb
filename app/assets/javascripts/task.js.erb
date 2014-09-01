@@ -1,5 +1,7 @@
 $(initDatepickers);
 
+datePickerDate = null;
+
 function initDatepickers() {
     $.datepicker.setDefaults({
         dateFormat: 'dd.mm.yy',
@@ -16,6 +18,7 @@ function initDatepickers() {
     });
     var input = $('input.date-picker');
     var selector = $('div.date-picker');
+    var selector2 = $('div.date-picker-2');
     selector.addClass('unset');
     selector.datepicker({
         onSelect: function(dateText) {
@@ -27,16 +30,60 @@ function initDatepickers() {
             }
             input.data("date", dateText);
             input.val(dateText + " " + input.data("hour") + ":" + input.data("minute"));
+            datePickerDate = selector.datepicker('getDate');
             selector.removeClass('unset');
+            selector2.addClass('unset');
+        },
+        onChangeMonthYear: function(year, month) {
+            console.log('year = ' + year + ", month = " + month + ", datePickerDate = " + datePickerDate);
+            if (datePickerDate && datePickerDate.getMonth() == month - 1) {
+                console.log('setting date');
+                selector.datepicker('setDate', datePickerDate);
+                selector.removeClass('unset');
+            }
+            if (datePickerDate && datePickerDate.getMonth() == month) {
+                selector2.datepicker('setDate', datePickerDate);
+                selector2.removeClass('unset');
+            }
+            else
+            {
+                if (month == 12)
+                    selector2.datepicker('setDate', new Date(year + 1, 0, 1));
+                else
+                    selector2.datepicker('setDate', new Date(year, month, 1));
+                selector2.addClass('unset');
+            }
         }
     });
+    selector2.addClass('unset');
+    selector2.datepicker({
+        onSelect: function(dateText) {
+            if (!input.data("hour")) {
+                input.data("hour", "18");
+            }
+            if (!input.data("minute")) {
+                input.data("minute", "00");
+            }
+            input.data("date", dateText);
+            input.val(dateText + " " + input.data("hour") + ":" + input.data("minute"));
+            datePickerDate = selector2.datepicker('getDate');
+            selector.addClass('unset');
+            selector2.removeClass('unset');
+        }
+    });
+    var currentDate = new Date();
+    if (currentDate.getDate() == 1)
+        selector.datepicker('setDate', new Date(currentDate.getFullYear(), currentDate.getMonth(), 2));
+    else
+        selector.datepicker('setDate', new Date(currentDate.getFullYear(), currentDate.getMonth(), 1));
+    if (currentDate.getMonth() == 11)
+        selector2.datepicker('setDate', new Date(currentDate.getFullYear() + 1, 0, 1));
+    else
+        selector2.datepicker('setDate', new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
     var dateRegex = new RegExp("^\\s*(\\d{1,2})\\s*[\\.\\/]\\s*(\\d{1,2})\\s*([\\.\\/]\\s*(\\d{1,4})\\s*)?\\s*(\\s+(\\d{1,2})\\s*(:\\s*(\\d{1,2}))?)?\\s*$");
     input.keyup(updateTaskDatePicker);
     input.blur(function() {
         if (input.val().trim().length == 0) {
-            var date = new Date();
-            selector.datepicker('setDate', date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear());
-            selector.addClass('unset');
             return;
         }
         var regMatch = dateRegex.exec(input.val());
@@ -94,13 +141,23 @@ function initDatepickers() {
 }
 
 function updateTaskDatePicker() {
+    datePickerDate = null;
     var input = $('input.date-picker');
     var selector = $('div.date-picker');
+    var selector2 = $('div.date-picker-2');
     var dateRegex = new RegExp("^\\s*(\\d{1,2})\\s*[\\.\\/]\\s*(\\d{1,2})\\s*([\\.\\/]\\s*(\\d{1,4})\\s*)?\\s*(\\s+(\\d{1,2})\\s*(:\\s*(\\d{1,2}))?)?\\s*$");
     if (input.val().trim().length == 0) {
-        var date = new Date();
-        selector.datepicker('setDate', date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear());
+        var currentDate = new Date();
+        if (currentDate.getDate() == 1)
+            selector.datepicker('setDate', new Date(currentDate.getFullYear(), currentDate.getMonth(), 2));
+        else
+            selector.datepicker('setDate', new Date(currentDate.getFullYear(), currentDate.getMonth(), 1));
+        if (currentDate.getMonth() == 11)
+            selector2.datepicker('setDate', new Date(currentDate.getFullYear() + 1, 0, 1));
+        else
+            selector2.datepicker('setDate', new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));        
         selector.addClass('unset');
+        selector2.addClass('unset');
         return;
     }
     var regMatch = dateRegex.exec(input.val());
@@ -129,8 +186,14 @@ function updateTaskDatePicker() {
             date.getDate() == day &&
             date.getMonth() == (month - 1) &&
             date.getFullYear() == year) {
-            selector.datepicker('setDate', day + "." + month + "." + year);
+            datePickerDate = date;
+            selector.datepicker('setDate', datePickerDate);
             selector.removeClass('unset');
+            if (month == 12)
+                selector2.datepicker('setDate', new Date(year + 1, 0, 1));
+            else
+                selector2.datepicker('setDate', new Date(year, month, 1));        
+            selector2.addClass('unset');            
         }
     }
 }
@@ -375,8 +438,8 @@ function TaskActions() {
 function TaskFiles(root) {
     var $this = this,
         fileArea = root.find('.task-files'),
-        fileInput = fileArea.children('input'),
-        fileAddButton = fileArea.children('.task-add-file'),
+        fileInput = root.find('#task-add-file-input'),
+        fileAddButton = root.find('.task-add-file'),
         url = "/file"
 
     fileAddButton.click(selectFile);
@@ -412,7 +475,7 @@ function TaskFiles(root) {
                 var taskFileProgress = $("<div></div>")
                     .addClass('task-file-progress')
                     .css('width', '100%')
-                    .css('background-color', 'green')
+                    .css('background-color', '#666')
                     .appendTo(taskFileNameContainer);
                 taskFileDiv.appendTo(fileArea);
             });
@@ -471,9 +534,10 @@ function TaskFiles(root) {
         }
         xhr.onreadystatechange = function(e) {
             if (4 == this.readyState) {
-                progressBar.css('background-color', 'green');
+                progressBar.css('background-color', '#666');
                 var result = JSON.parse(this.response);
                 fileDiv.data("id", result["id"]);
+                fileDiv.css('cursor', 'pointer');
             }
         };
         xhr.open('post', url, true);
@@ -529,4 +593,35 @@ function initLookupMulti() {
         if (e.currentTarget == e.target && activeLookup)
             activeLookup.preventFocusLoss();
     })
+}
+
+$(function() {
+    $('#Task-content')
+        .change(taskContentAutoSize)
+        .keydown(taskContentAutoSize)
+        .keyup(taskContentAutoSize);
+    taskContentAutoSize();
+
+    $('.task-content-row').click(taskContentClick);
+});
+
+function taskContentAutoSize() {
+    // Copy textarea contents; browser will calculate correct height of copy,
+    // which will make overall container taller, which will make textarea taller.
+    var text = $("#Task-content").val().replace(/\n/g, '<br/>&nbsp;');
+    $("#Task-content-copy").html(text);
+}
+
+function taskContentClick(e) {
+    if (e.target.nodeName != 'DIV')
+        return;
+    var taskContent;
+    if (e.target.className == 'task-content-row')
+        taskContent = $(e.target);
+    else
+    if (e.target.className == 'task-files')
+        taskContent = $($(e.target).parents('.task-content-row')[0]);
+    if (!taskContent)
+        return;
+    taskContent.find('textarea').focus();
 }

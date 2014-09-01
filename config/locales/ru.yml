@@ -34,6 +34,7 @@ ru:
   task:
     registrator: "Регистратор"
     performer: "Исполнитель"
+    performers: "Исполнители"
     co_performers: "Соисполнители"
     informants: "На ознакомление"
     content: "Содержание"
