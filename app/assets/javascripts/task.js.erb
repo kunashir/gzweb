@@ -36,12 +36,14 @@ function initDatepickers() {
         },
         onChangeMonthYear: function(year, month) {
             console.log('year = ' + year + ", month = " + month + ", datePickerDate = " + datePickerDate);
-            if (datePickerDate && datePickerDate.getMonth() == month - 1) {
+            if (datePickerDate && datePickerDate.getMonth() == month - 1
+                && datePickerDate.getFullYear() == year) {
                 console.log('setting date');
                 selector.datepicker('setDate', datePickerDate);
                 selector.removeClass('unset');
             }
-            if (datePickerDate && datePickerDate.getMonth() == month) {
+            if (datePickerDate && datePickerDate.getMonth() == month
+                && datePickerDate.getFullYear() == year) {
                 selector2.datepicker('setDate', datePickerDate);
                 selector2.removeClass('unset');
             }
