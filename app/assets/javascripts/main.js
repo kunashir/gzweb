@@ -558,6 +558,7 @@ function createSubTask(event) {
 	$('#Task-informants').lookupMulti('reset');
 	$('#Task-controller').lookupMulti('addToken', { id: user_id, name: user_name });
 	$('#Task-content').val(content);
+	taskContentAutoSize($('#Task-content'));
 	if (date) {
 		$('input.date-picker').val(date + " " + time);
 	}
