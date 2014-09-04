@@ -188,6 +188,7 @@ class TasksInfo < CacheBase
   def self.load_task_files(cache_task)
     files = get_task_files(cache_task)
     existing_files = cache_task.task_files
+    to_remove_files = existing_files.to_a
     files.each do |file|
       cache_file = existing_files.select { |x| x.file_id == file["FileID"] }.first
       if cache_file.nil?
@@ -197,10 +198,10 @@ class TasksInfo < CacheBase
         cache_file.filename = file["FileName"]
         cache_file.save
       else
-        existing_files.delete(cache_file)
+        to_remove_files.delete(cache_file)
       end
     end
-    existing_files.each { |file| file.destroy }
+    to_remove_files.each { |file| file.destroy }
   end
 
   def self.get_task_files(cache_task)
