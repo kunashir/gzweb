@@ -574,8 +574,8 @@ function createSubTask(event) {
 		taskFiles.addFile(fileName, fileId);
 	}
 
-	actors.reset();
-	actors.set('controller');
+	TaskActors().reset();
+	TaskActors('controller').set();
 
 	taskArea
 		.css('opacity', 0)
