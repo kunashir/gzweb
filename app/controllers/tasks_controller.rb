@@ -28,6 +28,7 @@ class TasksController < ApplicationController
     rescue
       deadline = nil
     end
+    error ||= 'Не задан срок поручения' if deadline.nil?
     controller = TakeOffice::Employee.where(RowID: params[:controler]).first unless 
       params[:controler].nil? || params[:controler].blank?
     co_performers = []
