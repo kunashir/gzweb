@@ -387,15 +387,23 @@ function TaskFiles(root, onFileAdd) {
         fileInput[0].dispatchEvent(evt);
     }
 
-    $this.addFile = function(fileName, fileId) {
-        console.log("addFile(" + fileName + "," + fileId + ")");
+    function createFileDiv(fileName, fileId, onCreate) {
         var re = /(?:\.([^.]+))?$/;
         $.get(
             "/file/icon?ext=" + re.exec(fileName)[1],
             function(data) {
                 var taskFileDiv = $("<div></div>")
                     .addClass('task-file')
-                    .data("id", fileId);
+                    .click(function (e) {
+                        var id = taskFileDiv.data("id");
+                        console.log(id);
+                        if (id)
+                            window.open("/file/" + id, "_blank");
+                    });
+                if (fileId)
+                    taskFileDiv
+                        .data("id", fileId)
+                        .css('cursor', 'pointer');
                 $("<img></img>")
                     .addClass('task-file-icon')
                     .attr('src', data.icon)
@@ -407,13 +415,31 @@ function TaskFiles(root, onFileAdd) {
                     .addClass('task-file-name')
                     .text(fileName)
                     .appendTo(taskFileNameContainer);
+                $("<a></a>")
+                    .addClass('task-file-delete')
+                    .attr("href", "#")
+                    .text("×")
+                    .appendTo(taskFileDiv)
+                    .click(function (e) { 
+                        taskFileDiv.remove();
+                    });
                 var taskFileProgress = $("<div></div>")
                     .addClass('task-file-progress')
-                    .css('width', '100%')
-                    .css('background-color', '#666')
                     .appendTo(taskFileNameContainer);
+                if (fileId)
+                    taskFileProgress
+                        .css('width', '100%')
+                        .css('background-color', '#666');
                 taskFileDiv.appendTo(fileArea);
+                if (onFileAdd)
+                    onFileAdd();
+                if (onCreate)
+                    onCreate(taskFileDiv, taskFileProgress);
             });
+    }
+
+    $this.addFile = function(fileName, fileId) {
+        createFileDiv(fileName, fileId);
     }
 
     function addFileToUpload() {
@@ -421,36 +447,10 @@ function TaskFiles(root, onFileAdd) {
             return;
         var re = /(?:\.([^.]+))?$/;
         var fileName = fileInput.val().split('\\').pop();
-        $.get(
-            "/file/icon?ext=" + re.exec(fileName)[1],
-            function(data) {
-                var taskFileDiv = $("<div></div>")
-                    .addClass('task-file');
-                $("<img></img>")
-                    .addClass('task-file-icon')
-                    .attr('src', data.icon)
-                    .appendTo(taskFileDiv);
-                var taskFileNameContainer = $("<div></div>")
-                    .addClass('task-file-name-container')
-                    .appendTo(taskFileDiv);
-                $("<div></div>")
-                    .addClass('task-file-name')
-                    .text(fileName)
-                    .appendTo(taskFileNameContainer);
-                var taskFileProgress = $("<div></div>")
-                    .addClass('task-file-progress')
-                    .appendTo(taskFileNameContainer);
-                taskFileDiv.appendTo(fileArea);
-                if (onFileAdd)
-                    onFileAdd();
-                uploadFile(taskFileDiv, taskFileProgress);
-            });
+        createFileDiv(fileName, null, uploadFile);
     }
 
     function uploadFile(fileDiv, progressBar) {
-        console.log("uploading file");
-        console.log(fileDiv);
-        console.log(progressBar);
         var file = fileInput[0].files[0];
         var xhr = new XMLHttpRequest();
         xhr.file = file; // not necessary if you create scopes like this

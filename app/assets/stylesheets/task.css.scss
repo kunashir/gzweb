@@ -448,6 +448,20 @@ $blue-back: #F1F8FA;
 				background-color: #D4D421;
 			}
 		}
+
+		.task-file-delete {
+			display: table-cell;
+			color: #999;
+			font-size: 1.1em;
+			font-weight: bold;
+			vertical-align: middle;
+			transition: color 0.1s;
+		}
+
+		.task-file-delete:hover {
+			color: #333;
+			text-decoration: none;
+		}
 	}
 }
 
