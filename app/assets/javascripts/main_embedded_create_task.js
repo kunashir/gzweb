@@ -22,7 +22,7 @@ function createNewTask(event) {
 	$('input.date-picker').val("");
 	updateTaskDatePicker();
 	$('.task-files .task-file').remove();
-	actors.reset();
+	TaskActors().reset();
 
 	taskArea
 		.css('opacity', 0)

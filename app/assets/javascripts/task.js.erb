@@ -243,110 +243,20 @@ function onLookupChanged(element) {
     }
 }
 
-function TaskActors() {
-    var $this = this;
-
-    $this.actors = [{
-        checkbox: $('.co_performers-selector'),
-        input: $('.co_performers-row')
-    }, {
-        checkbox: $('.informants-selector'),
-        input: $('.informants-row')
-    }, {
-        checkbox: $('.controller-selector'),
-        input: $('.controller-row')
-    }];
-
-    $this.init = function() {
-        $this.actors.forEach(function(actor) {
-            actor.checkbox.change(function(e) {
-                e.preventDefault();
-                $this.updateInputs();
-            })
-        });
-        $this.updateInputs();
-    }
-
-    $this.updateInputs = function() {
-        $this.actors.forEach(function(actor) {
-            actor.input.closest('tr').css('display', actor.checkbox.prop("checked") ? "table-row" : "none");
-        });
-    }
-
-    $this.reset = function(name) {
-        if (name) {
-            index = indexByName(name);
-            if (index !== null)
-                $this.actors[index].checkbox.prop("checked", false);
-        }
-        else {
-            $this.actors.forEach(function(actor) {
-                actor.checkbox.prop("checked", false);
-            });
-        }
-        $this.updateInputs();
-    }
-
-    $this.set = function(name) {
-        index = indexByName(name);
-        if (index !== null)
-            $this.actors[index].checkbox.prop("checked", true);
-        $this.updateInputs();
-    }
-
-    $this.focus = function(name) {
-        index = indexByName(name);
-        if (index !== null)
-            $this.actors[index].input.find('.edit-lookup-multi').lookupMulti('focus');
-    }
-
-    $this.disable = function(name) {
-        index = indexByName(name);
-        if (index !== null)
-            $this.actors[index].checkbox.attr("disabled", true);
-    }
-
-    $this.enable = function(name) {
-        index = indexByName(name);
-        if (index !== null)
-            $this.actors[index].checkbox.attr("disabled", false);
-    }
-
-    $this.isSet = function(name) {
-        index = indexByName(name);
-        if (index !== null)
-            return $this.actors[index].checkbox.prop("checked");
-        return null;
-    }
-
-    function indexByName(name) {
-        if (name == 'co_performers')
-            return 0;
-        if (name == 'informants')
-            return 1;
-        if (name == 'controller')
-            return 2;
-        return null;
-    }
-
-    $this.init();
-}
-
 $(function() {
-    actors = new TaskActors();
     taskActions = new TaskActions();
     taskFiles = new TaskFiles($('.create-task'), scrollContentToBottom);
-    $('.actor-selector').click(OnActorSelectorClick);
+    // $('.actor-selector').click(OnActorSelectorClick);
 });
 
-function OnActorSelectorClick(e) {
-    var sender = $(e.target),
-        name = sender.data('name');
+// function OnselectorClick(e) {
+//     var sender = $(e.target),
+//         name = sender.data('name');
 
-    actors.set(name);
-    actors.focus(name);
-    sender.css('display', 'none');
-}
+//     actors.set(name);
+//     actors.focus(name);
+//     sender.css('display', 'none');
+// }
 
 
 function scrollContentToBottom() {
@@ -379,11 +289,11 @@ function TaskActions() {
                 controler: getPerson($('#Task-controller')),
                 content: $('#Task-content').val()
             };
-            if (!actors.isSet('co_performers'))
+            if (!TaskActors('co_performers').isSet())
                 taskData.co_performers = null;
-            if (!actors.isSet('informants'))
+            if (!TaskActors('informants').isSet())
                 taskData.informants = null;
-            if (!actors.isSet('controller'))
+            if (!TaskActors('controller').isSet())
                 taskData.controler = null;
             var date = $('input.date-picker');
             if (date.val().trim().length > 0)
@@ -596,6 +506,11 @@ function initLookupMulti() {
             lookup.wrapper.removeClass('active');
             performerLookup.wrapper.addClass('active');
             onActiveLookupChange(performerLookup);
+            if (!lookup.selection || lookup.selection.length == 0) {
+                var actor = TaskActors(lookup.element[0].id.substring(5));
+                if (actor)
+                    actor.reset();
+            }
         })
         .lookupMulti('change', function (lookup) {
             onLookupChanged(lookup.selection);
@@ -604,16 +519,12 @@ function initLookupMulti() {
     performerLookup.focus();
     performerLookup.change(function () {
         if (performerLookup.selection && performerLookup.selection.length > 1) {
-            actors.reset('co_performers');
-            actors.disable('co_performers');
-            $('.actor-selector.co_performers').css('display', 'none');
+            TaskActors('co_performers').reset();
+            TaskActors('co_performers').disable();
         }
         else {
-            actors.enable('co_performers');
-            if (!actors.isSet('co_performers')) {
-                $('.performer-row .edit-lookup-multi').lookupMulti('realign');
-                $('.actor-selector.co_performers').css('display', 'initial');
-            }
+            TaskActors('co_performers').enable();
+            performerLookup.realign();
         }
     });
 
