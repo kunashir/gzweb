@@ -39,10 +39,13 @@ class TaskInfo < CacheBase
           actions: [
             {action: :sign, text: 'task.signing.sign', comments_required: false},
             {action: :decline, text: 'task.signing.decline', comments_required: true}] }]
+      when is_inform_task?
+        [
+          {action: :complete, text: 'task.inform_task.complete'} ]
       else 
         [ #{action: :comment},
           {action: :redirect},
-          {action: :complete, text: 'task.incdoc_reviewal.complete', comments_required: true}]
+          {action: :complete, text: 'task.complete', comments_required: true}]
     end
   end
 
@@ -134,6 +137,10 @@ class TaskInfo < CacheBase
 
   def is_memorandum_reviewal?
     'memorandum_reviewal' == self.kind.try(:to_s)
+  end
+
+  def is_inform_task?
+    'informational' == self.folder.try(:to_s)
   end
 
   def is_approval?

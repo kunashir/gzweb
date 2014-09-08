@@ -49,13 +49,15 @@ ru:
     complete: "Завершить"
     comments_placeholder: "Ваши комментарии/отчет"
     incdoc_reviewal:
-        complete: "Завершить"
+        complete: "Рассмотрено"
     memorandum_reviewal:
-        complete: "Завершить"
-        reject: "Отклонить"
+        complete: "Рассмотрена"
+        reject: "Отклонена"
     approval:
         approve: 'Согласовано'
         decline: 'Не согласовано'
     signing:
         sign: 'Подписано'
         decline: 'Не подписано'
+    inform_task:
+        complete: 'Ознакомлен'

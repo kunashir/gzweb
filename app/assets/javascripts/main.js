@@ -609,7 +609,7 @@ function showTaskComplete(event) {
 	    subActions = [ 
 			{ action: actionButton.data('action'), 
 			  text: actionButton.text(), 
-			  buttonText: 'OK (' + actionButton.text() + ')',
+			  buttonText: actionButton.text(),
 			  commentsRequired: actionButton.data('comments-required') }];
 	else
 		subActions = subActionItems.map(function (index, value) { 
