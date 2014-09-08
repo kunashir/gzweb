@@ -42,6 +42,12 @@ class TaskInfo < CacheBase
       when is_inform_task?
         [
           {action: :complete, text: 'task.inform_task.complete'} ]
+      when is_accept_task?
+        [
+          {action: :complete, text: 'task.complete',
+            actions: [
+              {action: :accept, text: 'task.accept_task.accept', comments_required: false},
+              {action: :reject, text: 'task.accept_task.reject', comments_required: true}]}]
       else 
         [ #{action: :comment},
           {action: :redirect},
@@ -73,6 +79,13 @@ class TaskInfo < CacheBase
             when :sign
               task_complete(user, 1, options);
             when :decline
+              task_complete(user, 2, options);
+          end
+        when is_accept_task?
+          case action.to_sym
+            when :accept
+              task_complete(user, 1, options);
+            when :reject
               task_complete(user, 2, options);
           end
         else
@@ -139,16 +152,20 @@ class TaskInfo < CacheBase
     'memorandum_reviewal' == self.kind.try(:to_s)
   end
 
-  def is_inform_task?
-    'informational' == self.folder.try(:to_s)
-  end
-
   def is_approval?
     'to_approve' == self.folder.try(:to_s)
   end
 
   def is_signing?
     'to_sign' == self.folder.try(:to_s)
+  end
+
+  def is_inform_task?
+    'informational' == self.folder.try(:to_s)
+  end
+
+  def is_accept_task?
+    'to_accept' == self.folder.try(:to_s)
   end
 
   def task_complete(user, status, options = {})

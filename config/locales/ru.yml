@@ -61,3 +61,6 @@ ru:
         decline: 'Не подписано'
     inform_task:
         complete: 'Ознакомлен'
+    accept_task:
+        accept: 'Принято'
+        reject: 'Отклонено'
