@@ -153,7 +153,7 @@ $blue-back: #F1F8FA;
 
 .task-content-row {
 
-	display:table-row;
+	display:block;
 	height: 100%;
 	width:100%;
 
@@ -527,7 +527,7 @@ $blue-back: #F1F8FA;
 	border-bottom: none;
 	width: 100%;
 	background: white;
-	display:table-row;
+	display:block;
 
 	.form-edit-control {
 		border: none;
@@ -536,9 +536,9 @@ $blue-back: #F1F8FA;
 }
 
 .performer-row-border {
-	border: 1px solid #A6A6A6;
-	border-bottom: none;
-	border-left: none;
+	// border: 1px solid #A6A6A6;
+	// border-bottom: none;
+	// border-left: none;
 
 	.row {
 		font-size: 0.8em;
@@ -590,7 +590,7 @@ $blue-back: #F1F8FA;
 
 
 .task-data-table {
-	display: table;
+	display: block;
 	height: 100%;
 	width:100%;
 }

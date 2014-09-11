@@ -571,3 +571,25 @@ function taskContentClick(e) {
         return;
     taskContent.find('textarea').focus();
 }
+
+function HeightUpdater() {
+    var $this = this,
+        performerRow = $('.performer-row'),
+        contentRow = $('.task-content-row'),
+        height = performerRow.height();
+
+    setInterval(function () {
+        if (height != performerRow.height()) {
+            height = performerRow.height();
+            contentRow.css('padding-bottom', height);
+        }
+    }, 100);
+}
+
+$(function () {
+    new HeightUpdater();
+})
+
+function updateContentSizeHeight() {
+
+}
