@@ -1,3 +1,5 @@
+#encoding: UTF-8
+
 class TaskInfo < CacheBase
 
   after_initialize :init_fields
@@ -10,6 +12,10 @@ class TaskInfo < CacheBase
 
   def ==(other)
     other.class == TaskInfo && task_id == other.task_id
+  end
+
+  def assignment
+    @assignment ||= (assignment_id.nil? ? nil : TaskCard.find(assignment_id))
   end
 
   def self.random
@@ -96,6 +102,52 @@ class TaskInfo < CacheBase
       TasksInfo.recount(user)
     end
     return result
+  end
+
+  def history
+    return { cycles: [] } if assignment.nil?
+    cycle_index = assignment.history.select { |x| !x.date.nil? && !x.author.nil? }.count { |x| x.decision == :completed }
+    cycles = []
+    cycle = nil
+    assignment.history.select { |x| !x.date.nil? }.sort_by { |x| x.date }.reverse.each do |x|
+      if cycle.nil? 
+        cycle = { index: cycle_index, items: [] }
+        cycles << cycle
+      end
+      item = { 
+        author: x.author.display_name, 
+        comment: x.comment,
+        date: x.date.strftime("%d.%m.%Y %H:%M"), 
+        decision: I18n.t("task.history.decision.#{x.decision}"),
+        files: [] 
+      }
+      unless x.files.nil?
+        x.files.references.each do |file|
+          file_card = FileCard.find(file.file_id)
+          unless file_card.file_name.nil?
+            item[:files] << { file_id: file_card.id, filename: file_card.file_name }
+          end
+        end
+      end
+      cycle[:items] << item
+      if x.decision == :completed
+        cycle_index = cycle_index - 1
+        cycle = nil
+      end
+    end
+    # return { cycles: [
+    #   { index: 2, 
+    #     items: [ 
+    #       { author: 'Борисов П.А.', comment: 'Всем привет кого не видел', date: Time.now.strftime("%d.%m.%Y %H:%M"), files: [] },
+    #       { author: 'Мирошин К.Г.', comment: 'Еще один комментарий', date: Time.now.strftime("%d.%m.%Y %H:%M"), files: [] }
+    #     ]
+    #   },
+    #   {
+    #     index: 1,
+    #     items: [
+    #       { author: 'Борисов П.А.', decision: 'Завершено', comment: 'Готово', date: Time.now.strftime("%d.%m.%Y %H:%M"), files: [ { file_id: "34343", filename: "some-file.txt"} ]}
+    #     ]
+    #   }]}
   end
 
   protected

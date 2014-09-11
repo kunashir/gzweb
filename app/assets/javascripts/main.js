@@ -47,6 +47,7 @@ jQuery.fn.extend({
 
 $(function () {
 	$.templates("taskTmpl", {markup: "#task-template", allowCode: true });
+	$.templates("historyTmpl", {markup: "#task-history-template", allowCode: true });
 });
 
 function initMainAreaLayout() {
@@ -598,12 +599,24 @@ function showTaskComplete(event) {
 	var actionButton = $(event.currentTarget),
 		dataArea = $('.data-area'),
  	    taskItem = actionButton.parents('.task-area'),
+		id = taskItem.data('id'),
 	    taskCompleteArea = taskItem.find('.task-complete-area'),
 	    taskActions = taskItem.find('.task-actions'),
 	    comments = taskCompleteArea.find('textarea'),
 	    subActionItems = actionButton.find('.task-action-sub-actions li'),
 	    taskActionsArea = taskItem.find('.task-actions-ok'),
-	    subActions;
+	    subActions,
+	    historyArea = taskItem.find('.task-history-area');
+
+	if (historyArea) {
+		historyArea.css('min-height', '2em').html(
+			$("<div></div>")
+			.addClass("loading")
+			.text("Загрузка хода исполнения..."));
+	    $.get('/task_info/' + id + '/history.json')
+        	.done(function (data) { setHistory(data, historyArea); })
+        	.fail(function (data) { setHistory(data, historyArea); });
+	}
 
 	if (subActionItems.length == 0)
 	    subActions = [ 
@@ -654,6 +667,20 @@ function showTaskComplete(event) {
 	//dataArea.scrollTop(taskItem.position().top + dataArea.scrollTop() - 10);
 }
 
+function setHistory(data, historyArea) {
+	var loading = historyArea.find(".loading");
+	if (!data.history || !data.history.cycles || data.history.cycles.length == 0) {
+		setTimeout(function () {
+			loading.animate({ opacity: 0 }, 400, 'easeOutCirc');
+			historyArea.animate({ 'min-height': '0px'});
+		}, 500);
+		return;
+	}
+	loading.animate({ opacity: 0 }, 400, 'easeOutCirc');
+	historyArea.animate({ 'min-height': '0px'});
+	$($.render.historyTmpl(data.history)).css('display', 'none').appendTo(historyArea).slideDown(400);
+}
+
 function commentsChanged(event) {
 	var comments = $(event.currentTarget);
 	
@@ -671,7 +698,11 @@ function closeTaskComplete(event) {
 		taskItem = $(event.currentTarget).parents('.task-area'),
 	    taskCompleteArea = taskItem.find('.task-complete-area'),
 	    taskActions = taskItem.find('.task-actions'),
-	    comments = taskCompleteArea.find('textarea');
+	    comments = taskCompleteArea.find('textarea'),
+	    historyArea = taskItem.find('.task-history-area');
+
+	if (historyArea)
+		historyArea.html("");
 
 	comments.val('');
 	console.log("Comments = " + comments.val());

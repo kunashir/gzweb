@@ -47,6 +47,15 @@ class TaskInfoController < ApplicationController
     head :no_content
   end
 
+  def history
+    begin
+      @task = TaskInfo.find(params[:id])
+      render json: { history: @task.history }, status: 200
+    rescue
+      render json: { history: { cycles: [] } }, status: 200
+    end
+  end
+
   protected
 
   def format_task_list(task_list)

@@ -136,6 +136,7 @@ class TasksInfo < CacheBase
     cache_task.controler_position = fields["ControlerPosition"]
     cache_task.parent_document_id = fields["DocumentID"]
     cache_task.parent_document = fields["Document"]
+    cache_task.assignment_id = fields["AssignmentID"]
 
     cache_task.kind = nil
 
@@ -154,7 +155,7 @@ class TasksInfo < CacheBase
   end
 
   def self.get_task_fields(cache_task, task)
-    query = <<-send
+    query = <<-SQL
       SELECT 
         author.RowID as AuthorID, 
         author.DisplayString as AuthorName, 
@@ -164,7 +165,8 @@ class TasksInfo < CacheBase
         controlerPosition.Name as ControlerPosition,
         document.InstanceID as DocumentID,
         document.Description as Document,
-        document.CardTypeID as DocumentTypeID
+        document.CardTypeID as DocumentTypeID,
+        CAST(taskProperty.Value as uniqueidentifier) as AssignmentID
       FROM
         [dvtable_{7213A125-2CA4-40EE-A671-B52850F45E7D}] taskMain WITH (NOLOCK)
         LEFT JOIN [dvtable_{DBC8AE9D-C1D2-4D5E-978B-339D22B32482}] author WITH(NOLOCK)
@@ -179,9 +181,11 @@ class TasksInfo < CacheBase
           ON taskRefs.InstanceID = taskMain.InstanceID AND taskRefs.OpenImmediately = 1
         LEFT JOIN [dvsys_instances] document WITH (NOLOCK)
           ON document.InstanceID = taskRefs.RefID and document.CardTypeID <> '{FFF11133-DFC4-4CD6-A2D4-BD242E2A4670}'
+        LEFT JOIN [dvtable_{E1ED3A9F-E462-463C-8F63-D1BBFC7DEDED}] taskProperty WITH (NOLOCK)
+          ON taskProperty.InstanceID = taskMain.InstanceID and taskProperty.Name = 'ParentAssignment'
       WHERE
         taskMain.InstanceID = '#{cache_task.task_id}'
-    send
+    SQL
     ActiveRecord::Base.connection.select_all(query)
   end
 

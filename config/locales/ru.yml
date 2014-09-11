@@ -64,3 +64,15 @@ ru:
     accept_task:
         accept: 'Принято'
         reject: 'Отклонено'
+    history:
+        title: 'Ход исполнения'
+        cycle: 'Цикл'
+        comment: 'Комментарии'
+        files: 'Файлы'
+        decision:
+            reviewed: 'Рассмотрено'
+            improve_needed: 'На доработку'
+            finished: 'Завершено'
+            recalled: 'Отозвано'
+            accepted: 'Принято'
+            completed: 'Исполнено'

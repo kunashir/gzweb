@@ -150,6 +150,10 @@
                 {{/for}}
                 <div class="breaker"></div>
               </div>
+              {{if assignment_id }}
+              <div class="task-history-area" data-id="{{>assignment_id}}">
+              </div>
+              {{/if}}
             </div>
             <div class="task-footer-area">
               <div class="task-complete-area">
@@ -226,6 +230,44 @@
       </div>
       <div class="task-overflow-area"></div>
     </div>
+  </script>
+  <script id="task-history-template" type="text/x-jsrender">
+    <div class="title">
+      <%=t 'task.history.title' %>
+    </div>
+    {{for cycles}}
+      <div class="task-history-cycle">
+        <div class="title">
+          <%=t 'task.history.cycle' %> {{>index}}
+        </div>
+        {{for items}}
+          <div class="task-history-item">
+            <div class="author-row">
+              <div class="author">{{>author}}</div>
+              {{if decision}} 
+                <div class="decision">{{>decision}}</div>
+              {{/if}}
+              <div class="date">{{>date}}</div>
+            </div>
+            {{if comment}}
+              <div class="comment">
+                <div class="title"><%=t 'task.history.comment' %></div>
+                {{>comment}}
+              </div>
+            {{/if}}
+            {{if files.length}}
+              <div class="history-files">
+                <div class="title"><%=t 'task.history.files' %></div>
+                {{for files}}
+                  <a href="/file/{{>file_id}}" target="_blank" class="task-file-ref" data-value="{{>file_id}}" data-name="{{>filename}}">{{>filename}}</a>
+                {{/for}}
+              </div>
+            {{/if}}
+          </div>
+        {{/for}}
+      </div>
+    {{/for}}
+  </script>
   </script>
   <section class="data-area">
     <div id="task-shadow"></div>

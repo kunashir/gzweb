@@ -79,31 +79,6 @@
               </table>
             </div>
           </div>
-  <!--         <div class="row actors-selector">
-            <label>
-                <input class="co_performers-selector" type="checkbox"/>
-                <%=t "task.co_performers" %>
-            </label>
-            <label>
-              <input class="informants-selector" type="checkbox"/>
-              <%=t "task.informants" %>
-            </label>
-            <label>
-              <input class="controller-selector" type="checkbox">
-              <%=t "task.controller" %>
-            </label>
-          </div>
-          <div class="row-group-container">
-            <div class="row-group">
-              <%= row(employees_select(@task, :Task, :co_performers), 
-                label: "task.co_performers", class: 'co_performers-row') %>
-              <%= row(employees_select(@task, :Task, :informants), 
-                label: "task.informants", class: 'informants-row' ) %>
-              <%= row(employee_select(@task, :Task, :controller),
-                label: "task.controller", class: 'controller-row' ) %>
-            </div>
-          </div>
-   -->        
           <div class="task-content-row">
             <div class="task-content-row-scroll">
               <%= row(text_edit(@task, :Task, :content), class: 'task-content') %>
