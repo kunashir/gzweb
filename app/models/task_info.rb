@@ -135,6 +135,7 @@ class TaskInfo < CacheBase
         cycle = nil
       end
     end
+    return { cycles: cycles }
     # return { cycles: [
     #   { index: 2, 
     #     items: [ 

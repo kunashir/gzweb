@@ -132,6 +132,19 @@
                   {{/if}}
                 </div>
               {{/if}}
+              {{if co_performers.length }}
+                <div class="task-co_performers-area">
+                  <div class="header"><%=t "task.co_performers" %></div>
+                  {{for co_performers}}
+                    <div class="task-co_performer-area">
+                      <div class="task-co_performer-name">{{>name}}</div>
+                      {{if position}}
+                        <div class="task-co_performer-position">{{>position}}</div>
+                      {{/if}}
+                    </div>
+                  {{/for}}
+                </div>
+              {{/if}}
               {{if delegated_to }}
                 <div class="task-delegated-area">
                   <div class="header">Распределено:&nbsp;</div>

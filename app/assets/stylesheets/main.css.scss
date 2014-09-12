@@ -562,7 +562,7 @@ body {
 	}
 }
 
-.task-controler-area {
+.task-controler-area, .task-co_performers-area {
 	.header {
 		padding-top: 0.1em;
 		padding-left: 0.6em;
@@ -570,20 +570,19 @@ body {
 		color: #76DD62;
 		font-size: 0.9em;
 		padding-bottom: 0.2em;
-		float: left;
 	}
-	.task-controler-name {
+	.task-controler-name, .task-co_performer-name {
 		padding-left: 0.5em;
-		float: left;
+		display: inline;
 	}
-	.task-controler-position {
+	.task-controler-position, .task-co_performer-position {
 		font-style: italic;
 		font-size: 0.8em;
 		padding-left: 0.1em;
 		padding-top: 0.15em;
-		float: left;
+		display: inline;
 	}
-	.task-controler-position:before {
+	.task-controler-position:before, .task-co_performer-position:before {
     	content: ", ";
    	}
 }

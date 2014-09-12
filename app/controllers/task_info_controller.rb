@@ -72,6 +72,12 @@ class TaskInfoController < ApplicationController
     data["date_date"] = data["date"].strftime("%d.%m.%Y") unless data["date"].nil?
     data["date"] = data["date"].strftime("%d.%m.%Y %H:%M") unless data["date"].nil?
     data[:actions] = translate_actions(task.actions)
+    unless data["co_performers"].nil?
+      data["co_performers"] = data["co_performers"].split("||").map { |x| 
+          { name: x.split("@@")[0], position: x.split("@@")[1] } }
+    else
+      data["co_performers"] = []
+    end
     data
   end
 

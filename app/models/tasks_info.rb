@@ -137,6 +137,7 @@ class TasksInfo < CacheBase
     cache_task.parent_document_id = fields["DocumentID"]
     cache_task.parent_document = fields["Document"]
     cache_task.assignment_id = fields["AssignmentID"]
+    cache_task.co_performers = fields["CoPerformers"]
 
     cache_task.kind = nil
 
@@ -166,7 +167,21 @@ class TasksInfo < CacheBase
         document.InstanceID as DocumentID,
         document.Description as Document,
         document.CardTypeID as DocumentTypeID,
-        CAST(taskProperty.Value as uniqueidentifier) as AssignmentID
+        CAST(taskProperty.Value as uniqueidentifier) as AssignmentID,
+        (SELECT employee.DisplayString + 
+                CASE
+                  WHEN position.name is null THEN
+                    ''
+                  ELSE
+                    '@@' + position.name
+                 END + '||'
+         FROM   [dvtable_{0CE329FC-33E8-4D10-B717-562B7FC1208D}] co_performer
+                JOIN [dvtable_{DBC8AE9D-C1D2-4D5E-978B-339D22B32482}] employee
+                  ON employee.RowID = co_performer.coperformer
+                LEFT JOIN [dvtable_{CFDFE60A-21A8-4010-84E9-9D2DF348508C}] position WITH(NOLOCK)
+                  ON position.RowID = employee.Position
+         WHERE  co_performer.InstanceID = CAST(taskProperty.Value as uniqueidentifier)
+         FOR XML PATH('')) as CoPerformers
       FROM
         [dvtable_{7213A125-2CA4-40EE-A671-B52850F45E7D}] taskMain WITH (NOLOCK)
         LEFT JOIN [dvtable_{DBC8AE9D-C1D2-4D5E-978B-339D22B32482}] author WITH(NOLOCK)

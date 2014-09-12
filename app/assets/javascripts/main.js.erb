@@ -612,7 +612,7 @@ function showTaskComplete(event) {
 		historyArea.css('min-height', '2em').html(
 			$("<div></div>")
 			.addClass("loading")
-			.text("Загрузка хода исполнения..."));
+			.text('<%= I18n.t("task.history.loading") %>'));
 	    $.get('/task_info/' + id + '/history.json')
         	.done(function (data) { setHistory(data, historyArea); })
         	.fail(function (data) { setHistory(data, historyArea); });

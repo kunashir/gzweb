@@ -1,7 +1,7 @@
 require 'dvcore/link'
 
 class TaskCard
-  attr_reader :instance, :main_info, :history
+  attr_reader :instance, :main_info
 
   delegate :id, to: :instance, allow_nil: true
   delegate :sid, to: :instance, allow_nil: true
@@ -19,8 +19,10 @@ class TaskCard
 
     @main_info = TaskCardMainInfo.where(InstanceID: id).first ||
       TaskCardMainInfo.new(InstanceID: id)
+  end
 
-    @history = TaskCardHistory.where(InstanceID: id).to_a || []
+  def history
+    @history ||= TaskCardHistory.where(InstanceID: id).to_a || []
   end
 
   def self.all
