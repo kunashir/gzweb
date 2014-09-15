@@ -403,6 +403,31 @@
 			border: 1px solid #999;
 			cursor: move;
 			color: #CCC;
+
+			.table {
+				display: table;
+				width: 100%;
+			}
+
+			.name {
+				display: table-cell;
+				width: 100%;
+			}
+
+			.remove {
+				display: table-cell;
+				width: 1px;
+				color: #EEE;
+				opacity: 0.5;
+				transition: opacity 0.2s;
+				background-color: #333;
+				cursor: pointer;
+			}
+
+			.remove:hover {
+				opacity: 1;
+				text-decoration: none;
+			}
 		}
 	}
 }

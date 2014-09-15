@@ -28,12 +28,7 @@ function setUserDetails(data) {
 		});
 	if (data["quick_performers"]) {
 		data["quick_performers"].forEach(function (performer) {
-			console.log(performer);
-			$('<li></li>')
-	    		.text(performer.employee_name)
-	    		.data("id", performer.employee_id)
-	    		.data("order", performer.order)
-	    		.data("text", performer.employee_name)
+    		createQuickPerformerLi(performer.employee_id, performer.employee_name)
 				.appendTo(list);
 		});
 	}
@@ -80,16 +75,27 @@ function addQuickPerformers(e) {
     		}
     	}
     	if (!found) {
-	    	$("<li></li>")
-	    		.text(person.text)
-	    		.data("id", person.id)
-	    		.data("order", count++)
-	    		.data("text", person.text)
+    		createQuickPerformerLi(person.id, person.text)
 	    		.appendTo(list);
     	}
     });
     editor.lookupMulti('reset');
     saveQuickPerformers();
+}
+
+function createQuickPerformerLi(id, name)
+{
+	li = $("<li></li>").data("id", id).data("text", name);
+	table = $("<div></div>").addClass('quick-performer').appendTo(li);
+	name = $("<div></div>").addClass('name').text(name).appendTo(table);
+	remove = $("<a></a>").addClass('remove').text("×").click(removeQuickPerformer).appendTo(table);
+
+	return li;
+}
+
+function removeQuickPerformer(e) {
+	$(e.target).closest('li').remove();
+	saveQuickPerformers();
 }
 
 function saveQuickPerformers() {
