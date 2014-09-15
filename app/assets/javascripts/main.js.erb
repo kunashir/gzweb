@@ -852,3 +852,13 @@ function handleDocumentKey(e)
 	if ((e.which || e.keyCode) == 116)  // handling F5
 		taskInfoRefresh(e);
 };
+
+if(!(window.console && console.log)) {
+  console = {
+    log: function(){},
+    debug: function(){},
+    info: function(){},
+    warn: function(){},
+    error: function(){}
+  };
+}
