@@ -19,6 +19,14 @@ gz_test:
   password: Goznak1818
   timeout: 20000
 
+gz:
+  adapter: sqlserver
+  host: 01DVSQL01
+  database: dv
+  username: sa 
+  password: QwertY123
+  timeout: 20000  
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
