@@ -176,6 +176,9 @@ body {
 	font-weight: bold;
 	margin-right: 10px;
 	max-width: 16em;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .user-position {
