@@ -1,0 +1,37 @@
+<%
+  puts "USER: #{@user.inspect}"
+  puts "USER ACCOUNT: #{@user.account_name}"
+  user_selected = @users.any? { |user| puts "ACCOUNT: #{user.account_name}"; user.account_name.try(:downcase) == @user.account_name.try(:downcase) }
+  puts "USER_SELECTED = #{user_selected}"
+%>
+<div class="login-container">
+  <div class="login-user-list">
+    <% @users.each do |user| %>
+      <div class="login-user-container <%= user_selected ? (user.account_name == @user.account_name ? 'selected' : 'inactive') : '' %>">
+        <div class="login-user">
+          <div class="login-user-info">
+            <%= image_tag user.has_photo? ? employee_photo_path(user.employee_id) : "person.png", class: 'user-photo' %>
+            <div class="user-last-name"><%= user.last_name %></div>
+            <div class="user-name">
+              <%= [user.first_name, user.middle_name].join(" ") %>
+            </div>
+            <div class="user-position"><%= user.position.try(:name) %></div>
+          </div>
+          <div class="password-area">
+            <div class="error"><%= flash[:alert] %></div>
+            <form action="<%= user_session_path %>" method="post">
+              <div class="title"><%= "Введите пароль" %></div>
+              <input type="hidden" name="user[account_name]" value="<%= user.account_name %>"></input>
+              <input type="password" name="user[password]"></input>
+              <input type="hidden" name="user[remember_me]" value="1"></input>
+              <input type="submit" value="Войти"></input>
+            </form>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="login-back-area">
+    <a class="login-back-link <%= user_selected ? 'active': '' %>" href="#">Сменить пользователя</a>
+  </div>
+</div>

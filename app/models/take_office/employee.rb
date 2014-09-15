@@ -27,6 +27,7 @@ module TakeOffice
     alias_attribute :first_name, :FirstName
     alias_attribute :last_name, :LastName
     alias_attribute :middle_name, :MiddleName
+    alias_attribute :account_name, :AccountName
 
     def has_photo?
       photos.any?

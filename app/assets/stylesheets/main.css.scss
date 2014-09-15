@@ -183,6 +183,19 @@ body {
 	font-style: italic;
 	margin-right: 10px;
 	max-width: 16em;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.user-actions {
+	overflow: auto;
+
+	a {
+		float: right;
+		font-size: 0.8em;
+		padding: 0.6em 0.6em 0em 0em;
+	}
 }
 
 .task-info > .header {

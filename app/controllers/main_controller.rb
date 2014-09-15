@@ -4,6 +4,7 @@ require "dvcore/security"
 require "security_identifier"
 
 class MainController < ApplicationController
+  before_action :authenticate_user!
   #http_basic_authenticate_with name: "dhh", password: "secret"
 
   def index

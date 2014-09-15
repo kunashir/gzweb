@@ -1,0 +1,19 @@
+<div class="admin-sign-in-area">
+  <div class="title"><%=t 'admin.title' %></div>
+  <div class="error">
+    <%= flash[:alert] %>
+  </div>
+  <%= form_for(@admin, :as => 'admin', :url => new_admin_session_path) do |f| %>
+    <div class="fields">
+      <div class="field">
+        <label for="login"><%=t 'admin.login' %></label>
+        <%= f.text_field :login %>
+      </div>
+      <div class="field">
+        <label for="password"><%=t 'admin.password' %></label>
+        <%= f.password_field :password %>
+      </div>
+    </div>
+    <%= f.submit t('admin.sign_in') %>
+  <% end %>
+</div>

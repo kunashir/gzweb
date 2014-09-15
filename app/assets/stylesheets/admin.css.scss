@@ -1,0 +1,297 @@
+.admin-area {
+	max-width: 960px;
+	margin: auto;
+	background-color: #333;
+	color: #CCC;
+	padding: 0;
+	position: relative;
+}
+
+.admin-sign-in-area {
+	.error {
+		margin: 1em 0em;
+		color: #FD7171;
+		font-weight: bold;
+	}
+
+	.title {
+		font-size: 1.2em;
+		font-weight: bold;
+		margin: 2em 0.5em;
+	}
+
+	.fields {
+		display: table;
+	}
+
+	.field {
+		display: table-row;
+
+		label {
+			display: table-cell;
+			width: 1px;
+			white-space: nowrap;
+			padding: 0.5em 0.5em 0.5em 0em;
+		}
+
+		input {
+			display: table-cell;
+			color: #333;
+			width: 200px;
+		}
+	}
+
+	form {
+		float: left;
+	}
+
+	input[type=submit] {
+		margin: 0.5em 0.5em 0.5em 0em;
+		width: 100%;
+		background-color: #555;
+	}
+}
+
+.admin-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4em;
+
+	.title {
+		font-size: 1.2em;
+		font-weight: bold;
+		float: left;
+		padding: 0.5em;
+	}
+
+	a {
+		float: right;
+		padding: 0.5em;
+	}
+}
+
+.admin-user-block {
+	position: absolute;
+	top: 5em;
+	left: 0em;
+	width: 50%;
+	bottom: 1em;
+	overflow-y: auto;
+
+	.title {
+		font-size: 1.1em;
+		font-weight: bold;
+	}
+}
+
+.admin-user {
+	margin: 0.5em;
+	padding: 0.5em;
+	border: 1px solid #666;
+	overflow: auto;
+
+	.name {
+		font-weight: bold;
+	}
+
+	.name:before {
+		content: "ФИО:";
+		padding-right: 1em;
+		font-weight: normal;
+		text-decoration: underline;
+	}
+
+	.position {
+		font-style: italic;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.position:before {
+		content: "Должность:";
+		padding-right: 1em;
+		font-weight: normal;
+		text-decoration: underline;
+	}
+
+	.account_name:before {
+		content: "Учетная запись:";
+		padding-right: 1em;
+		font-weight: normal;
+		text-decoration: underline;
+	}
+
+	.admin-user-remove {
+		border: 1px solid transparent;
+		border-radius: 2px;
+		float: right;
+		color: #B64B4B;
+		padding: 0.2em 0.5em;
+	}
+
+	.admin-user-remove:hover {
+		border: 1px solid #999;
+		text-decoration: none;
+		color: #EB7A7A;
+	}
+}
+
+.admin-user:hover {
+	background-color: #555;
+	border: 1px solid #999;
+}
+
+.admin-user.selected {
+	background-color: #EEE;
+	color: #333;
+}
+
+.admin-user-new {
+	form {
+		margin: 0.5em;
+		padding: 0.5em;
+		border: 1px solid #666;
+	}
+
+	.fields {
+		display: table;
+		width: 100%;
+	}
+
+	.field {
+		display: table-row;
+
+		.title {
+			display: table-cell;
+			width: 1px;
+			font-weight: normal;
+			font-size: 0.8em;
+			padding: 0.5em 0.5em 0.5em 0em;
+		}
+
+		.value {
+			display: table-cell;
+			width: 100%;
+			padding: 0.5em 0em;
+		}
+
+		input {
+			width: 100%;
+			color: #222;
+		}
+	}
+
+	input[type=submit] {
+		display: block;
+		padding: 0.2em 0.5em;
+		background-color: #444;
+		border: 1px solid #999;
+		width: 100%;
+		text-align: center;
+		margin-top: 0.5em;
+		color: #CCC;
+	}
+
+	input[type=submit]:hover {
+		background-color: #555;
+		text-decoration: none;
+		color: #CCC;
+	}
+}
+
+.admin-user-details-block {
+	position: absolute;
+	top: 5em;	
+	bottom: 1em;
+	left: 50%;
+	right: 0em;
+	overflow-y: auto;
+	opacity: 0;
+	display: none;
+	transition: opacity 0.1s;
+}
+
+.admin-user-details-block.active {
+	display: none;
+	opacity: 0;
+}
+
+.admin-password-block {
+	border: 1px solid #666;
+	padding: 0.5em;
+
+	.title {
+		font-size: 1.1em;
+		font-weight: bold;
+	}
+
+	.password {
+		margin: 1em 0em;
+		color: #222;
+	}
+
+	input[type=submit] {
+		display: block;
+		color: #CCC;
+		padding: 0.2em 0.5em;
+		background-color: #444;
+		border: 1px solid #999;
+		width: 100%;
+		text-align: center;
+	}
+
+	input[type=submit]:hover {
+		background-color: #555;
+		text-decoration: none;
+		color: #CCC;
+	}
+}
+
+.admin-refresh-block {
+	border: 1px solid #666;
+	padding: 0.5em;
+
+	.title {
+		font-size: 1.1em;
+		font-weight: bold;
+	}
+	
+	.count {
+		margin: 1em 0em;
+	}
+
+	.count:before {
+		content: 'У пользователя';
+		padding-right: 6px;
+	}
+
+	.count:after {
+		content: 'заданий';
+		padding-left: 6px;
+		padding-right: 6px;
+	}
+
+	a {
+		background-color: #444;
+		color: #CCC;
+		padding: 0.2em 0.5em;
+		display: block;
+		border: 1px solid #999;
+		text-align: center;
+	}
+
+	a:hover {
+		background-color: #555;
+		text-decoration: none;
+		color: #CCC;
+	}
+
+	a.in_progress {
+		background-image: url('data:image/gif;base64,R0lGODlhEAALAPQAAP///wAAANra2tDQ0Orq6gYGBgAAAC4uLoKCgmBgYLq6uiIiIkpKSoqKimRkZL6+viYmJgQEBE5OTubm5tjY2PT09Dg4ONzc3PLy8ra2tqCgoMrKyu7u7gAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCwAAACwAAAAAEAALAAAFLSAgjmRpnqSgCuLKAq5AEIM4zDVw03ve27ifDgfkEYe04kDIDC5zrtYKRa2WQgAh+QQJCwAAACwAAAAAEAALAAAFJGBhGAVgnqhpHIeRvsDawqns0qeN5+y967tYLyicBYE7EYkYAgAh+QQJCwAAACwAAAAAEAALAAAFNiAgjothLOOIJAkiGgxjpGKiKMkbz7SN6zIawJcDwIK9W/HISxGBzdHTuBNOmcJVCyoUlk7CEAAh+QQJCwAAACwAAAAAEAALAAAFNSAgjqQIRRFUAo3jNGIkSdHqPI8Tz3V55zuaDacDyIQ+YrBH+hWPzJFzOQQaeavWi7oqnVIhACH5BAkLAAAALAAAAAAQAAsAAAUyICCOZGme1rJY5kRRk7hI0mJSVUXJtF3iOl7tltsBZsNfUegjAY3I5sgFY55KqdX1GgIAIfkECQsAAAAsAAAAABAACwAABTcgII5kaZ4kcV2EqLJipmnZhWGXaOOitm2aXQ4g7P2Ct2ER4AMul00kj5g0Al8tADY2y6C+4FIIACH5BAkLAAAALAAAAAAQAAsAAAUvICCOZGme5ERRk6iy7qpyHCVStA3gNa/7txxwlwv2isSacYUc+l4tADQGQ1mvpBAAIfkECQsAAAAsAAAAABAACwAABS8gII5kaZ7kRFGTqLLuqnIcJVK0DeA1r/u3HHCXC/aKxJpxhRz6Xi0ANAZDWa+kEAA7AAAAAAAAAAAA');
+		background-repeat: no-repeat;
+		background-position: right;
+	}
+}

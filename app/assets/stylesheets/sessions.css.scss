@@ -1,0 +1,124 @@
+.login-container {
+	position: absolute;
+	top: 50%;
+	left: 2em;
+	right: 2em;
+	margin-top: -90px;
+}
+
+.login-user-list {
+	margin: auto;
+	display: table;
+}
+
+.login-user-container {
+	float: left;
+	width: 10em;
+	margin: 0em 0.5em;
+	overflow: hidden;
+	opacity: 1;
+	transition: width 0.2s, opacity 0.2s, margin 0.2s;
+
+	.user-photo {
+		transition: height 0.2s;
+	}
+}
+
+.login-user-container.inactive {
+	width: 0em;
+	margin: 0em;
+	opacity: 0;
+}
+
+.login-user-container.selected {
+	width: 16em;
+	margin-top: -5em;
+	.user-photo {
+		height: 120px;
+	}
+
+	.password-area {
+		height: 8.5em;
+	}
+}
+
+.login-user {
+	text-align: center;
+	border: 1px solid #EEE;
+	cursor: pointer;
+
+	.user-photo {
+		margin: auto;
+	}
+
+	.user-last-name {
+		font-weight: bold;
+	}
+
+	.user-name {
+		font-weight: normal;
+		font-size: 0.8em;
+		max-width: none;
+	}
+
+	.user-position {
+		margin: 0em 0.1em;
+		text-align: center;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: none;
+	}
+}
+
+.login-back-area {
+	margin: auto;
+	margin-top: 2em;
+	display: table;
+}
+
+.login-back-link {
+	display: block;
+	text-align: center;
+	border: 1px solid #EEE;
+	padding: 0.2em 0.5em;
+	opacity: 0;
+}
+
+.login-back-link.active {
+	opacity: 1;
+	transition: opacity 0.2s;
+}
+
+.password-area {
+	height: 0px;
+	padding-top: 0.5em;
+	transition: height 0.2s;
+
+	.error {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		color: #D67777;
+		font-size: 0.9em;
+		height: 1.4em;
+	}
+
+	form {
+		margin: 0em 1.5em;
+
+		.title {
+			font-size: 0.9em;
+			margin: 0.5em 0em;
+			font-weight: bold;
+		}
+
+		input {
+			width: 100%;
+		}
+
+		input[type=submit] {
+			margin: 0.5em 0em;
+		}
+	}
+}

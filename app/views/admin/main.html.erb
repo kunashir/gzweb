@@ -1,2 +1,62 @@
-<div>Authenticated as: <%= current_admin.login %></div>
-<%= link_to "Logout", destroy_admin_session_path, method: :delete %>
+<div class="admin-header">
+  <div class="title"><%=t 'admin.title' %></div>
+  <%= link_to "Logout", destroy_admin_session_path, method: :delete %>
+</div>
+<div class="admin-user-block">
+  <div class="title"><%=t 'admin.users.title' %></div>
+  <div class="admin-user-list">
+    <% @users.each do |user| %>
+      <div class="admin-user" data-id="<%= user.id %>">
+        <div class="name"><%= user.display_name %></div>
+        <div class="position"><%= user.position.try(:name) %></div>
+        <div class="account_name"><%= user.account_name %></div>
+        <%= link_to t('admin.users.remove'), admin_remove_user_path(user_id: user.id), class: 'admin-user-remove', method: :delete %>
+      </div>
+    <% end %>
+  </div>
+  <div class="admin-user-new">
+    <div class="title"><%=t 'admin.add_user.title' %></div>
+    <form action="<%= admin_add_user_path %>" method="post">
+      <div class="fields">
+        <div class="field">
+          <div class="title"><%=t 'admin.add_user.name' %></div>
+          <div class="value">
+            <input 
+              type="text"
+              class="edit-lookup-multi" 
+              name="employee_id"
+              value=""
+              spellcheck="false" 
+              placeholder="Выберите сотрудника" 
+              data-id=""
+              data-text=""
+              data-lookup="/employees/find"
+              data-lookup-term="filter"
+              data-lookup-single="true">
+            </input>
+          </div>
+        </div>
+        <div class="field">
+          <div class="title"><%=t 'admin.add_user.password' %></div>
+          <div class="value"><input type="password" class="password" name="password"></input></div>
+        </div>
+      </div>
+      <input type="submit" class="submit" value="<%=t 'admin.add_user.submit' %>"></input>
+    </form>
+  </div>
+</div>
+<div class="admin-user-details-block">
+  <div class="admin-password-block">
+    <div class="title"><%=t 'admin.user.change_password_title' %></div>
+    <form action="<%= admin_set_user_password_path %>" method="post">
+      <input type="hidden" name="employee_id"></input>
+      <input type="password" class="password" name="password"></input>
+      <input type="submit" value="<%=t 'admin.user.change_password' %>"></input>
+    </form>
+  </div>
+  <div class="admin-refresh-block">
+    <div class="title"><%=t 'admin.user.refresh_title' %></div>
+    <div class="count">0</div>
+    <%= link_to t('admin.user.refresh'), admin_refresh_user_path, method: :post %>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 #encoding: UTF-8
+
 class User < CacheBase
+  devise :database_authenticatable, :rememberable
 
   has_one :tasks_info
   has_many :task_infos
@@ -10,6 +12,35 @@ class User < CacheBase
 
   def to_s
     display_name
+  end
+
+  def first_name
+    employee.try(:first_name)
+  end
+
+  def middle_name
+    employee.try(:middle_name)
+  end
+
+  def last_name
+    employee.try(:last_name)
+  end
+
+  def display_name
+    employee.try(:display_name)
+  end
+
+  def account_name
+    employee.try(:account_name) || super
+  end
+
+  def position
+    employee.try(:position)
+  end
+
+  def has_photo?
+    return employee.has_photo? unless employee.nil?
+    return false
   end
 
   def employee
@@ -39,5 +70,18 @@ class User < CacheBase
       u.account_name = demo_user_data[:account_name] || 'GZ\\Trachuk'
     end
     u.save
+  end
+
+  def self.where(*args)
+    if !args.nil? &&
+        args.length == 1 && 
+        args[0].is_a?(Hash) &&
+        args[0].length == 1 &&
+        args[0].keys[0] == :account_name 
+      employee = TakeOffice::Employee.where('AccountName' => args[0].values[0]).first
+      return [] if employee.nil?
+      return self.where(employee_id: employee.id)
+    end
+    super
   end
 end

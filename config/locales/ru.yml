@@ -77,3 +77,22 @@ ru:
             recalled: 'Отозвано'
             accepted: 'Принято'
             completed: 'Исполнено'
+  admin:
+    title: "Область администрирования web-решения"
+    login: "Имя пользователя"
+    password: "Пароль"
+    sign_in: "Войти"
+    users:
+      title: "Пользователи"
+      remove: "Удалить"
+    add_user:
+      title: "Добавить пользователя"
+      name: "Сотрудник"
+      password: "Пароль"
+      submit: "Добавить"
+    user:
+      change_password_title: "Изменение пароля"
+      change_password: "Изменить"
+      refresh_title: "Обновление данных сотрудника"
+      refresh: "Обновить"
+
