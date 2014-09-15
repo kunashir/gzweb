@@ -11,7 +11,7 @@ class MainController < ApplicationController
     @task_info = TasksInfo.get(current_user)
     @user = current_user
     @employee = current_employee
-    @quick_performers = TakeOffice::Employee.quick_performers
+    @quick_performers = current_user.quick_performer_employees
   end
 
   def file

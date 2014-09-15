@@ -5,6 +5,7 @@ class User < CacheBase
 
   has_one :tasks_info
   has_many :task_infos
+  has_many :quick_performers
 
   def ==(other)
     id == other.id
@@ -54,6 +55,14 @@ class User < CacheBase
       self.employee_id = value.id
     end
     @employee = value
+  end
+
+  def quick_performer_employees
+    result = self.quick_performers.order(:order).map { |x| x.employee }
+    if result.blank?
+      result = [ employee ]
+    end
+    result
   end
 
   def self.create_demo_user(demo_user_data = {})

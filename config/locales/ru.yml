@@ -95,4 +95,7 @@ ru:
       change_password: "Изменить"
       refresh_title: "Обновление данных сотрудника"
       refresh: "Обновить"
+    quick_performers:
+      title: "Сотрудники 'быстрого выбора'"
+      add: "Добавить"
 

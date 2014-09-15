@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915043826) do
+ActiveRecord::Schema.define(version: 20140915081141) do
 
   create_table "admins", force: true do |t|
     t.string   "login"
@@ -13063,6 +13063,16 @@ ActiveRecord::Schema.define(version: 20140915043826) do
     t.string "ConfigID", limit: nil, null: false
     t.text   "Data"
   end
+
+  create_table "quick_performers", force: true do |t|
+    t.string   "employee_id"
+    t.integer  "user_id"
+    t.integer  "order",       default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "quick_performers", ["user_id"], name: "index_quick_performers_on_user_id"
 
   create_table "task_files", force: true do |t|
     t.string  "file_id"

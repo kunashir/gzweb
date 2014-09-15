@@ -10,7 +10,7 @@
         <div class="name"><%= user.display_name %></div>
         <div class="position"><%= user.position.try(:name) %></div>
         <div class="account_name"><%= user.account_name %></div>
-        <%= link_to t('admin.users.remove'), admin_remove_user_path(user_id: user.id), class: 'admin-user-remove', method: :delete %>
+        <%= link_to t('admin.users.remove'), admin_remove_user_path(user_id: user.id), class: 'admin-user-remove', method: :delete, confirm: 'Вы уверены что хотите удалить пользователя?' %>
       </div>
     <% end %>
   </div>
@@ -48,15 +48,46 @@
 <div class="admin-user-details-block">
   <div class="admin-password-block">
     <div class="title"><%=t 'admin.user.change_password_title' %></div>
-    <form action="<%= admin_set_user_password_path %>" method="post">
-      <input type="hidden" name="employee_id"></input>
-      <input type="password" class="password" name="password"></input>
-      <input type="submit" value="<%=t 'admin.user.change_password' %>"></input>
-    </form>
+    <div class="admin-change-user-password">
+      <div class="password">
+        <input type="password"></input>
+      </div>
+      <div class="action">
+        <a href="#" class="submit"><%=t 'admin.user.change_password' %></a>
+      </div>
+    </div>
+    <div class="message">Пароль изменен</div>
   </div>
   <div class="admin-refresh-block">
     <div class="title"><%=t 'admin.user.refresh_title' %></div>
     <div class="count">0</div>
-    <%= link_to t('admin.user.refresh'), admin_refresh_user_path, method: :post %>
+    <div class="action">
+      <a href="#" class="submit"><%=t 'admin.user.refresh' %></a>
+    </div>
+    <div class="message"></div>
+  </div>
+  <div class="admin-quick-performers-block">
+    <div class="title"><%=t 'admin.quick_performers.title' %></div>
+    <div class="admin-add-quick-performer">
+      <div class="employee">
+        <input 
+          type="text"
+          class="edit-lookup-multi" 
+          name="employee_id"
+          value=""
+          spellcheck="false" 
+          placeholder="Выберите сотрудника" 
+          data-id=""
+          data-text=""
+          data-lookup="/employees/find"
+          data-lookup-term="filter">
+        </input>
+      </div>
+      <div class="action">
+        <a href="#" class="add"><%=t 'admin.quick_performers.add' %></a>
+      </div>
+    </div>
+    <div class="admin-quick-performers-list">
+    </div>
   </div>
 </div>

@@ -37,12 +37,19 @@
 		input {
 			display: table-cell;
 			color: #333;
-			width: 200px;
+			width: 100%;
 		}
 	}
 
 	form {
-		float: left;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 400px;
+		margin-left: -200px;
+		margin-top: -6em;
+		padding: 0.5em;
+		border: 1px solid #999;
 	}
 
 	input[type=submit] {
@@ -91,6 +98,7 @@
 	padding: 0.5em;
 	border: 1px solid #666;
 	overflow: auto;
+	cursor: pointer;
 
 	.name {
 		font-weight: bold;
@@ -136,6 +144,7 @@
 		border: 1px solid #999;
 		text-decoration: none;
 		color: #EB7A7A;
+		background-color: #333;
 	}
 }
 
@@ -145,7 +154,7 @@
 }
 
 .admin-user.selected {
-	background-color: #EEE;
+	background-color: #CCC;
 	color: #333;
 }
 
@@ -211,12 +220,16 @@
 	overflow-y: auto;
 	opacity: 0;
 	display: none;
-	transition: opacity 0.1s;
+	transition: opacity 0.2s;
+	background-color: #CCC;
+	color: #333;
+	border: 1px solid white;
+	padding: 5px;
 }
 
 .admin-user-details-block.active {
-	display: none;
-	opacity: 0;
+	display: block;
+	opacity: 1;
 }
 
 .admin-password-block {
@@ -228,31 +241,56 @@
 		font-weight: bold;
 	}
 
-	.password {
-		margin: 1em 0em;
-		color: #222;
-	}
-
-	input[type=submit] {
-		display: block;
-		color: #CCC;
-		padding: 0.2em 0.5em;
-		background-color: #444;
-		border: 1px solid #999;
+	.admin-change-user-password {
+		display: table;
+		margin: 0.5em 0em;
 		width: 100%;
-		text-align: center;
+
+		.password { 
+			display: table-cell;
+			width: 100%;
+			padding: 0.5em 0.5em 0.5em 0em;
+
+			input {
+				color: #333;
+				width: 100%;
+			}
+		}
+
+		.action {
+			width: 1px;
+			display: table-cell;
+			padding: 0.5em 0em;
+
+			a {
+				background-color: #444;
+				color: #CCC;
+				border: 1px solid #999;
+				padding: 0.2em 0.5em;
+				text-decoration: none;
+				white-space: nowrap;
+			}
+
+			a:hover {
+				background-color: #555;
+				text-decoration: none;
+			}
+		}
 	}
 
-	input[type=submit]:hover {
-		background-color: #555;
-		text-decoration: none;
-		color: #CCC;
+	.message {
+		color: green;
+		font-weight: bold;
+		font-size: 0.9em;
+		opacity: 0;
+		margin: -1em 0em -0.3em 0.2em;
 	}
 }
 
 .admin-refresh-block {
 	border: 1px solid #666;
 	padding: 0.5em;
+	margin-top: 1em;
 
 	.title {
 		font-size: 1.1em;
@@ -293,5 +331,78 @@
 		background-image: url('data:image/gif;base64,R0lGODlhEAALAPQAAP///wAAANra2tDQ0Orq6gYGBgAAAC4uLoKCgmBgYLq6uiIiIkpKSoqKimRkZL6+viYmJgQEBE5OTubm5tjY2PT09Dg4ONzc3PLy8ra2tqCgoMrKyu7u7gAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCwAAACwAAAAAEAALAAAFLSAgjmRpnqSgCuLKAq5AEIM4zDVw03ve27ifDgfkEYe04kDIDC5zrtYKRa2WQgAh+QQJCwAAACwAAAAAEAALAAAFJGBhGAVgnqhpHIeRvsDawqns0qeN5+y967tYLyicBYE7EYkYAgAh+QQJCwAAACwAAAAAEAALAAAFNiAgjothLOOIJAkiGgxjpGKiKMkbz7SN6zIawJcDwIK9W/HISxGBzdHTuBNOmcJVCyoUlk7CEAAh+QQJCwAAACwAAAAAEAALAAAFNSAgjqQIRRFUAo3jNGIkSdHqPI8Tz3V55zuaDacDyIQ+YrBH+hWPzJFzOQQaeavWi7oqnVIhACH5BAkLAAAALAAAAAAQAAsAAAUyICCOZGme1rJY5kRRk7hI0mJSVUXJtF3iOl7tltsBZsNfUegjAY3I5sgFY55KqdX1GgIAIfkECQsAAAAsAAAAABAACwAABTcgII5kaZ4kcV2EqLJipmnZhWGXaOOitm2aXQ4g7P2Ct2ER4AMul00kj5g0Al8tADY2y6C+4FIIACH5BAkLAAAALAAAAAAQAAsAAAUvICCOZGme5ERRk6iy7qpyHCVStA3gNa/7txxwlwv2isSacYUc+l4tADQGQ1mvpBAAIfkECQsAAAAsAAAAABAACwAABS8gII5kaZ7kRFGTqLLuqnIcJVK0DeA1r/u3HHCXC/aKxJpxhRz6Xi0ANAZDWa+kEAA7AAAAAAAAAAAA');
 		background-repeat: no-repeat;
 		background-position: right;
+	}
+
+	.message {
+		color: green;
+		font-weight: bold;
+		font-size: 0.9em;
+		opacity: 0;
+		margin: 0.1em 0em -0.3em 0.2em;
+	}	
+}
+
+.admin-quick-performers-block {
+	border: 1px solid #666;
+	padding: 0.5em;
+	margin-top: 1em;
+
+	.title {
+		font-size: 1.1em;
+		font-weight: bold;
+	}
+
+	.admin-add-quick-performer {
+		display: table;
+		margin: 0.5em 0em;
+		width: 100%;
+
+		.employee { 
+			display: table-cell;
+			width: 100%;
+			padding: 0.5em 0.5em 0.5em 0em;
+
+			input {
+				color: #333;
+			}
+		}
+
+		.action {
+			width: 1px;
+			display: table-cell;
+			padding: 0.5em 0em;
+			vertical-align: center;
+
+			a {
+				background-color: #444;
+				color: #CCC;
+				border: 1px solid #999;
+				padding: 0.2em 0.5em;
+				text-decoration: none;
+				white-space: nowrap;
+			}
+
+			a:hover {
+				background-color: #555;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.admin-quick-performers-list {
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		li {
+			background-color: #333;
+			margin: 0.5em 1em;
+			padding: 0.2em 0.5em;
+			border: 1px solid #999;
+			cursor: move;
+			color: #CCC;
+		}
 	}
 }
