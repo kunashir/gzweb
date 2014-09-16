@@ -252,8 +252,9 @@ class TasksInfo < CacheBase
   end
 
   def self.is_to_accept(task_info, employee)
-    return task_info[:AssignmentState] == 5 ||
-           task_info[:Controller] == employee.employee_id
+    return task_info[:AssignmentState] == 5
+    # in C# there's test for the next line, but it seems that it's written wrong and is invalid
+    # || task_info[:Controller] == employee.employee_id
   end
 
   def self.is_delegated(task_info, employee)
