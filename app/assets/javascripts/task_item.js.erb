@@ -1,0 +1,223 @@
+function TaskItem(task, taskArea) {
+	var $this = this,
+		selectHandlers = [],
+		id = task.data('id'),
+		historyArea = task.find('.task-history-area'),
+		taskActionsArea = task.find('.task-actions-ok'),
+		taskFooter = task.find('.task-footer-area'),
+		taskCompleteArea = task.find('.task-complete-area'),
+		comments = taskCompleteArea.find('textarea'),
+		taskFiles = new TaskFiles(task),
+		cancel = task.find(".task-action-cancel"),
+		taskCompletionButtons = task.find('.task-normal-action'),
+	    actionError = task.find('.task-action-error'),
+	    actionProgress = task.find('.task-action-progress'),
+	    actionCloseBtn = task.find('.task-action-error-close'),
+	    actionMessage = task.find('.task-action-message'),
+	    actionLid = task.find('.task-action-lid'),
+	    completionShown = false;
+
+    comments
+    	.change(taskContentAutoSize)
+    	.keydown(taskContentAutoSize)
+    	.keyup(taskContentAutoSize);
+	taskContentAutoSize(comments);
+
+	task.click(taskClick);
+	cancel.click(hideCompletionArea);
+	taskCompletionButtons.click(completeTask);
+	actionCloseBtn.click(closeErrorMessage);
+
+	function taskClick(event) {
+		if (event.originalEvent.srcElement.nodeName == 'A')
+			return;
+		event.preventDefault();
+		showCompletionArea();
+	}
+
+	function showCompletionArea() {
+		if (completionShown)
+			return;
+		loadHistory();
+
+		taskFooter.animate({height: '7em'}, 400, 'easeOutCirc', function () {
+			taskFooter.css('height', 'auto');
+		});
+		taskArea.hideTaskScroll();
+		initialScroll = taskArea.scrollPosition();
+		taskArea.scrollTo(task.position().top + initialScroll - 10);
+		task.animate({height: '100%'}, 200, 'easeOutCirc', function () { 
+			task.css('display', 'block');
+		});
+
+		comments.focus();
+
+		completionShown = true;
+	}
+
+	function hideCompletionArea(event) {
+		event.preventDefault();
+
+		var dataArea = $('.data-area'),
+			taskItem = $(event.currentTarget).parents('.task-area'),
+		    taskCompleteArea = taskItem.find('.task-complete-area'),
+		    taskActions = taskItem.find('.task-actions'),
+		    comments = taskCompleteArea.find('textarea'),
+		    historyArea = taskItem.find('.task-history-area');
+
+		if (historyArea)
+			historyArea.html("");
+
+		comments.val('');
+		taskContentAutoSize(comments);
+		taskFiles.clear();
+
+		task.css('display', 'table');
+		taskFooter.animate({height: '0em'}, 400, 'easeOutCirc');
+		task.animate({height: '1px'}, 400, 'easeOutCirc');
+		taskArea.scrollTo(initialScroll, taskArea.showTaskScroll);
+		
+		completionShown = false;
+	}
+
+	function loadHistory() {
+		if (historyArea) {
+			historyArea.css('min-height', '2em').html(
+				$("<div></div>")
+				.addClass("loading")
+				.text('<%= I18n.t("task.history.loading") %>'));
+		    $.get('/task_info/' + id + '/history.json')
+	        	.done(setHistory)
+	        	.fail(setHistory);
+		}
+	}
+
+	function setHistory(data) {
+		console.log(data);
+		var loading = historyArea.find(".loading");
+		if (!data.history || !data.history.cycles || data.history.cycles.length == 0) {
+			setTimeout(function () {
+				loading.animate({ opacity: 0 }, 400, 'easeOutCirc');
+				historyArea.animate({ 'min-height': '0px'});
+			}, 500);
+			return;
+		}
+		loading.animate({ opacity: 0 }, 400, 'easeOutCirc');
+		historyArea.animate({ 'min-height': '0px'});
+		$($.render.historyTmpl(data.history)).css('display', 'none').appendTo(historyArea).slideDown(400);
+	}
+
+	function completeTask(event) {
+		event.preventDefault();
+
+		var actionButton = $(event.currentTarget),
+		    commentsText = comments.val().trim();
+
+		if (actionButton.data("comments-required") && commentsText == "") {
+		    actionMessage.text('Не задан комментарий');
+		    actionError.text('Комментарий обязателен при завершении поручения с решением "' + actionButton.data('action-text') + '"').css('display', 'block');
+		    actionProgress.css('display', 'none');
+		    actionCloseBtn.css('display', 'inline-block');
+		    actionLid.css('opacity', '0').css('display', 'block').animate({
+		        opacity: 1
+		    }, 400);
+		    return;
+		}
+
+		var fileArray = task.find('.task-files .task-file').map(function(i, file) {
+	                return $(file).data("id");
+	            }).toArray();
+
+	    var taskData = {
+	        task_action: actionButton.data('action'),
+	        comments: commentsText,
+	        files: fileArray
+	    };
+
+	    actionError.css('display', 'none');
+	    actionProgress.css('display', 'inline-block');
+	    actionCloseBtn.css('display', 'none');
+	    actionMessage.text('Завершение поручения');
+	    actionLid.css('opacity', '0').css('display', 'block').animate({
+	        opacity: 1
+	    }, 400);
+
+	    $.post('/task_info/' + id + '/perform.json', taskData)
+	        .done(function (data) {
+	        	var result = '';
+	            if (data && data.result)
+	                result = data.result;
+	        	onCompleteTaskDone(result);
+	        })
+	        .fail(function (data) {
+	            var errorText = "Внутренняя ошибка приложения";
+	            if (data.responseJSON && data.responseJSON.error)
+	                errorText = data.responseJSON.error;
+	            onCompleteTaskError(errorText);
+	        });
+	}
+
+	function onCompleteTaskError(errorMessage) {
+	    actionMessage.text('Ошибка завершения поручения');
+	    actionError.text(errorMessage).css('display', 'block');
+	    actionProgress.css('display', 'none');
+	    actionCloseBtn.css('display', 'inline-block');
+	}
+
+	function onCompleteTaskDone(result) {
+	    actionMessage.text('Поручение завершено');
+	    actionProgress.css('display', 'none');
+	    setTimeout(function() {
+			hideTaskLid(function () { onTaskCompleted(result); });
+	    }, 1000);
+	}
+
+	function onTaskCompleted(result) {
+		if (result == 'folder_remove')
+			removeTask();
+		else
+			hideCompletionArea();
+	}
+
+	function hideTaskLid(onLidHidden) {
+		actionLid.animate({
+		    opacity: 0
+		}, 200, 'easeOutCirc', function() {
+		    actionLid.css('display', 'none');
+	    	if (onLidHidden instanceof Function)
+	    		onLidHidden();
+		});
+	}	
+
+	function removeTask() {
+		taskArea.scrollTo(initialScroll);
+		task.css('display', 'block');
+		task.animate({
+			'height': '0px',
+			'padding-bottom': '0px'
+		}, 400, 'easeOutCirc', function() {
+			if (activeFolder) {
+				var total = $('.task-info-' + activeFolder).find('.total')
+				if (+(total.text()) > 0)
+					total.text(+(total.text()) - 1);
+				var newTasks = $('.task-info-' + activeFolder).find('.new')
+				if (task.data('new') && +(newTasks.text()) > 0) {
+					newTasks.text(+(newTasks.text()) - 1);
+					if (+(newTasks.text()) == 0)
+						newTasks.removeClass('non-zero');
+				}
+			}
+			task.remove();
+			if (activeFolder) {
+				if ($("#task-list").html() == 0) {
+					$("#task-list").html("<table class=\"fullsize table__content--center\"><td>Здесь Вы будете видеть " + empty_list_text(activeFolder) + "</td></table>")
+				}		
+			}
+		})
+	}
+
+	function closeErrorMessage(e) {
+		event.preventDefault();
+		hideTaskLid();
+	}
+}

@@ -25,37 +25,28 @@ class TaskInfo < CacheBase
   def actions
     case
       when is_incdoc_reviewal?
-        [ #{action: :comment},
-          {action: :redirect},
+        [ {action: :redirect},
           {action: :complete, text: 'task.incdoc_reviewal.complete', comments_required: false}]
       when is_memorandum_reviewal?
-        [ #{action: :comment},
-          {action: :redirect},
-          {action: :reject, text: 'task.memorandum_reviewal.reject', comments_required: true},
-          {action: :complete, text: 'task.memorandum_reviewal.complete', comments_required: false}]
+        [ {action: :redirect},
+          {action: :complete, text: 'task.memorandum_reviewal.complete', comments_required: false},
+          {action: :reject, text: 'task.memorandum_reviewal.reject', comments_required: true}]
       when is_approval?
-        [ #{action: :comment},
-          {action: :complete, text: 'task.complete',
-          actions: [
-             {action: :approve, text: 'task.approval.approve', comments_required: false},
-             {action: :decline, text: 'task.approval.decline', comments_required: true}] }]
+        [ {action: :redirect},
+          {action: :approve, text: 'task.approval.approve', comments_required: false},
+          {action: :decline, text: 'task.approval.decline', comments_required: true}]
       when is_signing?
-        [ #{action: :comment},
-          {action: :complete, text: 'task.complete',
-          actions: [
-            {action: :sign, text: 'task.signing.sign', comments_required: false},
-            {action: :decline, text: 'task.signing.decline', comments_required: true}] }]
+        [ {action: :redirect},
+          {action: :sign, text: 'task.signing.sign', comments_required: false},
+          {action: :decline, text: 'task.signing.decline', comments_required: true}]
       when is_inform_task?
-        [
+        [ {action: :redirect},
           {action: :complete, text: 'task.inform_task.complete'} ]
       when is_accept_task?
-        [
-          {action: :complete, text: 'task.complete',
-            actions: [
-              {action: :accept, text: 'task.accept_task.accept', comments_required: false},
-              {action: :reject, text: 'task.accept_task.reject', comments_required: true}]}]
+        [ {action: :accept, text: 'task.accept_task.accept', comments_required: false},
+          {action: :reject, text: 'task.accept_task.reject', comments_required: true}]
       else 
-        [ #{action: :comment},
+        [ {action: :comment},
           {action: :redirect},
           {action: :complete, text: 'task.complete', comments_required: true}]
     end
@@ -118,9 +109,11 @@ class TaskInfo < CacheBase
         author: x.author.display_name, 
         comment: x.comment,
         date: x.date.strftime("%d.%m.%Y %H:%M"), 
-        decision: I18n.t("task.history.decision.#{x.decision}"),
         files: [] 
       }
+      if (x.decision)
+        item[:decision] = I18n.t("task.history.decision.#{x.decision}")
+      end
       unless x.files.nil?
         x.files.references.each do |file|
           file_card = FileCard.find(file.file_id)

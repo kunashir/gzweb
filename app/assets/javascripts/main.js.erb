@@ -484,53 +484,30 @@ function load_list(folder) {
 }
 
 function fill_list(data) {
+	taskArea = new TaskArea($(".data-area"));
+
 	for(i in data.task_list) {
 		data.task_list[i].html_content = $('<div/>').text(data.task_list[i].content).html().replace("\n", "<br/>");
 		data.task_list[i].deadline_time_till = "до " + data.task_list[i].deadline_time + " часов"
 	}
 	task_item = $("#task-list").html($.render.taskTmpl(data.task_list));
+
+	var tasks = task_item.find('.task-area');
+	var taskCount = tasks.length;
+	for(var i = 0; i < tasks.length; i++) {
+		tasks[i].itemData = new TaskItem($(tasks[i]), taskArea);
+	}
     $("#task-shadow").css('z-index', -1)
     	.animate({ opacity: 0 }, 400, 'easeOutCirc');
     $("#task-list")
-    	.animate({ opacity: 1 }, 400, 'easeOutCirc', showTaskScroll);
+    	.animate({ opacity: 1 }, 400, 'easeOutCirc', taskArea.showTaskScroll);
 	selectedTask = null;
-    $(".task-area").click(task_select);
-    init_task_actions($(task_item));
-}
 
-function task_select(event) {
-	/*if (event.originalEvent.srcElement.nodeName == 'A')
-		return;*/
-	/*event.preventDefault();*/
-	if (selectedTask == event.currentTarget)
-		return;
-	if (selectedTask)
-		$(selectedTask).removeClass("selected");
-	selectedTask = event.currentTarget;
-	$(selectedTask).addClass("selected");
+    init_task_actions($(task_item));
 }
 
 function init_task_actions(taskList) {
 	taskList.find(".task-action-delegate").click(createSubTask);
-	taskList.find(".task-action-complete").click(showTaskComplete);
-	taskList.find(".task-action-reject").click(showTaskComplete);
-	taskList.find(".task-action-cancel").click(closeTaskComplete);
-	taskList.find(".task-action-error-close").click(closeErrorMessage);
-	taskList.find(".task-comments").change(commentsChanged);
-	taskList.find(".task-comments").keyup(commentsChanged);
-	taskList.find(".task-comments").bind('paste', commentsChanged);
-	tasks = taskList.find(".task-area");
-	for (var i = 0; i < tasks.length; i++) {
-		tasks[i].taskFiles = new TaskFiles($(tasks[i]));
-		console.log($(tasks[i]));
-		console.log($(tasks[i]).find('textarea'));
-		var commentArea = $(tasks[i]).find('textarea');
-	    commentArea
-        	.change(taskContentAutoSize)
-        	.keydown(taskContentAutoSize)
-        	.keyup(taskContentAutoSize);
-    	taskContentAutoSize(commentArea);
-	}
 }
 
 function createSubTask(event) {
@@ -591,104 +568,6 @@ function createSubTask(event) {
 					taskArea.css('display', 'none');
 				});
 	}
-}
-
-function showTaskComplete(event) {
-	event.preventDefault();
-
-	var actionButton = $(event.currentTarget),
-		dataArea = $('.data-area'),
- 	    taskItem = actionButton.parents('.task-area'),
-		id = taskItem.data('id'),
-	    taskCompleteArea = taskItem.find('.task-complete-area'),
-	    taskActions = taskItem.find('.task-actions'),
-	    comments = taskCompleteArea.find('textarea'),
-	    subActionItems = actionButton.find('.task-action-sub-actions li'),
-	    taskActionsArea = taskItem.find('.task-actions-ok'),
-	    subActions,
-	    historyArea = taskItem.find('.task-history-area');
-
-	if (historyArea) {
-		historyArea.css('min-height', '2em').html(
-			$("<div></div>")
-			.addClass("loading")
-			.text('<%= I18n.t("task.history.loading") %>'));
-	    $.get('/task_info/' + id + '/history.json')
-        	.done(function (data) { setHistory(data, historyArea); })
-        	.fail(function (data) { setHistory(data, historyArea); });
-	}
-
-	if (subActionItems.length == 0)
-	    subActions = [ 
-			{ action: actionButton.data('action'), 
-			  text: actionButton.text(), 
-			  buttonText: actionButton.text(),
-			  commentsRequired: actionButton.data('comments-required') }];
-	else
-		subActions = subActionItems.map(function (index, value) { 
-			return { 
-				action: value.getAttribute('data-action'),
-			  	text: value.getAttribute('data-text'),
-			  	buttonText: value.getAttribute('data-text'),
-			  	commentsRequired: value.getAttribute('data-comments-required') == ("" + true)
-			} 
-		});
-
-	taskActionsArea.html("");
-
-	for (var i = 0; i < subActions.length; i++) {
-		$("<a></a>")
-	 		.attr('href', '#')
-	 		.data('action', subActions[i].action)
-	 		.data('action-text', subActions[i].text)
-	 		.data('comments-required', subActions[i].commentsRequired)
-			.text(subActions[i].buttonText)
-			.click(completeTask)
-			.appendTo(taskActionsArea);
-	}
-
-	if (subActionItems.length == 0) {
-		comments.data('required', actionButton.data('comments-required'))
-		if (comments.data('required'))
-			comments.addClass('required');
-		else
-			comments.removeClass('required');
-	}
-
-	hideTaskScroll();
-	initialScroll = dataArea.scrollTop();
-	taskCompleteArea.animate({height: '60px', 'min-height': '60px'}, 400, 'easeOutCirc', function () { taskCompleteArea.css('height', 'auto')});
-	taskActions.animate({'margin-top': '-2.5em'}, 400, 'easeOutCirc');
-	comments.focus();
-	dataArea.animate({scrollTop: taskItem.position().top + dataArea.scrollTop() - 10}, 200, 'easeOutCirc');
-	taskItem.animate({height: '100%'}, 200, 'easeOutCirc', function () { 
-		taskItem.css('display', 'block');
-	});
-	//dataArea.scrollTop(taskItem.position().top + dataArea.scrollTop() - 10);
-}
-
-function setHistory(data, historyArea) {
-	var loading = historyArea.find(".loading");
-	if (!data.history || !data.history.cycles || data.history.cycles.length == 0) {
-		setTimeout(function () {
-			loading.animate({ opacity: 0 }, 400, 'easeOutCirc');
-			historyArea.animate({ 'min-height': '0px'});
-		}, 500);
-		return;
-	}
-	loading.animate({ opacity: 0 }, 400, 'easeOutCirc');
-	historyArea.animate({ 'min-height': '0px'});
-	$($.render.historyTmpl(data.history)).css('display', 'none').appendTo(historyArea).slideDown(400);
-}
-
-function commentsChanged(event) {
-	var comments = $(event.currentTarget);
-	
-	if (comments.data('required'))
-		if (comments.val().trim() == "")
-			comments.addClass('required');
-		else
-			comments.removeClass('required');
 }
 
 function closeTaskComplete(event) {
@@ -774,17 +653,6 @@ function completeTask(event) {
             onCompleteTaskError(errorText, actionMessage, actionError, actionProgress, actionCloseBtn);
         });
 }
-
-function hideTaskScroll() {
-	$('.data-area').css('overflow-y', 'hidden');
-	$('#task-list').css('padding-right', '17px');
-}
-
-function showTaskScroll() {
-	$('.data-area').css('overflow-y', 'scroll');
-	$('#task-list').css('padding-right', '0px');
-}
-
 
 function onCompleteTaskError(errorMessage, message, error, progress, closeBtn) {
     message.text('Ошибка завершения поручения');

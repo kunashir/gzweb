@@ -1,0 +1,23 @@
+function TaskArea(container) {
+	var $this = this,
+		taskList = container.find('#task-list'),
+		initialScroll = 0;
+
+	this.hideTaskScroll = function() {
+		container.css('overflow-y', 'hidden');
+		taskList.css('padding-right', '17px');
+	}
+
+	this.showTaskScroll = function() {
+		container.css('overflow-y', 'scroll');
+		taskList.css('padding-right', '0px');
+	}
+
+	this.scrollPosition = function() {
+		return container.scrollTop();
+	}
+
+	this.scrollTo = function(value, afterScrollFunc) {
+		container.animate({scrollTop: value}, 200, 'easeOutCirc', afterScrollFunc);
+	}
+}

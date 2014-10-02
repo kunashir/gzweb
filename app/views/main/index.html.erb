@@ -172,75 +172,68 @@
               </div>
               {{/if}}
             </div>
-            <div class="task-footer-area">
-              <div class="task-complete-area">
-                <input class="task-add-file-input" type="file"/>
-                <div class="task-comments-row">
-                  <div class="task-add-file-wrapper">
-                    <a href="#" class="task-add-file"><%=t "task.add_file" %></a>
-                  </div>
-                  <div class="task-comments-text">
-                    <div class="task-comments-scroll">
-                      <div class="textarea-container">
-                        <textarea id="{{>id}}_content" placeholder="<%=t 'task.comments_placeholder' %>"></textarea>
-                        <div id="{{>id}}_content-copy" class="text-area-copy"></div>
-                      </div>
-                      <div class="task-files-container">
-                        <div class="task-files"></div>
-                      </div>
+          </div>
+          <div class="task-footer-area">
+            <div class="task-complete-area">
+              <input class="task-add-file-input" type="file"/>
+              <div class="task-comments-row">
+                <div class="task-add-file-wrapper">
+                  <a href="#" class="task-add-file"><%=t "task.add_file" %></a>
+                </div>
+                <div class="task-comments-text">
+                  <div class="task-comments-scroll">
+                    <div class="textarea-container">
+                      <textarea id="{{>id}}_content" placeholder="<%=t 'task.comments_placeholder' %>"></textarea>
+                      <div id="{{>id}}_content-copy" class="text-area-copy"></div>
+                    </div>
+                    <div class="task-files-container">
+                      <div class="task-files"></div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="task-actions-area">
-                <div class="task-actions">
-                  <div class="task-action-wrapper">
-                    {{* if (data.actions.any(function (action) { return action.action == 'comment'; })) { }}
-                      <a class="task-action-comment" href="#">Комментировать</a>
-                    {{* } }}
-                  </div>
-                  <div class="task-action-delegate-wrapper">
-                    {{* if (data.actions.any(function (action) { return action.action == 'redirect'; })) { }}
-                      <a class="task-action-delegate" href="#">Распределить</a>
-                    {{* } }}
-                  </div>
-                  {{for actions}}
-                    {{if action != 'redirect' && action != 'comment' }}
-                      <div class="task-action-wrapper">
-                        <a class="task-action-{{>action}}" href="#" data-action="{{>action}}" data-comments-required="{{>comments_required}}">{{>text}}
-                          {{if actions }}
-                            <ul class="task-action-sub-actions">
-                              {{for actions}}
-                                <li data-text="{{>text}}" data-action="{{>action}}" data-comments-required="{{>comments_required}}"></li>
-                              {{/for}}}
-                            </ul>
-                          {{/if}}
-                        </a>
-                      </div>
-                    {{/if}}
-                  {{/for}}
+            </div>
+            <div class="task-actions-area">
+              <div class="task-actions">
+                <div class="task-action-wrapper">
+                  {{* if (data.actions.any(function (action) { return action.action == 'comment'; })) { }}
+                    <a class="task-action-comment" href="#">Комментировать</a>
+                  {{* } }}
                 </div>
-                <div class="breaker"></div>
-                <div class="task-actions-apply">
-                <div class="task-actions-ok"></div>
+                <div class="task-action-wrapper">
+                  <a class="task-action-tree" href="#">Дерево поручений</a>
+                </div>
+                <div class="task-action-delegate-wrapper">
+                  {{* if (data.actions.any(function (action) { return action.action == 'redirect'; })) { }}
+                    <a class="task-action-delegate" href="#">Поручить</a>
+                  {{* } }}
+                </div>
+                {{for actions}}
+                  {{if action != 'redirect' && action != 'comment' }}
+                    <div class="task-action-wrapper">
+                      <a class="task-action-{{>action}} task-normal-action" href="#" data-action="{{>action}}" data-comments-required="{{>comments_required}}" data-action-text="{{>text}}">{{>text}}
+                      </a>
+                    </div>
+                  {{/if}}
+                {{/for}}
+                <div class="task-action-wrapper">
                   <a class="task-action-cancel" href="#">Отмена</a>
                 </div>
-                <div class="breaker"></div>
               </div>
             </div>
           </div>
-          <div class="task-action-lid">
-            <div class="task-action-cell">
-              <div class="task-action-box">
-                <div class="task-action-message">
-                  Отправка поручения
-                </div>
-                <div class="task-action-error">
-                  Здесь идет текст ошибки в случае неудачной отправки. Он может быть достаточно длинным и даже в несколько строк. Пишем и пишем и пишем долго и много
-                </div>
-                <%= image_tag 'ajax-loader.gif', class: 'task-action-progress' %>
-                <a class="task-action-error-close" href="#">Закрыть</a>
+        </div>
+        <div class="task-action-lid">
+          <div class="task-action-cell">
+            <div class="task-action-box">
+              <div class="task-action-message">
+                Отправка поручения
               </div>
+              <div class="task-action-error">
+                Здесь идет текст ошибки в случае неудачной отправки. Он может быть достаточно длинным и даже в несколько строк. Пишем и пишем и пишем долго и много
+              </div>
+              <%= image_tag 'ajax-loader.gif', class: 'task-action-progress' %>
+              <a class="task-action-error-close" href="#">Закрыть</a>
             </div>
           </div>
         </div>
