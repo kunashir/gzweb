@@ -93,7 +93,6 @@ function TaskItem(task, taskArea) {
 	}
 
 	function setHistory(data) {
-		console.log(data);
 		var loading = historyArea.find(".loading");
 		if (!data.history || !data.history.cycles || data.history.cycles.length == 0) {
 			setTimeout(function () {
