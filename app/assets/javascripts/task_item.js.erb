@@ -189,7 +189,7 @@ function TaskItem(task, taskArea) {
 	}	
 
 	function removeTask() {
-		taskArea.scrollTo(initialScroll);
+		taskArea.scrollTo(initialScroll, taskArea.showTaskScroll);
 		task.css('display', 'block');
 		task.animate({
 			'height': '0px',
