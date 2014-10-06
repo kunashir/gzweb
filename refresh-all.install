@@ -1,0 +1,4 @@
+#!/bin/sh
+echo '* * * * *' $(pwd)/refresh-all.sh > refresh_all.schedule
+crontab refresh_all.schedule
+rm -f refresh_all.schedule

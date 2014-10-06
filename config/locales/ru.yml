@@ -95,6 +95,8 @@ ru:
       change_password: "Изменить"
       refresh_title: "Обновление данных сотрудника"
       refresh: "Обновить"
+      refresh_last_date: "Время последнего обновления:"
+      refresh_period: "Период обновления (мин.)"
     quick_performers:
       title: "Сотрудники 'быстрого выбора'"
       add: "Добавить"

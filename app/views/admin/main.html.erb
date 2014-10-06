@@ -61,6 +61,19 @@
   <div class="admin-refresh-block">
     <div class="title"><%=t 'admin.user.refresh_title' %></div>
     <div class="count">0</div>
+    <div class="last-refresh-line">
+      <%=t 'admin.user.refresh_last_date' %>
+      <span class="last-refresh-date"></span>
+    </div>
+    <div class="refresh-period">
+      <div class="field">
+        <div class="title"><%=t 'admin.user.refresh_period' %></div>
+        <div class="value">
+          <input type="text" name="refresh_period" value="" placeholder="15"> 
+          </input>
+        </div>
+      </div>
+    </div>
     <div class="action">
       <a href="#" class="submit"><%=t 'admin.user.refresh' %></a>
     </div>

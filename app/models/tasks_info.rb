@@ -50,48 +50,71 @@ class TasksInfo < CacheBase
     tasks_info.save!
   end
 
-  def self.sync(employee)
-    sql_connection = ActiveRecord::Base.connection
-    tasks = sql_connection.execute_procedure(
-      '[dvreport_get_data_{8c688b6c-5e83-4208-a795-368d067c29eb}]',
-      employee.employee_id,
-      employee.account_name)
-    tasks_info = employee.tasks_info
-    employee.transaction do
-      if tasks_info.nil?
-        tasks_info = TasksInfo.new
-        tasks_info.user = employee
-        employee.tasks_info = tasks_info
-      end
-      [:performing, :to_accept, :to_approve, 
-        :to_sign, :informational, :delegated].each do |filter| 
-        existing_tasks = employee.task_infos.where(folder: filter).to_a
-        total_count = 0
-        new_count = 0
-        tasks.select { |x| TasksInfo.send("is_#{filter}", x, employee) }.each do |task|
-          total_count += 1
-          if is_new(task)
-            new_count += 1
-          end
-          cache_task = existing_tasks.select { |x| x.task_id == task[:TaskID] }.first
-          if cache_task.nil?
-            cache_task = TaskInfo.new
-            cache_task.task_id = task[:TaskID]
-            cache_task.user = employee
-            cache_task.folder = filter
-          else
-            existing_tasks.delete(cache_task)
-          end
-          fill_task_fields(cache_task, task)
-          cache_task.save
-        end
-        existing_tasks.each { |x| x.destroy }
-        tasks_info.send("#{filter}=", total_count)
-        tasks_info.send("#{filter}_new=", new_count)
-      end
-      tasks_info.save
+  @@sync_lock = Mutex.new
+  @@user_sync_locks = {}
+
+  def self.sync_all_if_needed
+    users_to_sync = User.where('last_refresh_date is null or (last_refresh_date + ISNULL(refresh_minutes, 15)/24.0/60.0 < ?)', DateTime.now)
+    users_to_sync.each do |user|
+      sync(user)
     end
-    tasks_info
+  end
+
+  def self.sync(user)
+    @@sync_lock.synchronize do
+      unless @@user_sync_locks.key?(user.employee_id)
+        @@user_sync_locks[user.employee_id] = Mutex.new
+      end
+    end
+    user_lock = @@user_sync_locks[user.employee_id]
+    user_lock.synchronize do
+      if user.last_refresh_date.nil? ||
+         (DateTime.now.to_time - user.last_refresh_date > 15) # refreshing faster than once per 15-second is forbidden
+        sql_connection = ActiveRecord::Base.connection
+        tasks = sql_connection.execute_procedure(
+          '[dvreport_get_data_{8c688b6c-5e83-4208-a795-368d067c29eb}]',
+          user.employee_id,
+          user.account_name)
+        tasks_info = user.tasks_info
+        user.transaction do
+          if tasks_info.nil?
+            tasks_info = TasksInfo.new
+            tasks_info.user = user
+            user.tasks_info = tasks_info
+          end
+          [:performing, :to_accept, :to_approve, 
+            :to_sign, :informational, :delegated].each do |filter| 
+            existing_tasks = user.task_infos.where(folder: filter).to_a
+            total_count = 0
+            new_count = 0
+            tasks.select { |x| TasksInfo.send("is_#{filter}", x, user) }.each do |task|
+              total_count += 1
+              if is_new(task)
+                new_count += 1
+              end
+              cache_task = existing_tasks.select { |x| x.task_id == task[:TaskID] }.first
+              if cache_task.nil?
+                cache_task = TaskInfo.new
+                cache_task.task_id = task[:TaskID]
+                cache_task.user = user
+                cache_task.folder = filter
+              else
+                existing_tasks.delete(cache_task)
+              end
+              fill_task_fields(cache_task, task)
+              cache_task.save
+            end
+            existing_tasks.each { |x| x.destroy }
+            tasks_info.send("#{filter}=", total_count)
+            tasks_info.send("#{filter}_new=", new_count)
+          end
+          tasks_info.save
+          user.last_refresh_date = DateTime.now
+          user.save
+        end
+      end
+    end
+    return user.tasks_info
   end
 
   def self.reload_task(id, user) 

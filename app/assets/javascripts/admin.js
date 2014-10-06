@@ -1,5 +1,20 @@
 $(function () { initAdminArea(); });
 
+function twoDigitStr(n) {
+	if (n < 10)
+		return "0" + n;
+	return "" + n;
+}
+
+function russianFormatDate(date) {
+	return twoDigitStr(date.getDate()) 
+		+ "." + twoDigitStr(date.getMonth() + 1)
+		+ "." + date.getFullYear()
+		+ " " + twoDigitStr(date.getHours())
+		+ ":" + twoDigitStr(date.getMinutes())
+		+ ":" + twoDigitStr(date.getSeconds())
+}
+
 function selectUser(e) {
 	if (e.target.nodeName == 'A')
 		return;
@@ -18,6 +33,12 @@ function selectUser(e) {
 function setUserDetails(data) {
 	console.log(data);
 	$('.admin-refresh-block .count').text(data['task_count']);
+	if (data['user']['last_refresh_date'])
+		$('.admin-refresh-block .last-refresh-date').text(russianFormatDate(new Date(data['user']['last_refresh_date'])));
+	else
+		$('.admin-refresh-block .last-refresh-date').text('<нет>');
+	$('.admin-refresh-block .refresh-period input').val(data['user']['refresh_minutes']);
+	$('.admin-refresh-block .refresh-period input').data('val', data['user']['refresh_minutes']);
 	$('.admin-user-details-block').data("id", data['user']['id']).addClass('active');
 	$('.admin-quick-performers-list').html("");
 	var list = $('<ul></ul>')
@@ -40,6 +61,8 @@ function initAdminArea() {
 	$('.admin-add-quick-performer .add').click(addQuickPerformers);
 	$('.admin-change-user-password .submit').click(changePassword);
 	$('.admin-refresh-block .submit').click(refreshUserData)
+	$('.admin-refresh-block .refresh-period input').blur(onRefreshPeriodBlur);
+	$('.admin-refresh-block .refresh-period input').keypress(onRefreshPeriodKeyPress);
 }
 
 function addUser(e) {
@@ -202,4 +225,47 @@ function refreshUserData() {
 			function() {
 				$('.admin-refresh-block .submit').removeClass('in_progress');
 			});
+}
+
+function onRefreshPeriodBlur(e) {
+	saveRefreshPeriod();
+}
+
+function onRefreshPeriodKeyPress(e) {
+	if (e.charCode >= '48' && e.charCode <= '57')
+		return;
+	if (e.keyCode == 13)
+		saveRefreshPeriod();
+	e.preventDefault();
+}
+
+function saveRefreshPeriod() {
+	var periodInput = $('.admin-refresh-block .refresh-period input'),
+	    value = periodInput.val() || '',
+	    initialValue = periodInput.data('val') || '';
+
+	if (value.trim().length == 0) {
+		if (initialValue.trim().length == 0)
+			return;
+		periodInput.data('val', '');
+		periodInput.val('');
+		$.post('/admin/set_user_refresh_period',
+			{
+				user_id: $('.admin-user-details-block').data("id"),
+				refresh_period: ''
+			});
+		return;
+	}
+
+	if (!+value) {
+		periodInput.val(initialValue);
+	}
+	else {
+		periodInput.data('val', "" + (+value));
+		$.post('/admin/set_user_refresh_period',
+			{
+				user_id: $('.admin-user-details-block').data("id"),
+				refresh_period: +value
+			});
+	}
 }

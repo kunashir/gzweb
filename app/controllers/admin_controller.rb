@@ -45,14 +45,25 @@ class AdminController < ActionController::Base
        index = index + 1
       end      
     end
-    head 200
+    head :no_content
   end
 
   def set_user_password
     user = User.find_by_id(params[:user_id].to_i)
     user.password = params[:password]
     user.save!
-    head 200
+    head :no_content
+  end
+
+  def set_user_refresh_period
+    user = User.find_by_id(params[:user_id].to_i)
+    if params[:refresh_period].blank?
+      user.refresh_minutes = nil
+    else
+      user.refresh_minutes = params[:refresh_period]
+    end
+    user.save!
+    head :no_content
   end
 
   def refresh_user

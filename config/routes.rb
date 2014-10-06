@@ -16,6 +16,7 @@ Inlook::Application.routes.draw do
   get 'file/:id' => 'main#file', as: :file
   post 'file' => 'main#upload', as: :upload_file
   get 'employees/:id/photo' => 'employees#photo', as: :employee_photo
+  get 'refresh_all' => 'main#refresh_all', as: :refresh_all
   
   devise_for :admin, path: '/admin', controllers: { sessions: "admin_sessions" }
   get 'admin' => 'admin#main'
@@ -25,6 +26,7 @@ Inlook::Application.routes.draw do
   post 'admin/refresh_user' => 'admin#refresh_user', as: :admin_refresh_user
   post 'admin/set_user_password' => 'admin#set_user_password', as: :admin_set_user_password
   post 'admin/save_quick_performers' => 'admin#save_quick_performers', as: :admin_save_quick_performers
+  post 'admin/set_user_refresh_period' => 'admin#set_user_refresh_period', as: :admin_set_user_refresh_period
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

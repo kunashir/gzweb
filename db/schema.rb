@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915081141) do
+ActiveRecord::Schema.define(version: 20141005182321) do
 
   create_table "admins", force: true do |t|
     t.string   "login"
@@ -13147,6 +13147,8 @@ ActiveRecord::Schema.define(version: 20140915081141) do
     t.string   "account_name"
     t.string   "encrypted_password",  default: "", null: false
     t.datetime "remember_created_at"
+    t.datetime "last_refresh_date"
+    t.integer  "refresh_minutes"
   end
 
   add_index "users", ["account_name"], name: "index_users_on_account_name", unique: true
