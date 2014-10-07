@@ -1,4 +1,4 @@
-function TaskArea(container) {
+function TaskArea(container, reloadListFunction, cancelAutoreloadFunc) {
 	var $this = this,
 		taskList = container.find('#task-list'),
 		initialScroll = 0;
@@ -17,7 +17,21 @@ function TaskArea(container) {
 		return container.scrollTop();
 	}
 
+	this.setScroll = function(value) {
+		container.scrollTop(value);
+	}
+
 	this.scrollTo = function(value, afterScrollFunc) {
 		container.animate({scrollTop: value}, 200, 'easeOutCirc', afterScrollFunc);
+	}
+
+	this.reloadList = function() {
+		if (reloadListFunction)
+			reloadListFunction();
+	}
+
+	this.cancelAutoreload = function() {
+		if (cancelAutoreloadFunc)
+			cancelAutoreloadFunc();
 	}
 }

@@ -12,9 +12,18 @@ class TaskInfoController < ApplicationController
 
   def tasks
     @task_list = TaskList.get(current_user, params[:kind].to_sym).sort_by { |x| x.date }.reverse
+    if (current_user.last_refresh_date.nil?)
+      autorefresh_delay = 90
+    else
+      autorefresh_delay = (current_user.last_refresh_date + (current_user.refresh_minutes || 15).minutes + 30.seconds - DateTime.now).to_i
+      if (autorefresh_delay < 30)
+        autorefresh_delay = 30
+      end
+    end
+    tasks_info = TasksInfo.get(current_user)
     respond_to do |format|
       format.html # tasks.html.erb
-      format.json { render json: { task_list: format_task_list(@task_list) } }
+      format.json { render json: { task_list: format_task_list(@task_list), info: tasks_info, autorefresh_delay: autorefresh_delay } }
     end
   end
 
@@ -70,6 +79,7 @@ class TaskInfoController < ApplicationController
     data["deadline"] = data["deadline"].strftime("%d.%m.%Y %H:%M") unless data["deadline"].nil?
     data["date_time"] = data["date"].strftime("%H:%M") unless data["date"].nil?
     data["date_date"] = data["date"].strftime("%d.%m.%Y") unless data["date"].nil?
+    data["order_date"] = data["date"].strftime("%Y.%m.%d %H:%M:%S") unless data["date"].nil?
     data["date"] = data["date"].strftime("%d.%m.%Y %H:%M") unless data["date"].nil?
     data[:actions] = translate_actions(task.actions)
     unless data["co_performers"].nil?

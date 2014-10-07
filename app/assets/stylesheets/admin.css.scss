@@ -271,7 +271,7 @@
 				white-space: nowrap;
 			}
 
-			a:hover {
+			a:hover, a:focus {
 				background-color: #555;
 				text-decoration: none;
 			}
@@ -319,9 +319,11 @@
 		display: block;
 		border: 1px solid #999;
 		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
 	}
 
-	a:hover {
+	a:hover, a:focus {
 		background-color: #555;
 		text-decoration: none;
 		color: #CCC;
@@ -411,7 +413,7 @@
 				white-space: nowrap;
 			}
 
-			a:hover {
+			a:hover, a:focus {
 				background-color: #555;
 				text-decoration: none;
 			}

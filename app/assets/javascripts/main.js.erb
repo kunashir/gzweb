@@ -476,38 +476,109 @@ function empty_list_text(folder) {
 
 function load_list(folder) {
 	$.get( "/task_info/" + folder + ".json", function (data) {
-		fill_list(data);
-		if ($("#task-list").html() == 0) {
-			$("#task-list").html("<table class=\"fullsize table__content--center\"><td>Здесь Вы будете видеть " + empty_list_text(folder) + "</td></table>")
-		}
+		update_list(data);
 	});
 }
 
-function fill_list(data) {
-	taskArea = new TaskArea($(".data-area"));
+function update_list(data) {
+	if (!window.taskArea)
+		taskArea = new TaskArea($(".data-area"), function () { load_list(activeFolder); }, cancelAutoreload);
 
-	for(i in data.task_list) {
+	var taskList = $("#task-list"),
+		taskShadow = $("#task-shadow"),
+		currentTasks = {};
+
+	var	currentTaskList = taskList.find('.task-area');
+	var currentTaskCount = currentTaskList.length;
+	for (var i = 0; i < currentTaskCount; i++) {
+		var currentTask = $(currentTaskList[i]);
+		currentTasks[currentTask.data('task-id')] = currentTask;
+	}
+
+	var count = data.task_list.length;
+	for (var i = 0; i < count; i++) {
+		var task_id = data.task_list[i].task_id;
+		if (currentTasks[task_id]) {
+			// task found - doing nothing and removing from current tasks
+			currentTasks[task_id] = undefined;
+			continue;
+		}
 		data.task_list[i].html_content = $('<div/>').text(data.task_list[i].content).html().replace("\n", "<br/>");
-		data.task_list[i].deadline_time_till = "до " + data.task_list[i].deadline_time + " часов"
-	}
-	task_item = $("#task-list").html($.render.taskTmpl(data.task_list));
+		data.task_list[i].deadline_time_till = "до " + data.task_list[i].deadline_time + " часов";
+		var task = $($.render.taskTmpl(data.task_list[i]));
+		var insertBeforeTask = undefined;
+		for (var k = 0; k < currentTaskCount; k++) {
+			if (data.task_list[i].order_date > $(currentTaskList[k]).data('order-date')) {
+				insertBeforeTask = $(currentTaskList[k]);
+				break;
+			}
+		}
+		if (insertBeforeTask) {
+			var currentScroll = taskArea.scrollPosition();
+			var startPos = insertBeforeTask.position().top;
+			insertBeforeTask.before(task);
+			var newTaskPosition = task.position().top;
+			var endPos = insertBeforeTask.position().top;
+			if (newTaskPosition < currentScroll)
+				taskArea.setScroll(currentScroll + endPos - startPos);
+		}
+		else
+			task.appendTo(taskList);
 
-	var tasks = task_item.find('.task-area');
-	var taskCount = tasks.length;
-	for(var i = 0; i < tasks.length; i++) {
-		tasks[i].itemData = new TaskItem($(tasks[i]), taskArea);
+		task.find(".task-action-delegate").click(createSubTask);
+		task[0].itemData = new TaskItem(task, taskArea);
 	}
-    $("#task-shadow").css('z-index', -1)
-    	.animate({ opacity: 0 }, 400, 'easeOutCirc');
-    $("#task-list")
-    	.animate({ opacity: 1 }, 400, 'easeOutCirc', taskArea.showTaskScroll);
-	selectedTask = null;
+	for (var i in currentTasks)
+		if (currentTasks[i]) {
+			var currentScroll = taskArea.scrollPosition();
+			var toRemovePos = currentTasks[i].position().top;
+			var toRemoveHeight = currentTasks[i].height();
+			if (currentTasks[i].next())
+				toRemoveHeight = currentTasks[i].next().position().top - toRemovePos;
+			currentTasks[i].remove();
+			if (currentScroll > toRemovePos)
+				taskArea.setScroll(currentScroll < toRemoveHeight ? 0 : currentScroll - toRemoveHeight);
+		}
+	if (taskList.html() == 0) {
+		taskList.html("<table class=\"fullsize table__content--center\"><td>Здесь Вы будете видеть " + empty_list_text(folder) + "</td></table>")
+	}
+	if (taskShadow.css('opacity') != 0)
+	    taskShadow.css('z-index', -1)
+	    	.animate({ opacity: 0 }, 400, 'easeOutCirc');
+	if (taskList.css('opacity') != 1)
+    	taskList
+    		.animate({ opacity: 1 }, 400, 'easeOutCirc', taskArea.showTaskScroll);
 
-    init_task_actions($(task_item));
+    update_task_counts(data.info);
+
+	cancelAutoreload();
+    window.update_list_timeout = setTimeout(function () { load_list(activeFolder); }, data.autorefresh_delay * 1000);
+
+    console.log("Set delay for " + data.autorefresh_delay + " seconds");
 }
 
-function init_task_actions(taskList) {
-	taskList.find(".task-action-delegate").click(createSubTask);
+function cancelAutoreload() {
+    if (window.update_list_timeout) {
+		clearTimeout(window.update_list_timeout);
+    	console.log("Delay cleared");
+    }
+}
+
+function update_task_counts(info) {
+	var folders = ['performing', 'to_accept', 'long_tasks', 'to_approve', 'to_sign', 'informational', 'issued', 'long_issued', 'delegated']
+	for (var i = 0; i < folders.length; i++) {
+		var folder = folders[i];
+		var newCount = eval('info.' + folder + '_new');
+		var totalCount = eval('info.' + folder);
+		var newCountDiv =  $('.task-info-' + folder + ' .new');
+		var totalCountDiv =  $('.task-info-' + folder + ' .total');
+		newCountDiv.text(newCount);
+		if (newCount == 0)
+			newCountDiv.removeClass('non-zero');
+		else
+			newCountDiv.addClass('non-zero');
+		totalCountDiv.text(totalCount);
+	}
 }
 
 function createSubTask(event) {

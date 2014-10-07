@@ -95,7 +95,7 @@
 <main class="container">
   <%= render 'static_pages/test_task_info', task_info: @task_info %>
   <script id="task-template" type="text/x-jsrender">
-    <div class="task-area" data-task-id="{{>task_id}}" data-id="{{>id}}" data-new="{{>is_new}}">
+    <div class="task-area" data-task-id="{{>task_id}}" data-id="{{>id}}" data-new="{{>is_new}}" data-order-date="{{>order_date}}">
       <div class="task-main-area">
         <div class="task-border">
           <div class="task-data-area">
