@@ -4,7 +4,7 @@ require "dvcore/security"
 require "security_identifier"
 
 class MainController < ApplicationController
-  before_action :authenticate_user!, except: :refresh_all
+  before_action :authenticate_user!, except: [:refresh_all, :file, :file_pdf]
   #http_basic_authenticate_with name: "dhh", password: "secret"
 
   def index
