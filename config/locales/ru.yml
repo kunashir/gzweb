@@ -100,4 +100,7 @@ ru:
     quick_performers:
       title: "Сотрудники 'быстрого выбора'"
       add: "Добавить"
+  file:
+    preview:
+      close: "Закрыть"
 

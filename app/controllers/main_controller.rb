@@ -31,6 +31,30 @@ class MainController < ApplicationController
     end
   end
 
+  def file_viewer
+    redirect_to "/web/viewer.html?file=/file_pdf/#{params[:id]}"
+    #@file_id = params[:id]
+  end
+
+  def file_pdf
+    file = DocsFile.get(params[:id])
+    temp_file = Tempfile.new(SecureRandom.uuid, '/tmp', encoding: 'ascii-8bit')
+    temp_file_name = temp_file.path
+    temp_file.write(file.data)
+    temp_file.close
+    system "lowriter --convert-to pdf --nologo #{temp_file.path} --outdir /tmp"
+    temp_file.unlink
+    file_path = "#{temp_file_name}.pdf"
+    if File.exists?(file_path)
+      File.open(file_path, 'r') do |f|
+        send_data f.read, filename: file.name, type: "application/pdf", disposition: :inline
+      end
+      File.delete(file_path)    
+    else
+      head :no_content
+    end
+  end
+
   def upload
     if params[:file].nil?
       render json: { error: 'file not found'}, status: 422

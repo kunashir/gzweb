@@ -289,5 +289,16 @@
       <%= render 'tasks/task_form', employee: @employee, quick_performers: @quick_performers %>
     </div>
   </div>
+  <div class="file-preview-area">
+    <div class="file-preview-box">
+      <div class="actions">
+        <a class="close" href="#"><%=t 'file.preview.close' %></a>
+      </div>
+      <div class="file-preview-frame-container">
+        <iframe id="file-preview-frame" src="/web/viewer.html"></iframe>
+        <div class="file-preview-loading-lid"></div>
+      </div>
+    </div>
+  </div>
 </div>
 

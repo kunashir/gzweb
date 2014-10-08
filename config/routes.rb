@@ -13,7 +13,8 @@ Inlook::Application.routes.draw do
   resources :tasks, only: [ :new, :create, :show ]
   get 'employees/find' => 'employees#find', constraints: { format: :json }, defaults: { format: :json }
   get 'file/icon' => 'main#file_icon'
-  get 'file/:id' => 'main#file', as: :file
+  get 'file/:id' => 'main#file_viewer', as: :file
+  get 'file_pdf/:id' => 'main#file_pdf', as: :file_pdf
   post 'file' => 'main#upload', as: :upload_file
   get 'employees/:id/photo' => 'employees#photo', as: :employee_photo
   get 'refresh_all' => 'main#refresh_all', as: :refresh_all

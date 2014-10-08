@@ -27,12 +27,20 @@ function TaskItem(task, taskArea) {
 	cancel.click(hideCompletionArea);
 	taskCompletionButtons.click(completeTask);
 	actionCloseBtn.click(closeErrorMessage);
+	task.find('.task-file-ref').click(showTaskFile);
 
 	function taskClick(event) {
 		if (event.originalEvent.srcElement.nodeName == 'A')
 			return;
 		event.preventDefault();
 		showCompletionArea();
+	}
+
+	function showTaskFile(e) {
+		e.preventDefault();
+		var file_id = $(e.target).data('value')
+		if (file_id)
+			window.filePreview.openFile(file_id);
 	}
 
 	function showCompletionArea() {
