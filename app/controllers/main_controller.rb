@@ -42,9 +42,13 @@ class MainController < ApplicationController
     temp_file_name = temp_file.path
     temp_file.write(file.data)
     temp_file.close
-    system "lowriter --convert-to pdf --nologo #{temp_file.path} --outdir /tmp"
-    temp_file.unlink
-    file_path = "#{temp_file_name}.pdf"
+    if File.extname(file.name) == ".pdf"
+      file_path = temp_file.path
+    else
+      system "lowriter --convert-to pdf --nologo #{temp_file.path} --outdir /tmp"
+      temp_file.unlink
+      file_path = "#{temp_file_name}.pdf"
+    end
     if File.exists?(file_path)
       File.open(file_path, 'r') do |f|
         send_data f.read, filename: file.name, type: "application/pdf", disposition: :inline
