@@ -656,25 +656,44 @@ body {
 	clear: both;
 	padding-top: 0.5em;
 
-	a {
-		display: block;
-		float: left;
+	.task-file {
+		display: table;
+		background: #DDD;
+		border: 1px solid #CCC;
 		margin: 0.5em;
+	}
+
+	a.task-file-ref {
+		display: table-cell;
 		padding: 0.2em 0.5em;
 		background: #DDD;
 		color: #222;
 		text-decoration: none;
 		border-radius: 2px;
-		border: 1px solid #DDD;
 		max-width: 16em;
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;
+		border: 1px solid transparent;
 	}
-	a:hover {
+	a.task-file-ref:hover {
 		border: 1px solid #CCC;
 		background: #E4E4E4;
 		color: #111;
+	}
+
+	a.task-file-download {
+		display:table-cell;
+		border-left: 1px solid #CCC;
+		width: 24px;
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAWCAYAAAAmaHdCAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goOAyUzG+q3xQAAAN9JREFUOMvtk7FqAkEURY/GDxCLkMpCfyPFNhGCSECw8QPiJ6Q95jeSPwmB7ZLCzmIJREgjWIgWRpCQQJotFtlZFgkhBG8179039827MwP/CpUQod4Cp5nUQjWvtlbQYAi0M/ELkCtS/Ylx/o5IZc/Ma6CVhiOgnqFXwF26flXvQ8Y+AmPgLKdhA7gB5sB5cBx1BnSAdeDkS+BCfSv0RJ0CXWC7R22ASzUpZaz6BPSBjzS1A3rqJK/+JOR4HMezKIoS4AoYqA8HX5/a/P0PqL6X3Pep1kPv5LmkyBdHFOIbDbQ2WKRXJ2gAAAAASUVORK5CYII=);
+		// background-image: image-url('download.png');
+		background-size: contain;
+		background-position: center center;		
+	}
+	a.task-file-download:hover {
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAWCAYAAAAmaHdCAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goOAyYqVKxMxgAAAOFJREFUOMvtk7FqAkEURY/RDxALsbLQP9g6rUIIIgg21o/kE2yNv+H9E7GORdjGYhEUbAQL0cIIQRRstlhkZ1lERCS3mvfum/vm3ZmBp0LGRZhZHyhGUitJvbjaXEKDDlCNxFMgVuTlFuM8jkjmwswPoBKGn0A+Qm+AQbieSZLL2BHwBZRiGhaALrAEXp3jSJoDdWDrOPkaqElaJHoiaQK8A/sLage8SQpSGSvpG2gBhzD1BzQk/cTVZ12O+74/9zwvAJpAW9Lw6uszs/L9P6CZ/abcd5SUd72TcUqRE/9IxBmSkzhQcFscLQAAAABJRU5ErkJggg==);
+		// background-image: image-url('download_hover.png');
 	}
 }
 

@@ -163,7 +163,10 @@
               {{/if}}
               <div class="task-files-area">
                 {{for files}}
-                  <a href="/file/{{>file_id}}" target="_blank" class="task-file-ref" data-value="{{>file_id}}" data-name="{{>filename}}">{{>filename}}</a>
+                  <div class="task-file">
+                    <a href="/file/{{>file_id}}" target="_blank" class="task-file-ref" data-value="{{>file_id}}" data-name="{{>filename}}">{{>filename}}</a>
+                    <a href="/file/{{>file_id}}" target="_blank" class="task-file-download"></a>
+                  </div>
                 {{/for}}
                 <div class="breaker"></div>
               </div>
