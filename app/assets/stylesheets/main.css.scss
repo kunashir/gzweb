@@ -102,6 +102,9 @@ body {
 	padding: 0;
 	// height: 2em;
 }
+li.m_ms__item--red, li.m_ms__item--orange, li.m_ms__item--green {
+	display: none;
+}
 
 .header-actions ul {
 	li {
