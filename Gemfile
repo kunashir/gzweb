@@ -76,7 +76,6 @@ gem 'tiny_tds'
 #gem 'activerecord-sqlserver-adapter', git: 'https://github.com/nextgearcapital/activerecord-sqlserver-adapter.git', branch: 'rails-4'
 gem 'activerecord-sqlserver-adapter', git: 'https://github.com/rails-sqlserver/activerecord-sqlserver-adapter.git'
 
-gem 'bootstrap-sass'
 gem 'nokogiri'
 
 group :test do
