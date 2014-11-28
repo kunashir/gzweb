@@ -28,14 +28,14 @@ class AssignmentController < ApplicationController
 
 		unless assignment.main_info.registration_date.nil?
 			if assignment.main_info.registration_date.hour == 0 && assignment.main_info.registration_date.min == 0
-				result["CreationDate"] = assignment.main_info.registration_date.strftime('%d/%m/%Y')
+				result["CreationDate"] = assignment.main_info.registration_date.strftime('%d.%m.%Y')
 			else
-				result["CreationDate"] = assignment.main_info.registration_date.strftime('%d/%m/%Y %H:%M') 
+				result["CreationDate"] = assignment.main_info.registration_date.strftime('%d.%m.%Y %H:%M') 
 			end
 		end
 
 		unless assignment.main_info.deadline.nil?
-			result["Deadline"] = assignment.main_info.deadline.strftime('%d/%m/%Y %H:%M')
+			result["Deadline"] = assignment.main_info.deadline.strftime('%d.%m.%Y %H:%M')
 		end
 
 		result["State"] = assignment.main_info.state_name

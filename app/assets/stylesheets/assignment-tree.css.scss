@@ -65,7 +65,7 @@ $tree-width: 40%;
 .assignment-tree-container {
 	position: absolute;
 	left: 5em;
-	top: 5em;
+	top: 5.5em;
 	right: 5em;
 	bottom: 5em;
 	background: #FFF;
@@ -193,7 +193,7 @@ $tree-width: 40%;
 		left: 5em;
 		top: 3em;
 		right: 5em;
-		height: 2em;
+		height: 2.5em;
 		background: #34AADC;
 		border: 3px solid #CCC;
 		color: white;
@@ -202,12 +202,13 @@ $tree-width: 40%;
 		.title {
 			padding: 2px 5px;
 			font-weight: bold;
+			font-size: 1.2em;
 			float: left;	
 		}
 
 		.close {
 			float: right;
-			padding: 5px 10px 5px 20px;
+			padding: 10px 10px 10px 20px;
 			color: #FFF;
 			opacity: 0.6;
 			text-decoration: none;
