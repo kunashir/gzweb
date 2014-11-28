@@ -117,7 +117,8 @@ module IFP
                     state = enum_value.name unless enum_value.nil?
                 end
             end
-            return state || task.performing.state_name
+            state = task.performing.state_name if state.blank?
+            return state
         end
 
         def self.build_task_current_performer(task)
