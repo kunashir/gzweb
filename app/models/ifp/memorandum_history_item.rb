@@ -35,6 +35,7 @@ module IFP
 		private
 
 		def load_task
+			return nil if self.TaskID.nil?
 			instance = Card.find(self.TaskID)
 			return nil unless instance.CardTypeID == CardType.workflow_task_id
 			return instance.card
