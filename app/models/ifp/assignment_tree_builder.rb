@@ -15,7 +15,8 @@ module IFP
 			return {} if tree_data.nil?
 			tree = { "branches" => [] }
 			tree["branches"] += build_assignment_groups(tree_data.assignments) unless tree_data.assignments.nil?
-			tree["branches"] << build_tasks_branch(tree_data.tasks) unless tree_data.tasks.nil? || tree_data.tasks.length == 0
+			task_branch = build_tasks_branch(tree_data.tasks) unless tree_data.tasks.nil? || tree_data.tasks.length == 0
+			tree["branches"] << task_branch unless task_branch.nil?
 			return tree
 		end
 
@@ -51,7 +52,9 @@ module IFP
 		end
 
 		def self.build_tasks_branch(task_set)
-			{ "title" => task_set.name, "cycles" => build_tasks(task_set.values.reverse) }
+			cycles = build_tasks(task_set.values.reverse)
+			return nil if cycles.nil?
+			return { "title" => task_set.name, "cycles" => cycles }
 		end
 
 		def self.build_tasks(tasks)
@@ -88,6 +91,8 @@ module IFP
 
                	cycle_node[:items] << task_node
             end
+
+            return nil unless cycles.any? { |cycle| cycle[:items].length > 0 }
 
             return cycles
 		end
