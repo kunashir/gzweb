@@ -14,7 +14,7 @@ class TaskCardMainInfo < ActiveRecord::Base
 
   alias_attribute :content, :Content
   alias_attribute :deadline, :Deadline
-  alias_attribute :for_acquintance, :ForAcquaintance
+  alias_attribute :for_acquaintance, :ForAcquaintance
   alias_attribute :private_access, :OnlyPrivateAccess 
   alias_attribute :registration_date, :RegistrationDate
 
@@ -90,11 +90,27 @@ class TaskCardMainInfo < ActiveRecord::Base
     return acquaintance
   end
 
+  def state_name
+    TaskCard.state_name(self.State, self.Type)
+  end
+
+  def assignee_task
+    @assignee_task ||= load_assignee_task
+  end
+
+  def load_assignee_task
+    return nil if self.AssigneeTaskId.nil?
+    instance = Card.find(self.AssigneeTaskId)
+    return nil if instance.nil?
+    return nil if instance.CardTypeID != CardType.workflow_task_id
+    return instance.card
+  end
+
   protected
 
   def assign_id
     self.RowID ||= SecureRandom.uuid
-    self.for_acquintance ||= false
+    self.for_acquaintance ||= false
     self.private_access ||= false
     self.state ||= :not_started
     self.type ||= :task

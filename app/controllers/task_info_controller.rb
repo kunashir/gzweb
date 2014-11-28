@@ -65,6 +65,20 @@ class TaskInfoController < ApplicationController
     end
   end
 
+  def assignment_tree
+    @task = TaskInfo.find(params[:id])
+    respond_to do |format|
+      format.html # tasks.html.erb
+      format.json {
+        begin
+          render json: { tree: @task.assignment_tree }, status: 200
+        rescue
+          render json: { tree: nil }, status: 200
+        end
+      }
+    end    
+  end
+
   protected
 
   def format_task_list(task_list)

@@ -1,0 +1,14 @@
+<%= render 'main/task_history' %>
+
+<div class="assignment-tree-border">
+	<div class="assignment-tree-container">
+		<%= render 'main/assignment_tree' %>
+	</div>
+</div>
+
+<script>
+	$(function () {
+		window.assignment_tree = new AssignmentTree($('.assignment-tree-panel'));
+		window.assignment_tree.load(<%= @task.id %>);
+	});
+</script>

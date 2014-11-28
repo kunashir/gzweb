@@ -1,0 +1,69 @@
+<html>
+<style>
+
+.v-line {
+	background-image: url('/assets/tree-v-line.png');
+	background-repeat-x: no-repeat;	
+	width: 2px;
+}
+
+.h-line {
+	
+}
+
+</style>
+<body>
+	<ul class="tree">
+		<li class="root-node expanded">
+			<div class="title">Hello</div>
+			<ul>
+				<li class="node expanded">
+					<div class="title">Second level</div>
+					<ul>
+						<li class="node">
+							<div class="title">Third level</div>
+						</li>
+						<li class="node">
+							<div class="title">Third level - 2</div>
+						</li>
+					</ul>
+				</li>
+				<li class="node">
+					<div class="title">Second level - 2</div>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<table>
+		<tr>
+			<td>
+				<div class="v-line">&nbsp;</div>
+			</td>
+			<td rowspan="2">
+				<div class="h-line">&nbsp;</div>
+			</td>
+			<td rowspan="2">
+				Title
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="v-line">&nbsp;</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="v-line">&nbsp;</div>
+			</td>
+			<td/>
+			<td>
+				<ul>
+					<li>Subchild</li>
+					<li>Subchild-2</li>
+				</ul>
+			</td
+		</tr>
+	</table>
+</body>
+</html>

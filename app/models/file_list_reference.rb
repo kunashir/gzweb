@@ -7,6 +7,14 @@ class FileListReference < ActiveRecord::Base
   alias_attribute :file_id, :CardFileID
   alias_attribute :id, :RowID
 
+  def file
+    @file ||= load_file
+  end
+
+  def load_file
+    FileCard.find(file_id)
+  end
+
   protected
 
   def assign_id

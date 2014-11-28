@@ -9,6 +9,7 @@ function TaskItem(task, taskArea) {
 		comments = taskCompleteArea.find('textarea'),
 		taskFiles = new TaskFiles(task),
 		cancel = task.find(".task-action-cancel"),
+		showTree = task.find(".task-action-tree"),
 		taskCompletionButtons = task.find('.task-normal-action'),
 	    actionError = task.find('.task-action-error'),
 	    actionProgress = task.find('.task-action-progress'),
@@ -28,6 +29,7 @@ function TaskItem(task, taskArea) {
 	taskCompletionButtons.click(completeTask);
 	actionCloseBtn.click(closeErrorMessage);
 	task.find('.task-file-ref').click(showTaskFile);
+	showTree.click(showAssignmentTree);
 
 	function taskClick(event) {
 		if (event.originalEvent.srcElement.nodeName == 'A')
@@ -101,7 +103,10 @@ function TaskItem(task, taskArea) {
 				$("<div></div>")
 				.addClass("loading")
 				.text('<%= I18n.t("task.history.loading") %>'));
-		    $.get('/task_info/' + id + '/history.json')
+/*			$.get('/task_info/' + id + '/assignment_tree.json')
+				.done(setAssignmentTree)
+				.fail(setAssignmentTree)
+*/		    $.get('/task_info/' + id + '/history.json')
 	        	.done(setHistory)
 	        	.fail(setHistory);
 		}
@@ -121,6 +126,11 @@ function TaskItem(task, taskArea) {
 		loading.animate({ opacity: 0 }, 400, 'easeOutCirc');
 		historyArea.animate({ 'min-height': '0px'});
 		$($.render.historyTmpl(data.history)).css('display', 'none').appendTo(historyArea).slideDown(400);
+	}
+
+	function showAssignmentTree(e) {
+		e.preventDefault();
+		window.taskAssignmentTree.show(id);
 	}
 
 	function completeTask(event) {

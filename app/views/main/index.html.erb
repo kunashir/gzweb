@@ -244,48 +244,20 @@
       <div class="task-overflow-area"></div>
     </div>
   </script>
-  <script id="task-history-template" type="text/x-jsrender">
-    <div class="title">
-      <%=t 'task.history.title' %>
-    </div>
-    {{for cycles}}
-      <div class="task-history-cycle">
-        <div class="title">
-          <%=t 'task.history.cycle' %> {{>index}}
-        </div>
-        {{for items}}
-          <div class="task-history-item">
-            <div class="author-row">
-              <div class="author">{{>author}}</div>
-              {{if decision}} 
-                <div class="decision">{{>decision}}</div>
-              {{/if}}
-              <div class="date">{{>date}}</div>
-            </div>
-            {{if comment}}
-              <div class="comment">
-                <div class="title"><%=t 'task.history.comment' %></div>
-                {{>comment}}
-              </div>
-            {{/if}}
-            {{if files.length}}
-              <div class="history-files">
-                <div class="title"><%=t 'task.history.files' %></div>
-                {{for files}}
-                  <a href="/file/{{>file_id}}" target="_blank" class="task-file-ref" data-value="{{>file_id}}" data-name="{{>filename}}">{{>filename}}</a>
-                {{/for}}
-              </div>
-            {{/if}}
-          </div>
-        {{/for}}
-      </div>
-    {{/for}}
-  </script>
-  </script>
+  <%= render 'task_history' %>
   <section class="data-area">
     <div id="task-shadow"></div>
     <div class="fullheight" id="task-list"></div>
   </section>
+  <div id="task-assignment-tree">
+    <div class="header">
+      <div class="title">Дерево поручений</div>
+      <a class="close" href="#">Закрыть</a>
+    </div>
+    <div class="assignment-tree-container">
+      <%= render 'assignment_tree' %>
+    </div>      
+  </div>
   </main>
   <div class="create-task-area">
     <div>
@@ -305,3 +277,8 @@
   </div>
 </div>
 
+<script>
+  $(function () {
+    window.taskAssignmentTree = new TaskAssignmentTree($('#task-assignment-tree'));
+  })
+</script>

@@ -97,51 +97,11 @@ class TaskInfo < CacheBase
 
   def history
     return { cycles: [] } if assignment.nil?
-    cycle_index = assignment.history.select { |x| !x.date.nil? && !x.author.nil? }.count { |x| x.decision == :completed }
-    cycles = []
-    cycle = nil
-    assignment.history.select { |x| !x.date.nil? }.sort_by { |x| x.date }.reverse.each do |x|
-      if cycle.nil? 
-        cycle = { index: cycle_index, items: [] }
-        cycles << cycle
-      end
-      item = { 
-        author: x.author.display_name, 
-        comment: x.comment,
-        date: x.date.strftime("%d.%m.%Y %H:%M"), 
-        files: [] 
-      }
-      if (x.decision)
-        item[:decision] = I18n.t("task.history.decision.#{x.decision}")
-      end
-      unless x.files.nil?
-        x.files.references.each do |file|
-          file_card = FileCard.find(file.file_id)
-          unless file_card.file_name.nil?
-            item[:files] << { file_id: file_card.id, filename: file_card.file_name }
-          end
-        end
-      end
-      cycle[:items] << item
-      if x.decision == :completed
-        cycle_index = cycle_index - 1
-        cycle = nil
-      end
-    end
-    return { cycles: cycles }
-    # return { cycles: [
-    #   { index: 2, 
-    #     items: [ 
-    #       { author: 'Борисов П.А.', comment: 'Всем привет кого не видел', date: Time.now.strftime("%d.%m.%Y %H:%M"), files: [] },
-    #       { author: 'Мирошин К.Г.', comment: 'Еще один комментарий', date: Time.now.strftime("%d.%m.%Y %H:%M"), files: [] }
-    #     ]
-    #   },
-    #   {
-    #     index: 1,
-    #     items: [
-    #       { author: 'Борисов П.А.', decision: 'Завершено', comment: 'Готово', date: Time.now.strftime("%d.%m.%Y %H:%M"), files: [ { file_id: "34343", filename: "some-file.txt"} ]}
-    #     ]
-    #   }]}
+    return assignment.history_data
+  end
+
+  def assignment_tree
+    IFP::AssignmentTreeBuilder.build(self.parent_document_id || self.assignment_id)
   end
 
   protected

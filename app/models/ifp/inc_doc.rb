@@ -1,3 +1,5 @@
+#encoding: UTF-8
+
 module IFP
 	class IncDoc
 		attr_reader :instance
@@ -16,5 +18,9 @@ module IFP
     		@resolutions ||= IncDocResolution.where(InstanceID: id).to_a || []
 		end
 
+		def assignment_tree
+			assignments = resolutions.map { |x| x.assignment }.select { |x| !x.nil? }.to_a
+			AssignmentTree.new([NamedSet.new("Рассмотрение", assignments)], nil)
+		end
 	end
 end

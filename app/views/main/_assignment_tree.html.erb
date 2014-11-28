@@ -1,0 +1,140 @@
+<script id="assignment-tree-node-template" type="text/x-jsrender">
+  <li class="assignment-tree-node" data-assignment-id="{{>AssignmentID}}" data-wftask-id="{{>WFTaskID}}">
+    <div class="title">
+      <div class="tree-sign">&nbsp;</div>
+      <div class="text">{{>AssigneeFIO}}, {{>StateName}}</div>
+    </div>
+    {{if Children && Children.length > 0}}
+      <ul>
+        {{for Children tmpl="#assignment-tree-node-template" /}}
+      </ul>
+    {{/if}}
+  </li>
+</script>
+<script id="assignment-tree-branch-template" type="text/x-jsrender">
+  <li class="assignment-tree-node">
+    <div class="title">
+      <div class="tree-sign">&nbsp;</div>
+      <div class="text">{{>Title}}</div>
+    </div>
+    {{if Items && Items.length > 0}}
+      <ul>
+        {{for Items tmpl="#assignment-tree-node-template" /}}
+      </ul>
+    {{/if}}
+  </li>
+</script>
+<script id="assignment-tree-template" type="text/x-jsrender">
+  {{if Branches && Branches.length > 0 }}
+    <ul>
+      {{for Branches tmpl="#assignment-tree-branch-template" /}}
+    </ul>
+  {{/if}}
+</script>
+<script id="assignment-details-template" type="text/x-jsrender">
+  <div class="adt_name">{{>Name}}</div>
+  {{if Author}}
+    <div class="adt_author">
+      <span class="adt_fieldname">Автор:</span>
+      <span class="adt_fieldvalue">{{>Author}}</span>
+    </div>
+  {{/if}}
+  {{if Performers && Performers.length > 0 }}
+    <div class="adt_performers">
+      <span class="adt_fieldname">Исполнители:</span>
+      <span class="adt_fieldvalue">
+        {{for Performers}}
+          {{if #index > 0 }}, {{/if}}
+          {{>#data}}
+        {{/for}}
+      </span>
+    </div>
+  {{/if}}
+  {{if CoPerformers && CoPerformers.length > 0 }}
+    <div class="adt_coperformers">
+      <span class="adt_fieldname">Соисполнители:</span>
+      <span class="adt_fieldvalue">
+        {{for CoPerformers}}
+          {{if #index > 0 }}, {{/if}}
+          {{>#data}}
+        {{/for}}
+      </span>
+    </div>
+  {{/if}}
+  {{if Controller}}
+    <div class="adt_controller">
+      <span class="adt_fieldname">Контроллирует:</span>
+      <span class="adt_fieldvalue">{{>Controller}}</span>
+    </div>
+  {{/if}}
+  {{if CreationDate}}
+    <div class="adt_creationdate">
+      <span class="adt_fieldname">Дата поручения:</span>
+      <span class="adt_fieldvalue">{{>CreationDate}}</span>
+    </div>
+  {{/if}}
+  {{if Deadline}}
+    <div class="adt_deadline">
+      <span class="adt_fieldname">Срок:</span>
+      <span class="adt_fieldvalue">{{>Deadline}}</span>
+    </div>
+  {{/if}}
+  {{if State}}
+    <div class="adt_state">
+      <span class="adt_fieldname">Состояние:</span>
+      <span class="adt_fieldvalue">{{>State}}</span>
+    </div>
+  {{/if}}
+  {{if AuthorFiles && AuthorFiles.length > 0}}
+    <div class="adt_authorfiles">
+      <span class="adt_fieldname">Файлы автора:</span>
+      <span class="adt_fieldvalue">
+        {{for AuthorFiles}}
+          {{if #index > 0 }}, {{/if}}
+          <a class="adt_filelink" target="_blank" href="/file/{{>ID}}">{{>Name}}</a>
+        {{/for}}
+      </span>    
+    </div>
+  {{/if}}
+  {{if PerformerFiles && PerformerFiles.length > 0}}
+    <div class="adt_performerfiles">
+      <span class="adt_fieldname">Файлы исполнителя:</span>
+      <span class="adt_fieldvalue">
+        {{for PerformerFiles}}
+          {{if #index > 0 }}, {{/if}}
+          <a class="adt_filelink" target="_blank" href="/file/{{>ID}}">{{>Name}}</a>
+        {{/for}}
+      </span>    
+    </div>
+  {{/if}}  
+  <div class="adt_content">
+    <span class="adt_fieldname">Содержание поручения:</span>
+    <span class="adt_fieldvalue">
+      {{* data["Content"].split(String.fromCharCode(10)).forEach(function (data, i) { }}
+        {{* if (i > 0) { }}<br>{{* } }} 
+        {{>#data}}
+      {{* }); }}
+    </span>
+  </div>
+  <div class="adt_taskhistory">
+    {{for History tmpl="#task-history-template" /}}
+  </div>
+</script>
+
+<div class="assignment-tree-panel">
+  <div class="assignment-tree-tree-container">
+    <div class="assignment-tree">
+    </div>
+    <div class="assignment-tree-hiding-lid">
+    </div>
+  </div>
+  <div class="assignment-tree-panel-div">
+    <div class="splitter"></div>
+  </div>
+  <div class="assignment-tree-details-container">
+    <div class="assignment-tree-details">
+    </div>
+    <div class="assignment-tree-details-hiding-lid">
+    </div>
+  </div>
+</div>

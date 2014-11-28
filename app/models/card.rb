@@ -65,6 +65,18 @@ class Card < ActiveRecord::Base
     self.InstanceID ||= SecureRandom.uuid
   end
 
+  def card
+    case self.CardTypeID
+      when CardType.incdoc_type_id
+        return IFP::IncDoc.new(self)
+      when CardType.assignment_id
+        return TaskCard.new(self)
+      when CardType.workflow_task_id
+        return TakeOffice::WorkflowTaskCard.new(self)
+    end
+    return nil
+  end
+
   protected
 
   def assign_card_type_sid

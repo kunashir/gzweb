@@ -9,7 +9,7 @@ class CardType < ActiveRecord::Base
   before_save :assign_required_attributes
 
   def self.assignment
-    self.find('FFF11133-DFC4-4CD6-A2D4-BD242E2A4670')
+    self.find(self.assignment_id)
   end
 
   def self.ref_staff
@@ -38,6 +38,10 @@ class CardType < ActiveRecord::Base
 
   def self.process
     self.find('AE82DD57-348C-4407-A50A-9F2C7D694DA8')
+  end
+
+  def self.assignment_id
+    'FFF11133-DFC4-4CD6-A2D4-BD242E2A4670'
   end
 
   def self.workflow_task_id
