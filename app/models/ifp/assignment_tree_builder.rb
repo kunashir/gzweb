@@ -117,7 +117,7 @@ module IFP
                     state = enum_value.name unless enum_value.nil?
                 end
             end
-            state = task.performing.state_name if task.nil?
+            state = task.performing.state_name unless task.nil?
             return state
         end
 
