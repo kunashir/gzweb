@@ -6,9 +6,13 @@ module TakeOffice
     self.table_name = "dvtable_{7213A125-2CA4-40EE-A671-B52850F45E7D}"
     self.primary_key = "RowID"
 
+    belongs_to :author, class_name: 'TakeOffice::Employee', primary_key: 'RowID', foreign_key: 'CreatedBy'
+
     before_create :assign_fields
 
     alias_attribute :name, :Name
+    alias_attribute :deadline, :ExpectedEndDate
+    alias_attribute :comments, :Comments
 
     def performer_files
       @performer_files ||=

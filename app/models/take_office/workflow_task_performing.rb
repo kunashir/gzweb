@@ -1,3 +1,5 @@
+#encoding: UTF-8
+
 module TakeOffice
 
   class WorkflowTaskPerforming < ActiveRecord::Base
@@ -39,6 +41,10 @@ module TakeOffice
       @completed_employee = value
     end
 
+    def state_name
+      @@state_names[state]
+    end
+
     protected
 
     def assign_fields
@@ -53,6 +59,17 @@ module TakeOffice
     @@states = [:unknown, :inactive, :to_perform, :to_begin, :in_process,
                 :postponed, :completed, :rejected, :recalled, :delegated_to_begin,
                 :delegated_in_process, :delegated_postponed, :delegated_to_perform,
-                :delegated_returning, :delegated_returned]
+                :being_delegated, :delegated_returning, :delegated_returned]
+
+    @@state_names = {
+      unknown: '', inactive: 'Неактивно', to_perform: 'К исполнению', 
+      to_begin: 'Не начато', in_process: 'В работе',
+      postponed: 'Отложено', completed: 'Исполнено', 
+      rejected: 'Отказано', recalled: 'Отозвано', 
+      delegated_to_begin: 'Делегировано - не начато', delegated_in_process: 'Делегировано - в работе', 
+      delegated_postponed: 'Делегировано - отложено', delegated_to_perform: 'Делегировано - к исполнению',
+      being_delegated: 'Делегировано',
+      delegated_returning: 'Возврат с делегирования', delegated_returned: 'Возвращено с делегирования'
+    }
   end
 end

@@ -26,11 +26,11 @@ class AssignmentController < ApplicationController
 			map { |x| x.assignee.try(:display_name) }.
 			select { |x| !x.blank? }.to_a
 
-		unless assignment.main_info.registration_date.nil?
-			if assignment.main_info.registration_date.hour == 0 && assignment.main_info.registration_date.min == 0
-				result["CreationDate"] = assignment.main_info.registration_date.strftime('%d.%m.%Y')
+		unless assignment.create_date.nil?
+			if assignment.create_date.hour == 0 && assignment.create_date.min == 0
+				result["CreationDate"] = assignment.create_date.strftime('%d.%m.%Y')
 			else
-				result["CreationDate"] = assignment.main_info.registration_date.strftime('%d.%m.%Y %H:%M') 
+				result["CreationDate"] = assignment.create_date.strftime('%d.%m.%Y %H:%M') 
 			end
 		end
 

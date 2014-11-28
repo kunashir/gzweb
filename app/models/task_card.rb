@@ -10,6 +10,9 @@ class TaskCard
   delegate :sid=, to: :instance, allow_nil: true
   delegate :description, to: :instance, allow_nil: true
   delegate :description=, to: :instance, allow_nil: true
+  delegate :create_date, to: :instance
+  delegate :change_date, to: :instance
+
 
   def initialize(instance = nil)
     if instance.nil?

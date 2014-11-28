@@ -10,6 +10,8 @@ module TakeOffice
     delegate :sid=, to: :instance, allow_nil: true
     delegate :description, to: :instance, allow_nil: true
     delegate :description=, to: :instance, allow_nil: true
+    delegate :create_date, to: :instance
+    delegate :change_date, to: :instance
 
     def initialize(instance = nil)
       if instance.nil?
@@ -30,6 +32,10 @@ module TakeOffice
       @comments = WorkflowTaskComment.where(InstanceID: id).to_a || []
 
       @completion_params = WorkflowTaskCompletionParam.where(InstanceID: id).to_a || []
+    end
+
+    def current_performers
+      @current_performers ||= WorkflowTaskCurrentPerformer.where(InstanceID: id).to_a || []
     end
 
     def self.all

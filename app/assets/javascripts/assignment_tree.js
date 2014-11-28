@@ -128,9 +128,11 @@ function AssignmentTree(node) {
  			clearDetails();
  			return;
  		}
- 		detailsHidingLid.css('opacity', 0).css('display', 'block').animate({opacity: 1}, 200, 'easeOutCirc');
+ 		detailsHidingLid.css('display', 'block').animate({opacity: 1}, 200, 'easeOutCirc');
  		if (assignmentID)
  			loadAssignmentDetails(assignmentID);
+ 		if (wfTaskID)
+ 			loadWFTaskDetails(wfTaskID);
  	}
 
  	function clearDetails() {
@@ -144,6 +146,21 @@ function AssignmentTree(node) {
 	}
 
 	function setAssignmentDetails(data) {
+		var detailsContent = $($.render.assignmentDetailsTmpl(data));
+		details.html("");
+		detailsContent.appendTo(details);
+		detailsHidingLid.animate({opacity: 0}, 200, 'easeOutCirc', function () {
+			detailsHidingLid.css('display', 'none');
+		});
+	}
+
+	 function loadWFTaskDetails(id) {
+		$.get('/wftasks/' + id + '/details.json')
+			.done(setWFTaskDetails)
+			.fail(setWFTaskDetails)
+	}
+
+	function setWFTaskDetails(data) {
 		var detailsContent = $($.render.assignmentDetailsTmpl(data));
 		details.html("");
 		detailsContent.appendTo(details);

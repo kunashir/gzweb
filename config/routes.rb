@@ -10,6 +10,7 @@ Inlook::Application.routes.draw do
   get 'task_info/:id/history' => 'task_info#history', constraints: { format: :json }, default: { format: :json }
   get 'task_info/:id/assignment_tree' => 'task_info#assignment_tree'
   get 'assignments/:id/details' => 'assignment#details', constraints: { format: :json }, default: { format: :json }
+  get 'wftasks/:id/details' => 'w_f_task#details', constraints: { format: :json }, default: { format: :json }
   root 'main#index'
 
   resources :tasks, only: [ :new, :create, :show ]
