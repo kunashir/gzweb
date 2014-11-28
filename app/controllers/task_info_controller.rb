@@ -72,8 +72,8 @@ class TaskInfoController < ApplicationController
       format.json {
         begin
           render json: { tree: @task.assignment_tree }, status: 200
-        rescue
-          render json: { tree: nil }, status: 200
+        rescue Exception => ex
+          render json: { tree: {}, error: ex.message, backtrace: ex.backtrace }, status: 200
         end
       }
     end    
