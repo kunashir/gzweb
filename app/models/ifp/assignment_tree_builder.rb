@@ -51,7 +51,7 @@ module IFP
 		end
 
 		def self.build_tasks_branch(task_set)
-			{ "title" => task_set.name, "cycles" => build_tasks(task_set.values) }
+			{ "title" => task_set.name, "cycles" => build_tasks(task_set.values.reverse) }
 		end
 
 		def self.build_tasks(tasks)
@@ -83,6 +83,7 @@ module IFP
 				if history_item.is_correction
 					cycles_count -= 1
 					cycle_node = { name: "Цикл #{cycles_count}", items: [] }
+					cycles << cycle_node
                	end
 
                	cycle_node[:items] << task_node
