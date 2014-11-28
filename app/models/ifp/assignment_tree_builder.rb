@@ -82,7 +82,7 @@ module IFP
 
 				if history_item.is_correction
 					cycles_count -= 1
-					cycle_node = { name: "Цикл #{cycles_count}" }
+					cycle_node = { name: "Цикл #{cycles_count}", items: [] }
                	end
 
                	cycle_node[:items] << task_node
