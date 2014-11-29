@@ -76,7 +76,7 @@ module IFP
 				task_node[:task_id] = history_item.task.try(:id)
 
                 task_node[:children] = nodes.
-                	select { |x| x["WFTaskID"] == task_node[:task_id] }.
+                	select { |x| x["TaskID"] == task_node[:task_id] }.
                 	map { |x| 
 						x["children"] = build_assignments_tree(nodes, x["AssignmentID"]);
 						x["StateName"] = TaskCard.state_name(x["State"], x["Type"]);
