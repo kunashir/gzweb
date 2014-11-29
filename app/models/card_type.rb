@@ -60,6 +60,10 @@ class CardType < ActiveRecord::Base
     '816AE98F-0E9C-4734-B368-642A34948527'
   end
 
+  def self.order_type_id
+    '56070FE0-BFC6-4CF1-8786-482E4DDFE9B6'
+  end
+
   protected
 
   def assign_required_attributes
