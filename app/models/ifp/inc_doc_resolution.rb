@@ -10,6 +10,7 @@ module IFP
 		private
 
 		def load_assignment
+			return nil if self.ResolutionID.nil?
 			instance = Card.find(self.ResolutionID)
 			return nil unless instance.CardTypeID == CardType.assignment_id
 			return instance.card
