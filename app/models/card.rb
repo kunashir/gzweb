@@ -73,6 +73,8 @@ class Card < ActiveRecord::Base
         return IFP::Memorandum.new(self)
       when CardType.order_type_id
         return IFP::Order.new(self)
+      when CardType.direction_type_id
+        return IFP::Direction.new(self)
       when CardType.assignment_id
         return TaskCard.new(self)
       when CardType.workflow_task_id

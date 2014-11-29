@@ -64,6 +64,10 @@ class CardType < ActiveRecord::Base
     '56070FE0-BFC6-4CF1-8786-482E4DDFE9B6'
   end
 
+  def self.direction_type_id
+    'EB0F2CF0-F80B-4132-80D7-03409ABB3E70'
+  end
+
   protected
 
   def assign_required_attributes

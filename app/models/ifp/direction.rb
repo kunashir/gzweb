@@ -1,7 +1,7 @@
 #encoding: UTF-8
 
 module IFP
-	class Order
+	class Direction
 		attr_reader :instance
 
 		delegate :id, to: :instance, allow_nil: true
@@ -15,11 +15,11 @@ module IFP
 		end
 
 		def assignments
-    		@assignments ||= OrderAssignment.where(InstanceID: id).to_a || []
+    		@assignments ||= DirectionAssignment.where(InstanceID: id).to_a || []
 		end
 
 		def approval_history
-			@approval_history ||= OrderHistoryItem.where(InstanceID: id).to_a || []
+			@approval_history ||= DirectionHistoryItem.where(InstanceID: id).to_a || []
 		end
 
 		def assignment_tree
@@ -38,6 +38,7 @@ module IFP
 			AssignmentTree.new(
 				[NamedSet.new("Исполнение", executionAssignments)], 
 				NamedSet.new("Согласование", tasks))
+
 		end
 	end
 end
