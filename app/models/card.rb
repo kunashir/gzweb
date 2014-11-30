@@ -77,6 +77,8 @@ class Card < ActiveRecord::Base
         return IFP::Direction.new(self)
       when CardType.contract_type_id
         return IFP::Contract.new(self)
+      when CardType.universal_approval_type_id
+        return IFP::UniversalApproval.new(self)
       when CardType.assignment_id
         return TaskCard.new(self)
       when CardType.workflow_task_id

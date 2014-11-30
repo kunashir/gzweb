@@ -72,6 +72,10 @@ class CardType < ActiveRecord::Base
     'F8EE21FE-FB3D-45AD-B2C9-10C5A224E2D9'
   end
 
+  def self.universal_approval_type_id
+    'CFE97541-2F11-480C-9AE9-A9E1D824CC8F'
+  end
+
   protected
 
   def assign_required_attributes
