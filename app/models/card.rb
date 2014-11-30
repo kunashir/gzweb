@@ -87,6 +87,8 @@ class Card < ActiveRecord::Base
         return IFP::Directive.new(self)
       when CardType.assignment_id
         return TaskCard.new(self)
+      when CardType.durable_assignment_type_id
+        return DurableAssignment.new(self)
       when CardType.workflow_task_id
         return TakeOffice::WorkflowTaskCard.new(self)
     end

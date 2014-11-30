@@ -88,6 +88,10 @@ class CardType < ActiveRecord::Base
     'F341B47C-70DD-404B-A833-261D3AA550DF'
   end
 
+  def self.durable_assignment_type_id
+    '484F76F9-DEEA-46F6-A517-2166297E7A12'
+  end
+
   protected
 
   def assign_required_attributes
