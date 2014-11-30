@@ -68,6 +68,10 @@ class CardType < ActiveRecord::Base
     'EB0F2CF0-F80B-4132-80D7-03409ABB3E70'
   end
 
+  def self.contract_type_id
+    'F8EE21FE-FB3D-45AD-B2C9-10C5A224E2D9'
+  end
+
   protected
 
   def assign_required_attributes
