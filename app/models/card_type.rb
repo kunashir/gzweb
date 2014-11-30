@@ -76,6 +76,14 @@ class CardType < ActiveRecord::Base
     'CFE97541-2F11-480C-9AE9-A9E1D824CC8F'
   end
 
+  def self.out_doc_type_id
+    '2E729D50-6B61-4186-9D14-44E109FD920B'
+  end
+
+  def self.protocol_type_id
+    'EF453635-DE18-427C-8B60-486BFA656D4D'
+  end
+
   protected
 
   def assign_required_attributes
