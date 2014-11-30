@@ -83,6 +83,8 @@ class Card < ActiveRecord::Base
         return IFP::OutDoc.new(self)
       when CardType.protocol_type_id
         return IFP::Protocol.new(self)
+      when CardType.directive_type_id
+        return IFP::Directive.new(self)
       when CardType.assignment_id
         return TaskCard.new(self)
       when CardType.workflow_task_id

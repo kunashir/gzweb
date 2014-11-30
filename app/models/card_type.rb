@@ -84,6 +84,10 @@ class CardType < ActiveRecord::Base
     'EF453635-DE18-427C-8B60-486BFA656D4D'
   end
 
+  def self.directive_type_id
+    'F341B47C-70DD-404B-A833-261D3AA550DF'
+  end
+
   protected
 
   def assign_required_attributes
