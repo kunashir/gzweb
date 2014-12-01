@@ -26,7 +26,7 @@
 
 var DEFAULT_URL = ''; 
 // var DEFAULT_URL = 'compressed.tracemonkey-pldi-09.pdf';
-var DEFAULT_SCALE = 'page-width';
+var DEFAULT_SCALE = 1;
 var DEFAULT_SCALE_DELTA = 1.1;
 var UNKNOWN_SCALE = 0;
 var DEFAULT_CACHE_SIZE = 10;
@@ -315,8 +315,8 @@ var Cache = function cacheCache(size) {
 
 var DEFAULT_PREFERENCES = {
   showPreviousViewOnLoad: true,
-  defaultZoomValue: '',
-  sidebarViewOnLoad: 0,
+  defaultZoomValue: 100,
+  sidebarViewOnLoad: 1,
   enableHandToolOnLoad: false,
   enableWebGL: false,
   disableRange: false,
