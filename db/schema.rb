@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141005182321) do
+ActiveRecord::Schema.define(version: 20141210143455) do
 
   create_table "admins", force: true do |t|
     t.string   "login"
@@ -13104,6 +13104,9 @@ ActiveRecord::Schema.define(version: 20141005182321) do
     t.boolean  "is_new"
     t.string   "assignment_id"
     t.string   "co_performers"
+    t.string   "sender_person"
+    t.string   "sender_organization"
+    t.string   "sender_position"
   end
 
   add_index "task_infos", ["user_id"], name: "index_task_infos_on_user_id"

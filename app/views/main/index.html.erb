@@ -103,16 +103,28 @@
               <table class="task-area-header">
                 <tr>
                   <td class="table_td--autowidth">
-                    {{if author_id }}
-                      <img width="70" height="70" style="background-image: url(/employees/{{>author_id}}/photo);"></img>
+                    {{if sender_organization}}
+                      <%= image_tag('incoming_mail.png', {width: 70, height: 70}) %>
                     {{else}}
-                      <img width="70" height="70"></img>
+                      {{if author_id }}
+                        <img width="70" height="70" style="background-image: url(/employees/{{>author_id}}/photo);"></img>
+                      {{else}}
+                        <img width="70" height="70"></img>
+                      {{/if}}
                     {{/if}}
                   </td>
-                  <td class="task-author-area">
-                    <div class="header"><%=t "task.author" %>:</div>
-                    <div class="task-author-name"><span>{{>author_name}}</span>,<span class="task-author-position">{{>author_position}}</span></div>
-                  </td>
+                  {{if sender_organization}}
+                    <td class="task-author-area">
+                      <div class="header"><%=t "task.sender" %>:</div>
+                      <div class="task-author-name"><span>{{>sender_organization}}</span>,</div>
+                      <div class="task-author-name"><span>{{>sender_person}}</span>,<span class="task-author-position">{{>sender_position}}</span></div>
+                    </td>
+                  {{else}}
+                    <td class="task-author-area">
+                      <div class="header"><%=t "task.author" %>:</div>
+                      <div class="task-author-name"><span>{{>author_name}}</span>,<span class="task-author-position">{{>author_position}}</span></div>
+                    </td>
+                  {{/if}}
                   {{if deadline }}
                   <td class="task-view-deadline-area">
                     <div class="header"><%=t "task.deadline" %>:</div>

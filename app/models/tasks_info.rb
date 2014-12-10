@@ -161,6 +161,9 @@ class TasksInfo < CacheBase
     cache_task.parent_document = fields["Document"]
     cache_task.assignment_id = fields["AssignmentID"]
     cache_task.co_performers = fields["CoPerformers"]
+    cache_task.sender_person = fields["Sender"]
+    cache_task.sender_organization = fields["SenderOrganization"]
+    cache_task.sender_position = fields["SenderPosition"]
 
     cache_task.kind = nil
 
@@ -204,7 +207,18 @@ class TasksInfo < CacheBase
                 LEFT JOIN [dvtable_{CFDFE60A-21A8-4010-84E9-9D2DF348508C}] position WITH(NOLOCK)
                   ON position.RowID = employee.Position
          WHERE  co_performer.InstanceID = CAST(taskProperty.Value as uniqueidentifier)
-         FOR XML PATH('')) as CoPerformers
+         FOR XML PATH('')) as CoPerformers,
+         sender.LastName + 
+          CASE
+            WHEN LEN(sender.FirstName) > 0 THEN ' ' + UPPER(SUBSTRING(sender.FirstName,1,1)) + '.'
+            ELSE ''
+          END +
+          CASE
+            WHEN LEN(sender.MiddleName) > 0 THEN ' ' + UPPER(SUBSTRING(sender.MiddleName,1,1)) + '.'  
+            ELSE ''
+          END as Sender,
+          senderOrg.Name as SenderOrganization,
+          senderPosition.Name as SenderPosition
       FROM
         [dvtable_{7213A125-2CA4-40EE-A671-B52850F45E7D}] taskMain WITH (NOLOCK)
         LEFT JOIN [dvtable_{DBC8AE9D-C1D2-4D5E-978B-339D22B32482}] author WITH(NOLOCK)
@@ -221,6 +235,14 @@ class TasksInfo < CacheBase
           ON document.InstanceID = taskRefs.RefID and document.CardTypeID <> '{FFF11133-DFC4-4CD6-A2D4-BD242E2A4670}'
         LEFT JOIN [dvtable_{E1ED3A9F-E462-463C-8F63-D1BBFC7DEDED}] taskProperty WITH (NOLOCK)
           ON taskProperty.InstanceID = taskMain.InstanceID and taskProperty.Name = 'ParentAssignment'
+        LEFT JOIN [dvtable_{C06228B9-99F8-4B41-950B-8FACDC00A2B7}] incDocMain
+          ON incDocMain.InstanceID = document.InstanceID
+        LEFT JOIN [dvtable_{1A46BF0F-2D02-4AC9-8866-5ADF245921E8}] sender
+          ON sender.RowID = incDocMain.SignedBy
+        LEFT JOIN [dvtable_{C78ABDED-DB1C-4217-AE0D-51A400546923}] senderOrg 
+          ON senderOrg.RowID = sender.ParentRowID
+        LEFT JOIN [dvtable_{BDAFE82A-04FA-4391-98B7-5DF6502E03DD}] senderPosition 
+          ON senderPosition.RowID = sender.Position
       WHERE
         taskMain.InstanceID = '#{cache_task.task_id}'
     SQL

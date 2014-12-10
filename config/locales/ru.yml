@@ -40,6 +40,7 @@ ru:
     informants: "На ознакомление"
     content: "Содержание"
     author: "Автор"
+    sender: "Отправитель"
     deadline: "Срок исполнения"
     controller: "Контролер"
     document: "По документу"
