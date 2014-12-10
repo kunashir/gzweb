@@ -98,6 +98,8 @@ ru:
       refresh: "Обновить"
       refresh_last_date: "Время последнего обновления:"
       refresh_period: "Период обновления (мин.)"
+      controller_title: "Контролер (по умолчанию)"
+      set_controller: "Сохранить"
     quick_performers:
       title: "Сотрудники 'быстрого выбора'"
       add: "Добавить"

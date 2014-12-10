@@ -594,6 +594,8 @@ function createSubTask(event) {
 
 	var user_id = $('.user-info').data("value");
 	var user_name = $('.user-name').data("value");
+	var controller_id = $('.user-info').data("controller-id");
+	var controller_name = $('.user-info').data("controller-name");
 
 	var taskArea = $('.create-task-area');
 
@@ -606,7 +608,10 @@ function createSubTask(event) {
 	$('#Task-co_performers').lookupMulti('reset');
 	$('#Task-informants').val("").data("text", "").data("id", "");
 	$('#Task-informants').lookupMulti('reset');
-	$('#Task-controller').lookupMulti('addToken', { id: user_id, name: user_name });
+	if (controller_id)
+		$('#Task-controller').lookupMulti('addToken', { id: controller_id, name: controller_name });
+	else
+		$('#Task-controller').lookupMulti('addToken', { id: user_id, name: user_name });
 	$('#Task-content').val(content);
 	taskContentAutoSize($('#Task-content'));
 	if (date) {

@@ -6,6 +6,8 @@ function createNewTask(event) {
 	event.preventDefault();
 
 	var taskArea = $('.create-task-area');
+	var controller_id = $('.user-info').data("controller-id");
+	var controller_name = $('.user-info').data("controller-name");
 
 	$('#Task-parent_task').data("id", "");
 	$('#Task-parent_document').data("id", "");
@@ -16,13 +18,18 @@ function createNewTask(event) {
 	$('#Task-co_performers').lookupMulti('reset');
 	$('#Task-informants').val("").data("text", "").data("id", "");
 	$('#Task-informants').lookupMulti('reset');
-	$('#Task-controller').val("").data("text", "").data("id", "");
 	$('#Task-controller').lookupMulti('reset');
+	if (controller_id) 
+		$('#Task-controller').val("").data("text", controller_name).data("id", controller_id).
+			lookupMulti('addToken', { id: controller_id, name: controller_name });
+	else
+		$('#Task-controller').val("").data("text", "").data("id", "");
 	$('#Task-content').val("");
 	$('input.date-picker').val("");
 	updateTaskDatePicker();
 	$('.task-files .task-file').remove();
 	TaskActors().reset();
+	TaskActors("controller").set();
 
 	taskArea
 		.css('opacity', 0)

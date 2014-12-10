@@ -58,6 +58,30 @@
     </div>
     <div class="message">Пароль изменен</div>
   </div>
+  <div class="admin-user-controller-block">
+    <div class="title"><%=t 'admin.user.controller_title' %></div>
+    <div class="admin-user-controller">
+      <div class="edit">
+        <input 
+          type="text"
+          class="edit-lookup-multi" 
+          name="controller_id"
+          value=""
+          spellcheck="false" 
+          placeholder="Выберите сотрудника" 
+          data-id=""
+          data-text=""
+          data-lookup="/employees/find"
+          data-lookup-term="filter"
+          data-lookup-single="true">
+        </input>
+      </div>
+      <div class="action">
+        <a href="#" class="submit"><%=t 'admin.user.set_controller' %></a>
+      </div>
+    </div>
+    <div class="message">Контролер сохранен</div>
+  </div>  
   <div class="admin-refresh-block">
     <div class="title"><%=t 'admin.user.refresh_title' %></div>
     <div class="count">0</div>

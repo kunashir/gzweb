@@ -29,6 +29,7 @@ Inlook::Application.routes.draw do
   delete 'admin/remove_user' => 'admin#remove_user', as: :admin_remove_user
   post 'admin/refresh_user' => 'admin#refresh_user', as: :admin_refresh_user
   post 'admin/set_user_password' => 'admin#set_user_password', as: :admin_set_user_password
+  post 'admin/save_controller' => 'admin#save_controller', as: :admin_save_controller
   post 'admin/save_quick_performers' => 'admin#save_quick_performers', as: :admin_save_quick_performers
   post 'admin/set_user_refresh_period' => 'admin#set_user_refresh_period', as: :admin_set_user_refresh_period
   # The priority is based upon order of creation: first created -> highest priority.

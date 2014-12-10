@@ -39,6 +39,10 @@ class User < CacheBase
     employee.try(:position)
   end
 
+  def controller
+    @controller ||= TakeOffice::Employee.where(RowID: controller_id).first
+  end
+
   def has_photo?
     return employee.has_photo? unless employee.nil?
     return false

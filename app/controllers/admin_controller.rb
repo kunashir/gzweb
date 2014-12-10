@@ -11,11 +11,13 @@ class AdminController < ActionController::Base
     user = User.find_by_id(params[:user_id].to_i)
     task_count = 0
     quick_performers = []
+    controller_name = ''
     unless user.nil?
       task_count = TaskInfo.where(user: user).count
       quick_performers = user.quick_performers.map { |x| { employee_id: x.employee_id, employee_name: x.employee.try(:display_name), order: x.order } }
+      controller_name = user.controller.try(:display_name)
     end
-    render json: { user: user, task_count: task_count, quick_performers: quick_performers }
+    render json: { user: user, controller_name: controller_name, task_count: task_count, quick_performers: quick_performers }
   end
 
   def add_user
@@ -45,6 +47,13 @@ class AdminController < ActionController::Base
        index = index + 1
       end      
     end
+    head :no_content
+  end
+
+  def save_controller
+    user = User.find_by_id(params[:user_id].to_i)
+    user.controller_id = params[:controller_id]
+    user.save!
     head :no_content
   end
 

@@ -41,6 +41,11 @@ function setUserDetails(data) {
 	$('.admin-refresh-block .refresh-period input').data('val', data['user']['refresh_minutes']);
 	$('.admin-user-details-block').data("id", data['user']['id']).addClass('active');
 	$('.admin-quick-performers-list').html("");
+	var controllerEditor = $('.admin-user-controller-block').find('.edit-lookup-multi');
+	if (data['user']['controller_id'])
+		controllerEditor.lookupMulti('addToken', { id: data['user']['controller_id'], name: data['controller_name'] });
+	else
+		controllerEditor.lookupMulti('reset');
 	var list = $('<ul></ul>')
 		.addClass("sortable")
 		.appendTo(".admin-quick-performers-list")
@@ -60,6 +65,7 @@ function initAdminArea() {
 	$('.admin-user-new').find("form").submit(addUser);
 	$('.admin-add-quick-performer .add').click(addQuickPerformers);
 	$('.admin-change-user-password .submit').click(changePassword);
+	$('.admin-user-controller-block .submit').click(setUserController)
 	$('.admin-refresh-block .submit').click(refreshUserData)
 	$('.admin-refresh-block .refresh-period input').blur(onRefreshPeriodBlur);
 	$('.admin-refresh-block .refresh-period input').keypress(onRefreshPeriodKeyPress);
@@ -77,6 +83,44 @@ function addUser(e) {
     	return;
     }
 	$('.admin-user-new').find('.edit-lookup-multi').val(persons[0].id);
+}
+
+function setUserController(e) {
+	e.preventDefault();
+	var editor = $('.admin-user-controller-block').find('.edit-lookup-multi');
+    var persons = editor.lookupMulti('widget')().selection;
+    var controllerID = null;
+    if (persons && persons.length > 0)
+    	controllerID = persons[0].id;
+	$.post("admin/save_controller",
+		{	
+			user_id: $('.admin-user-details-block').data("id"),
+			controller_id: controllerID
+		})
+		.done(
+		function () {
+			$('.admin-user-controller-block .message')
+				.text('Контролер изменен')
+				.css('color', 'green')
+				.animate({ opacity: 1}, 200, function () {
+					setTimeout(function () {
+						$('.admin-user-controller-block .message').animate({opacity:0}, 400);
+					},
+					1000);
+				});
+		})
+		.fail(
+		function () {
+			$('.admin-user-controller-block .message')
+				.text('Ошибка сохранения контролера')
+				.css('color', '#C20B0B')
+				.animate({ opacity: 1}, 200, function () {
+					setTimeout(function () {
+						$('.admin-user-controller-block .message').animate({opacity:0}, 400);
+					},
+					1000);
+				});		
+		});		
 }
 
 function addQuickPerformers(e) {
