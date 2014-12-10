@@ -9,6 +9,7 @@ function FilePreview() {
 		close.click(closePreviewArea);
 		if (frame.length > 0)
 			frame[0].onload = attachFrameKeyhandler;
+		area.click(closePreviewAreaThroughOutClick);
 		area.keydown(onFrameKeyDown);
 	}
 
@@ -42,6 +43,11 @@ function FilePreview() {
 			area.css('display', 'none');
 		})
 		open = false;
+	}
+
+	function closePreviewAreaThroughOutClick(e) {
+		if (e.currentTarget == e.target)
+			closePreviewArea(e);
 	}
 
 	this.openFile = function (file_id, file_name) {

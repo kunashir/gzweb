@@ -316,7 +316,7 @@ var Cache = function cacheCache(size) {
 var DEFAULT_PREFERENCES = {
   showPreviousViewOnLoad: true,
   defaultZoomValue: 100,
-  sidebarViewOnLoad: 1,
+  sidebarViewOnLoad: 0,
   enableHandToolOnLoad: false,
   enableWebGL: false,
   disableRange: false,
