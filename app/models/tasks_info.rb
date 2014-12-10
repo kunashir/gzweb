@@ -217,7 +217,7 @@ class TasksInfo < CacheBase
             WHEN LEN(sender.MiddleName) > 0 THEN ' ' + UPPER(SUBSTRING(sender.MiddleName,1,1)) + '.'  
             ELSE ''
           END as Sender,
-          senderOrg.Name as SenderOrganization,
+          [dbo].[GetCounteragentFullName](sender.ParentRowID) as SenderOrganization,
           senderPosition.Name as SenderPosition
       FROM
         [dvtable_{7213A125-2CA4-40EE-A671-B52850F45E7D}] taskMain WITH (NOLOCK)
@@ -239,8 +239,6 @@ class TasksInfo < CacheBase
           ON incDocMain.InstanceID = document.InstanceID
         LEFT JOIN [dvtable_{1A46BF0F-2D02-4AC9-8866-5ADF245921E8}] sender
           ON sender.RowID = incDocMain.SignedBy
-        LEFT JOIN [dvtable_{C78ABDED-DB1C-4217-AE0D-51A400546923}] senderOrg 
-          ON senderOrg.RowID = sender.ParentRowID
         LEFT JOIN [dvtable_{BDAFE82A-04FA-4391-98B7-5DF6502E03DD}] senderPosition 
           ON senderPosition.RowID = sender.Position
       WHERE
