@@ -47,8 +47,9 @@ jQuery.fn.extend({
 
 $(function () {
 	$.templates("taskTmpl", {markup: "#task-template", allowCode: true });
+	$.templates("parentTaskTmpl", {markup: "#parent-task-template", allowCode: true });
 	$.templates("historyTmpl", {markup: "#task-history-template", allowCode: true });
-	$.templates("assignmentTreeTmpl", {markup: "#assignment-tree-template", allowCode: true })
+	$.templates("assignmentTreeTmpl", {markup: "#assignment-tree-template", allowCode: true });
 });
 
 function initMainAreaLayout() {
@@ -526,7 +527,6 @@ function update_list(data) {
 		else
 			task.appendTo(taskList);
 
-		task.find(".task-action-delegate").click(createSubTask);
 		task[0].itemData = new TaskItem(task, taskArea);
 	}
 	for (var i in currentTasks)
@@ -579,71 +579,6 @@ function update_task_counts(info) {
 		else
 			newCountDiv.addClass('non-zero');
 		totalCountDiv.text(totalCount);
-	}
-}
-
-function createSubTask(event) {
-	event.preventDefault();
-
-	var taskItem = $(event.currentTarget).parents('.task-area');
-	var taskId = taskItem.data("task-id");
-	var parentDocumentId = taskItem.find('.task-document').data("id");
-	var content = taskItem.find('.task-content').data("value");
-	var date = taskItem.find('.task-deadline-date').data("value");
-	var time = taskItem.find('.task-deadline-time').data("value");
-
-	var user_id = $('.user-info').data("value");
-	var user_name = $('.user-name').data("value");
-	var controller_id = $('.user-info').data("controller-id");
-	var controller_name = $('.user-info').data("controller-name");
-
-	var taskArea = $('.create-task-area');
-
-	$('#Task-parent_task').data("id", taskId);
-	$('#Task-parent_document').data("id", parentDocumentId);
-	$('#Task-performer').val("").data("text", "").data("id", "");
-	$('#Task-performer').lookupMulti('reset');
-	$('.performer-quick-list li').removeClass('pressed');
-	$('#Task-co_performers').val("").data("text", "").data("id", "");
-	$('#Task-co_performers').lookupMulti('reset');
-	$('#Task-informants').val("").data("text", "").data("id", "");
-	$('#Task-informants').lookupMulti('reset');
-	if (controller_id)
-		$('#Task-controller').lookupMulti('addToken', { id: controller_id, name: controller_name });
-	else
-		$('#Task-controller').lookupMulti('addToken', { id: user_id, name: user_name });
-	$('#Task-content').val(content);
-	taskContentAutoSize($('#Task-content'));
-	if (date) {
-		$('input.date-picker').val(date + " " + time);
-	}
-	else {
-		$('input.date-picker').val("");
-	}
-	updateTaskDatePicker();
-
-	taskFiles.clear();
-	var files = taskItem.find('.task-file-ref');
-	for (var i  = 0; i < files.length; i++) {
-		var fileId = files[i].getAttribute("data-value"),
-			fileName = files[i].getAttribute("data-name");
-		taskFiles.addFile(fileName, fileId);
-	}
-
-	TaskActors().reset();
-	TaskActors('controller').set();
-
-	taskArea
-		.css('opacity', 0)
-		.css('display', 'block')
-		.animate({'opacity': 1}, 400, 'easeOutCirc');
-
-	taskActions.closeHandler = function () {
-		taskArea
-			.animate({'opacity': 0}, 400, 'easeOutCirc',
-				function () {
-					taskArea.css('display', 'none');
-				});
 	}
 }
 

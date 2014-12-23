@@ -97,6 +97,33 @@ class TasksController < ApplicationController
         card.main_info.state = :executing
         card.save!
 
+        unless params[:parent_task].blank?
+          parent_task_info = current_user.task_infos.where(task_id: params[:parent_task]).first
+          unless parent_task_info.nil?
+            performers.each do |performer|
+              unless (parent_task_info.delegated_to || "").index(performer.display_name)
+                parent_task_info.delegated_to = parent_task_info.delegated_to + "; " unless parent_task_info.delegated_to.blank?
+                parent_task_info.delegated_to = (parent_task_info.delegated_to || "") + performer.display_name
+              end
+            end
+            puts "Folder: #{parent_task_info.folder.to_sym}"
+            if parent_task_info.folder.to_sym == :performing
+              parent_task_info.folder = :delegated
+
+              overall_info = TasksInfo.get(current_user)
+              overall_info.delegated = overall_info.delegated + 1
+              overall_info.performing = overall_info.performing - 1
+              if parent_task_info.is_new
+                overall_info.delegated_new = overall_info.delegated_new + 1
+                overall_info.performing_new = overall_info.performing_new - 1
+              end
+
+              overall_info.save!
+            end
+            parent_task_info.save!
+          end
+        end
+
         unless TaskSetup.instance.task_folder.nil?
           TaskSetup.instance.task_folder.add_hard_shortcut(card.id)
         end

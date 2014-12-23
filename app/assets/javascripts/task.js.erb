@@ -277,7 +277,7 @@ function TaskActions() {
 
         $cancelBtn.click(function(e) {
             e.preventDefault();
-            onClose();
+            onClose(false);
         })
 
         $sendBtn.click(function(e) {
@@ -344,12 +344,12 @@ function TaskActions() {
             $sendProgress.css('display', 'none');
             setTimeout(function() {
                 hideSendingLid();
-                onClose();
+                onClose(true);
             }, 1000);
         }
 
-        function onClose() {
-            $this.closeHandler();
+        function onClose(isSent) {
+            $this.closeHandler(isSent);
         }
 
         function getPersons(multilookup) {
@@ -367,7 +367,7 @@ function TaskActions() {
             return persons[0];
         }
 
-        this.closeHandler = function() {}
+        this.closeHandler = function(isSent) {}
 }
 
 function TaskFiles(root, onFileAdd) {

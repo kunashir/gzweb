@@ -92,6 +92,11 @@ class TaskInfo < CacheBase
       self.destroy
       TasksInfo.recount(user)
     end
+    if is_accept_task? && action.to_sym == :accept
+      result = build_parent_task_response || { result: result }
+    else
+      result = { result: result }
+    end
     return result
   end
 
@@ -104,7 +109,7 @@ class TaskInfo < CacheBase
     IFP::AssignmentTreeBuilder.build(self.parent_document_id || self.assignment_id)
   end
 
-  protected
+  # protected
 
   def self.rnd
     @@rnd ||= Random.new
@@ -177,6 +182,32 @@ class TaskInfo < CacheBase
   def task_complete(user, status, options = {})
     TakeOffice::WorkflowTaskCard.find(self.task_id).mark_completed(status, user.employee, options)
     return :folder_remove
+  end
+
+  def build_parent_task_response
+    task = TakeOffice::WorkflowTaskCard.find(self.task_id)
+    return nil if assignment.nil?
+    return nil if assignment.main_info.author != assignment.main_info.controller
+    return nil if assignment.main_info.parent_task.nil?
+    parent_task_info = TaskInfo.where(task_id: assignment.main_info.parent_task.id).first
+    retirn nil if parent_task_info.nil?
+    last_comment = assignment.history.
+      select { |x| !x.Date.nil? }.
+      select { |x| task.performing.actual_end_date.nil? || x.Date <= task.performing.actual_end_date }.
+      sort_by { |x| x.Date }.
+      reverse.
+      select { |x| !x.comment.nil? }.
+      first.try(:comment) || ''
+    files = assignment.history.
+      select { |x| !x.Date.nil? }.
+      select { |x| task.performing.actual_end_date.nil? || x.Date <= task.performing.actual_end_date }.
+      sort_by { |x| x.Date }.
+      reverse.
+      select { |x| !x.files.nil? && x.files.references.length > 0 }.
+      first.try(:files).try(:references).
+      select { |x| !x.file.nil? }.
+      map { |x| { id: x.file.id, file_name: x.file.file_name } }
+    return { result: :show_parent, parent_id: parent_task_info.id, comment: last_comment, files: files }
   end
 
 end 

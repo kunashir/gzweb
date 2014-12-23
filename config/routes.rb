@@ -7,10 +7,11 @@ Inlook::Application.routes.draw do
   post 'task_info/refresh' => 'task_info#refresh', constraints: { format: :json }, defaults: { format: :json }
   get 'task_info/:kind' => 'task_info#tasks'
   post 'task_info/:id/perform' => 'task_info#perform', constraints: { format: :json }, defaults: { format: :json }
-  get 'task_info/:id/history' => 'task_info#history', constraints: { format: :json }, default: { format: :json }
+  get 'task_info/:id/data' => 'task_info#data', constraints: { format: :json }, defaults: { format: :json }
+  get 'task_info/:id/history' => 'task_info#history', constraints: { format: :json }, defaults: { format: :json }
   get 'task_info/:id/assignment_tree' => 'task_info#assignment_tree'
-  get 'assignments/:id/details' => 'assignment#details', constraints: { format: :json }, default: { format: :json }
-  get 'wftasks/:id/details' => 'w_f_task#details', constraints: { format: :json }, default: { format: :json }
+  get 'assignments/:id/details' => 'assignment#details', constraints: { format: :json }, defaults: { format: :json }
+  get 'wftasks/:id/details' => 'w_f_task#details', constraints: { format: :json }, defaults: { format: :json }
   root 'main#index'
 
   resources :tasks, only: [ :new, :create, :show ]

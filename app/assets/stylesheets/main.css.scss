@@ -447,6 +447,25 @@ li.m_ms__item--red, li.m_ms__item--orange, li.m_ms__item--green {
 	width: 100%;
 }
 
+.parent-task-area {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.parent-task-area >	.header {
+	padding: 0.2em 1em;
+	font-size: 1.2em;
+	font-weight: bold;
+	background: rgb(98, 98, 98);
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	color: #CCC;	
+}
+
 .task-border {
 	border: 1px solid #DDD;
 	background-color: #FFF;
@@ -480,6 +499,7 @@ li.m_ms__item--red, li.m_ms__item--orange, li.m_ms__item--green {
 .task-footer-area {
 	width: 100%;
 	height: 0em;
+	overflow: hidden;
 }
 
 .task-subject {
@@ -630,7 +650,6 @@ li.m_ms__item--red, li.m_ms__item--orange, li.m_ms__item--green {
 	.task-delegated {
 		float: left;
 	}
-
 }
 
 .task-document-area {

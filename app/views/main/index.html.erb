@@ -96,166 +96,182 @@
   <%= render 'static_pages/test_task_info', task_info: @task_info %>
   <script id="task-template" type="text/x-jsrender">
     <div class="task-area" data-task-id="{{>task_id}}" data-id="{{>id}}" data-new="{{>is_new}}" data-order-date="{{>order_date}}">
-      <div class="task-main-area">
-        <div class="task-border">
-          <div class="task-data-area">
-            <div class="task-header-area">
-              <table class="task-area-header">
-                <tr>
-                  <td class="table_td--autowidth">
-                    {{if sender_organization}}
-                      <%= image_tag('incoming_mail.png', {width: 70, height: 70}) %>
-                    {{else}}
-                      {{if author_id }}
-                        <img width="70" height="70" style="background-image: url(/employees/{{>author_id}}/photo);"></img>
-                      {{else}}
-                        <img width="70" height="70"></img>
-                      {{/if}}
-                    {{/if}}
-                  </td>
+      {{include tmpl="#task-content-template" /}}
+      <div class="task-overflow-area"></div>
+    </div>
+  </script>
+  <script id="parent-task-template" type="text/x-jsrender">
+    <div class="task-area parent-task-area" data-task-id="{{>task_id}}" data-id="{{>id}}" data-new="{{>is_new}}" data-order-date="{{>order_date}}">
+      <div class="header">Родительское поручение</div>
+      {{include tmpl="#task-content-template" /}}
+    </div>
+  </script>
+  <script id="task-content-template" type="text/x-jsrender">
+    <div class="task-main-area">
+      <div class="task-border">
+        <div class="task-data-area">
+          <div class="task-header-area">
+            <table class="task-area-header">
+              <tr>
+                <td class="table_td--autowidth">
                   {{if sender_organization}}
-                    <td class="task-author-area">
-                      <div class="header"><%=t "task.sender" %>:</div>
-                      <div class="task-author-name"><span>{{>sender_organization}}</span>,</div>
-                      <div class="task-author-name"><span>{{>sender_person}}</span>,<span class="task-author-position">{{>sender_position}}</span></div>
-                    </td>
+                    <%= image_tag('incoming_mail.png', {width: 70, height: 70}) %>
                   {{else}}
-                    <td class="task-author-area">
-                      <div class="header"><%=t "task.author" %>:</div>
-                      <div class="task-author-name"><span>{{>author_name}}</span>,<span class="task-author-position">{{>author_position}}</span></div>
-                    </td>
+                    {{if author_id }}
+                      <img width="70" height="70" style="background-image: url(/employees/{{>author_id}}/photo);"></img>
+                    {{else}}
+                      <img width="70" height="70"></img>
+                    {{/if}}
                   {{/if}}
-                  {{if deadline }}
-                  <td class="task-view-deadline-area">
-                    <div class="header"><%=t "task.deadline" %>:</div>
-                    <div>
-                      <span class="task-deadline-time" data-value="{{>deadline_time}}">{{>deadline_time_till}}</span>
-                      <span class="task-deadline-date" data-value="{{>deadline_date}}">{{>deadline_date}}</span>
-                    </div>
+                </td>
+                {{if sender_organization}}
+                  <td class="task-author-area">
+                    <div class="header"><%=t "task.sender" %>:</div>
+                    <div class="task-author-name"><span>{{>sender_organization}}</span>,</div>
+                    <div class="task-author-name"><span>{{>sender_person}}</span>,<span class="task-author-position">{{>sender_position}}</span></div>
                   </td>
-                  {{/if}}
-                </tr>
-              </table>
-            </div>
-            <div class="task-content-area">
-              <div class="task-content" data-value="{{>content}}">{{:html_content}}</div>
-              {{if controler_name }}
-                <div class="task-controler-area">
-                  <div class="header"><%=t "task.controller" %></div>
-                  <div class="task-controler-name">{{>controler_name}}</div>
-                  {{if controler_position }}
-                    <div class="task-controler-position">{{>controler_position}}</div>
-                  {{/if}}
-                </div>
-              {{/if}}
-              {{if co_performers.length }}
-                <div class="task-co_performers-area">
-                  <div class="header"><%=t "task.co_performers" %></div>
-                  {{for co_performers}}
-                    <div class="task-co_performer-area">
-                      <div class="task-co_performer-name">{{>name}}</div>
-                      {{if position}}
-                        <div class="task-co_performer-position">{{>position}}</div>
-                      {{/if}}
-                    </div>
-                  {{/for}}
-                </div>
-              {{/if}}
-              {{if delegated_to }}
-                <div class="task-delegated-area">
-                  <div class="header">Распределено:&nbsp;</div>
-                  <div class="task-delegated">{{>delegated_to}}</div>
-                </div>
-              {{/if}}
-              {{if parent_document }}
-                <div class="task-document-area">
-                  <div class="header"><%=t "task.document" %></div>
-                  <div class="task-document" data-id="{{>parent_document_id}}" data-name="{{>parent_document}}">{{>parent_document}}</div>
-                </div>
-              {{/if}}
-              <div class="task-files-area">
-                {{for files}}
-                  <div class="task-file">
-                    <a href="/file/{{>file_id}}" target="_blank" class="task-file-ref" data-value="{{>file_id}}" data-name="{{>filename}}">{{>filename}}</a>
-                    <a href="/file/{{>file_id}}" target="_blank" class="task-file-download"></a>
+                {{else}}
+                  <td class="task-author-area">
+                    <div class="header"><%=t "task.author" %>:</div>
+                    <div class="task-author-name"><span>{{>author_name}}</span>,<span class="task-author-position">{{>author_position}}</span></div>
+                  </td>
+                {{/if}}
+                {{if deadline }}
+                <td class="task-view-deadline-area">
+                  <div class="header"><%=t "task.deadline" %>:</div>
+                  <div>
+                    <span class="task-deadline-time" data-value="{{>deadline_time}}">{{>deadline_time_till}}</span>
+                    <span class="task-deadline-date" data-value="{{>deadline_date}}">{{>deadline_date}}</span>
                   </div>
-                {{/for}}
-                <div class="breaker"></div>
-              </div>
-              {{if assignment_id }}
-              <div class="task-history-area" data-id="{{>assignment_id}}">
-              </div>
-              {{/if}}
-            </div>
+                </td>
+                {{/if}}
+              </tr>
+            </table>
           </div>
-          <div class="task-footer-area">
-            <div class="task-complete-area">
-              <input class="task-add-file-input" type="file"/>
-              <div class="task-comments-row">
-                <div class="task-add-file-wrapper">
-                  <a href="#" class="task-add-file"><%=t "task.add_file" %></a>
-                </div>
-                <div class="task-comments-text">
-                  <div class="task-comments-scroll">
-                    <div class="textarea-container">
-                      <textarea id="{{>id}}_content" placeholder="<%=t 'task.comments_placeholder' %>"></textarea>
-                      <div id="{{>id}}_content-copy" class="text-area-copy"></div>
-                    </div>
-                    <div class="task-files-container">
-                      <div class="task-files"></div>
-                    </div>
+          <div class="task-content-area">
+            <div class="task-content" data-value="{{>content}}">{{:html_content}}</div>
+            {{if controler_name }}
+              <div class="task-controler-area">
+                <div class="header"><%=t "task.controller" %></div>
+                <div class="task-controler-name">{{>controler_name}}</div>
+                {{if controler_position }}
+                  <div class="task-controler-position">{{>controler_position}}</div>
+                {{/if}}
+              </div>
+            {{/if}}
+            {{if co_performers.length }}
+              <div class="task-co_performers-area">
+                <div class="header"><%=t "task.co_performers" %></div>
+                {{for co_performers}}
+                  <div class="task-co_performer-area">
+                    <div class="task-co_performer-name">{{>name}}</div>
+                    {{if position}}
+                      <div class="task-co_performer-position">{{>position}}</div>
+                    {{/if}}
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="task-actions-area">
-              <div class="task-actions">
-                <div class="task-action-wrapper">
-                  {{* if (data.actions.any(function (action) { return action.action == 'comment'; })) { }}
-                    <a class="task-action-comment" href="#">Комментировать</a>
-                  {{* } }}
-                </div>
-                <div class="task-action-wrapper">
-                  <a class="task-action-tree" href="#">Дерево поручений</a>
-                </div>
-                <div class="task-action-delegate-wrapper">
-                  {{* if (data.actions.any(function (action) { return action.action == 'redirect'; })) { }}
-                    <a class="task-action-delegate" href="#">Поручить</a>
-                  {{* } }}
-                </div>
-                {{for actions}}
-                  {{if action != 'redirect' && action != 'comment' }}
-                    <div class="task-action-wrapper">
-                      <a class="task-action-{{>action}} task-normal-action" href="#" data-action="{{>action}}" data-comments-required="{{>comments_required}}" data-action-text="{{>text}}">{{>text}}
-                      </a>
-                    </div>
-                  {{/if}}
                 {{/for}}
-                <div class="task-action-wrapper">
-                  <a class="task-action-cancel" href="#">Отмена</a>
-                </div>
               </div>
+            {{/if}}
+            {{if delegated_to }}
+              <div class="task-delegated-area">
+                <div class="header">Распределено:&nbsp;</div>
+                <div class="task-delegated">{{>delegated_to}}</div>
+              </div>
+            {{else}}
+              <div class="task-delegated-area hidden">
+                <div class="header">Распределено:&nbsp;</div>
+                <div class="task-delegated"></div>
+              </div>
+            {{/if}}
+            {{if parent_document }}
+              <div class="task-document-area">
+                <div class="header"><%=t "task.document" %></div>
+                <div class="task-document" data-id="{{>parent_document_id}}" data-name="{{>parent_document}}">{{>parent_document}}</div>
+              </div>
+            {{/if}}
+            <div class="task-files-area">
+              {{for files}}
+                <div class="task-file">
+                  <a href="/file/{{>file_id}}" target="_blank" class="task-file-ref" data-value="{{>file_id}}" data-name="{{>filename}}">{{>filename}}</a>
+                  <a href="/file/{{>file_id}}" target="_blank" class="task-file-download"></a>
+                </div>
+              {{/for}}
+              <div class="breaker"></div>
             </div>
+            {{if assignment_id }}
+            <div class="task-history-area" data-id="{{>assignment_id}}">
+            </div>
+            {{/if}}
           </div>
         </div>
-        <div class="task-action-lid">
-          <div class="task-action-cell">
-            <div class="task-action-box">
-              <div class="task-action-message">
-                Отправка поручения
+        <div class="task-footer-area">
+          <div class="task-complete-area">
+            <input class="task-add-file-input" type="file"/>
+            <div class="task-comments-row">
+              <div class="task-add-file-wrapper">
+                <a href="#" class="task-add-file"><%=t "task.add_file" %></a>
               </div>
-              <div class="task-action-error">
-                Здесь идет текст ошибки в случае неудачной отправки. Он может быть достаточно длинным и даже в несколько строк. Пишем и пишем и пишем долго и много
+              <div class="task-comments-text">
+                <div class="task-comments-scroll">
+                  <div class="textarea-container">
+                    <textarea id="{{>id}}_content" placeholder="<%=t 'task.comments_placeholder' %>"></textarea>
+                    <div id="{{>id}}_content-copy" class="text-area-copy"></div>
+                  </div>
+                  <div class="task-files-container">
+                    <div class="task-files"></div>
+                  </div>
+                </div>
               </div>
-              <%= image_tag 'ajax-loader.gif', class: 'task-action-progress' %>
-              <a class="task-action-error-close" href="#">Закрыть</a>
+            </div>
+          </div>
+          <div class="task-actions-area">
+            <div class="task-actions">
+              <div class="task-action-wrapper">
+                {{* if (data.actions.any(function (action) { return action.action == 'comment'; })) { }}
+                  <a class="task-action-comment" href="#">Комментировать</a>
+                {{* } }}
+              </div>
+              <div class="task-action-wrapper">
+                <a class="task-action-tree" href="#">Дерево поручений</a>
+              </div>
+              <div class="task-action-delegate-wrapper">
+                {{* if (data.actions.any(function (action) { return action.action == 'redirect'; })) { }}
+                  <a class="task-action-delegate" href="#">Поручить</a>
+                {{* } }}
+              </div>
+              {{for actions}}
+                {{if action != 'redirect' && action != 'comment' }}
+                  <div class="task-action-wrapper">
+                    <a class="task-action-{{>action}} task-normal-action" href="#" data-action="{{>action}}" data-comments-required="{{>comments_required}}" data-action-text="{{>text}}">{{>text}}
+                    </a>
+                  </div>
+                {{/if}}
+              {{/for}}
+              <div class="task-action-wrapper">
+                <a class="task-action-cancel" href="#">Отмена</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="task-overflow-area"></div>
+      <div class="task-action-lid">
+        <div class="task-action-cell">
+          <div class="task-action-box">
+            <div class="task-action-message">
+              Отправка поручения
+            </div>
+            <div class="task-action-error">
+              Здесь идет текст ошибки в случае неудачной отправки. Он может быть достаточно длинным и даже в несколько строк. Пишем и пишем и пишем долго и много
+            </div>
+            <%= image_tag 'ajax-loader.gif', class: 'task-action-progress' %>
+            <a class="task-action-error-close" href="#">Закрыть</a>
+          </div>
+        </div>
+      </div>
     </div>
   </script>
+  <script id="task-delegated-to-template" type="text/x-jsrender">
+  </script>  
   <%= render 'task_history' %>
   <section class="data-area">
     <div id="task-shadow"></div>

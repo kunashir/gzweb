@@ -27,6 +27,14 @@ class TaskInfoController < ApplicationController
     end
   end
 
+  def data
+    task = TaskInfo.find_by_id(params[:id])
+    respond_to do |format|
+      format.html # tasks.html.erb
+      format.json { render json: { task: format_task(task) } }
+    end    
+  end
+
   def perform
     begin
       @task = TaskInfo.find_by_id(params[:id])
@@ -45,7 +53,7 @@ class TaskInfoController < ApplicationController
       ex.backtrace.each { |line| logger.error line }
     end
     if error.nil? || error.blank?
-      render json: { result: result }, status: 200
+      render json: result, status: 200
     else
       render json: { error: error }, status: 422
     end

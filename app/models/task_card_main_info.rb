@@ -106,6 +106,18 @@ class TaskCardMainInfo < ActiveRecord::Base
     return instance.card
   end
 
+  def parent_task
+    @parent_task ||= load_parent_task
+  end
+
+  def load_parent_task
+    return nil if self.ParentTaskID.nil?
+    instance = Card.find(self.ParentTaskID)
+    return nil if instance.nil?
+    return nil if instance.CardTypeID != CardType.workflow_task_id
+    return instance.card
+  end
+
   protected
 
   def assign_id

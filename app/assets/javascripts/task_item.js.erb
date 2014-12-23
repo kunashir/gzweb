@@ -1,7 +1,8 @@
-function TaskItem(task, taskArea) {
+function TaskItem(task, taskArea, isDelegatedTask, closeHandler) {
 	var $this = this,
 		selectHandlers = [],
 		id = task.data('id'),
+		border = task.find('.task-border'),
 		historyArea = task.find('.task-history-area'),
 		taskActionsArea = task.find('.task-actions-ok'),
 		taskFooter = task.find('.task-footer-area'),
@@ -30,6 +31,10 @@ function TaskItem(task, taskArea) {
 	actionCloseBtn.click(closeErrorMessage);
 	task.find('.task-file-ref').click(showTaskFile);
 	showTree.click(showAssignmentTree);
+	task.find(".task-action-delegate").click(createSubTask);
+
+	$this.taskDataArea = task;
+	$this.isDelegatedTask = isDelegatedTask || false;
 
 	function taskClick(event) {
 		if (event.originalEvent.srcElement.nodeName == 'A')
@@ -43,6 +48,34 @@ function TaskItem(task, taskArea) {
 		var file_id = $(e.target).data('value')
 		if (file_id)
 			window.filePreview.openFile(file_id);
+	}
+
+	this.commentText = function (value) {
+		return comments.val(value);
+	}
+
+	this.addFile = function (name, id) {
+		taskFiles.addFile(name, id);
+	}
+
+	this.showCompletion = function () {
+		showCompletionArea();
+	}
+
+	this.showParentCompletion = function () {
+		if (completionShown)
+			return;
+		taskArea.cancelAutoreload();
+		
+		loadHistory();
+
+		taskFooter.animate({height: '7em'}, 400, 'easeOutCirc', function () {
+			taskFooter.css('height', 'auto');
+		});
+
+		comments.focus();
+
+		completionShown = true;		
 	}
 
 	function showCompletionArea() {
@@ -71,11 +104,26 @@ function TaskItem(task, taskArea) {
 		return task.position().top
 	}
 
+	this.hideCompletion = function () {
+		hideCompletionArea();
+	}
+
 	function hideCompletionArea(event) {
-		event.preventDefault();
+		if (event)
+			event.preventDefault();
+
+		if (closeHandler) {
+			closeHandler();
+			return;
+		}
+
+		if ($this.removeOnClose) {
+			removeTask(true);
+			return;
+		}
 
 		var dataArea = $('.data-area'),
-			taskItem = $(event.currentTarget).parents('.task-area'),
+			taskItem = task,
 		    taskCompleteArea = taskItem.find('.task-complete-area'),
 		    taskActions = taskItem.find('.task-actions'),
 		    comments = taskCompleteArea.find('textarea'),
@@ -173,7 +221,7 @@ function TaskItem(task, taskArea) {
 	        	var result = '';
 	            if (data && data.result)
 	                result = data.result;
-	        	onCompleteTaskDone(result);
+	        	onCompleteTaskDone(result, data);
 	        })
 	        .fail(function (data) {
 	            var errorText = "Внутренняя ошибка приложения";
@@ -190,21 +238,61 @@ function TaskItem(task, taskArea) {
 	    actionCloseBtn.css('display', 'inline-block');
 	}
 
-	function onCompleteTaskDone(result) {
+	function onCompleteTaskDone(result, data) {
 	    actionMessage.text('Поручение завершено');
 	    actionProgress.css('display', 'none');
 	    setTimeout(function() {
-			hideTaskLid(function () { onTaskCompleted(result); });
+			hideTaskLid(function () { onTaskCompleted(result, data); });
 	    }, 1000);
 	}
 
-	function onTaskCompleted(result) {
+	function onTaskCompleted(result, data) {
+		if (isDelegatedTask && result == 'folder_remove') {
+			decreaseFolderCount('delegated');
+			hideCompletionArea();
+			return;	
+		}
+		if (result == 'show_parent') {
+			if (activeFolder)
+				decreaseFolderCount(activeFolder);
+			taskFooter.animate({height: '0em'}, 400, 'easeOutCirc');
+			$.get('task_info/' + data.parent_id + '/data')
+				.done(function (parentTaskData) {
+					showParentTask(parentTaskData, data);
+				})
+				.fail(removeTask);
+			return;
+		}
 		if (result == 'folder_remove')
 			removeTask();
 		else {
 			hideCompletionArea();
 			taskArea.reloadList();
 		}
+	}
+
+	function showParentTask(parentTaskData, taskCompletionData) {
+		parentTaskData.task.html_content = $('<div/>').text(parentTaskData.task.content).html().replace("\n", "<br/>");
+		parentTaskData.task.deadline_time_till = "до " + parentTaskData.task.deadline_time + " часов";
+		parentTaskView = $($.render.parentTaskTmpl(parentTaskData.task))
+		parentTaskView.css('opacity', 0);
+		parentTaskView.appendTo(task);
+		border.animate({height: '0px'}, 400, 'easeOutCirc', function () {
+			parentTaskView.animate({'opacity': 1}, 200, 'easeOutCirc'); 
+		});
+		$this.parentTask = new TaskItem(parentTaskView, taskArea, true, function () {
+			$this.parentTaskClosed();
+		});
+		$this.parentTask.commentText(taskCompletionData.comment);
+		if (taskCompletionData.files)
+			for (var i = 0; i < taskCompletionData.files.length; i++)
+				$this.parentTask.addFile(taskCompletionData.files[i].file_name, taskCompletionData.files[i].id);
+		$this.parentTask.showParentCompletion();
+	}
+
+	$this.parentTaskClosed = function () {
+		$this.parentTask.taskDataArea.remove();
+		removeTask();
 	}
 
 	function hideTaskLid(onLidHidden) {
@@ -217,31 +305,144 @@ function TaskItem(task, taskArea) {
 		});
 	}	
 
-	function removeTask() {
+	function removeTask(keepActiveFolder) {
 		taskArea.scrollTo(initialScroll, taskArea.showTaskScroll);
 		task.css('display', 'block');
 		task.animate({
 			'height': '0px',
 			'padding-bottom': '0px'
 		}, 400, 'easeOutCirc', function() {
-			if (activeFolder) {
-				var total = $('.task-info-' + activeFolder).find('.total')
-				if (+(total.text()) > 0)
-					total.text(+(total.text()) - 1);
-				var newTasks = $('.task-info-' + activeFolder).find('.new')
-				if (task.data('new') && +(newTasks.text()) > 0) {
-					newTasks.text(+(newTasks.text()) - 1);
-					if (+(newTasks.text()) == 0)
-						newTasks.removeClass('non-zero');
-				}
-			}
+			if (activeFolder && !keepActiveFolder)
+				decreaseFolderCount(activeFolder);
 			task.remove();
-			taskArea.reloadList();
+			//taskArea.reloadList();
 		})
+	}
+
+	function decreaseFolderCount(folder) {
+		var total = $('.task-info-' + folder).find('.total')
+		if (+(total.text()) > 0)
+			total.text(+(total.text()) - 1);
+		var newTasks = $('.task-info-' + folder).find('.new')
+		if (task.data('new') && +(newTasks.text()) > 0) {
+			newTasks.text(+(newTasks.text()) - 1);
+			if (+(newTasks.text()) == 0)
+				newTasks.removeClass('non-zero');
+		}
+	}
+
+	function increaseFolderCount(folder) {
+		var total = $('.task-info-' + folder).find('.total')
+		total.text(+(total.text()) + 1);
+		var newTasks = $('.task-info-' + folder).find('.new')
+		if (task.data('new')) {
+			newTasks.text(+(newTasks.text()) + 1);
+			if (+(newTasks.text()) == 1)
+				newTasks.addClass('non-zero');
+		}
 	}
 
 	function closeErrorMessage(e) {
 		event.preventDefault();
-		hideTaskLid();
+		hideTaskLid();	
 	}
+
+
+	function createSubTask(event) {
+		event.preventDefault();
+
+		var taskItem = $(event.currentTarget).parents('.task-area');
+		var taskId = taskItem.data("task-id");
+		var parentDocumentId = taskItem.find('.task-document').data("id");
+		var content = taskItem.find('.task-content').data("value");
+		var date = taskItem.find('.task-deadline-date').data("value");
+		var time = taskItem.find('.task-deadline-time').data("value");
+
+		var user_id = $('.user-info').data("value");
+		var user_name = $('.user-name').data("value");
+		var controller_id = $('.user-info').data("controller-id");
+		var controller_name = $('.user-info').data("controller-name");
+
+		var taskArea = $('.create-task-area');
+
+		$('#Task-parent_task').data("id", taskId);
+		$('#Task-parent_document').data("id", parentDocumentId);
+		$('#Task-performer').val("").data("text", "").data("id", "");
+		$('#Task-performer').lookupMulti('reset');
+		$('.performer-quick-list li').removeClass('pressed');
+		$('#Task-co_performers').val("").data("text", "").data("id", "");
+		$('#Task-co_performers').lookupMulti('reset');
+		$('#Task-informants').val("").data("text", "").data("id", "");
+		$('#Task-informants').lookupMulti('reset');
+		if (controller_id)
+			$('#Task-controller').lookupMulti('addToken', { id: controller_id, name: controller_name });
+		else
+			$('#Task-controller').lookupMulti('addToken', { id: user_id, name: user_name });
+		$('#Task-content').val(content);
+		taskContentAutoSize($('#Task-content'));
+		if (date) {
+			$('input.date-picker').
+				val(date + " " + time).
+				data('date', date).
+				data('hour', time.split(':')[0]).
+				data('minute', time.split(':')[1]);
+		}
+		else {
+			$('input.date-picker').val("");
+		}
+		updateTaskDatePicker();
+
+		taskFiles.clear();
+		var files = taskItem.find('.task-file-ref');
+		for (var i  = 0; i < files.length; i++) {
+			var fileId = files[i].getAttribute("data-value"),
+				fileName = files[i].getAttribute("data-name");
+			taskFiles.addFile(fileName, fileId);
+		}
+
+		TaskActors().reset();
+		TaskActors('controller').set();
+
+		taskArea
+			.css('opacity', 0)
+			.css('display', 'block')
+			.animate({'opacity': 1}, 400, 'easeOutCirc');
+
+		taskActions.closeHandler = function (isSent) {
+			taskArea
+				.animate({'opacity': 0}, 400, 'easeOutCirc',
+					function () {
+						if (isSent)
+						{
+							if (activeFolder == 'performing') {
+								decreaseFolderCount('performing');
+								increaseFolderCount('delegated');
+								$this.removeOnClose = true;
+							}
+							var performers = $('#Task-performer').lookupMulti('widget')().selection;
+							var taskDelegatedArea = taskItem.find('.task-delegated-area');
+							var taskDelegated = taskDelegatedArea.find('.task-delegated').text() || "";
+							for (var i = 0; i < performers.length; i++) {
+								var found = false;
+								if (taskDelegated.indexOf(performers[i].text) < 0) {
+									if (taskDelegated.length > 0)
+										taskDelegated += ", ";
+									taskDelegated += performers[i].text;
+									taskDelegatedArea.removeClass("hidden");
+									taskDelegatedArea.find('.task-delegated').text(taskDelegated)
+								}
+							}
+						}
+						taskArea.css('display', 'none');
+					});
+		}
+
+	    function getPersons(multilookup) {
+		    console.log(multilookup);
+		    var persons = multilookup.lookupMulti('widget')().selection;
+		    if (persons)
+	        	return persons.map(function (e) { return e.id; });
+	    	return [];
+	    }
+	}	
 }
