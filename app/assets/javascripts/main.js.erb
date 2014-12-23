@@ -478,11 +478,11 @@ function empty_list_text(folder) {
 
 function load_list(folder) {
 	$.get( "/task_info/" + folder + ".json", function (data) {
-		update_list(data);
+		update_list(data, folder);
 	});
 }
 
-function update_list(data) {
+function update_list(data, folder) {
 	if (!window.taskArea)
 		taskArea = new TaskArea($(".data-area"), function () { load_list(activeFolder); }, cancelAutoreload);
 
