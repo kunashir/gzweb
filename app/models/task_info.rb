@@ -198,15 +198,20 @@ class TaskInfo < CacheBase
       reverse.
       select { |x| !x.comment.nil? }.
       first.try(:comment) || ''
-    files = assignment.history.
+    file_refs = assignment.history.
       select { |x| !x.Date.nil? }.
       select { |x| task.performing.actual_end_date.nil? || x.Date <= task.performing.actual_end_date }.
       sort_by { |x| x.Date }.
       reverse.
       select { |x| !x.files.nil? && x.files.references.length > 0 }.
-      first.try(:files).try(:references).
-      select { |x| !x.file.nil? }.
-      map { |x| { id: x.file.id, file_name: x.file.file_name } }
+      first.try(:files).try(:references)
+    if file_refs.nil?
+      files = []
+    else
+      files = file_refs.
+        select { |x| !x.file.nil? }.
+        map { |x| { id: x.file.id, file_name: x.file.file_name } }
+    end
     return { result: :show_parent, parent_id: parent_task_info.id, comment: last_comment, files: files }
   end
 
