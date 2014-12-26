@@ -190,7 +190,7 @@ class TaskInfo < CacheBase
     return nil if assignment.main_info.author != assignment.main_info.controller
     return nil if assignment.main_info.parent_task.nil?
     parent_task_info = TaskInfo.where(task_id: assignment.main_info.parent_task.id).first
-    retirn nil if parent_task_info.nil?
+    return nil if parent_task_info.nil?
     last_comment = assignment.history.
       select { |x| !x.Date.nil? }.
       select { |x| task.performing.actual_end_date.nil? || x.Date <= task.performing.actual_end_date }.
