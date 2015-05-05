@@ -3,10 +3,12 @@ lock '3.1.0'
 application = 'GZWeb' #название приложения
 
 rpsec_log_path = "/var/www/apps/#{application}/shared/log/test.html"
-set :repo_url,  "http://sergey.pleshanov:mirea2014@code.quercus.ru/git/gzweb.git"
+# set :repo_url,  "http://sergey.pleshanov:mirea2014@code.quercus.ru/git/gzweb.git"
 # set :repo_url,  "file:///home/quercus/GZWeb/.git"
+set :repo_url, "https://github.com/kunashir/gzweb.git"
 set :branch, "master"
-set :deploy_to, "/var/www/apps/#{application}" 
+# set :deploy_to, "/var/www/apps/#{application}" 
+set :deploy_to, "/home/dvwp/apps/#{application}" 
 
 set :log_level, :debug
 set :keep_releases, 5
@@ -14,6 +16,7 @@ set :linked_dirs, %w{bin log tmp/backup tmp/pids tmp/cache tmp/sockets}
 set :bundle_without, nil 
 
 set :application, '#{application}'
+set :rails_env,   "idoc"
 
 # #FOR PUMA
 #     set :puma_rackup, -> { File.join(current_path, 'config.ru') }
@@ -143,9 +146,9 @@ namespace :deploy do
   # after 'bundler:install', 'tester:check_specs'
   #after 'deploy:cleanup', 'tester:check_specs'
 
-  after 'puma:smart_restart', 'nginx:restart'
-  after 'puma:start', 'nginx:restart'
-  after 'puma:stop', 'nginx:restart'
+  # after 'puma:smart_restart', 'nginx:restart'
+  # after 'puma:start', 'nginx:restart'
+  # after 'puma:stop', 'nginx:restart'
 
   # after :updating, 'deploy:symlink'
   

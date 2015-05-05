@@ -11,6 +11,7 @@ require 'capistrano/rvm'
 
 #require 'puma/capistrano'
 require 'capistrano/puma'
+require 'capistrano/rails/assets'
 
 # Includes tasks from other gems included in your Gemfile
 #
